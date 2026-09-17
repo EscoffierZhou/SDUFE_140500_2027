@@ -52,10 +52,10 @@ SUBJECT_CONFIG = {
         "badge": "自命题专业课",
         "color": "#06b6d4"
     },
-    "408 计算机基础": {
-        "icon": "fa-microchip",
-        "badge": "专业底座储备",
-        "color": "#3b82f6"
+    "备用": {
+        "icon": "fa-box-archive",
+        "badge": "备用资料库",
+        "color": "#64748b"
     },
     "204 英语二": {
         "icon": "fa-book",

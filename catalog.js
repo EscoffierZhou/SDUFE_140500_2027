@@ -1895,10 +1895,10 @@ window.CATALOG_DATA = {
       ]
     },
     {
-      "name": "408 计算机基础",
-      "icon": "fa-microchip",
-      "badge": "专业底座储备",
-      "color": "#3b82f6",
+      "name": "备用",
+      "icon": "fa-box-archive",
+      "badge": "备用资料库",
+      "color": "#64748b",
       "stats": {
         "totalDocs": 109,
         "formats": {
@@ -1910,1158 +1910,1165 @@ window.CATALOG_DATA = {
       "children": [
         {
           "type": "folder",
-          "name": "11408操作系统",
-          "path": "408 计算机基础/11408操作系统",
-          "children": [
-            {
-              "type": "doc",
-              "name": "2026操作系统Chap1概述",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408操作系统/2026操作系统Chap1概述.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408操作系统/2026操作系统Chap1概述.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026操作系统Chap2进程与线程",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408操作系统/2026操作系统Chap2进程与线程.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408操作系统/2026操作系统Chap2进程与线程.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026操作系统Chap3内存管理",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408操作系统/2026操作系统Chap3内存管理.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408操作系统/2026操作系统Chap3内存管理.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026操作系统Chap4文件管理",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408操作系统/2026操作系统Chap4文件管理.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408操作系统/2026操作系统Chap4文件管理.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026操作系统Chap5输入输出IO管理",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408操作系统/2026操作系统Chap5输入输出IO管理.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408操作系统/2026操作系统Chap5输入输出IO管理.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026操作系统Index目录",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408操作系统/2026操作系统Index目录.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408操作系统/2026操作系统Index目录.pdf"
-              }
-            }
-          ]
-        },
-        {
-          "type": "folder",
-          "name": "11408数据结构",
-          "path": "408 计算机基础/11408数据结构",
+          "name": "408 计算机基础",
+          "path": "备用/408 计算机基础",
           "children": [
             {
               "type": "folder",
-              "name": "2026王道资料",
-              "path": "408 计算机基础/11408数据结构/2026王道资料",
+              "name": "11408操作系统",
+              "path": "备用/408 计算机基础/11408操作系统",
               "children": [
                 {
                   "type": "doc",
-                  "name": "2026数据结构Chap1绪论",
+                  "name": "2026操作系统Chap1概述",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap1绪论.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408操作系统/2026操作系统Chap1概述.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap1绪论.pdf"
+                    "pdf": "备用/408 计算机基础/11408操作系统/2026操作系统Chap1概述.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "2026数据结构Chap2线性表",
+                  "name": "2026操作系统Chap2进程与线程",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap2线性表.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408操作系统/2026操作系统Chap2进程与线程.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap2线性表.pdf"
+                    "pdf": "备用/408 计算机基础/11408操作系统/2026操作系统Chap2进程与线程.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "2026数据结构Chap3栈队列数组",
+                  "name": "2026操作系统Chap3内存管理",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap3栈队列数组.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408操作系统/2026操作系统Chap3内存管理.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap3栈队列数组.pdf"
+                    "pdf": "备用/408 计算机基础/11408操作系统/2026操作系统Chap3内存管理.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "2026数据结构Chap4串",
+                  "name": "2026操作系统Chap4文件管理",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap4串.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408操作系统/2026操作系统Chap4文件管理.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap4串.pdf"
+                    "pdf": "备用/408 计算机基础/11408操作系统/2026操作系统Chap4文件管理.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "2026数据结构Chap5树与二叉树",
+                  "name": "2026操作系统Chap5输入输出IO管理",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap5树与二叉树.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408操作系统/2026操作系统Chap5输入输出IO管理.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap5树与二叉树.pdf"
+                    "pdf": "备用/408 计算机基础/11408操作系统/2026操作系统Chap5输入输出IO管理.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "2026数据结构Chap6图",
+                  "name": "2026操作系统Index目录",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap6图.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408操作系统/2026操作系统Index目录.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap6图.pdf"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "2026数据结构Chap7查找",
-                  "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap7查找.pdf",
-                  "formats": {
-                    "pdf": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap7查找.pdf"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "2026数据结构Chap8排序",
-                  "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap8排序.pdf",
-                  "formats": {
-                    "pdf": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap8排序.pdf"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "2026数据结构Index目录",
-                  "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Index目录.pdf",
-                  "formats": {
-                    "pdf": "408 计算机基础/11408数据结构/2026王道资料/2026数据结构Index目录.pdf"
+                    "pdf": "备用/408 计算机基础/11408操作系统/2026操作系统Index目录.pdf"
                   }
                 }
               ]
             },
             {
               "type": "folder",
-              "name": "Leetcode以及代码模板",
-              "path": "408 计算机基础/11408数据结构/Leetcode以及代码模板",
-              "children": [
-                {
-                  "type": "doc",
-                  "name": "Readme",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408数据结构/Leetcode以及代码模板/Readme.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408数据结构/Leetcode以及代码模板/Readme.md"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "folder",
-              "name": "笔记",
-              "path": "408 计算机基础/11408数据结构/笔记",
+              "name": "11408数据结构",
+              "path": "备用/408 计算机基础/11408数据结构",
               "children": [
                 {
                   "type": "folder",
-                  "name": "Chap1 绪论",
-                  "path": "408 计算机基础/11408数据结构/笔记/Chap1 绪论",
+                  "name": "2026王道资料",
+                  "path": "备用/408 计算机基础/11408数据结构/2026王道资料",
                   "children": [
                     {
                       "type": "doc",
-                      "name": "Chap1.1 数据结构的基本概念",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.1 数据结构的基本概念.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.1 数据结构的基本概念.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap1.2 算法",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.2 算法.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.2 算法.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap1.3 时间复杂度专项",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.3 时间复杂度专项.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.3 时间复杂度专项.md"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "folder",
-                  "name": "Chap2 线性表",
-                  "path": "408 计算机基础/11408数据结构/笔记/Chap2 线性表",
-                  "children": [
-                    {
-                      "type": "doc",
-                      "name": "C++运算符重载(回忆版)",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/C++运算符重载(回忆版).md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/C++运算符重载(回忆版).md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap2 线性表题目",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2 线性表题目.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2 线性表题目.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap2.1 线性表的定义与基本操作",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.1 线性表的定义与基本操作.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.1 线性表的定义与基本操作.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap2.2 线性表的顺序表示",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.2 线性表的顺序表示.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.2 线性表的顺序表示.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap2.3 线性表的链式表示",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.3 线性表的链式表示.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.3 线性表的链式表示.md"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "folder",
-                  "name": "Chap3 栈队列和数组",
-                  "path": "408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组",
-                  "children": [
-                    {
-                      "type": "doc",
-                      "name": "Chap3.1 栈",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.1 栈.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.1 栈.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap3.2 队列",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.2 队列.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.2 队列.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap3.3 栈和队列的应用",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.3 栈和队列的应用.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.3 栈和队列的应用.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap3.4 数组和特殊矩阵",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.4 数组和特殊矩阵.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.4 数组和特殊矩阵.md"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "folder",
-                  "name": "Chap4 串",
-                  "path": "408 计算机基础/11408数据结构/笔记/Chap4 串",
-                  "children": [
-                    {
-                      "type": "doc",
-                      "name": "Chap4.1 串的定义和实现",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap4 串/Chap4.1 串的定义和实现.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap4 串/Chap4.1 串的定义和实现.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap4.2 串的模式匹配",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap4 串/Chap4.2 串的模式匹配.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap4 串/Chap4.2 串的模式匹配.md"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "folder",
-                  "name": "Chap5 树和二叉树",
-                  "path": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树",
-                  "children": [
-                    {
-                      "type": "doc",
-                      "name": "Chap5.1 树的基本概念",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.1 树的基本概念.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.1 树的基本概念.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap5.2 二叉树的概念",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.2 二叉树的概念.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.2 二叉树的概念.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap5.2.3 二叉树的性质",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.2.3 二叉树的性质.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.2.3 二叉树的性质.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap5.3 二叉树的遍历和线索二叉树",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.3 二叉树的遍历和线索二叉树.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.3 二叉树的遍历和线索二叉树.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap5.4 树和森林",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.4 树和森林.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.4 树和森林.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap5.5 树和二叉树的应用",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.5 树和二叉树的应用.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.5 树和二叉树的应用.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_Chap5_2",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_2.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_2.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_Chap5_3",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_3.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_3.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_Chap5_4",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_4.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_4.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_Chap5_5",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_5.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_5.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "红黑树模板",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/红黑树模板.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/红黑树模板.md"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "folder",
-                  "name": "Chap6 图",
-                  "path": "408 计算机基础/11408数据结构/笔记/Chap6 图",
-                  "children": [
-                    {
-                      "type": "doc",
-                      "name": "Chap6.1 图的基本概念",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.1 图的基本概念.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.1 图的基本概念.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap6.2 图的存储方式",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.2 图的存储方式.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.2 图的存储方式.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap6.3 图的遍历",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.3 图的遍历.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.3 图的遍历.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap6.4 图的应用",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.4 图的应用.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.4 图的应用.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "HomeWork_6_1",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_1.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_1.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "HomeWork_6_2",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_2.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_2.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "HomeWork_6_3",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_3.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_3.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "HomWork_6_4",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/HomWork_6_4.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/HomWork_6_4.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "mermaid",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/mermaid.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/mermaid.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "图的英语专题",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/图的英语专题.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/图的英语专题.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "本章总结",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap6 图/本章总结.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap6 图/本章总结.md"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "folder",
-                  "name": "Chap7 查找",
-                  "path": "408 计算机基础/11408数据结构/笔记/Chap7 查找",
-                  "children": [
-                    {
-                      "type": "doc",
-                      "name": "Chap7.1 查找的基本概念",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.1 查找的基本概念.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.1 查找的基本概念.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap7.2 顺序查找和折半查找",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.2 顺序查找和折半查找.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.2 顺序查找和折半查找.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap7.3 树形查找",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.3 树形查找.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.3 树形查找.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap7.4 B和B+树",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.4 B和B+树.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.4 B和B+树.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap7.5 散列查找",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.5 散列查找.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.5 散列查找.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_7_2",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_2.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_2.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_7_3",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_3.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_3.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_7_4",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_4.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_4.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_7_5",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_5.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_5.md"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "folder",
-                  "name": "Chap8 排序",
-                  "path": "408 计算机基础/11408数据结构/笔记/Chap8 排序",
-                  "children": [
-                    {
-                      "type": "doc",
-                      "name": "Chap8.1 排序的基本概念",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.1 排序的基本概念.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.1 排序的基本概念.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap8.2 插入排序",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.2 插入排序.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.2 插入排序.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap8.3 交换排序",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.3 交换排序.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.3 交换排序.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap8.4 选择排序",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.4 选择排序.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.4 选择排序.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap8.5 归并排序",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.5 归并排序.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.5 归并排序.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Chap8.6 内部排序算法的应用",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.6 内部排序算法的应用.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.6 内部排序算法的应用.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_8_2",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Homework_8_2.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Homework_8_2.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "Homework_8_3",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Homework_8_3.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408数据结构/笔记/Chap8 排序/Homework_8_3.md"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "folder",
-          "name": "11408计算机组成及原理",
-          "path": "408 计算机基础/11408计算机组成及原理",
-          "children": [
-            {
-              "type": "folder",
-              "name": "Chap1 计算机系统概述",
-              "path": "408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述",
-              "children": [
-                {
-                  "type": "doc",
-                  "name": "Chap1.1 计算机发展历程",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.1 计算机发展历程.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.1 计算机发展历程.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap1.2 计算机系统层次结构",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.2 计算机系统层次结构.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.2 计算机系统层次结构.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap1.3 计算机的性能指标",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.3 计算机的性能指标.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.3 计算机的性能指标.md"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "folder",
-              "name": "Chap2 数据的表示和运算",
-              "path": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算",
-              "children": [
-                {
-                  "type": "doc",
-                  "name": "Chap2.1 数值与编码",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.1 数值与编码.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.1 数值与编码.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap2.2 运算方式和运算电路",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2 运算方式和运算电路.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2 运算方式和运算电路.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap2.2.1 加法器",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.1 加法器.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.1 加法器.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap2.2.2 定点数的移位计算",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.2 定点数的移位计算.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.2 定点数的移位计算.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap2.2.3 定点数的加减运算",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.3 定点数的加减运算.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.3 定点数的加减运算.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap2.2.4 定点数的乘法运算",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.4 定点数的乘法运算.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.4 定点数的乘法运算.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap2.2.5 定点数的除法运算",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.5 定点数的除法运算.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.5 定点数的除法运算.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap2.2.6 Homework",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.6 Homework.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.6 Homework.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap2.3 浮点数的表示与运算",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.3 浮点数的表示与运算.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.3 浮点数的表示与运算.md"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "folder",
-              "name": "Computer Organization and Design MIPS Edition",
-              "path": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition",
-              "children": [
-                {
-                  "type": "folder",
-                  "name": "数字逻辑电路",
-                  "path": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路",
-                  "children": [
-                    {
-                      "type": "doc",
-                      "name": "Chap1 逻辑代数基础",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/Chap1 逻辑代数基础.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/Chap1 逻辑代数基础.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "DLC用法",
-                      "defaultType": "md",
-                      "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/DLC用法.md",
-                      "formats": {
-                        "md": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/DLC用法.md"
-                      }
-                    },
-                    {
-                      "type": "doc",
-                      "name": "USTC数字逻辑电路DLC",
+                      "name": "2026数据结构Chap1绪论",
                       "defaultType": "pdf",
-                      "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/USTC数字逻辑电路DLC.pdf",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap1绪论.pdf",
                       "formats": {
-                        "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/USTC数字逻辑电路DLC.pdf"
+                        "pdf": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap1绪论.pdf"
                       }
                     },
                     {
                       "type": "doc",
-                      "name": "USTC数字逻辑电路复习",
+                      "name": "2026数据结构Chap2线性表",
                       "defaultType": "pdf",
-                      "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/USTC数字逻辑电路复习.pdf",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap2线性表.pdf",
                       "formats": {
-                        "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/USTC数字逻辑电路复习.pdf"
+                        "pdf": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap2线性表.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "2026数据结构Chap3栈队列数组",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap3栈队列数组.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap3栈队列数组.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "2026数据结构Chap4串",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap4串.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap4串.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "2026数据结构Chap5树与二叉树",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap5树与二叉树.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap5树与二叉树.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "2026数据结构Chap6图",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap6图.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap6图.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "2026数据结构Chap7查找",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap7查找.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap7查找.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "2026数据结构Chap8排序",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap8排序.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Chap8排序.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "2026数据结构Index目录",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Index目录.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408数据结构/2026王道资料/2026数据结构Index目录.pdf"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "folder",
+                  "name": "Leetcode以及代码模板",
+                  "path": "备用/408 计算机基础/11408数据结构/Leetcode以及代码模板",
+                  "children": [
+                    {
+                      "type": "doc",
+                      "name": "Readme",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408数据结构/Leetcode以及代码模板/Readme.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408数据结构/Leetcode以及代码模板/Readme.md"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "folder",
+                  "name": "笔记",
+                  "path": "备用/408 计算机基础/11408数据结构/笔记",
+                  "children": [
+                    {
+                      "type": "folder",
+                      "name": "Chap1 绪论",
+                      "path": "备用/408 计算机基础/11408数据结构/笔记/Chap1 绪论",
+                      "children": [
+                        {
+                          "type": "doc",
+                          "name": "Chap1.1 数据结构的基本概念",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.1 数据结构的基本概念.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.1 数据结构的基本概念.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap1.2 算法",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.2 算法.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.2 算法.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap1.3 时间复杂度专项",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.3 时间复杂度专项.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap1 绪论/Chap1.3 时间复杂度专项.md"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "folder",
+                      "name": "Chap2 线性表",
+                      "path": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表",
+                      "children": [
+                        {
+                          "type": "doc",
+                          "name": "C++运算符重载(回忆版)",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/C++运算符重载(回忆版).md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/C++运算符重载(回忆版).md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap2 线性表题目",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2 线性表题目.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2 线性表题目.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap2.1 线性表的定义与基本操作",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.1 线性表的定义与基本操作.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.1 线性表的定义与基本操作.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap2.2 线性表的顺序表示",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.2 线性表的顺序表示.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.2 线性表的顺序表示.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap2.3 线性表的链式表示",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.3 线性表的链式表示.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap2 线性表/Chap2.3 线性表的链式表示.md"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "folder",
+                      "name": "Chap3 栈队列和数组",
+                      "path": "备用/408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组",
+                      "children": [
+                        {
+                          "type": "doc",
+                          "name": "Chap3.1 栈",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.1 栈.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.1 栈.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap3.2 队列",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.2 队列.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.2 队列.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap3.3 栈和队列的应用",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.3 栈和队列的应用.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.3 栈和队列的应用.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap3.4 数组和特殊矩阵",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.4 数组和特殊矩阵.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap3 栈队列和数组/Chap3.4 数组和特殊矩阵.md"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "folder",
+                      "name": "Chap4 串",
+                      "path": "备用/408 计算机基础/11408数据结构/笔记/Chap4 串",
+                      "children": [
+                        {
+                          "type": "doc",
+                          "name": "Chap4.1 串的定义和实现",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap4 串/Chap4.1 串的定义和实现.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap4 串/Chap4.1 串的定义和实现.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap4.2 串的模式匹配",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap4 串/Chap4.2 串的模式匹配.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap4 串/Chap4.2 串的模式匹配.md"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "folder",
+                      "name": "Chap5 树和二叉树",
+                      "path": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树",
+                      "children": [
+                        {
+                          "type": "doc",
+                          "name": "Chap5.1 树的基本概念",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.1 树的基本概念.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.1 树的基本概念.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap5.2 二叉树的概念",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.2 二叉树的概念.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.2 二叉树的概念.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap5.2.3 二叉树的性质",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.2.3 二叉树的性质.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.2.3 二叉树的性质.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap5.3 二叉树的遍历和线索二叉树",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.3 二叉树的遍历和线索二叉树.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.3 二叉树的遍历和线索二叉树.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap5.4 树和森林",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.4 树和森林.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.4 树和森林.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap5.5 树和二叉树的应用",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.5 树和二叉树的应用.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Chap5.5 树和二叉树的应用.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_Chap5_2",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_2.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_2.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_Chap5_3",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_3.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_3.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_Chap5_4",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_4.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_4.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_Chap5_5",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_5.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/Homework_Chap5_5.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "红黑树模板",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/红黑树模板.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap5 树和二叉树/红黑树模板.md"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "folder",
+                      "name": "Chap6 图",
+                      "path": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图",
+                      "children": [
+                        {
+                          "type": "doc",
+                          "name": "Chap6.1 图的基本概念",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.1 图的基本概念.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.1 图的基本概念.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap6.2 图的存储方式",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.2 图的存储方式.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.2 图的存储方式.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap6.3 图的遍历",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.3 图的遍历.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.3 图的遍历.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap6.4 图的应用",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.4 图的应用.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/Chap6.4 图的应用.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "HomeWork_6_1",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_1.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_1.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "HomeWork_6_2",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_2.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_2.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "HomeWork_6_3",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_3.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/HomeWork_6_3.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "HomWork_6_4",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/HomWork_6_4.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/HomWork_6_4.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "mermaid",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/mermaid.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/mermaid.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "图的英语专题",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/图的英语专题.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/图的英语专题.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "本章总结",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/本章总结.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap6 图/本章总结.md"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "folder",
+                      "name": "Chap7 查找",
+                      "path": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找",
+                      "children": [
+                        {
+                          "type": "doc",
+                          "name": "Chap7.1 查找的基本概念",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.1 查找的基本概念.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.1 查找的基本概念.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap7.2 顺序查找和折半查找",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.2 顺序查找和折半查找.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.2 顺序查找和折半查找.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap7.3 树形查找",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.3 树形查找.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.3 树形查找.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap7.4 B和B+树",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.4 B和B+树.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.4 B和B+树.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap7.5 散列查找",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.5 散列查找.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Chap7.5 散列查找.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_7_2",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_2.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_2.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_7_3",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_3.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_3.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_7_4",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_4.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_4.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_7_5",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_5.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap7 查找/Homework_7_5.md"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "folder",
+                      "name": "Chap8 排序",
+                      "path": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序",
+                      "children": [
+                        {
+                          "type": "doc",
+                          "name": "Chap8.1 排序的基本概念",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.1 排序的基本概念.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.1 排序的基本概念.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap8.2 插入排序",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.2 插入排序.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.2 插入排序.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap8.3 交换排序",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.3 交换排序.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.3 交换排序.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap8.4 选择排序",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.4 选择排序.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.4 选择排序.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap8.5 归并排序",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.5 归并排序.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.5 归并排序.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Chap8.6 内部排序算法的应用",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.6 内部排序算法的应用.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Chap8.6 内部排序算法的应用.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_8_2",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Homework_8_2.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Homework_8_2.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "Homework_8_3",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Homework_8_3.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408数据结构/笔记/Chap8 排序/Homework_8_3.md"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "11408计算机组成及原理",
+              "path": "备用/408 计算机基础/11408计算机组成及原理",
+              "children": [
+                {
+                  "type": "folder",
+                  "name": "Chap1 计算机系统概述",
+                  "path": "备用/408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述",
+                  "children": [
+                    {
+                      "type": "doc",
+                      "name": "Chap1.1 计算机发展历程",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.1 计算机发展历程.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.1 计算机发展历程.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap1.2 计算机系统层次结构",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.2 计算机系统层次结构.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.2 计算机系统层次结构.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap1.3 计算机的性能指标",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.3 计算机的性能指标.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap1 计算机系统概述/Chap1.3 计算机的性能指标.md"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "folder",
+                  "name": "Chap2 数据的表示和运算",
+                  "path": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算",
+                  "children": [
+                    {
+                      "type": "doc",
+                      "name": "Chap2.1 数值与编码",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.1 数值与编码.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.1 数值与编码.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap2.2 运算方式和运算电路",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2 运算方式和运算电路.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2 运算方式和运算电路.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap2.2.1 加法器",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.1 加法器.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.1 加法器.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap2.2.2 定点数的移位计算",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.2 定点数的移位计算.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.2 定点数的移位计算.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap2.2.3 定点数的加减运算",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.3 定点数的加减运算.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.3 定点数的加减运算.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap2.2.4 定点数的乘法运算",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.4 定点数的乘法运算.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.4 定点数的乘法运算.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap2.2.5 定点数的除法运算",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.5 定点数的除法运算.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.5 定点数的除法运算.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap2.2.6 Homework",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.6 Homework.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.2.6 Homework.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap2.3 浮点数的表示与运算",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.3 浮点数的表示与运算.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Chap2 数据的表示和运算/Chap2.3 浮点数的表示与运算.md"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "folder",
+                  "name": "Computer Organization and Design MIPS Edition",
+                  "path": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition",
+                  "children": [
+                    {
+                      "type": "folder",
+                      "name": "数字逻辑电路",
+                      "path": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路",
+                      "children": [
+                        {
+                          "type": "doc",
+                          "name": "Chap1 逻辑代数基础",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/Chap1 逻辑代数基础.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/Chap1 逻辑代数基础.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "DLC用法",
+                          "defaultType": "md",
+                          "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/DLC用法.md",
+                          "formats": {
+                            "md": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/DLC用法.md"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "USTC数字逻辑电路DLC",
+                          "defaultType": "pdf",
+                          "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/USTC数字逻辑电路DLC.pdf",
+                          "formats": {
+                            "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/USTC数字逻辑电路DLC.pdf"
+                          }
+                        },
+                        {
+                          "type": "doc",
+                          "name": "USTC数字逻辑电路复习",
+                          "defaultType": "pdf",
+                          "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/USTC数字逻辑电路复习.pdf",
+                          "formats": {
+                            "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/数字逻辑电路/USTC数字逻辑电路复习.pdf"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "doc",
+                      "name": "第1章 计算机概要与技术",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第1章 计算机概要与技术.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第1章 计算机概要与技术.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "第2章 计算机的语言指令",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第2章 计算机的语言指令.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第2章 计算机的语言指令.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "第3章 计算机的算术运算",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第3章 计算机的算术运算.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第3章 计算机的算术运算.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "第4章 处理器",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第4章 处理器.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第4章 处理器.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "第5章 存储器层次结构",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第5章 存储器层次结构.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第5章 存储器层次结构.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "第6章 并行处理器",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第6章 并行处理器.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第6章 并行处理器.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "附录A 汇编器链接器和SPIM仿真器",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录A 汇编器链接器和SPIM仿真器.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录A 汇编器链接器和SPIM仿真器.pdf"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "附录B 逻辑设计基础",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录B 逻辑设计基础.pdf",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录B 逻辑设计基础.md",
+                        "pdf": "备用/408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录B 逻辑设计基础.pdf"
                       }
                     }
                   ]
                 },
                 {
                   "type": "doc",
-                  "name": "第1章 计算机概要与技术",
+                  "name": "2026计算机组成原理Chap1概述",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第1章 计算机概要与技术.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap1概述.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第1章 计算机概要与技术.pdf"
+                    "pdf": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap1概述.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "第2章 计算机的语言指令",
+                  "name": "2026计算机组成原理Chap2数据的表示和运算",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第2章 计算机的语言指令.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap2数据的表示和运算.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第2章 计算机的语言指令.pdf"
+                    "pdf": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap2数据的表示和运算.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "第3章 计算机的算术运算",
+                  "name": "2026计算机组成原理Chap3存储系统",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第3章 计算机的算术运算.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap3存储系统.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第3章 计算机的算术运算.pdf"
+                    "pdf": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap3存储系统.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "第4章 处理器",
+                  "name": "2026计算机组成原理Chap4指令系统",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第4章 处理器.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap4指令系统.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第4章 处理器.pdf"
+                    "pdf": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap4指令系统.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "第5章 存储器层次结构",
+                  "name": "2026计算机组成原理Chap5中央处理器",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第5章 存储器层次结构.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap5中央处理器.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第5章 存储器层次结构.pdf"
+                    "pdf": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap5中央处理器.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "第6章 并行处理器",
+                  "name": "2026计算机组成原理Chap6&7总线和IO",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第6章 并行处理器.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap6&7总线和IO.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/第6章 并行处理器.pdf"
+                    "pdf": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap6&7总线和IO.pdf"
                   }
                 },
                 {
                   "type": "doc",
-                  "name": "附录A 汇编器链接器和SPIM仿真器",
+                  "name": "2026计算机组成原理Index目录",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录A 汇编器链接器和SPIM仿真器.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Index目录.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录A 汇编器链接器和SPIM仿真器.pdf"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "附录B 逻辑设计基础",
-                  "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录B 逻辑设计基础.pdf",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录B 逻辑设计基础.md",
-                    "pdf": "408 计算机基础/11408计算机组成及原理/Computer Organization and Design MIPS Edition/附录B 逻辑设计基础.pdf"
+                    "pdf": "备用/408 计算机基础/11408计算机组成及原理/2026计算机组成原理Index目录.pdf"
                   }
                 }
               ]
             },
             {
-              "type": "doc",
-              "name": "2026计算机组成原理Chap1概述",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap1概述.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap1概述.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026计算机组成原理Chap2数据的表示和运算",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap2数据的表示和运算.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap2数据的表示和运算.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026计算机组成原理Chap3存储系统",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap3存储系统.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap3存储系统.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026计算机组成原理Chap4指令系统",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap4指令系统.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap4指令系统.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026计算机组成原理Chap5中央处理器",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap5中央处理器.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap5中央处理器.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026计算机组成原理Chap6&7总线和IO",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap6&7总线和IO.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Chap6&7总线和IO.pdf"
-              }
-            },
-            {
-              "type": "doc",
-              "name": "2026计算机组成原理Index目录",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Index目录.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408计算机组成及原理/2026计算机组成原理Index目录.pdf"
-              }
-            }
-          ]
-        },
-        {
-          "type": "folder",
-          "name": "11408计算机网络",
-          "path": "408 计算机基础/11408计算机网络",
-          "children": [
-            {
               "type": "folder",
-              "name": "Chap1计算机网络体系结构",
-              "path": "408 计算机基础/11408计算机网络/Chap1计算机网络体系结构",
+              "name": "11408计算机网络",
+              "path": "备用/408 计算机基础/11408计算机网络",
               "children": [
                 {
-                  "type": "doc",
-                  "name": "Chap1.1 计算机网络体系概述",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1.1 计算机网络体系概述.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1.1 计算机网络体系概述.md"
-                  }
-                },
-                {
-                  "type": "doc",
-                  "name": "Chap1.2 计算机网络体系结构",
-                  "defaultType": "md",
-                  "defaultPath": "408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1.2 计算机网络体系结构.md",
-                  "formats": {
-                    "md": "408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1.2 计算机网络体系结构.md"
-                  }
-                },
-                {
-                  "type": "doc",
+                  "type": "folder",
                   "name": "Chap1计算机网络体系结构",
-                  "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1计算机网络体系结构.pdf",
-                  "formats": {
-                    "pdf": "408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1计算机网络体系结构.pdf"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "folder",
-              "name": "Chap2物理层",
-              "path": "408 计算机基础/11408计算机网络/Chap2物理层",
-              "children": [
+                  "path": "备用/408 计算机基础/11408计算机网络/Chap1计算机网络体系结构",
+                  "children": [
+                    {
+                      "type": "doc",
+                      "name": "Chap1.1 计算机网络体系概述",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1.1 计算机网络体系概述.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1.1 计算机网络体系概述.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap1.2 计算机网络体系结构",
+                      "defaultType": "md",
+                      "defaultPath": "备用/408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1.2 计算机网络体系结构.md",
+                      "formats": {
+                        "md": "备用/408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1.2 计算机网络体系结构.md"
+                      }
+                    },
+                    {
+                      "type": "doc",
+                      "name": "Chap1计算机网络体系结构",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1计算机网络体系结构.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机网络/Chap1计算机网络体系结构/Chap1计算机网络体系结构.pdf"
+                      }
+                    }
+                  ]
+                },
                 {
-                  "type": "doc",
+                  "type": "folder",
                   "name": "Chap2物理层",
-                  "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机网络/Chap2物理层/Chap2物理层.pdf",
-                  "formats": {
-                    "pdf": "408 计算机基础/11408计算机网络/Chap2物理层/Chap2物理层.pdf"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "folder",
-              "name": "Chap3数据链路层",
-              "path": "408 计算机基础/11408计算机网络/Chap3数据链路层",
-              "children": [
+                  "path": "备用/408 计算机基础/11408计算机网络/Chap2物理层",
+                  "children": [
+                    {
+                      "type": "doc",
+                      "name": "Chap2物理层",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机网络/Chap2物理层/Chap2物理层.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机网络/Chap2物理层/Chap2物理层.pdf"
+                      }
+                    }
+                  ]
+                },
                 {
-                  "type": "doc",
+                  "type": "folder",
                   "name": "Chap3数据链路层",
-                  "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机网络/Chap3数据链路层/Chap3数据链路层.pdf",
-                  "formats": {
-                    "pdf": "408 计算机基础/11408计算机网络/Chap3数据链路层/Chap3数据链路层.pdf"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "folder",
-              "name": "Chap4网络层",
-              "path": "408 计算机基础/11408计算机网络/Chap4网络层",
-              "children": [
+                  "path": "备用/408 计算机基础/11408计算机网络/Chap3数据链路层",
+                  "children": [
+                    {
+                      "type": "doc",
+                      "name": "Chap3数据链路层",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机网络/Chap3数据链路层/Chap3数据链路层.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机网络/Chap3数据链路层/Chap3数据链路层.pdf"
+                      }
+                    }
+                  ]
+                },
                 {
-                  "type": "doc",
+                  "type": "folder",
                   "name": "Chap4网络层",
-                  "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机网络/Chap4网络层/Chap4网络层.pdf",
-                  "formats": {
-                    "pdf": "408 计算机基础/11408计算机网络/Chap4网络层/Chap4网络层.pdf"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "folder",
-              "name": "Chap5传输层",
-              "path": "408 计算机基础/11408计算机网络/Chap5传输层",
-              "children": [
+                  "path": "备用/408 计算机基础/11408计算机网络/Chap4网络层",
+                  "children": [
+                    {
+                      "type": "doc",
+                      "name": "Chap4网络层",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机网络/Chap4网络层/Chap4网络层.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机网络/Chap4网络层/Chap4网络层.pdf"
+                      }
+                    }
+                  ]
+                },
                 {
-                  "type": "doc",
+                  "type": "folder",
                   "name": "Chap5传输层",
-                  "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机网络/Chap5传输层/Chap5传输层.pdf",
-                  "formats": {
-                    "pdf": "408 计算机基础/11408计算机网络/Chap5传输层/Chap5传输层.pdf"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "folder",
-              "name": "Chap6应用层",
-              "path": "408 计算机基础/11408计算机网络/Chap6应用层",
-              "children": [
+                  "path": "备用/408 计算机基础/11408计算机网络/Chap5传输层",
+                  "children": [
+                    {
+                      "type": "doc",
+                      "name": "Chap5传输层",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机网络/Chap5传输层/Chap5传输层.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机网络/Chap5传输层/Chap5传输层.pdf"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "folder",
+                  "name": "Chap6应用层",
+                  "path": "备用/408 计算机基础/11408计算机网络/Chap6应用层",
+                  "children": [
+                    {
+                      "type": "doc",
+                      "name": "Chap6应用层",
+                      "defaultType": "pdf",
+                      "defaultPath": "备用/408 计算机基础/11408计算机网络/Chap6应用层/Chap6应用层.pdf",
+                      "formats": {
+                        "pdf": "备用/408 计算机基础/11408计算机网络/Chap6应用层/Chap6应用层.pdf"
+                      }
+                    }
+                  ]
+                },
                 {
                   "type": "doc",
-                  "name": "Chap6应用层",
+                  "name": "Index目录",
                   "defaultType": "pdf",
-                  "defaultPath": "408 计算机基础/11408计算机网络/Chap6应用层/Chap6应用层.pdf",
+                  "defaultPath": "备用/408 计算机基础/11408计算机网络/Index目录.pdf",
                   "formats": {
-                    "pdf": "408 计算机基础/11408计算机网络/Chap6应用层/Chap6应用层.pdf"
+                    "pdf": "备用/408 计算机基础/11408计算机网络/Index目录.pdf"
                   }
                 }
               ]
-            },
-            {
-              "type": "doc",
-              "name": "Index目录",
-              "defaultType": "pdf",
-              "defaultPath": "408 计算机基础/11408计算机网络/Index目录.pdf",
-              "formats": {
-                "pdf": "408 计算机基础/11408计算机网络/Index目录.pdf"
-              }
             }
           ]
         }
