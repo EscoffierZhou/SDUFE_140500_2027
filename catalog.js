@@ -456,8 +456,8 @@ window.CATALOG_DATA = {
       "stats": {
         "totalDocs": 116,
         "formats": {
-          "html": 79,
-          "pdf": 66,
+          "html": 80,
+          "pdf": 67,
           "md": 116
         }
       },
@@ -1307,10 +1307,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000a基础篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000a基础篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000a基础篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000a基础篇.md"
+                    "html": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000a基础篇.html",
+                    "md": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000a基础篇.md",
+                    "pdf": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000a基础篇.pdf"
                   }
                 },
                 {

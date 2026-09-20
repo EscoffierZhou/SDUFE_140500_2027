@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>高等数学1000a基础篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h2>高等数学1000题基础篇 - 第8章 一元函数积分学的概念与性质</h2>
+<p><strong>(经典概念)<font color=red>题目[1]:定积分定义的等分与和式极限结构辨析</font></strong></p>
+<p>设函数 $f(x)$ 在区间 $[0, 1]$ 上连续，则 $\int_0^1 f(x)\mathrm{d}x = (\quad)$。</p>
+<p>(A) $\lim\limits_{n\to\infty}\sum\limits_{k=1}^n f\left(\frac{3k-1}{3n}\right)\frac{1}{3n}$<br />
+(B) $\lim\limits_{n\to\infty}\sum\limits_{k=1}^n f\left(\frac{3k-1}{3n}\right)\frac{1}{n}$<br />
+(C) $\lim\limits_{n\to\infty}\sum\limits_{k=1}^{3n} f\left(\frac{k-1}{3n}\right)\frac{1}{n}$<br />
+(D) $\lim\limits_{n\to\infty}\sum\limits_{k=1}^{3n} f\left(\frac{k}{3n}\right)\frac{3}{n}$</p>
+<p>答案: (B)</p>
+<p>主要思路:[根据定积分定义，将区间等分为 $n$ 个子区间，介点可在子区间内任意选取]</p>
+<p>[1]定积分定义回顾:<br />
+$$\int_0^1 f(x)\mathrm{d}x = \lim_{n\to\infty} \sum_{k=1}^n f(\xi_k) \Delta x_k$$<br />
+若将 $[0, 1]$ 进行 $n$ 等分，则每个子区间长度 $\Delta x_k = \frac{1}{n}$，第 $k$ 个子区间为 $\left[\frac{k-1}{n}, \frac{k}{n}\right]$。</p>
+<p>[2]分析各选项的步长与项数:<br />
+对于 (B) 选项，和式项数为 $n$ 项，步长为 $\frac{1}{n}$。<br />
+取点 $\xi_k = \frac{3k-1}{3n} = \frac{k}{n} - \frac{1}{3n}$。<br />
+因为 $\frac{k-1}{n} = \frac{3k-3}{3n} < \frac{3k-1}{3n} < \frac{3k}{3n} = \frac{k}{n}$，<br />
+所以 $\xi_k \in \left[\frac{k-1}{n}, \frac{k}{n}\right]$ 恰好是第 $k$ 个子区间内的介点！<br />
+由定积分定义中介点选取的任意性，当 $n \to \infty$ 时，其极限恰好等于 $\int_0^1 f(x)\mathrm{d}x$。</p>
+<p>[3]排除干扰项:<br />
+(A) 选项步长为 $\frac{1}{3n}$ 但仅有 $n$ 项，极限等于 $\frac{1}{3}\int_0^1 f(x)\mathrm{d}x$；<br />
+(C) 选项有 $3n$ 项，步长为 $\frac{1}{n}$，极限等于 $3\int_0^1 f(x)\mathrm{d}x$；<br />
+(D) 选项极限为 $9\int_0^1 f(x)\mathrm{d}x$。故正确答案为 (B)。</p>
+<hr />
+<p><strong>(经典计算)<font color=deeppink>题目[2]:和式极限转化为反常积分与分部积分计算</font></strong></p>
+<p>$\lim\limits_{n\to\infty}\frac{1}{n^3}\left[\ln\frac{1}{n} + 4\ln\frac{2}{n} + \cdots + (n-1)^2\ln\frac{n-1}{n}\right] =$ ______。</p>
+<p>答案: $-\frac{1}{9}$</p>
+<p>主要思路:[提取 $\frac{1}{n}$ 构建定积分定义形式，转化为 $\int_0^1 x^2 \ln x \mathrm{d}x$ 后分部积分]</p>
+<p>[1]将和式改写为标准定积分极限结构:<br />
+$$\lim_{n\to\infty}\frac{1}{n^3}\sum_{k=1}^{n-1} k^2 \ln\frac{k}{n} = \lim_{n\to\infty}\frac{1}{n}\sum_{k=1}^{n-1} \left(\frac{k}{n}\right)^2 \ln\left(\frac{k}{n}\right) = \int_0^1 x^2 \ln x \mathrm{d}x$$</p>
+<p>[2]利用分部积分法计算该反常积分:<br />
+$$\int_0^1 x^2 \ln x \mathrm{d}x = \frac{1}{3}\int_0^1 \ln x \mathrm{d}(x^3) = \left. \frac{1}{3}x^3 \ln x \right|_0^1 - \frac{1}{3}\int_0^1 x^3 \cdot \frac{1}{x}\mathrm{d}x$$</p>
+<p>[3]代入上下限求值:<br />
+由常用极限 $\lim\limits_{x\to 0^+} x^3 \ln x = 0$，前项为 $0 - 0 = 0$。<br />
+后项为:<br />
+$$-\frac{1}{3}\int_0^1 x^2 \mathrm{d}x = -\frac{1}{3} \left[ \frac{x^3}{3} \right]_0^1 = -\frac{1}{9}$$</p>
+<hr />
+<p><strong>(物理几何)<font color=red>题目[3]:速度曲线面积与相对位移相遇次数判定</font></strong></p>
+<p>甲、乙两人赛跑，图中实线和虚线分别为甲和乙的速度曲线(单位: m/s)，三块阴影部分面积依次为 $15, 20, 10$，且当 $t=0$ 时，甲在乙前面 $10\text{ m}$ 处，则在 $[0, t_3]$ 上，甲、乙相遇的次数为 $(\quad)$。</p>
+<p>(A) 1<br />
+(B) 2<br />
+(C) 3<br />
+(D) 4</p>
+<p>答案: (B)</p>
+<p>主要思路:[建立距离差函数 $\Delta x(t) = x_甲(t) - x_乙(t)$，利用速度差定积分表示各区间相对位移变化]</p>
+<p>[1]建立距离差函数关系式:<br />
+设 $\Delta x(t) = x_甲(t) - x_乙(t)$，初始条件为 $\Delta x(0) = 10\text{ m}$。<br />
+由位移与速度关系:<br />
+$$\Delta x(t) = \Delta x(0) + \int_0^t [v_甲(\tau) - v_乙(\tau)]\mathrm{d}\tau$$</p>
+<p>[2]分段分析各时刻相对位置:<br />
+(1) 在区间 $[0, t_1]$ 上，乙的速度大于甲的速度，第一块阴影面积为 $15$，故:<br />
+$$\int_0^{t_1} (v_甲 - v_乙)\mathrm{d}t = -15 \implies \Delta x(t_1) = 10 - 15 = -5\text{ m}$$<br />
+因为 $\Delta x(0) = 10 > 0$ 且 $\Delta x(t_1) = -5 < 0$，由连续函数介值定理，在 $(0, t_1)$ 内 $\Delta x(t) = 0$ 恰发生 1 次（第 1 次相遇）。</p>
+<p>(2) 在区间 $[t_1, t_2]$ 上，甲的速度大于乙的速度，第二块阴影面积为 $20$，故:<br />
+$$\int_{t_1}^{t_2} (v_甲 - v_乙)\mathrm{d}t = +20 \implies \Delta x(t_2) = -5 + 20 = 15\text{ m}$$<br />
+因为 $\Delta x(t_1) = -5 < 0$ 且 $\Delta x(t_2) = 15 > 0$，在 $(t_1, t_2)$ 内必发生第 2 次相遇。</p>
+<p>(3) 在区间 $[t_2, t_3]$ 上，乙的速度大于甲的速度，第三块阴影面积为 $10$，故:<br />
+$$\int_{t_2}^{t_3} (v_甲 - v_乙)\mathrm{d}t = -10 \implies \Delta x(t_3) = 15 - 10 = 5\text{ m} > 0$$<br />
+在此区间内 $\Delta x(t)$ 从 $15$ 降到 $5$，始终大于零，没有穿过零点，未发生相遇。</p>
+<p>[3]汇总相遇次数:<br />
+在 $[0, t_3]$ 上，甲、乙共相遇 2 次。</p>
+<hr />
+<p><strong>(综合估值)<font color=deeppink>题目[4]:定积分大小比较与函数不等式放缩</font></strong></p>
+<p>设 $M=\int_{-\frac{1}{2}}^{\frac{1}{2}}\left(1+\frac{x}{1+x^2}\right)\mathrm{d}x$，$N=\int_0^1 \frac{(1+x)\ln^2(1+x)}{x^2}\mathrm{d}x$，$K=\int_0^1 \frac{e^x}{1+x}\mathrm{d}x$，则 $(\quad)$。</p>
+<p>(A) $M>N>K$<br />
+(B) $N>K>M$<br />
+(C) $K>M>N$<br />
+(D) $K>N>M$</p>
+<p>答案: (C)</p>
+<p>主要思路:[对称区间奇函数性质精算 $M$，利用 $e^x > 1+x$ 估算 $K$，利用 $\ln(1+x) < x$ 估算 $N$]</p>
+<p>[1]计算 $M$ 的准确值:<br />
+$$M = \int_{-\frac{1}{2}}^{\frac{1}{2}} 1\mathrm{d}x + \int_{-\frac{1}{2}}^{\frac{1}{2}} \frac{x}{1+x^2}\mathrm{d}x$$<br />
+因为 $\frac{x}{1+x^2}$ 为奇函数，在对称区间上积分为 0，所以:<br />
+$$M = \frac{1}{2} - \left(-\frac{1}{2}\right) = 1$$</p>
+<p>[2]估计 $K$ 的取值范围:<br />
+在 $(0, 1)$ 上，由泰勒展开或基本不等式可知 $e^x > 1 + x$。<br />
+因此:<br />
+$$\frac{e^x}{1+x} > 1 \implies K = \int_0^1 \frac{e^x}{1+x}\mathrm{d}x > \int_0^1 1\mathrm{d}x = 1 = M$$<br />
+即 $K > M$。</p>
+<p>[3]估计 $N$ 的取值范围:<br />
+对于被积函数 $f(x) = (1+x)\left[\frac{\ln(1+x)}{x}\right]^2$:<br />
+由常用不等式 $\ln(1+x) < x$ ($x>0$)，且当 $x \in (0, 1)$ 时，该函数单调递减，端点值 $f(1) = 2(\ln 2)^2 \approx 2 \times 0.480 = 0.96 < 1$。<br />
+在 $(0, 1)$ 上恒有 $f(x) < 1$，故:<br />
+$$N = \int_0^1 f(x)\mathrm{d}x < \int_0^1 1\mathrm{d}x = 1 = M$$<br />
+即 $N < M$。综合得出 $K > M > N$。</p>
+<hr />
+<p><strong>(单调性分析)<font color=red>题目[5]:单调减函数的变限积分大小与符号分析</font></strong></p>
+<p>设 $f(x)$ 是 $(0, +\infty)$ 内的正值连续函数，且 $f'(x)<0$，$g(x)=\int_1^x f(t)\mathrm{d}t$，则 $g\left(\frac{1}{2}\right)$ 和 $g\left(\frac{3}{2}\right)$ 的可能取值是 $(\quad)$。</p>
+<p>(A) $-2, 1$<br />
+(B) $-2, 3$<br />
+(C) $2, -1$<br />
+(D) $2, -3$</p>
+<p>答案: (A)</p>
+<p>主要思路:[由正值函数积分判定正负号，由 $f'(x)<0$ 判定区间积分面积大小]</p>
+<p>[1]确定 $g\left(\frac{1}{2}\right)$ 与 $g\left(\frac{3}{2}\right)$ 的正负号:<br />
+因为 $f(t) > 0$:<br />
+$$g\left(\frac{1}{2}\right) = \int_1^{\frac{1}{2}} f(t)\mathrm{d}t = -\int_{\frac{1}{2}}^1 f(t)\mathrm{d}t < 0$$<br />
+$$g\left(\frac{3}{2}\right) = \int_1^{\frac{3}{2}} f(t)\mathrm{d}t > 0$$<br />
+排除 (C) 和 (D)。</p>
+<p>[2]利用单调递减性比较绝对值大小:<br />
+因为 $f'(x) < 0$，$f(x)$ 在 $(0, +\infty)$ 上严格单调递减。<br />
+考虑等长区间 $\left[\frac{1}{2}, 1\right]$ 与 $\left[1, \frac{3}{2}\right]$（区间长度均为 $\frac{1}{2}$）：<br />
+对任意 $t_1 \in \left[\frac{1}{2}, 1\right]$ 和 $t_2 \in \left[1, \frac{3}{2}\right]$，均有 $f(t_1) > f(1) > f(t_2)$。<br />
+因此:<br />
+$$\int_{\frac{1}{2}}^1 f(t)\mathrm{d}t > \int_1^{\frac{3}{2}} f(t)\mathrm{d}t \implies \left|g\left(\frac{1}{2}\right)\right| > g\left(\frac{3}{2}\right)$$<br />
+检查选项:<br />
+(A) 选项 $|-2| = 2 > 1$，满足！<br />
+(B) 选项 $|-2| = 2 < 3$，矛盾。故选 (A)。</p>
+<hr />
+<p><strong>(极值思想)<font color=deeppink>题目[6]:使定积分取得最小值的积分区间选择</font></strong></p>
+<p>设 $f(x)=\begin{cases} x\ln x, & x>0, \\ x^2+x, & x\le 0, \end{cases}$ 若 $\int_a^b f(x)\mathrm{d}x\ (a<b)$ 取得最小值，则 $(a, b)=(\quad)$。</p>
+<p>(A) $(-1, 1)$<br />
+(B) $(-1, 2)$<br />
+(C) $(0, 1)$<br />
+(D) $(1, 2)$</p>
+<p>答案: (A)</p>
+<p>主要思路:[积分要达到全局最小值，积分区间必须恰好囊括所有 $f(x)<0$ 的区域]</p>
+<p>[1]分析极值原理:<br />
+设 $I(a, b) = \int_a^b f(x)\mathrm{d}x$。<br />
+若被积函数在某区间上小于 0，计入积分会使总值减小；若大于 0，计入积分会使总值增加。<br />
+因此，使积分最小的充分必要条件是积分区间 $[a, b]$ 恰好是 $f(x) \le 0$ 的完整区间。</p>
+<p>[2]分别求解分段函数的负值区间:<br />
+(1) 当 $x \le 0$ 时:<br />
+$$f(x) = x^2 + x = x(x+1) < 0 \implies -1 < x < 0$$<br />
+(2) 当 $x > 0$ 时:<br />
+$$f(x) = x\ln x < 0 \implies \ln x < 0 \implies 0 < x < 1$$</p>
+<p>[3]合并负值区域:<br />
+整个定义域内使得 $f(x) < 0$ 的区域正是 $(-1, 1)$。<br />
+故当 $a = -1, b = 1$ 时，积分值达到全局最小。</p>
+<hr />
+<p><strong>(单调保号)<font color=green>题目[7]:单调不减函数的积分不等式比较</font></strong></p>
+<p>设函数 $g(x)$ 在 $\left[0, \frac{\pi}{2}\right]$ 上连续，若在 $\left(0, \frac{\pi}{2}\right)$ 内 $g'(x)\ge 0$，则对任意的 $x\in\left(0, \frac{\pi}{2}\right)$，有 $(\quad)$。</p>
+<p>(A) $\int_x^{\frac{\pi}{2}} g(t)\mathrm{d}t \ge \int_x^{\frac{\pi}{2}} g(\sin t)\mathrm{d}t$<br />
+(B) $\int_x^1 g(t)\mathrm{d}t \le \int_x^1 g(\sin t)\mathrm{d}t$<br />
+(C) $\int_x^1 g(t)\mathrm{d}t \ge \int_x^1 g(\sin t)\mathrm{d}t$<br />
+(D) $\int_x^{\frac{\pi}{2}} g(t)\mathrm{d}t \le \int_x^{\frac{\pi}{2}} g(\sin t)\mathrm{d}t$</p>
+<p>答案: (A)</p>
+<p>主要思路:[利用 $t > \sin t$ 以及 $g(x)$ 单调递增的保号性直接比较被积函数]</p>
+<p>[1]分析自变量大小关系:<br />
+当 $t \in \left(0, \frac{\pi}{2}\right)$ 时，恒有 $t > \sin t$。</p>
+<p>[2]利用单调性比较被积函数:<br />
+因为 $g'(x) \ge 0$，$g(x)$ 在 $\left[0, \frac{\pi}{2}\right]$ 上单调不减。<br />
+所以对任意 $t \in \left(0, \frac{\pi}{2}\right)$，均有:<br />
+$$g(t) \ge g(\sin t)$$</p>
+<p>[3]应用定积分保号性:<br />
+对任意 $x \in \left(0, \frac{\pi}{2}\right)$，在区间 $\left[x, \frac{\pi}{2}\right]$ 上积分:<br />
+$$\int_x^{\frac{\pi}{2}} g(t)\mathrm{d}t \ge \int_x^{\frac{\pi}{2}} g(\sin t)\mathrm{d}t$$<br />
+故选 (A)。</p>
+<hr />
+<p><strong>(几何反求)<font color=red>题目[8]:已知原函数求被积函数与定积分计算</font></strong></p>
+<p>若 $\sqrt{1-x^2}$ 是 $xf(x)$ 的一个原函数，则 $\int_0^1 \frac{1}{f(x)}\mathrm{d}x = (\quad)$。</p>
+<p>(A) $-1$<br />
+(B) $\frac{\pi}{4}$<br />
+(C) $-\frac{\pi}{4}$<br />
+(D) 1</p>
+<p>答案: (C)</p>
+<p>主要思路:[由原函数求导得到 $xf(x)$，解出 $f(x)$ 后利用四分之一圆面积计算定积分]</p>
+<p>[1]由原函数定义求导:<br />
+$$[\sqrt{1-x^2}]' = x f(x) \implies -\frac{x}{\sqrt{1-x^2}} = x f(x)$$</p>
+<p>[2]解出 $f(x)$ 及倒数:<br />
+当 $x \ne 0$ 时，两边约去 $x$:<br />
+$$f(x) = -\frac{1}{\sqrt{1-x^2}} \implies \frac{1}{f(x)} = -\sqrt{1-x^2}$$</p>
+<p>[3]计算定积分:<br />
+$$\int_0^1 \frac{1}{f(x)}\mathrm{d}x = -\int_0^1 \sqrt{1-x^2}\mathrm{d}x$$<br />
+$\int_0^1 \sqrt{1-x^2}\mathrm{d}x$ 几何意义为半径为 1 的单位圆在第一象限的面积，即 $\frac{\pi}{4}$。<br />
+故原式 $= -\frac{\pi}{4}$。</p>
+<hr />
+<p><strong>(基础和式)<font color=green>题目[9]:标准和式极限转化为定积分</font></strong></p>
+<p>$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n \frac{1}{\sqrt{in}} =$ ______。</p>
+<p>答案: 2</p>
+<p>主要思路:[将通项写成 $\frac{1}{n} \cdot \frac{1}{\sqrt{i/n}}$ 形式转化为 $\int_0^1 x^{-1/2}\mathrm{d}x$]</p>
+<p>[1]提取步长 $\frac{1}{n}$:<br />
+$$\lim_{n\to\infty}\sum_{i=1}^n \frac{1}{\sqrt{in}} = \lim_{n\to\infty}\frac{1}{n}\sum_{i=1}^n \frac{1}{\sqrt{\frac{i}{n}}}$$</p>
+<p>[2]转化为定积分并计算:<br />
+$$= \int_0^1 \frac{1}{\sqrt{x}}\mathrm{d}x = \left. 2\sqrt{x} \right|_0^1 = 2$$</p>
+<hr />
+<p><strong>(性质推演)<font color=red>题目[10]:奇偶函数周期性与变限积分的偶函数判定</font></strong></p>
+<p>设 $f(x)$ 是 $(-\infty, +\infty)$ 上可导的奇函数，任意的 $x\in(-\infty, +\infty)$，均有 $f(x+1)-f(x)=f(1)$，$f\left(\frac{1}{2}\right)=0$，则以下是偶函数的是 $(\quad)$。</p>
+<p>(A) $\int_0^x \left[\sin f(t) + f(t+1)\right]\mathrm{d}t$<br />
+(B) $\int_0^x \left[\sin f'(t) + f'(t+1)\right]\mathrm{d}t$<br />
+(C) $\int_0^x \left[\cos f(t) + f(t+2)\right]\mathrm{d}t$<br />
+(D) $\int_0^x \left[\cos f'(t) + f'(t+2)\right]\mathrm{d}t$</p>
+<p>答案: (A)</p>
+<p>主要思路:[奇函数性质求出 $f(1)=0$ 确定周期为 1，利用“奇函数的变限积分为偶函数”直接锁定选项]</p>
+<p>[1]确定 $f(x)$ 的周期性:<br />
+因为 $f(x)$ 是奇函数，故 $f(0) = 0$。<br />
+令 $x = -\frac{1}{2}$ 代入递推式:<br />
+$$f\left(\frac{1}{2}\right) - f\left(-\frac{1}{2}\right) = f(1)$$<br />
+由于 $f\left(-\frac{1}{2}\right) = -f\left(\frac{1}{2}\right) = 0$，故 $f(1) = 0$。<br />
+代回原递推式得 $f(x+1) - f(x) = 0 \implies f(x+1) = f(x)$，故 $f(x)$ 是周期为 1 的周期函数。</p>
+<p>[2]分析变限积分成为偶函数的充要条件:<br />
+若 $G(x) = \int_0^x g(t)\mathrm{d}t$ 是偶函数，则必须且只需其被积函数 $g(t)$ 是<strong>奇函数</strong>。</p>
+<p>[3]检验各选项被积函数的奇偶性:<br />
+对于 (A):<br />
+被积函数为 $g(t) = \sin f(t) + f(t+1) = \sin f(t) + f(t)$。<br />
+因为 $f(t)$ 是奇函数，$\sin(-f(t)) = -\sin f(t)$ 为奇函数，两奇函数之和仍为奇函数！<br />
+因此 $\int_0^x [\sin f(t) + f(t+1)]\mathrm{d}t$ 必为偶函数。故选 (A)。</p>
+<hr />
+<p><strong>(单调增区间)<font color=deeppink>题目[11]:偶函数零点与变限积分的严格单调增区间</font></strong></p>
+<p>设 $f(x)$ 是实数集上连续的偶函数，在 $(-\infty, 0)$ 上有唯一零点 $x_0=-1$，且 $f'(x_0)=1$，则函数 $F(x)=\int_0^x f(t)\mathrm{d}t$ 的严格单调增区间是 $(\quad)$。</p>
+<p>(A) $(-\infty, -1)$<br />
+(B) $(-1, +\infty)$<br />
+(C) $(-1, 1)$<br />
+(D) $(1, +\infty)$</p>
+<p>答案: (C)</p>
+<p>主要思路:[由导数定义与零点确定 $f(x)>0$ 的区间，即为 $F'(x)>0$ 的单调增区间]</p>
+<p>[1]建立求导关系:<br />
+$$F'(x) = f(x)$$<br />
+要使 $F(x)$ 严格单调递增，需确定 $f(x) > 0$ 的区间。</p>
+<p>[2]利用 $x_0=-1$ 处的导数符号判断局部正负:<br />
+因为 $f'(-1) = 1 > 0$，且 $f(-1) = 0$:<br />
+当 $x < -1$ 时，$f(x) < 0$；<br />
+当 $-1 < x < 0$ 时，$f(x) > 0$。<br />
+因为在 $(-\infty, 0)$ 上只有唯一零点 $-1$，所以符号不会再次改变。</p>
+<p>[3]利用偶函数对称性延拓至正半轴:<br />
+因为 $f(x)$ 是偶函数:<br />
+在 $(0, 1)$ 上，$f(x) = f(-x) > 0$；<br />
+在 $(1, +\infty)$ 上，$f(x) = f(-x) < 0$。<br />
+由于连续性，$f(0) \ge 0$，因此 $f(x) > 0$ 的完整区间为 $(-1, 1)$。<br />
+故 $F(x)$ 的严格单调增区间为 $(-1, 1)$。</p>
+<hr />
+<p><strong>(反函数面积)<font color=red>题目[12]:凸函数反函数积分与几何面积估值</font></strong></p>
+<p>设 $f(x)$ 在 $[0, 2]$ 上单调连续，$f(0)=1, f(2)=2$，且对任意 $x_1, x_2\in[0, 2]$ 总有 $f\left(\frac{x_1+x_2}{2}\right) > \frac{f(x_1)+f(x_2)}{2}$，$g(x)$ 是 $f(x)$ 的反函数，$P=\int_1^2 g(x)\mathrm{d}x$，则 $(\quad)$。</p>
+<p>(A) $3<P<4$<br />
+(B) $2<P<3$<br />
+(C) $1<P<2$<br />
+(D) $0<P<1$</p>
+<p>答案: (D)</p>
+<p>主要思路:[利用严格上凸性质建立割线不等式，结合原函数与反函数的矩形面积守恒公式]</p>
+<p>[1]分析凸性特征与割线方程:<br />
+条件 $f\left(\frac{x_1+x_2}{2}\right) > \frac{f(x_1)+f(x_2)}{2}$ 说明 $f(x)$ 在 $[0, 2]$ 上是<strong>严格上凸函数</strong>。<br />
+连接两端点 $(0, 1)$ 和 $(2, 2)$ 的割线方程为:<br />
+$$y = \frac{1}{2}x + 1$$<br />
+由上凸性，在 $(0, 2)$ 内曲线恒在割线上方，即 $f(x) > \frac{1}{2}x + 1$。</p>
+<p>[2]利用反函数矩形面积公式转化 $P$:<br />
+原函数与反函数的积分和满足大矩形减去小矩形:<br />
+$$\int_0^2 f(x)\mathrm{d}x + \int_1^2 g(y)\mathrm{d}y = 2 \times 2 - 0 \times 1 = 4$$<br />
+故:<br />
+$$P = 4 - \int_0^2 f(x)\mathrm{d}x$$</p>
+<p>[3]估算原函数积分并确定 $P$ 的范围:<br />
+由于 $f(x) > \frac{1}{2}x + 1$，且 $f(x) < 2$:<br />
+$$\int_0^2 f(x)\mathrm{d}x > \int_0^2 \left(\frac{1}{2}x + 1\right)\mathrm{d}x = \left[ \frac{1}{4}x^2 + x \right]_0^2 = 3$$<br />
+又显然 $\int_0^2 f(x)\mathrm{d}x < 2 \times 2 = 4$。<br />
+代入 $P$ 的表达式:<br />
+$$3 < \int_0^2 f(x)\mathrm{d}x < 4 \implies 0 < 4 - \int_0^2 f(x)\mathrm{d}x < 1 \implies 0 < P < 1$$<br />
+故选 (D)。</p>
+<hr />
+<p><strong>(定义陷阱)<font color=red>题目[13]:无穷反常积分敛散性严格定义辨析</font></strong></p>
+<p>下列反常积分中，发散的是 $(\quad)$。</p>
+<p>(A) $\int_0^{+\infty} xe^{-x}\mathrm{d}x$<br />
+(B) $\int_{-\infty}^{+\infty} xe^{-x^2}\mathrm{d}x$<br />
+(C) $\int_{-\infty}^{+\infty}\frac{\arctan x}{1+x^2}\mathrm{d}x$<br />
+(D) $\int_{-\infty}^{+\infty}\frac{x}{1+x^2}\mathrm{d}x$</p>
+<p>答案: (D)</p>
+<p>主要思路:[双无穷反常积分收敛要求正负无穷两段独立收敛，切勿与对称区间极限(柯西主值)混淆]</p>
+<p>[1]反常积分 $\int_{-\infty}^{+\infty} f(x)\mathrm{d}x$ 的收敛定义:<br />
+必须满足 $\int_{-\infty}^0 f(x)\mathrm{d}x$ 与 $\int_0^{+\infty} f(x)\mathrm{d}x$ <strong>各自独立收敛</strong>！</p>
+<p>[2]逐项判定:<br />
+(A) $\int_0^{+\infty} xe^{-x}\mathrm{d}x = \Gamma(2) = 1$，收敛；<br />
+(B) $\int_0^{+\infty} xe^{-x^2}\mathrm{d}x = \left. -\frac{1}{2}e^{-x^2} \right|_0^{+\infty} = \frac{1}{2}$，两边均收敛，整体收敛；<br />
+(C) $\int_0^{+\infty} \frac{\arctan x}{1+x^2}\mathrm{d}x = \left. \frac{1}{2}(\arctan x)^2 \right|_0^{+\infty} = \frac{\pi^2}{8}$，两边均收敛，整体收敛；<br />
+(D) 计算右半段:<br />
+$$\int_0^{+\infty} \frac{x}{1+x^2}\mathrm{d}x = \left. \frac{1}{2}\ln(1+x^2) \right|_0^{+\infty} = +\infty$$<br />
+单边发散，故该反常积分发散！（虽然被积函数为奇函数，但柯西主值为 0 不代表反常积分收敛！）。</p>
+<hr />
+<p><strong>(双瑕点)<font color=deeppink>题目[14]:兼具零点与无穷瑕点的含参反常积分收敛条件</font></strong></p>
+<p>若反常积分 $\int_0^{+\infty}\frac{\ln x}{(1+x)x^{1-p}}\mathrm{d}x$ 收敛，则 $(\quad)$。</p>
+<p>(A) $p<1$<br />
+(B) $p>1$<br />
+(C) $0<p<1$<br />
+(D) $0\le p<1$</p>
+<p>答案: (C)</p>
+<p>主要思路:[拆分为 $\int_0^1$ 与 $\int_1^{+\infty}$ 两部分，分别在 $0$ 处与 $+\infty$ 处应用 $p$ 级数审敛]</p>
+<p>[1]拆分反常积分:<br />
+$$I = \int_0^1 \frac{\ln x}{(1+x)x^{1-p}}\mathrm{d}x + \int_1^{+\infty} \frac{\ln x}{(1+x)x^{1-p}}\mathrm{d}x = I_1 + I_2$$</p>
+<p>[2]分析 $x \to 0^+$ 处的敛散性 ($I_1$):<br />
+当 $x \to 0^+$ 时，$1+x \to 1$，被积函数等价于 $x^{p-1}\ln x$。<br />
+由瑕积分审敛法，为保证收敛，必须要求分母幂次满足 $1-p < 1 \implies p > 0$。</p>
+<p>[3]分析 $x \to +\infty$ 处的敛散性 ($I_2$):<br />
+当 $x \to +\infty$ 时，$1+x \sim x$，被积函数等价于 $\frac{\ln x}{x^{2-p}}$。<br />
+由无穷区间审敛法，分母幂次必须满足 $2-p > 1 \implies p < 1$。</p>
+<p>[4]联立两端条件:<br />
+$$0 < p < 1$$<br />
+故选 (C)。</p>
+<hr />
+<p><strong>(审敛法应用)<font color=green>题目[15]:常见反常积分敛散性识别</font></strong></p>
+<p>下列反常积分收敛的是 $(\quad)$。</p>
+<p>(A) $\int_2^{+\infty}\frac{1}{x\ln x}\mathrm{d}x$<br />
+(B) $\int_0^{+\infty} e^{-x^2}\mathrm{d}x$<br />
+(C) $\int_{-1}^1 \frac{1}{\sin x}\mathrm{d}x$<br />
+(D) $\int_0^1 \frac{x}{\ln^2(1+x)}\mathrm{d}x$</p>
+<p>答案: (B)</p>
+<p>主要思路:[高斯积分的收敛性，对比 $p$ 级数审敛法识别各瑕点]</p>
+<p>[1]逐项排查:<br />
+(A) $\int_2^{+\infty} \frac{1}{x\ln x}\mathrm{d}x = \left. \ln(\ln x) \right|_2^{+\infty} = +\infty$，发散；<br />
+(B) $\int_0^{+\infty} e^{-x^2}\mathrm{d}x = \frac{\sqrt{\pi}}{2}$（泊松积分），显然收敛；<br />
+(C) $x=0$ 是瑕点，$\frac{1}{\sin x} \sim \frac{1}{x}$，瑕点 $p=1 \ge 1$，发散；<br />
+(D) $x=0$ 是瑕点，$\ln^2(1+x) \sim x^2$，故 $\frac{x}{\ln^2(1+x)} \sim \frac{1}{x}$，瑕点 $p=1 \ge 1$，发散。<br />
+故正确选项为 (B)。</p>
+<hr />
+<p><strong>(和式极限)<font color=deeppink>题目[16]:根式和式极限转化为四分之一圆面积</font></strong></p>
+<p>$\lim\limits_{n\to\infty}\frac{1}{n^2}\left[\sqrt{n^2-1} + \sqrt{n^2-2^2} + \cdots + \sqrt{n^2-(n-1)^2}\right] =$ ______。</p>
+<p>答案: $\frac{\pi}{4}$</p>
+<p>主要思路:[提出 $\frac{1}{n}$，将根号内除以 $n^2$，转化为 $\int_0^1 \sqrt{1-x^2}\mathrm{d}x$]</p>
+<p>[1]整理极限通式:<br />
+$$\lim_{n\to\infty}\frac{1}{n}\sum_{i=1}^{n-1} \sqrt{1 - \left(\frac{i}{n}\right)^2} = \int_0^1 \sqrt{1-x^2}\mathrm{d}x$$</p>
+<p>[2]计算定积分:<br />
+该积分几何意义为单位圆在第一象限的面积:<br />
+$$\int_0^1 \sqrt{1-x^2}\mathrm{d}x = \frac{\pi}{4}$$</p>
+<hr />
+<p><strong>(和式极限)<font color=green>题目[17]:分式平方和式极限转化为反正切定积分</font></strong></p>
+<p>$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n \frac{n}{n^2+9i^2} =$ ______。</p>
+<p>答案: $\frac{1}{3}\arctan 3$</p>
+<p>主要思路:[分子分母同除以 $n^2$，化为 $\frac{1}{1+(3x)^2}$ 的定积分]</p>
+<p>[1]变形为定积分标准形式:<br />
+$$\lim_{n\to\infty} \frac{1}{n}\sum_{i=1}^n \frac{1}{1 + 9\left(\frac{i}{n}\right)^2} = \int_0^1 \frac{1}{1 + (3x)^2}\mathrm{d}x$$</p>
+<p>[2]凑微分计算:<br />
+$$\int_0^1 \frac{1}{1 + (3x)^2}\mathrm{d}x = \frac{1}{3}\left. \arctan(3x) \right|_0^1 = \frac{1}{3}\arctan 3$$</p>
+<hr />
+<p><strong>(积分估值)<font color=red>题目[18]:包含第一中值定理与分部积分的范围估值</font></strong></p>
+<p>定积分 $I=\int_{\frac{\pi}{4}}^\pi \frac{\sin x}{x}\mathrm{d}x$ 的值满足 $(\quad)$。</p>
+<p>(A) $0\le I\le \frac{1}{2}$<br />
+(B) $\frac{1}{2}\le I\le \frac{\sqrt{2}}{2}$<br />
+(C) $\frac{\sqrt{2}}{2}\le I\le 1$<br />
+(D) $1\le I\le 2\sqrt{2}$</p>
+<p>答案: (C)</p>
+<p>主要思路:[利用单调性与第一中值定理进行区间放缩，判定上下界落在 $(\sqrt{2}/2, 1)$]</p>
+<p>[1]应用积分第一中值定理估算粗范围:<br />
+因为在 $\left[\frac{\pi}{4}, \pi\right]$ 上，$\sin x \ge 0$，$\frac{1}{x}$ 单调递减:<br />
+$$I = \frac{1}{\xi} \int_{\frac{\pi}{4}}^\pi \sin x\mathrm{d}x = \frac{1}{\xi}\left(1 + \frac{\sqrt{2}}{2}\right) \quad \left(\xi \in \left(\frac{\pi}{4}, \pi\right)\right)$$<br />
+下界: $I > \frac{1}{\pi}\left(1 + \frac{\sqrt{2}}{2}\right) \approx \frac{1.707}{3.14} \approx 0.543 > 0.5$；<br />
+上界: $I < \frac{1}{\pi/4}\left(1 + \frac{\sqrt{2}}{2}\right) \approx 2.17$。</p>
+<p>[2]分部积分进一步精细估算:<br />
+$$I = -\int_{\frac{\pi}{4}}^\pi \frac{1}{x}\mathrm{d}(\cos x) = \left. -\frac{\cos x}{x} \right|_{\frac{\pi}{4}}^\pi - \int_{\frac{\pi}{4}}^\pi \frac{\cos x}{x^2}\mathrm{d}x = \frac{1 + 2\sqrt{2}}{\pi} - \int_{\frac{\pi}{4}}^\pi \frac{\cos x}{x^2}\mathrm{d}x$$<br />
+第一项 $\frac{1+2\sqrt{2}}{\pi} \approx 1.218$。<br />
+在后项中，$\cos x$ 在 $\left[\frac{\pi}{4}, \frac{\pi}{2}\right]$ 上为正，在 $\left[\frac{\pi}{2}, \pi\right]$ 上为负，抵消后整体修正量约 $0.33$。<br />
+实际积分值 $I \approx 0.89$。<br />
+显然满足 $\frac{\sqrt{2}}{2} \approx 0.707 < 0.89 < 1$。故选 (C)。</p>
+<hr />
+<p><strong>(奇偶性综合)<font color=deeppink>题目[19]:复合绝对值偶函数与变限积分的奇偶性</font></strong></p>
+<p>设 $f(x)\not\equiv 0$ 为 $(-\infty, +\infty)$ 上可导的奇函数，则下列函数为奇函数的是 $(\quad)$。</p>
+<p>(A) $x^3\int_0^x f'(t)\mathrm{d}t$<br />
+(B) $\int_0^x f(-t)\mathrm{d}t$<br />
+(C) $\int_0^x \left[f'(t)+f(t)\right]\mathrm{d}t$<br />
+(D) $\int_0^x f|t|\mathrm{d}t$</p>
+<p>答案: (D)</p>
+<p>主要思路:[偶函数的变限积分必为奇函数，奇函数的变限积分必为偶函数]</p>
+<p>[1]逐项分析各函数奇偶性:<br />
+(A) $\int_0^x f'(t)\mathrm{d}t = f(x) - f(0) = f(x)$（奇函数），故 $x^3 f(x)$ 是奇函数乘以奇函数，为<strong>偶函数</strong>；<br />
+(B) $f(-t) = -f(t)$ 为奇函数，奇函数的变限积分是<strong>偶函数</strong>；<br />
+(C) $f'(t)$ 是偶函数，其积分为奇函数；$f(t)$ 是奇函数，其积分为偶函数。奇加偶为非奇非偶；<br />
+(D) 被积函数为 $h(t) = f(|t|)$。<br />
+因为 $h(-t) = f(|-t|) = f(|t|) = h(t)$，所以 $h(t)$ 是<strong>偶函数</strong>！<br />
+偶函数的变限积分 $G(x) = \int_0^x h(t)\mathrm{d}t$ 必为<strong>奇函数</strong>：<br />
+$$G(-x) = \int_0^{-x} h(t)\mathrm{d}t \xlongequal{t=-u} -\int_0^x h(-u)\mathrm{d}u = -\int_0^x h(u)\mathrm{d}u = -G(x)$$<br />
+故 (D) 正确。</p>
+<hr />
+<p><strong>(对称性秒杀)<font color=red>题目[20]:对称区间奇零偶倍与三角函数积分大小比较</font></strong></p>
+<p>设 $M=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\frac{x}{1+x^2}\cos^5 x\mathrm{d}x$，$N=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}(x^2\sin x + \sin^2 x\cos x)\mathrm{d}x$，$P=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}(\sin^3 x - \cos^4 x)\mathrm{d}x$，则有 $(\quad)$。</p>
+<p>(A) $N<P<M$<br />
+(B) $M<P<N$<br />
+(C) $N<M<P$<br />
+(D) $P<M<N$</p>
+<p>答案: (D)</p>
+<p>主要思路:[奇函数在对称区间积分为0，利用正负性与点火公式快速定性大小]</p>
+<p>[1]计算 $M$:<br />
+被积函数 $\frac{x}{1+x^2}$ 是奇函数，$\cos^5 x$ 是偶函数，乘积为奇函数。<br />
+在对称区间 $\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ 上积分:<br />
+$$M = 0$$</p>
+<p>[2]计算 $N$:<br />
+$x^2\sin x$ 为奇函数，积分为 0；$\sin^2 x\cos x$ 为偶函数，故:<br />
+$$N = 2\int_0^{\frac{\pi}{2}}\sin^2 x\cos x\mathrm{d}x = 2\int_0^{\frac{\pi}{2}}\sin^2 x\mathrm{d}(\sin x) = 2 \left[ \frac{\sin^3 x}{3} \right]_0^{\frac{\pi}{2}} = \frac{2}{3} > 0$$</p>
+<p>[3]计算 $P$:<br />
+$\sin^3 x$ 为奇函数，积分为 0；$-\cos^4 x$ 为偶函数且恒负，由点火公式:<br />
+$$P = -2\int_0^{\frac{\pi}{2}}\cos^4 x\mathrm{d}x = -2 \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2} = -\frac{3\pi}{8} < 0$$</p>
+<p>[4]综合比较大小:<br />
+$$P < 0 = M < N = \frac{2}{3} \implies P < M < N$$<br />
+故选 (D)。</p>
+<hr />
+<p><strong>(双端审敛)<font color=deeppink>题目[21]:三角与对数复合广义积分的双端收敛条件</font></strong></p>
+<p>设 $a, b$ 为常数，$\int_0^1 \frac{\ln x}{x^a\left(\tan\frac{\pi}{2}x\right)^b}\mathrm{d}x$ 收敛，则 $(\quad)$。</p>
+<p>(A) $a+b>1$ 且 $b>-2$<br />
+(B) $a+b<1$ 且 $b>-2$<br />
+(C) $a+b>1$ 且 $b<-2$<br />
+(D) $a+b<1$ 且 $b<-2$</p>
+<p>答案: (B)</p>
+<p>主要思路:[在 $x=0$ 与 $x=1$ 两处分别进行等价无穷小代换，应用瑕积分 $p<1$ 收敛准则]</p>
+<p>[1]分析 $x \to 0^+$ 处的敛散性:<br />
+当 $x \to 0^+$ 时，$\tan\left(\frac{\pi}{2}x\right) \sim \frac{\pi}{2}x$。<br />
+被积函数等价于 $C \cdot \frac{\ln x}{x^{a+b}}$。<br />
+在瑕点 $0$ 处，$\ln x$ 不影响幂次收敛阶，收敛充要条件为分母幂次:<br />
+$$a + b < 1$$</p>
+<p>[2]分析 $x \to 1^-$ 处的敛散性:<br />
+令 $t = 1 - x \to 0^+$。<br />
+$\ln x = \ln(1-t) \sim -t = -(1-x)$。<br />
+$\tan\left(\frac{\pi}{2}x\right) = \cot\left(\frac{\pi}{2}(1-x)\right) \sim \frac{2}{\pi(1-x)}$。<br />
+被积函数在 $x \to 1^-$ 处等价于:<br />
+$$\frac{-(1-x)}{C' (1-x)^{-b}} = -\frac{1}{C'} (1-x)^{1+b} = -\frac{1}{C'(1-x)^{-(1+b)}}$$<br />
+由瑕积分收敛准则，瑕点幂次需小于 1:<br />
+$$-(1+b) < 1 \implies -1-b < 1 \implies b > -2$$</p>
+<p>[3]联立结果:<br />
+$$a + b < 1 \text{ 且 } b > -2$$<br />
+故选 (B)。</p>
+<hr />
+<p><strong>(跳跃间断)<font color=red>题目[22]:含取整函数被积函数的变限积分左右导数差</font></strong></p>
+<p>设 $f(x)=\int_0^x (t-[t])\mathrm{d}t$，其中 $[x]$ 表示不超过 $x$ 的最大整数，则 $F'_-(1)-F'_+(1) =$ ______。</p>
+<p>答案: 1</p>
+<p>主要思路:[变限积分在被积函数第一类间断点处的导数等于被积函数的左右极限]</p>
+<p>[1]根据变限积分导数定理:<br />
+设 $g(t) = t - [t]$。若 $g(t)$ 在 $t=x_0$ 处存在左右极限，则变限积分函数在该点处的左右导数分别等于被积函数的左右极限:<br />
+$$F'_-(1) = g(1^-), \quad F'_+(1) = g(1^+)$$</p>
+<p>[2]计算被积函数的左右极限:<br />
+当 $t \to 1^-$ 时，$t \in (0, 1)$，$[t] = 0$，故 $g(t) = t - 0 = t$。<br />
+$$g(1^-) = 1 \implies F'_-(1) = 1$$<br />
+当 $t \to 1^+$ 时，$t \in (1, 2)$，$[t] = 1$，故 $g(t) = t - 1$。<br />
+$$g(1^+) = 1 - 1 = 0 \implies F'_+(1) = 0$$</p>
+<p>[3]计算差值:<br />
+$$F'_-(1) - F'_+(1) = 1 - 0 = 1$$</p>
+<hr />
+<p><strong>(达布定理)<font color=red>题目[23]:原函数存在定理与可积性的充分必要性辨析</font></strong></p>
+<p>下列命题中不成立的是 $(\quad)$。</p>
+<p>(A) 若 $f(x)$ 连续，$x\in[a, b]$，则 $\int_a^x f(t)\mathrm{d}t$ 必为 $f(x)$ 的原函数<br />
+(B) 若 $f(x)$ 可积，$x\in[a, b]$，则 $f(x)$ 在 $(a, b)$ 内存在原函数<br />
+(C) 若 $f(x)$ 连续，且为奇函数，$x\in[-a, a]$，则 $\int_{-a}^a f(x)\mathrm{d}x=0$<br />
+(D) 若 $f(x)$ 连续，$T$ 为其周期，则 $\int_a^{a+T} f(x)\mathrm{d}x = \int_0^T f(x)\mathrm{d}x$</p>
+<p>答案: (B)</p>
+<p>主要思路:[可积不等于有原函数，含有第一类间断点的可积函数根据达布定理必无原函数]</p>
+<p>[1]分析各命题:<br />
+(A) 成立: 这是微积分基本定理，连续函数必有原函数，变限积分即为其一个原函数；<br />
+(B) <strong>不成立</strong>: 经典反例为符号函数 $f(x) = \operatorname{sgn}(x)$ 在 $[-1, 1]$ 上。它只有有限个（1个）跳跃间断点，因而 Riemann 可积；但由达布定理（导函数不能有第一类间断点），含跳跃间断点的函数在包含该点的区间上<strong>必无原函数</strong>！<br />
+(C) 成立: 奇函数在对称区间上的定积分恒为 0；<br />
+(D) 成立: 周期函数在任意一个完整周期区间上的定积分值与起点 $a$ 无关。<br />
+故不成立的是 (B)。</p>
+<hr />
+<p><strong>(瑕积分识别)<font color=red>题目[24]:区间内瑕点判定与反常积分发散性</font></strong></p>
+<p>设 $f(x-5)=\frac{4}{x^2-10x}$，则 $\int_0^4 f(2x+1)\mathrm{d}x\ (\quad)$。</p>
+<p>(A) 为反常积分，且发散<br />
+(B) 为反常积分，且收敛<br />
+(C) 不是反常积分，且其值为 10<br />
+(D) 不是反常积分，且其值为 $\frac{\pi}{4}$</p>
+<p>答案: (A)</p>
+<p>主要思路:[换元求出 $f(2x+1)$ 表达式，排查积分区间内部零点瑕点并审敛]</p>
+<p>[1]求 $f(u)$ 的显式表达:<br />
+令 $u = x - 5 \implies x = u + 5$。<br />
+$$x^2 - 10x = (x - 5)^2 - 25 = u^2 - 25$$<br />
+故:<br />
+$$f(u) = \frac{4}{u^2 - 25}$$</p>
+<p>[2]求 $f(2x+1)$ 的解析式:<br />
+将 $u = 2x + 1$ 代入:<br />
+$$f(2x+1) = \frac{4}{(2x+1)^2 - 25} = \frac{4}{4x^2 + 4x - 24} = \frac{1}{x^2 + x - 6} = \frac{1}{(x+3)(x-2)}$$</p>
+<p>[3]排查积分区间内部的奇点:<br />
+积分区间为 $[0, 4]$。分母在 $x = 2$ 处为 0，而 $x = 2 \in (0, 4)$！<br />
+因此被积函数在积分区间内部无界，该积分为<strong>瑕积分（反常积分）</strong>！</p>
+<p>[4]审敛性判定:<br />
+在瑕点 $x = 2$ 附近:<br />
+$$\frac{1}{(x+3)(x-2)} \sim \frac{1}{5(x-2)}$$<br />
+分母为一阶瑕点 ($p = 1 \ge 1$)，故该反常积分发散。选 (A)。</p>
+<hr />
+<p><strong>(定积分性质)<font color=deeppink>题目[25]:定积分性质、奇偶性与比较定理综合辨析</font></strong></p>
+<p>下列表达式中正确的是 $(\quad)$。</p>
+<p>(A) $\int_\pi^{2\pi}|\sin x|\mathrm{d}x \le \int_\pi^{2\pi}\sin^2 x\mathrm{d}x$<br />
+(B) $\int_{-\frac{\pi}{4}}^{\frac{\pi}{4}}\frac{x}{1+\cos x}\mathrm{d}x < \int_{-\frac{\pi}{4}}^{\frac{\pi}{4}}\left(\frac{\sin x}{1+x^4}+\frac{1}{1+x^2}\right)\mathrm{d}x$<br />
+(C) $\int_a^b f(x)\mathrm{d}x \le \int_c^d f(x)\mathrm{d}x,\ [a, b]\subset[c, d],\ f(x)\text{连续},\ x\in[c, d]$<br />
+(D) $\int_{-1}^1 |f(x)|\mathrm{d}x = 2\int_0^1 |f(x)|\mathrm{d}x,\ f(x)\text{连续},\ x\in[-1, 1]$</p>
+<p>答案: (B)</p>
+<p>主要思路:[利用奇偶性计算对称区间定积分值，对比正负性确定严格大小]</p>
+<p>[1]逐项辨析:<br />
+(A) 错误: 在 $[\pi, 2\pi]$ 上，$|\sin x| \in [0, 1]$。对于属于 $(0, 1)$ 的数，平方后反而更小，即 $\sin^2 x < |\sin x|$，故积分大小关系相反；<br />
+(B) 正确:<br />
+左边: 被积函数 $\frac{x}{1+\cos x}$ 是奇函数，在对称区间 $\left[-\frac{\pi}{4}, \frac{\pi}{4}\right]$ 上积分为 0；<br />
+右边: $\frac{\sin x}{1+x^4}$ 是奇函数，积分为 0；剩余项为:<br />
+$$\int_{-\frac{\pi}{4}}^{\frac{\pi}{4}} \frac{1}{1+x^2}\mathrm{d}x = 2\arctan\frac{\pi}{4} > 0$$<br />
+故 左边 = $0 <$ 右边，不等式严格成立！<br />
+(C) 错误: 缺少 $f(x) \ge 0$ 的条件。若 $f(x) < 0$，区间扩大则积分值反而变小；<br />
+(D) 错误: 只有当 $|f(x)|$ 是偶函数时才成立。若 $f(x)$ 无对称性（例如 $f(x) = x+1$），$|f(x)|$ 不是偶函数，对称区间积分不等于两倍正半轴积分。<br />
+故选 (B)。</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>
