@@ -1,56 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>高等数学1000a基础篇</title>
-    <!-- KaTeX for high performance, high-fidelity LaTeX math rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <style type="text/css">
+    <style>
     
 @page {
     size: A4;
     margin: 16mm 15mm 16mm 15mm;
 }
 
-::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-}
-
-* {
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-}
-
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-    font-size: 14px;
+    font-size: 13.8px;
     line-height: 1.68;
-    color: #24292e;
+    color: #1f2937;
     background-color: #ffffff;
     padding: 0;
     margin: 0;
-    -webkit-font-smoothing: antialiased;
 }
 
-#write {
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 24px 32px 48px 32px;
-}
-
-/* Purple Academic Headings */
+/* Purple Headings */
 h1 {
     font-size: 22px;
-    border-bottom: 2px solid #8b5cf6;
+    border-bottom: 2px solid #9333ea;
     padding-bottom: 6px;
-    margin-top: 22px;
+    margin-top: 16px;
     margin-bottom: 12px;
-    color: #4c1d95;
+    color: #581c87;
     page-break-after: avoid;
 }
 
@@ -58,9 +38,9 @@ h2 {
     font-size: 17px;
     border-bottom: 1px solid #e9d5ff;
     padding-bottom: 4px;
-    margin-top: 18px;
+    margin-top: 16px;
     margin-bottom: 10px;
-    color: #5b21b6;
+    color: #6b21a8;
     page-break-after: avoid;
 }
 
@@ -68,7 +48,7 @@ h3 {
     font-size: 15px;
     margin-top: 14px;
     margin-bottom: 8px;
-    color: #6d28d9;
+    color: #7e22ce;
     page-break-after: avoid;
 }
 
@@ -77,50 +57,49 @@ h6 {
     font-weight: 700;
     margin-top: 12px;
     margin-bottom: 6px;
-    color: #5b21b6;
+    color: #6b21a8;
     page-break-after: avoid;
 }
 
 p {
-    margin: 5px 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
     text-align: justify;
 }
 
-/* Typora quote blocks & DeepPink cards */
+/* DeepPink Formula Blocks / Blockquotes */
 blockquote {
-    margin: 10px 0;
-    padding: 8px 16px;
-    color: #24292e;
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
     background-color: #fff1f7;
     border-left: 4px solid #ff1493;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 5px 5px 0;
     page-break-inside: avoid;
-    overflow: visible !important;
 }
 
 blockquote blockquote {
     background-color: #fdf2f8;
-    border-left: 4px solid #ec4899;
-    margin: 6px 0;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
 }
 
 blockquote p {
-    margin: 5px 0;
+    margin: 4px 0;
 }
 
 /* Tables */
 table {
     border-collapse: collapse;
     width: 100%;
-    margin: 12px 0;
+    margin: 10px 0;
     page-break-inside: avoid;
-    font-size: 13.2px;
-    overflow: visible !important;
+    font-size: 13px;
 }
 
 th, td {
     border: 1px solid #fbcfe8;
-    padding: 6px 12px;
+    padding: 6px 10px;
     text-align: left;
 }
 
@@ -134,13 +113,13 @@ tr:nth-child(even) {
     background-color: #fff1f7;
 }
 
-/* Code */
+/* Code & Pre */
 pre {
     background-color: #faf5ff;
     border: 1px solid #e9d5ff;
     border-radius: 4px;
-    padding: 8px 12px;
-    overflow: visible !important;
+    padding: 8px 10px;
+    overflow-x: auto;
     font-size: 12.5px;
     page-break-inside: avoid;
 }
@@ -160,10 +139,10 @@ pre code {
     color: inherit;
 }
 
-/* KaTeX math formulas */
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
 .katex-display {
-    margin: 10px 0 !important;
-    overflow: visible !important;
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
     page-break-inside: avoid;
     color: #111827 !important;
 }
@@ -180,14 +159,12 @@ pre code {
 hr {
     border: 0;
     border-top: 1px solid #f3e8ff;
-    margin: 16px 0;
+    margin: 14px 0;
 }
 
     </style>
 </head>
-<body class="typora-export os-windows">
-<div class="typora-export-content">
-<div id="write">
+<body>
 <h1>第4章 一元函数微分学的计算</h1>
 <hr />
 <h2>本章核心考点与全题解大纲速览</h2>
@@ -451,271 +428,39 @@ hr {
 <p>因此:$f'(x)$连续，但$f''(0)$不存在选 (C)</p>
 <hr />
 <p><strong>(中等)<font color=deeppink>题目[9]:微分关系式递推高阶导数与奇函数性质综合</font></strong></p>
-<p>设可导的奇函数$f(x)$满足$f'(x)=f^2(x)$，且$f(-1)=1$，则$f'''(1) =$$6$
-
-主要思路:[奇函数定对称点函数值，由$f'=f^2$链式法则连续递推高阶导数]
-
-[1]利用奇函数性质定点:
-
-   已知$f(x)$为奇函数，则$f(-x) = -f(x)$,故$f(1) = -f(-1) = -1$
-
-[2]逐阶递推求高阶导数关系[乘法求导法则]:
-
-   一阶导数:$f'(x) = f^2(x)$；
-
-   二阶导数:$f''(x) = [f^2(x)]' = 2f(x)f'(x) = 2f(x) \cdot f^2(x) = 2f^3(x)$；
-
-   三阶导数:$f'''(x) = [2f^3(x)]' = 6f^2(x)f'(x) = 6f^2(x) \cdot f^2(x) = 6f^4(x)$
-
-[3]代入$x=1$求值:$$f'''(1) = 6 [f(1)]^4 = 6 \cdot (-1)^4 = 6$$
-
----
-
-**(简单)<font color=green>题目[10]:导数幂次微分关系式的三阶导数求值</font>**
-
-设可导函数$f(x)$满足$f'(x)=f^2(x)$，且$f(0)=-1$，则在$x=0$处的三阶导数$f'''(0)=(\quad)$
-
-(A)$-6$ 
-
-(B)$-4$ 
-
-(C)$4$ 
-
-(D)$6$
-
-答案: (D)
-
-主要思路:[链式求导递推公式$f'''(x) = 6f^4(x)$]
-
-[1]递推高阶导数公式:$$f'(x) = f^2(x) \implies f''(x) = 2f(x)f'(x) = 2f^3(x) \implies f'''(x) = 6f^2(x)f'(x) = 6f^4(x)$$
-
-[2]代入已知初值$f(0) = -1$:$$f'''(0) = 6 [f(0)]^4 = 6 \cdot (-1)^4 = 6$$
-
----
-
-**(高阶导数核心)<font color=red>题目[11]:麦克劳林展开系数反求任意阶高阶导数</font>**
-
-已知函数$f(x)=x^2\ln(1-x)$，则当$n \ge 3$时，$f^{(n)}(0) =$______[泰勒展开的第n项]
-
-答案:$-\frac{n!}{n-2}$
-
-主要思路:[写出基础初等函数的泰勒公式，比对通项系数直接得出$f^{(n)}(0)$]
-
-[1]展开$\ln(1-x)$的泰勒公式:   $$\ln(1-x) = -\sum\limits_{k=1}^\infty \frac{x^k}{k} = -x - \frac{x^2}{2} - \frac{x^3}{3} - \cdots - \frac{x^{n-2}}{n-2} - \cdots$$
-
-[2]乘以$x^2$得到$f(x)$:          $$f(x) = x^2 \ln(1-x) = -\sum\limits_{k=1}^\infty \frac{x^{k+2}}{k}$$(每一项的指数都比分母上的数字大$2$)
-
-[3]比对泰勒展开通式确定高阶导数值:
-
-   设当前项的次数为$n$,则有$k+2 = n$,即分母为 $k = n-2$,$x^n$ 项的具体形式就是 $-\frac{1}{n-2}x^n$
-
-   根据泰勒公式的唯一性，函数展式中$x^n$的系数为$\frac{f^{(n)}(0)}{n!}$
-
-   因此:$$\frac{f^{(n)}(0)}{n!} = -\frac{1}{n-2} \implies f^{(n)}(0) = -\frac{n!}{n-2}$$
-
----
-
-**(中等)<font color=deeppink>题目[12]:数列极限函数确定显式后的导数计算</font>**
-
-设$f(t)=\lim\limits_{n \to \infty}\cos t \cdot \left(\frac{n+t}{n-t}\right)^n$，则$f'(0) =$______
-
-答案:$2$
-
-主要思路:[先用$1^\infty$型数列极限(需要大头化简),求出$f(t)$显式]\[再求导代入]
-
-[1]计算底数极限项:$$\lim\limits_{n \to \infty}\left(\frac{n+t}{n-t}\right)^n = \lim\limits_{n \to \infty}\left(1 + \frac{2t}{n-t}\right)^n = e^{\lim\limits_{n \to \infty} n \cdot \frac{2t}{n-t}} = e^{2t}$$
-
-[2]写出$f(t)$的完整解析式: $$f(t) = e^{2t}\cos t$$
-
-[3]乘积求导法则:       $$f'(t) = 2e^{2t}\cos t - e^{2t}\sin t = e^{2t}(2\cos t - \sin t)$$
-
-[4]代入$t=0$:          $$f'(0) = e^0(2\cos 0 - \sin 0) = 1 \cdot (2 - 0) = 2$$
-
----
-
-**(简单)<font color=green>题目[13]:重要极限复合函数求导</font>**
-
-设$f(x)=\lim\limits_{t \to \infty}\left(1+\frac{1}{t}\right)^{t\sin x}$，则$f'(x) =$______
-
-答案:$e^{\sin x}\cos x$
-
-主要思路:[由极限求出显式$f(x) = e^{\sin x}$，再利用指数复合求导]
-
-[1]化简极限表达式:由常用极限$\lim\limits_{t \to \infty}\left(1+\frac{1}{t}\right)^t = e$，得:$$f(x) = \left[ \lim\limits_{t \to \infty}\left(1+\frac{1}{t}\right)^t \right]^{\sin x} = e^{\sin x}$$
-
-[2]复合求导:$$f'(x) = (e^{\sin x})' = e^{\sin x} \cdot (\sin x)' = e^{\sin x}\cos x$$
-
----
-
-**(简单?再看一眼)<font color=red>题目[14]:最值函数分段导函数的完整表达</font>**
-
-设$f(x)=\max\left\{x, x^2\right\},\ 0 < x < 2$，则$f'(x) =$______
-
-答案:$\begin{cases} 1, & 0 < x < 1 \\ \\ 2x, & 1 < x < 2 \end{cases}$(且在$x=1$处导数不存在)
-
-主要思路:[交点讨论，分段求导并判定连接点导数]
-
-[1]划分函数区间:联立$x = x^2$,所以在$(0, 2)$内分界点为$x=1$
-
-当$0 < x < 1$时，$x > x^2$，故$f(x) = x$；
-
-当$1 \le x < 2$时，$x^2 \ge x$，故$f(x) = x^2$
-
-[2]在分界点$x=1$处的不可导性:$$f'<em>-(1) = (x)'|</em>{x=1} = 1, \quad f'<em>+(1) = (x^2)'|</em>{x=1} = 2(1) = 2$$
-
-   因左右导数不相等，**故$f'(1)$不存在!!!**
-
-[3]写出导函数表达式:$$f'(x) = \begin{cases} 1, &amp; 0 &lt; x &lt; 1 \ \ 2x, &amp; 1 &lt; x &lt; 2 \end{cases}$$
-
----
-
-**(经典几何)<font color=red>题目[15]:参数方程曲线切线方程求解</font>**
-
-曲线$\begin{cases} x=e^t \sin 2t, \\ \\ y=e^t \cos t \end{cases}$在对应$t=0$处的点的切线方程为 ______
-
-答案:$y = \frac{1}{2}x + 1$(或$x - 2y + 2 = 0$)
-
-主要思路:[求出切点坐标$(x(0), y(0))$，由参数导数计算切线斜率]\[坑点:k不等于f'(0),而是等于定义$k = \left.\frac{\mathrm{d}y}{\mathrm{d}x}\right|_{t=0} = \frac{y'(0)}{x'(0)}$]
-
-[1]确定切点坐标:代入$t=0$:
-
-   $$x(0) = e^0 \sin 0 = 0, \quad y(0) = e^0 \cos 0 = 1$$,切点为$(0, 1)$
-
-[2]计算导数求切线斜率$k$:
-
-   $$\begin{aligned} x'(t) &amp;= e^t\sin 2t + 2e^t\cos 2t \implies x'(0) = 0 + 2 = 2 \ \ y'(t) &amp;= e^t\cos t - e^t\sin t \implies y'(0) = 1 - 0 = 1 \end{aligned}$$
-
-   故斜率为:
-
-   $$k = \left.\frac{\mathrm{d}y}{\mathrm{d}x}\right|<em>{t=0} = \frac{y'(0)}{x'(0)} = \frac{1}{2}$$
-
-[3]写出切线方程:
-
-   $$y - 1 = \frac{1}{2}(x - 0) \implies y = \frac{1}{2}x + 1 \quad (\text{即 } x - 2y + 2 = 0)$$
-
----
-
-**(高频必考)<font color=red>题目[16]:二阶参数方程导数的标准分步公式计算</font>**
-
-若$\begin{cases} x=\ln|t|, \\ \\ y=e^{-t^2}, \end{cases}$则$\left.\frac{\mathrm{d}^2y}{\mathrm{d}x^2}\right|_{t=\sqrt{2}} =$______
-
-答案:$\frac{8}{e^2}$(或$8e^{-2}$)
-
-主要思路:[严格按照二阶参数导数公式$\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)}{x'_t}$展开运算,而不是仅对y和x的二阶导]
-$$<br />
-\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right) = \left(\frac{\mathrm{d}t}{\mathrm{d}x} \frac{\mathrm{d}}{\mathrm{d}t}\right) \left(\frac{\mathrm{d}y}{\mathrm{d}x}\right) = \frac{\mathrm{d}t}{\mathrm{d}x} \cdot \left[\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)\right] = \left[\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{y'_t}{x'_t}\right)\right] \cdot \frac{1}{\frac{\mathrm{d}x}{\mathrm{d}t}} = \left[\frac{y''_t x'_t - y'_t x''_t}{(x'_t)^2}\right] \cdot \frac{1}{x'_t} = \frac{y''_t x'_t - y'_t x''_t}{(x'_t)^3}<br />
-$$
-[先备齐四个基础零件（在 $t = \sqrt{2}$ 处）：
-
-(1)$x(t) = \ln t \implies x'_t = \frac{1}{t}$
-
-(2)$x''_t = -\frac{1}{t^2}$
-
-(3)$y(t) = e^{-t^2} \implies y'_t = -2t e^{-t^2}$
-
-(4)$y''_t = -2e^{-t^2} + 4t^2 e^{-t^2} = (4t^2 - 2)e^{-t^2}$
-
-代入标准二阶导公式：$$\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{y''_t x'_t - y'_t x''_t}{(x'_t)^3}$$
-
-代入各阶导数式：$$\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{(4t^2 - 2)e^{-t^2} \cdot \left(\frac{1}{t}\right) - \left(-2t e^{-t^2}\right) \cdot \left(-\frac{1}{t^2}\right)}{\left(\frac{1}{t}\right)^3}$$
-
-分子提公因式 $e^{-t^2}$ 并化简：
-
-第一项：$\frac{4t^2 - 2}{t} e^{-t^2}$
-
-第二项：$-\frac{2}{t} e^{-t^2}$
-
-分子合并：$\frac{4t^2 - 4}{t} e^{-t^2}$
-
-分母为 $\frac{1}{t^3}$，除以分母等于乘以 $t^3$：$$\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{4t^2 - 4}{t} e^{-t^2} \cdot t^3 = 4t^2(t^2 - 1)e^{-t^2}$$
-
-代入 $t = \sqrt{2}$（即 $t^2 = 2$）：$$\left.\frac{\mathrm{d}^2y}{\mathrm{d}x^2}\right\vert{}</em>{t=\sqrt{2}} = 4(2)(2 - 1)e^{-2} = \frac{8}{e^2}$$
-
----
-
-**(大题必杀)<font color=red>题目[17]:莱布尼茨高阶求导公式与多项式截断技巧</font>**
-
-已知函数$f(x)=x^2(e^x+5)$，则$f^{(5)}(1) =$______
-
-答案:$31e$
-
-主要思路:[拆开因式后利用$5x^2$的高阶导数为零截断，对$x^2 e^x$应用莱布尼茨公式]
-
-[1]拆分函数:
-
-$$f(x) = x^2 e^x + 5x^2$$
-
-因为多项式$5x^2$最多求导到二阶，其 5 阶导数恒为零:$(5x^2)^{(5)} = 0$
-
-故只需计算$g(x) = x^2 e^x$的 5 阶导数:$f^{(5)}(x) = (x^2 e^x)^{(5)}$
-
-[2]应用莱布尼茨高阶求导公式:
-
-设$u(x) = e^x$，$v(x) = x^2$
-
-对于$u(x) = e^x$，各阶导数恒为$u^{(k)}(x) = e^x$
-
-对于$v(x) = x^2$，各阶导数为:$v(x)=x^2$，$v'(x)=2x$，$v''(x)=2$，$v^{(k)}(x)=0\ (k \ge 3)$
-
-由莱布尼茨公式展开，三阶及以上导数均为零，故仅存前三项:
-
-$$\begin{aligned} (x^2 e^x)^{(5)} &amp;= \sum\limits_{k=0}^5 C_5^k u^{(5-k)} v^{(k)} \ \ &amp;= C_5^0 e^x \cdot x^2 + C_5^1 e^x \cdot (2x) + C_5^2 e^x \cdot (2) \ \ &amp;= e^x \left[ 1 \cdot x^2 + 5 \cdot (2x) + 10 \cdot 2 \right]\ \ &amp;= e^x (x^2 + 10x + 20) \end{aligned}$$
-
-[3]代入$x=1$求值:
-
-$$f^{(5)}(1) = e^1 (1^2 + 10 \cdot 1 + 20) = e(1 + 10 + 20) = 31e$$
-
----
-
-**(压轴思维题)<font color=deeppink>题目[18]:莱布尼茨公式零点代入的高阶项唯一留存法则</font>**
-
-设$f(x)=(x-1)^{10}\sin x$，则$f^{(11)}(1)=(\quad)$
-
-(A)$10!\cos 1$ 
-
-(B)$11!\cos 1$ 
-
-(C)$10!\sin 1$ 
-
-(D)$11!\sin 1$
-
-答案: (B)
-
-主要思路:[应用莱布尼茨公式展开，分析在$x=1$处因包含$(x-1)$因子而大量归零的项，锁定唯一有效项]
-
-[1]设定莱布尼茨分解:
-
-令$u(x) = (x-1)^{10}$，$v(x) = \sin x$
-
-$$f^{(11)}(x) = \sum\limits_{k=0}^{11} C_{11}^k u^{(11-k)}(x) v^{(k)}(x)$$
-
-[2]考察$u(x) = (x-1)^{10}$在$x=1$处的导数特性:
-
-(1)$11-k > 10$时，即$k = 0$时:10 次多项式求 11 阶导数，恒为$u^{(11)}(x) = 0$；
-
-(2)$11-k < 10$时，即$k \ge 2$时:导数阶数低于 10，所得导函数中必残留因子$(x-1)$，代入$x=1$时全部为$0$；
-
-(3)$11-k = 10$时，即$k = 1$时:求恰好 10 阶导数，由常数微分法:
-
-$$u^{(10)}(x) = [(x-1)^{10}]^{(10)} = 10! \quad (\text{常数})$$
-
-[3]代入$x=1$锁定唯一非零项:
-
-在$x=1$处，展开式的 12 项中仅有$k=1$这一项非零:
-
-$$f^{(11)}(1) = C_{11}^1 \cdot u^{(10)}(1) \cdot v'(1)$$
-
-因为$C_{11}^1 = 11$，$u^{(10)}(1) = 10!$，$v'(x) = (\sin x)' = \cos x \implies v'(1) = \cos 1$
-
-故最终结果为:
-
-$$f^{(11)}(1) = 11 \cdot 10! \cdot \cos 1 = 11! \cos 1$$</p>
-</div>
-</div>
+<p>设可导的奇函数$f(x)$满足$f'(x)=f^2(x)$，且$f(-1)=1$，则$f'''(1) =XYZMATHBLOCK30XYZf'''(1) = 6 [f(1)]^4 = 6 \cdot (-1)^4 = 6XYZMATHBLOCK31XYZf'(x) = f^2(x) \implies f''(x) = 2f(x)f'(x) = 2f^3(x) \implies f'''(x) = 6f^2(x)f'(x) = 6f^4(x)XYZMATHBLOCK32XYZf'''(0) = 6 [f(0)]^4 = 6 \cdot (-1)^4 = 6XYZMATHBLOCK33XYZ\ln(1-x) = -\sum\limits_{k=1}^\infty \frac{x^k}{k} = -x - \frac{x^2}{2} - \frac{x^3}{3} - \cdots - \frac{x^{n-2}}{n-2} - \cdotsXYZMATHBLOCK34XYZf(x) = x^2 \ln(1-x) = -\sum\limits_{k=1}^\infty \frac{x^{k+2}}{k}XYZMATHBLOCK35XYZ\frac{f^{(n)}(0)}{n!} = -\frac{1}{n-2} \implies f^{(n)}(0) = -\frac{n!}{n-2}XYZMATHBLOCK36XYZ\lim\limits_{n \to \infty}\left(\frac{n+t}{n-t}\right)^n = \lim\limits_{n \to \infty}\left(1 + \frac{2t}{n-t}\right)^n = e^{\lim\limits_{n \to \infty} n \cdot \frac{2t}{n-t}} = e^{2t}XYZMATHBLOCK37XYZf(t) = e^{2t}\cos tXYZMATHBLOCK38XYZf'(t) = 2e^{2t}\cos t - e^{2t}\sin t = e^{2t}(2\cos t - \sin t)XYZMATHBLOCK39XYZf'(0) = e^0(2\cos 0 - \sin 0) = 1 \cdot (2 - 0) = 2XYZMATHBLOCK40XYZf(x) = \left[ \lim\limits_{t \to \infty}\left(1+\frac{1}{t}\right)^t \right]^{\sin x} = e^{\sin x}XYZMATHBLOCK41XYZf'(x) = (e^{\sin x})' = e^{\sin x} \cdot (\sin x)' = e^{\sin x}\cos xXYZMATHBLOCK42XYZf'_-(1) = (x)'|_{x=1} = 1, \quad f'_+(1) = (x^2)'|_{x=1} = 2(1) = 2XYZMATHBLOCK43XYZf'(x) = \begin{cases} 1, & 0 < x < 1 \\ \\ 2x, & 1 < x < 2 \end{cases}XYZMATHBLOCK44XYZx(0) = e^0 \sin 0 = 0, \quad y(0) = e^0 \cos 0 = 1XYZMATHBLOCK45XYZ\begin{aligned} x'(t) &= e^t\sin 2t + 2e^t\cos 2t \implies x'(0) = 0 + 2 = 2 \\ \\ y'(t) &= e^t\cos t - e^t\sin t \implies y'(0) = 1 - 0 = 1 \end{aligned}XYZMATHBLOCK46XYZk = \left.\frac{\mathrm{d}y}{\mathrm{d}x}\right|_{t=0} = \frac{y'(0)}{x'(0)} = \frac{1}{2}XYZMATHBLOCK47XYZy - 1 = \frac{1}{2}(x - 0) \implies y = \frac{1}{2}x + 1 \quad (\text{即 } x - 2y + 2 = 0)XYZMATHBLOCK48XYZ
+\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right) = \left(\frac{\mathrm{d}t}{\mathrm{d}x} \frac{\mathrm{d}}{\mathrm{d}t}\right) \left(\frac{\mathrm{d}y}{\mathrm{d}x}\right) = \frac{\mathrm{d}t}{\mathrm{d}x} \cdot \left[\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)\right] = \left[\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{y'_t}{x'_t}\right)\right] \cdot \frac{1}{\frac{\mathrm{d}x}{\mathrm{d}t}} = \left[\frac{y''_t x'_t - y'_t x''_t}{(x'_t)^2}\right] \cdot \frac{1}{x'_t} = \frac{y''_t x'_t - y'_t x''_t}{(x'_t)^3}
+XYZMATHBLOCK49XYZ\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{y''_t x'_t - y'_t x''_t}{(x'_t)^3}XYZMATHBLOCK50XYZ\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{(4t^2 - 2)e^{-t^2} \cdot \left(\frac{1}{t}\right) - \left(-2t e^{-t^2}\right) \cdot \left(-\frac{1}{t^2}\right)}{\left(\frac{1}{t}\right)^3}XYZMATHBLOCK51XYZ\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = \frac{4t^2 - 4}{t} e^{-t^2} \cdot t^3 = 4t^2(t^2 - 1)e^{-t^2}XYZMATHBLOCK52XYZ\left.\frac{\mathrm{d}^2y}{\mathrm{d}x^2}\right\vert{}_{t=\sqrt{2}} = 4(2)(2 - 1)e^{-2} = \frac{8}{e^2}XYZMATHBLOCK53XYZf(x) = x^2 e^x + 5x^2XYZMATHBLOCK54XYZ\begin{aligned} (x^2 e^x)^{(5)} &= \sum\limits_{k=0}^5 C_5^k u^{(5-k)} v^{(k)} \\ \\ &= C_5^0 e^x \cdot x^2 + C_5^1 e^x \cdot (2x) + C_5^2 e^x \cdot (2) \\ \\ &= e^x \left[ 1 \cdot x^2 + 5 \cdot (2x) + 10 \cdot 2 \right]\\ \\ &= e^x (x^2 + 10x + 20) \end{aligned}XYZMATHBLOCK55XYZf^{(5)}(1) = e^1 (1^2 + 10 \cdot 1 + 20) = e(1 + 10 + 20) = 31eXYZMATHBLOCK56XYZf^{(11)}(x) = \sum\limits_{k=0}^{11} C_{11}^k u^{(11-k)}(x) v^{(k)}(x)XYZMATHBLOCK57XYZu^{(10)}(x) = [(x-1)^{10}]^{(10)} = 10! \quad (\text{常数})XYZMATHBLOCK58XYZf^{(11)}(1) = C_{11}^1 \cdot u^{(10)}(1) \cdot v'(1)XYZMATHBLOCK59XYZf^{(11)}(1) = 11 \cdot 10! \cdot \cos 1 = 11! \cos 1$$
+
+[4]【表格法直观透视：12 项为何唯独幸存 1 项？】
+
+> 题目所求为在特殊点 $x=1$ 处的导数值 $f^{(11)}(1)$。  
+> 设 $u(x) = (x-1)^{10}$，$v(x) = \sin x$，展开式共有 $C_{11}^0$ 到 $C_{11}^{11}$ 共 12 项。用表格法逐行排查：
+
+| 展开项 $k$ | 组合数 $C_{11}^k$ | 多项式求导项 $u^{(11-k)}(x) = [(x-1)^{10}]^{(11-k)}$ | 在 $x=1$ 处的取值 $u^{(11-k)}(1)$ | 三角求导项 $v^{(k)}(x) = (\sin x)^{(k)}$ | 代入 $x=1$ 后的乘积项 | 命运判定与归零机理 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **$k=0$** | $C_{11}^0 = 1$ | $[(x-1)^{10}]^{(11)} = 0$ | $0$ | $\sin x$ | $0$ | **求导阶数超限**（10次多项式求11阶导恒为0） |
+| **$k=1$** | **$C_{11}^1 = 11$** | **$[(x-1)^{10}]^{(10)} = 10!$** | **$10!$ (常数)** | **$(\sin x)' = \cos x$** | **$11 \cdot 10! \cdot \cos 1 = \mathbf{11!\cos 1}$** | **<font color=red>【全卷唯一幸存项！】</font> 恰好蜕变为常数，不含 $(x-1)$ 因子** |
+| **$k=2$** | $C_{11}^2 = 55$ | $\frac{10!}{1!} (x-1)^1$ | $0$ | $-\sin x$ | $0$ | **零点消杀**（含因子 $(x-1)^1$，代入 $x=1$ 变为 0） |
+| **$k=3$** | $C_{11}^3 = 165$ | $\frac{10!}{2!} (x-1)^2$ | $0$ | $-\cos x$ | $0$ | **零点消杀**（含因子 $(x-1)^2$，代入 $x=1$ 变为 0） |
+| **$\vdots$** | $\vdots$ | $\vdots$ | $0$ | $\vdots$ | $0$ | **零点消杀**（均含 $(x-1)$ 幂次因子） |
+| **$k=10$** | $C_{11}^{10} = 11$ | $\frac{10!}{9!} (x-1)^9$ | $0$ | $-\sin x$ | $0$ | **零点消杀**（含因子 $(x-1)^9$） |
+| **$k=11$** | $C_{11}^{11} = 1$ | $(x-1)^{10}$ | $0$ | $-\cos x$ | $0$ | **零点消杀**（含因子 $(x-1)^{10}$） |
+| **求和汇总** | -- | -- | -- | -- | **$\mathbf{11! \cos 1}$** | **秒杀锁定 (B) 选项！** |
+
+> [!NOTE]
+> **莱布尼茨高阶求导两类高频题型 SOP 总结**：
+> 1. **通用展开型（如第17题）**：$f(x) = P_m(x) \cdot g(x)$。  
+>    - 多项式 $P_m(x)$ 是 $m$ 次的，求导至 $m+1$ 阶必为 0；
+>    - 表格法只需列出 $k=0, 1, \dots, m$ 对应的前 $m+1$ 行，后面的项全部截断！
+> 2. **零点代入型（如第18题）**：求 $f(x) = (x-x_0)^m \cdot g(x)$ 在 $x=x_0$ 处的 $n$ 阶导（$n \ge m$）。  
+>    - 只有当 $(x-x_0)^m$ 求导阶数**恰好等于 $m$** 时，即 $n-k = m \iff k = n - m$ 时，导数才是非零常数 $m!$；
+>    - 其余项：求导高于 $m$ 阶直接为 0；求导低于 $m$ 阶必含 $(x-x_0)$ 因子代入即为 0；
+>    - **直接公式秒杀**：$f^{(n)}(x_0) = C_n^{n-m} \cdot m! \cdot g^{(n-m)}(x_0) = \frac{n!}{(n-m)!} \cdot g^{(n-m)}(x_0)$！</p>
     <script>
     function renderMath() {
         if (typeof renderMathInElement !== 'undefined') {
-            renderMathInElement(document.getElementById('write'), {
+            renderMathInElement(document.body, {
                 delimiters: [
                     {left: "$$", right: "$$", display: true},
                     {left: "$", right: "$", display: false}
