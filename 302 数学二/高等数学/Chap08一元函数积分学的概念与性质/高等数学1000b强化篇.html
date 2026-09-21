@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>高等数学1000b强化篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h1>第八章 一元函数积分学的概念与性质（强化篇）</h1>
+<p><strong>(定积分定义与黎曼和极限)<font color=deeppink>题目[1]:三角和式的定积分转化</font></strong></p>
+<p>计算 $\lim\limits_{n \to \infty} \sum\limits_{i=1}^n \dfrac{1 - \cos\dfrac{\pi}{\sqrt{n}}}{1 + \cos\dfrac{i\pi}{2n}}$.</p>
+<p>答案: $\pi$</p>
+<p>主要思路:[将与求和指标无关的分子提至求和号外，利用等价无穷小展开，并将剩余和式化为定积分计算]</p>
+<p>[1] 分离无关项并利用等价无穷小：<br />
+观察被积和式，分子 $1 - \cos\frac{\pi}{\sqrt{n}}$ 与求和指标 $i$ 无关，可提取到求和号外：<br />
+$$\sum_{i=1}^n \frac{1 - \cos\frac{\pi}{\sqrt{n}}}{1 + \cos\frac{i\pi}{2n}} = \left(1 - \cos\frac{\pi}{\sqrt{n}}\right) \sum_{i=1}^n \frac{1}{1 + \cos\frac{i\pi}{2n}}$$<br />
+当 $n \to \infty$ 时，$\frac{\pi}{\sqrt{n}} \to 0$，利用等价无穷小 $1 - \cos u \sim \frac{1}{2}u^2$：<br />
+$$1 - \cos\frac{\pi}{\sqrt{n}} \sim \frac{1}{2}\left(\frac{\pi}{\sqrt{n}}\right)^2 = \frac{\pi^2}{2n}$$</p>
+<p>[2] 转化为定积分：<br />
+原极限可写为：<br />
+$$\lim_{n\to\infty} \frac{\pi^2}{2n} \sum_{i=1}^n \frac{1}{1 + \cos\left(\frac{\pi}{2} \cdot \frac{i}{n}\right)} = \frac{\pi^2}{2} \lim_{n\to\infty} \frac{1}{n}\sum_{i=1}^n \frac{1}{1 + \cos\left(\frac{\pi}{2} \cdot \frac{i}{n}\right)}$$<br />
+由定积分定义，该和式对应函数 $g(x) = \frac{1}{1 + \cos\frac{\pi x}{2}}$ 在 $[0, 1]$ 上的定积分：<br />
+$$\lim_{n\to\infty} \frac{1}{n}\sum_{i=1}^n \frac{1}{1 + \cos\left(\frac{\pi}{2} \cdot \frac{i}{n}\right)} = \int_0^1 \frac{1}{1 + \cos\frac{\pi x}{2}}\,\mathrm{d}x$$</p>
+<p>[3] 计算定积分：<br />
+令 $u = \frac{\pi x}{2}$，则 $\mathrm{d}x = \frac{2}{\pi}\mathrm{d}u$，当 $x=0$ 时 $u=0$；当 $x=1$ 时 $u=\frac{\pi}{2}$：<br />
+$$\int_0^1 \frac{1}{1 + \cos\frac{\pi x}{2}}\,\mathrm{d}x = \frac{2}{\pi}\int_0^{\pi/2} \frac{1}{1 + \cos u}\,\mathrm{d}u = \frac{2}{\pi}\int_0^{\pi/2} \frac{1}{2\cos^2\frac{u}{2}}\,\mathrm{d}u = \frac{2}{\pi} \left[\tan\frac{u}{2}\right]_0^{\pi/2} = \frac{2}{\pi}(1 - 0) = \frac{2}{\pi}$$<br />
+因此原极限为：<br />
+$$\frac{\pi^2}{2} \times \frac{2}{\pi} = \pi$$</p>
+<hr />
+<p><strong>(定积分定义与对称点采样)<font color=deeppink>题目[2]:中点黎曼和与定积分转化</font></strong></p>
+<p>设 $f(x)$ 连续，则 $\lim\limits_{n \to \infty} \sum\limits_{k=1}^n \dfrac{k - \frac{1}{2} + n}{n^2} f\left(\dfrac{2k - 1}{2n}\right) = (\qquad)$.</p>
+<p>[A] $\int_0^1 \left(x + \dfrac{1}{2}\right) f(x)\mathrm{d}x$</p>
+<p>[B] $\int_0^1 \left(x + 1 - \dfrac{1}{2n}\right) f\left(x - \dfrac{1}{2n}\right)\mathrm{d}x$</p>
+<p>[C] $\int_0^1 (x + 1) f(x)\mathrm{d}x$</p>
+<p>[D] $\int_0^1 \left(x + \dfrac{1}{2} + \dfrac{1}{n}\right) f\left(x - \dfrac{1}{n}\right)\mathrm{d}x$</p>
+<p>答案: [C]</p>
+<p>主要思路:[将通项变形拆出步长 $\frac{1}{n}$，识别采样点 $\xi_k = \frac{2k-1}{2n}$ 并直接对应定积分]</p>
+<p>[1] 变形通项：<br />
+将求和项系数改写为：<br />
+$$\frac{k - \frac{1}{2} + n}{n^2} = \frac{1}{n} \cdot \frac{k - \frac{1}{2} + n}{n} = \frac{1}{n} \left(\frac{2k - 1}{2n} + 1\right)$$<br />
+记 $\xi_k = \frac{2k - 1}{2n}$，则 $\xi_k \in \left[\frac{k-1}{n}, \frac{k}{n}\right]$ 为每个子区间的中点.</p>
+<p>[2] 识别黎曼和：<br />
+原和式即为：<br />
+$$\sum_{k=1}^n \frac{1}{n} (\xi_k + 1) f(\xi_k)$$<br />
+因为 $f(x)$ 连续，所以 $(x+1)f(x)$ 在 $[0, 1]$ 上连续可积.<br />
+由定积分定义，当 $n \to \infty$ 时，分割细度趋于 0，无论介点取在何处，积分和均收敛于定积分：<br />
+$$\lim_{n\to\infty} \sum_{k=1}^n \frac{1}{n} (\xi_k + 1) f(\xi_k) = \int_0^1 (x + 1) f(x)\,\mathrm{d}x$$<br />
+故选 [C].</p>
+<hr />
+<p><strong>(对数和式与定积分定义)<font color=deeppink>题目[3]:可积函数对数和式的极限</font></strong></p>
+<p>设 $f(x)$ 在 $[0,1]$ 上可积，则 $\lim\limits_{n \to \infty} \sum\limits_{i=0}^{n-1} \ln\left[1 + \dfrac{1}{n} f\left(\dfrac{i}{n}\right)\right] = (\qquad)$.</p>
+<p>[A] $\int_0^1 \ln\left[1 + \dfrac{f(x)}{n}\right]\mathrm{d}x$</p>
+<p>[B] $\int_0^1 \ln[1 + f(x)]\mathrm{d}x$</p>
+<p>[C] $\int_0^1 f(x)\mathrm{d}x$</p>
+<p>[D] $\int_0^1 f^2(x)\mathrm{d}x$</p>
+<p>答案: [C]</p>
+<p>主要思路:[利用对数函数的泰勒展开 $\ln(1+u) = u + O(u^2)$ 结合可积函数的有界性估计余项，转化为黎曼和]</p>
+<p>[1] 有界性与对数展开：<br />
+由于 $f(x)$ 在 $[0, 1]$ 上可积，由黎曼可积性必有界，设存在常数 $M > 0$ 使得对任意 $x \in [0, 1]$ 有 $|f(x)| \leqslant M$.<br />
+当 $n \to \infty$ 时，$\left|\frac{1}{n}f\left(\frac{i}{n}\right)\right| \leqslant \frac{M}{n} \to 0$ 对所有 $i$ 一致成立.<br />
+利用泰勒展开：<br />
+$$\ln(1 + u) = u + O(u^2) \quad (u \to 0)$$<br />
+代入得：<br />
+$$\ln\left[1 + \frac{1}{n} f\left(\frac{i}{n}\right)\right] = \frac{1}{n} f\left(\frac{i}{n}\right) + O\left(\frac{1}{n^2}\right)$$</p>
+<p>[2] 求和并取极限：<br />
+对 $i = 0, 1, \dots, n-1$ 求和：<br />
+$$\sum_{i=0}^{n-1} \ln\left[1 + \frac{1}{n} f\left(\frac{i}{n}\right)\right] = \sum_{i=0}^{n-1} \frac{1}{n} f\left(\frac{i}{n}\right) + \sum_{i=0}^{n-1} O\left(\frac{1}{n^2}\right)$$<br />
+余项部分满足：<br />
+$$\left|\sum_{i=0}^{n-1} O\left(\frac{1}{n^2}\right)\right| \leqslant n \cdot \frac{C M^2}{n^2} = \frac{C M^2}{n} \to 0 \quad (n \to \infty)$$<br />
+而主项部分正是 $f(x)$ 在 $[0, 1]$ 上的黎曼和：<br />
+$$\lim_{n\to\infty} \sum_{i=0}^{n-1} \frac{1}{n} f\left(\frac{i}{n}\right) = \int_0^1 f(x)\,\mathrm{d}x$$<br />
+因此原式极限为 $\int_0^1 f(x)\,\mathrm{d}x$. 故选 [C].</p>
+<hr />
+<p><strong>(定积分大小比较与对称变换)<font color=deeppink>题目[4]:区间代换与定积分大小关系</font></strong></p>
+<p>$I_1 = \int_0^{2\pi} \dfrac{\sin x}{x}\mathrm{d}x$, $I_2 = \int_0^{2\pi} \dfrac{\sin x}{2\pi - x}\mathrm{d}x$, $I_3 = \int_0^{2\pi} \dfrac{\sin x}{x(2\pi - x)}\mathrm{d}x$, 则 $(\qquad)$.</p>
+<p>[A] $I_3 < I_1 < I_2$</p>
+<p>[B] $I_3 < I_2 < I_1$</p>
+<p>[C] $I_2 < I_3 < I_1$</p>
+<p>[D] $I_1 < I_2 < I_3$</p>
+<p>答案: [C]</p>
+<p>主要思路:[作变量替换 $t=2\pi-x$ 建立 $I_2 = -I_1$，利用部分分式分解求出 $I_3 = 0$，再由分段符号判定 $I_1 > 0$]</p>
+<p>[1] 分析 $I_2$ 与 $I_1$ 的关系：<br />
+对 $I_2$ 作变量替换 $t = 2\pi - x$，则 $\mathrm{d}x = -\mathrm{d}t$.<br />
+当 $x=0$ 时 $t=2\pi$；当 $x=2\pi$ 时 $t=0$.<br />
+$\sin x = \sin(2\pi - t) = -\sin t$.<br />
+代入得：<br />
+$$I_2 = \int_{2\pi}^0 \frac{-\sin t}{t}(-\mathrm{d}t) = -\int_0^{2\pi} \frac{\sin t}{t}\,\mathrm{d}t = -I_1$$</p>
+<p>[2] 计算 $I_3$：<br />
+利用裂项分解：<br />
+$$\frac{1}{x(2\pi - x)} = \frac{1}{2\pi}\left(\frac{1}{x} + \frac{1}{2\pi - x}\right)$$<br />
+因此：<br />
+$$I_3 = \frac{1}{2\pi}\left[\int_0^{2\pi} \frac{\sin x}{x}\,\mathrm{d}x + \int_0^{2\pi} \frac{\sin x}{2\pi - x}\,\mathrm{d}x\right] = \frac{1}{2\pi}(I_1 + I_2)$$<br />
+因为 $I_2 = -I_1$，所以：<br />
+$$I_3 = \frac{1}{2\pi}(I_1 - I_1) = 0$$</p>
+<p>[3] 判定 $I_1$ 的符号：<br />
+将 $I_1$ 拆为两段 $[0, \pi]$ 与 $[\pi, 2\pi]$：<br />
+$$I_1 = \int_0^\pi \frac{\sin x}{x}\,\mathrm{d}x + \int_\pi^{2\pi} \frac{\sin x}{x}\,\mathrm{d}x$$<br />
+在第二段中令 $x = u + \pi$：<br />
+$$\int_\pi^{2\pi} \frac{\sin x}{x}\,\mathrm{d}x = \int_0^\pi \frac{\sin(u+\pi)}{u+\pi}\,\mathrm{d}u = -\int_0^\pi \frac{\sin u}{u+\pi}\,\mathrm{d}u$$<br />
+合并两项：<br />
+$$I_1 = \int_0^\pi \sin u \left(\frac{1}{u} - \frac{1}{u+\pi}\right)\,\mathrm{d}u = \int_0^\pi \sin u \frac{\pi}{u(u+\pi)}\,\mathrm{d}u$$<br />
+在 $(0, \pi)$ 上，$\sin u > 0$ 且 $\frac{\pi}{u(u+\pi)} > 0$，所以被积函数严格为正，定积分 $I_1 > 0$.<br />
+因此：<br />
+$$I_2 = -I_1 < 0, \quad I_3 = 0, \quad I_1 > 0$$<br />
+即 $I_2 < I_3 < I_1$. 故选 [C].</p>
+<hr />
+<p><strong>(定积分正负性判定)<font color=deeppink>题目[5]:振荡积分与被积函数保号性</font></strong></p>
+<p>设 $I_1 = \int_0^{\sqrt{2\pi}} \sin x^2\mathrm{d}x$, $I_2 = \int_{-\frac{\pi}{4}}^{\frac{\pi}{4}} \dfrac{\mathrm{d}x}{1 + \sin x}$, 则 $(\qquad)$.</p>
+<p>[A] $I_1 > 0$, $I_2 > 0$</p>
+<p>[B] $I_1 < 0$, $I_2 < 0$</p>
+<p>[C] $I_1 > 0$, $I_2 < 0$</p>
+<p>[D] $I_1 < 0$, $I_2 > 0$</p>
+<p>答案: [A]</p>
+<p>主要思路:[$I_1$ 作换元 $t=x^2$ 分段比较振荡抵消；$I_2$ 由被积函数严格大于零判定保号性]</p>
+<p>[1] 判定 $I_1$ 的符号：<br />
+对 $I_1$ 作代换 $t = x^2$，则 $x = \sqrt{t}, \mathrm{d}x = \frac{\mathrm{d}t}{2\sqrt{t}}$：<br />
+$$I_1 = \int_0^{2\pi} \frac{\sin t}{2\sqrt{t}}\,\mathrm{d}t = \int_0^\pi \frac{\sin t}{2\sqrt{t}}\,\mathrm{d}t + \int_\pi^{2\pi} \frac{\sin t}{2\sqrt{t}}\,\mathrm{d}t$$<br />
+在第二段积分中令 $t = u + \pi$：<br />
+$$\int_\pi^{2\pi} \frac{\sin t}{2\sqrt{t}}\,\mathrm{d}t = \int_0^\pi \frac{\sin(u+\pi)}{2\sqrt{u+\pi}}\,\mathrm{d}u = -\int_0^\pi \frac{\sin u}{2\sqrt{u+\pi}}\,\mathrm{d}u$$<br />
+合并得：<br />
+$$I_1 = \int_0^\pi \frac{\sin u}{2} \left(\frac{1}{\sqrt{u}} - \frac{1}{\sqrt{u+\pi}}\right)\,\mathrm{d}u$$<br />
+当 $u \in (0, \pi)$ 时，$\sin u > 0$，且 $\sqrt{u} < \sqrt{u+\pi} \implies \frac{1}{\sqrt{u}} > \frac{1}{\sqrt{u+\pi}}$，<br />
+所以被积函数在 $(0, \pi)$ 内恒为正，故 $I_1 > 0$.</p>
+<p>[2] 判定 $I_2$ 的符号：<br />
+考察 $I_2$ 的被积函数 $\frac{1}{1+\sin x}$：<br />
+当 $x \in \left[-\frac{\pi}{4}, \frac{\pi}{4}\right]$ 时，$-\frac{\sqrt{2}}{2} \leqslant \sin x \leqslant \frac{\sqrt{2}}{2}$.<br />
+分母 $1 + \sin x \geqslant 1 - \frac{\sqrt{2}}{2} > 0$ 恒严格大于 0.<br />
+由于被积函数在闭区间 $\left[-\frac{\pi}{4}, \frac{\pi}{4}\right]$ 上连续且严格大于 0，其定积分必然严格大于 0：<br />
+$$I_2 > 0$$<br />
+（亦可直接计算：$\int_{-\pi/4}^{\pi/4} \frac{1-\sin x}{\cos^2 x}\mathrm{d}x = [\tan x - \sec x]_{-\pi/4}^{\pi/4} = 2 > 0$）.<br />
+因此 $I_1 > 0, I_2 > 0$. 故选 [A].</p>
+<hr />
+<p><strong>(完全平方式与定积分极值)<font color=deeppink>题目[6]:连续函数平方和不等式确定函数</font></strong></p>
+<p>设 $f(x)$ 在 $[0, 1]$ 上连续，$\int_0^1 2x^2 f(x)\mathrm{d}x \ge \int_0^1 f^2(x)\mathrm{d}x + \dfrac{1}{5}$，则 $f(x) = \underline{\qquad\qquad}$.</p>
+<p>答案: $x^2$</p>
+<p>主要思路:[将不等式各项移至一侧，配成 $[f(x)-x^2]^2$ 的积分，利用连续非负函数积分为零的性质确定函数]</p>
+<p>[1] 移项与配方：<br />
+将原不等式移项变形：<br />
+$$\int_0^1 f^2(x)\,\mathrm{d}x - \int_0^1 2x^2 f(x)\,\mathrm{d}x + \frac{1}{5} \leqslant 0$$<br />
+注意到：<br />
+$$\int_0^1 x^4\,\mathrm{d}x = \left[\frac{x^5}{5}\right]_0^1 = \frac{1}{5}$$<br />
+将 $\frac{1}{5}$ 用定积分代换：<br />
+$$\int_0^1 f^2(x)\,\mathrm{d}x - \int_0^1 2x^2 f(x)\,\mathrm{d}x + \int_0^1 x^4\,\mathrm{d}x \leqslant 0$$</p>
+<p>[2] 合并为一个定积分：<br />
+$$\int_0^1 \left[f^2(x) - 2x^2 f(x) + x^4\right]\,\mathrm{d}x \leqslant 0$$<br />
+$$\int_0^1 \big[f(x) - x^2\big]^2\,\mathrm{d}x \leqslant 0$$</p>
+<p>[3] 由非负连续性定解：<br />
+因为对任意 $x \in [0, 1]$，均有 $[f(x) - x^2]^2 \geqslant 0$，所以定积分必然满足：<br />
+$$\int_0^1 \big[f(x) - x^2\big]^2\,\mathrm{d}x \geqslant 0$$<br />
+结合上式，唯有：<br />
+$$\int_0^1 \big[f(x) - x^2\big]^2\,\mathrm{d}x = 0$$<br />
+由于 $f(x)$ 连续，$[f(x) - x^2]^2$ 为连续非负函数，其在 $[0, 1]$ 上的积分为零当且仅当被积函数恒等于零：<br />
+$$[f(x) - x^2]^2 \equiv 0 \implies f(x) = x^2$$</p>
+<hr />
+<p><strong>(变上限积分函数性态)<font color=deeppink>题目[7]:绝对值变上限积分的奇偶性与可导性</font></strong></p>
+<p>设 $f(x) = \int_0^{|\sin x|} \mathrm{e}^{t^2}\mathrm{d}t$, $g(x) = \int_0^{|x|} \sin t^2\mathrm{d}t$，则在 $(-\pi, \pi)$ 内 $(\qquad)$.</p>
+<p>[A] $f(x)$ 是可导的奇函数</p>
+<p>[B] $g(x)$ 是可导的偶函数</p>
+<p>[C] $f(x)$ 是奇函数且 $f'(0)$ 不存在</p>
+<p>[D] $g(x)$ 是偶函数且 $g'(0)$ 不存在</p>
+<p>答案: [B]</p>
+<p>主要思路:[代入 $-x$ 检验偶函数性，利用导数定义或洛必达法则分别检验在 $x=0$ 处的左右导数]</p>
+<p>[1] 检验奇偶性：<br />
+对任意 $x \in (-\pi, \pi)$：<br />
+$$f(-x) = \int_0^{|\sin(-x)|} \mathrm{e}^{t^2}\,\mathrm{d}t = \int_0^{|-\sin x|} \mathrm{e}^{t^2}\,\mathrm{d}t = \int_0^{|\sin x|} \mathrm{e}^{t^2}\,\mathrm{d}t = f(x)$$<br />
+$$g(-x) = \int_0^{|-x|} \sin t^2\,\mathrm{d}t = \int_0^{|x|} \sin t^2\,\mathrm{d}t = g(x)$$<br />
+因此 $f(x)$ 和 $g(x)$ 均为偶函数，排除 [A] 与 [C].</p>
+<p>[2] 检验 $g(x)$ 在 $x=0$ 处的可导性：<br />
+当 $x > 0$ 时，$g(x) = \int_0^x \sin t^2\,\mathrm{d}t$；当 $x < 0$ 时，$g(x) = \int_0^{-x} \sin t^2\,\mathrm{d}t$.<br />
+计算左右导数：<br />
+$$g'_+(0) = \lim_{x\to 0^+} \frac{g(x) - g(0)}{x} = \lim_{x\to 0^+} \frac{\int_0^x \sin t^2\,\mathrm{d}t}{x} = \lim_{x\to 0^+} \frac{\sin x^2}{1} = 0$$<br />
+$$g'_-(0) = \lim_{x\to 0^-} \frac{g(x) - g(0)}{x} = \lim_{x\to 0^-} \frac{\int_0^{-x} \sin t^2\,\mathrm{d}t}{x} = \lim_{x\to 0^-} \frac{\sin((-x)^2) \cdot (-1)}{1} = 0$$<br />
+因为 $g'_+(0) = g'_-(0) = 0$，所以 $g'(0)$ 存在且为 0.<br />
+当 $x \ne 0$ 时，根据变上限积分求导公式与复合求导法则，导数显然存在.<br />
+因此 $g(x)$ 是 $(-\pi, \pi)$ 内的可导偶函数. 故选 [B].</p>
+<p>（补充说明：对于 $f(x)$，在 $x=0$ 处 $f'_+(0) = 1, f'_-(0) = -1$，不可导）.</p>
+<hr />
+<p><strong>(含定积分的函数方程)<font color=deeppink>题目[8]:待定常数法求解积分方程</font></strong></p>
+<p>设 $f(x) = 3x - \sqrt{1 - x^2}\int_0^1 f^2(x)\mathrm{d}x$，求 $f(x)$ 的表达式.</p>
+<p>答案: $f(x) = 3x - 3\sqrt{1-x^2}$ 或 $f(x) = 3x - \dfrac{3}{2}\sqrt{1-x^2}$</p>
+<p>主要思路:[令定积分为常数 $A$，代回原式求平方后两边积分建立关于 $A$ 的二次方程求解]</p>
+<p>[1] 设定积分常数：<br />
+令常数 $A = \int_0^1 f^2(x)\,\mathrm{d}x \geqslant 0$.<br />
+原函数方程化为：<br />
+$$f(x) = 3x - A\sqrt{1 - x^2}$$</p>
+<p>[2] 对 $f(x)$ 平方并积分：<br />
+$$f^2(x) = \left(3x - A\sqrt{1 - x^2}\right)^2 = 9x^2 - 6Ax\sqrt{1 - x^2} + A^2(1 - x^2)$$<br />
+两边在 $[0, 1]$ 上积分：<br />
+$$A = \int_0^1 9x^2\,\mathrm{d}x - 6A\int_0^1 x\sqrt{1 - x^2}\,\mathrm{d}x + A^2\int_0^1 (1 - x^2)\,\mathrm{d}x$$<br />
+分项计算各积分：<br />
+$$\int_0^1 9x^2\,\mathrm{d}x = \big[3x^3\big]_0^1 = 3$$<br />
+$$\int_0^1 x\sqrt{1 - x^2}\,\mathrm{d}x = -\frac{1}{2}\int_0^1 (1 - x^2)^{1/2}\,\mathrm{d}(1 - x^2) = \left[-\frac{1}{3}(1 - x^2)^{3/2}\right]_0^1 = \frac{1}{3}$$<br />
+$$\int_0^1 (1 - x^2)\,\mathrm{d}x = \left[x - \frac{x^3}{3}\right]_0^1 = \frac{2}{3}$$</p>
+<p>[3] 解关于 $A$ 的代数方程：<br />
+代入积分结果：<br />
+$$A = 3 - 6A\cdot \frac{1}{3} + \frac{2}{3}A^2 \implies A = 3 - 2A + \frac{2}{3}A^2$$<br />
+整理得：<br />
+$$\frac{2}{3}A^2 - 3A + 3 = 0 \iff 2A^2 - 9A + 9 = 0$$<br />
+因式分解：<br />
+$$(2A - 3)(A - 3) = 0 \implies A = 3 \quad \text{或} \quad A = \frac{3}{2}$$<br />
+两个解均满足 $A \geqslant 0$.<br />
+故 $f(x)$ 的表达式为：<br />
+$$f(x) = 3x - 3\sqrt{1 - x^2} \quad \text{或} \quad f(x) = 3x - \frac{3}{2}\sqrt{1 - x^2}$$</p>
+<hr />
+<p><strong>(取整函数反常积分敛散性)<font color=deeppink>题目[9]:含取整函数的反常积分敛散性判定</font></strong></p>
+<p>设常数 $m>0, n>0$，则 $\int_0^n \sqrt{x}\left[\dfrac{m}{x}\right]\mathrm{d}x$ ($[\cdot]$ 是取整符号) 的敛散性 $(\qquad)$.</p>
+<p>[A] 仅与 $m$ 有关</p>
+<p>[B] 仅与 $n$ 有关</p>
+<p>[C] 与 $m, n$ 均有关</p>
+<p>[D] 与 $m, n$ 均无关</p>
+<p>答案: [D]</p>
+<p>主要思路:[由取整函数不等式放缩确定原点附近的阶数，利用比较审敛法证明对任意正数均收敛]</p>
+<p>[1] 放缩被积函数：<br />
+被积函数为 $g(x) = \sqrt{x}\left[\frac{m}{x}\right]$，唯一的奇点在 $x = 0$ 处.<br />
+由取整函数的定义性质，对任意实数 $u$，均有 $u - 1 < [u] \leqslant u$.<br />
+当 $x > 0$ 时，$\frac{m}{x} - 1 < \left[\frac{m}{x}\right] \leqslant \frac{m}{x}$.<br />
+两边同乘以 $\sqrt{x} > 0$：<br />
+$$\frac{m}{\sqrt{x}} - \sqrt{x} < \sqrt{x}\left[\frac{m}{x}\right] \leqslant \frac{m}{\sqrt{x}}$$</p>
+<p>[2] 比较审敛法判定敛散性：<br />
+考察上下界在 $[0, n]$ 上的反常积分：<br />
+上界反常积分：<br />
+$$\int_0^n \frac{m}{\sqrt{x}}\,\mathrm{d}x = 2m\sqrt{n} \quad (\text{收敛})$$<br />
+下界反常积分：<br />
+$$\int_0^n \left(\frac{m}{\sqrt{x}} - \sqrt{x}\right)\,\mathrm{d}x = \left[2m\sqrt{x} - \frac{2}{3}x^{3/2}\right]_0^n = 2m\sqrt{n} - \frac{2}{3}n^{3/2} \quad (\text{收敛})$$<br />
+由反常积分的比较审敛法（或夹逼定理），对任意常数 $m > 0$ 和 $n > 0$，反常积分 $\int_0^n \sqrt{x}\left[\frac{m}{x}\right]\mathrm{d}x$ 恒收敛.<br />
+因此其敛散性与 $m, n$ 均无关. 故选 [D].</p>
+<hr />
+<p><strong>(双奇点反常积分敛散性)<font color=deeppink>题目[10]:对数复合结构反常积分的收敛条件</font></strong></p>
+<p>设 $p, q$ 为正常数，若 $\int_0^1 \dfrac{1}{x^p |\ln x|^q}\mathrm{d}x$ 收敛，则 $(\qquad)$.</p>
+<p>[A] $p < 1, q < 1$</p>
+<p>[B] $p > 1, q < 1$</p>
+<p>[C] $p < 1, q > 1$</p>
+<p>[D] $p > 1, q > 1$</p>
+<p>答案: [A]</p>
+<p>主要思路:[拆分积分区间，分别考察原点 $x=0$ 和端点 $x=1$ 两处奇点的收敛充要条件]</p>
+<p>[1] 拆分区间考察奇点：<br />
+积分区间为 $(0, 1)$，奇点分别为 $x = 0$ 和 $x = 1$.<br />
+选取 $c \in (0, 1)$（如 $c = \frac{1}{2}$），将积分拆为：<br />
+$$\int_0^1 \frac{1}{x^p |\ln x|^q}\,\mathrm{d}x = \int_0^{1/2} \frac{1}{x^p |\ln x|^q}\,\mathrm{d}x + \int_{1/2}^1 \frac{1}{x^p |\ln x|^q}\,\mathrm{d}x$$</p>
+<p>[2] 考察奇点 $x = 0$ 处：<br />
+当 $x \to 0^+$ 时，对任意 $r > p$，有 $\lim_{x\to 0^+} x^{r-p}|\ln x|^{-q} = 0$.<br />
+由对数与幂函数的标准性质，反常积分 $\int_0^{1/2} \frac{1}{x^p |\ln x|^q}\,\mathrm{d}x$ 收敛的充要条件为：<br />
+$p < 1$（若 $p=1$，需 $q > 1$；若 $p > 1$，则必发散）.</p>
+<p>[3] 考察奇点 $x = 1$ 处：<br />
+当 $x \to 1^-$ 时，设 $x = 1 - t$ ($t \to 0^+$).<br />
+$x^p \to 1$，$|\ln x| = -\ln(1-t) \sim t = 1 - x$.<br />
+因此被积函数等价于：<br />
+$$\frac{1}{x^p |\ln x|^q} \sim \frac{1}{(1 - x)^q}$$<br />
+反常积分 $\int_{1/2}^1 \frac{1}{(1 - x)^q}\,\mathrm{d}x$ 收敛的充要条件为：<br />
+$q < 1$.</p>
+<p>[4] 综合判定：<br />
+两处奇点必须同时收敛，故：<br />
+$p < 1$ 且 $q < 1$（若 $p=1$，则需 $q>1$，与 $q<1$ 矛盾）.<br />
+故选 [A].</p>
+<hr />
+<p><strong>(含参反常积分极值)<font color=deeppink>题目[11]:含参反常积分的显式计算与最小值点</font></strong></p>
+<p>若函数 $f(x) = \int_2^{+\infty} \dfrac{1}{t(\ln t)^{x+1}}\mathrm{d}t$ 存在，则该函数的最小值点为 $x_0 = (\qquad)$.</p>
+<p>[A] $-\dfrac{1}{\ln\ln 2}$</p>
+<p>[B] $-\ln\ln 2$</p>
+<p>[C] $\dfrac{1}{\ln 2}$</p>
+<p>[D] $\ln 2$</p>
+<p>答案: [A]</p>
+<p>主要思路:[换元法求出 $f(x)$ 显式表达式，通过导数求其在定义域内的驻点与最小值]</p>
+<p>[1] 计算含参反常积分：<br />
+令 $u = \ln t$，则 $\mathrm{d}u = \frac{\mathrm{d}t}{t}$.<br />
+当 $t = 2$ 时 $u = \ln 2$；当 $t \to +\infty$ 时 $u \to +\infty$.<br />
+$$f(x) = \int_{\ln 2}^{+\infty} \frac{1}{u^{x+1}}\,\mathrm{d}u$$<br />
+该积分收敛当且仅当指数 $x + 1 > 1 \iff x > 0$.<br />
+当 $x > 0$ 时：<br />
+$$f(x) = \left[-\frac{1}{x u^x}\right]_{\ln 2}^{+\infty} = 0 - \left(-\frac{1}{x (\ln 2)^x}\right) = \frac{(\ln 2)^{-x}}{x} = \frac{1}{x (\ln 2)^x}$$</p>
+<p>[2] 求导求最小值点：<br />
+对 $f(x)$ 取对数求导：<br />
+$$\ln f(x) = -\ln x - x \ln(\ln 2)$$<br />
+$$\frac{f'(x)}{f(x)} = -\frac{1}{x} - \ln(\ln 2)$$<br />
+令 $f'(x) = 0$：<br />
+$$-\frac{1}{x} - \ln(\ln 2) = 0 \implies \frac{1}{x} = -\ln(\ln 2) \implies x_0 = -\frac{1}{\ln(\ln 2)}$$<br />
+因为 $2 < \mathrm{e}$，所以 $\ln 2 < 1$，从而 $\ln(\ln 2) < 0$.<br />
+因此 $x_0 = -\frac{1}{\ln(\ln 2)} > 0$，确在定义域内.<br />
+当 $0 < x < x_0$ 时，$f'(x) < 0$；当 $x > x_0$ 时，$f'(x) > 0$.<br />
+因此 $x_0 = -\frac{1}{\ln\ln 2}$ 为唯一的严格最小值点. 故选 [A].</p>
+<hr />
+<p><strong>(反常积分收敛范围)<font color=deeppink>题目[12]:两端奇点下的参数范围确定</font></strong></p>
+<p>设 $p$ 为常数，若反常积分 $\int_0^1 \dfrac{\ln x}{x^p (1-x)^{1-p}}\mathrm{d}x$ 收敛，则 $p$ 的取值范围是 $(\qquad)$.</p>
+<p>[A] $(-1, 1)$</p>
+<p>[B] $(-1, 2)$</p>
+<p>[C] $(-\infty, 1)$</p>
+<p>[D] $(-\infty, 2)$</p>
+<p>答案: [A]</p>
+<p>主要思路:[拆分积分区间，在 $x=0$ 处利用对数幂函数比较，在 $x=1$ 处利用等价无穷小确定收敛条件]</p>
+<p>[1] 拆分积分区间：<br />
+$$\int_0^1 \frac{\ln x}{x^p (1-x)^{1-p}}\,\mathrm{d}x = \int_0^{1/2} \frac{\ln x}{x^p (1-x)^{1-p}}\,\mathrm{d}x + \int_{1/2}^1 \frac{\ln x}{x^p (1-x)^{1-p}}\,\mathrm{d}x$$</p>
+<p>[2] 奇点 $x = 0$ 的收敛条件：<br />
+当 $x \to 0^+$ 时，$(1 - x)^{1-p} \to 1$.<br />
+被积函数的主部为 $\frac{\ln x}{x^p}$.<br />
+反常积分 $\int_0^{1/2} \frac{|\ln x|}{x^p}\,\mathrm{d}x$ 收敛的充要条件是：<br />
+$$p < 1$$</p>
+<p>[3] 奇点 $x = 1$ 的收敛条件：<br />
+当 $x \to 1^-$ 时，$x^p \to 1$.<br />
+利用等价无穷小：$\ln x = \ln[1 - (1-x)] \sim -(1 - x)$.<br />
+因此被积函数满足：<br />
+$$\frac{\ln x}{x^p (1-x)^{1-p}} \sim \frac{-(1 - x)}{(1 - x)^{1-p}} = -\frac{1}{(1 - x)^{-p}}$$<br />
+反常积分 $\int_{1/2}^1 \frac{1}{(1 - x)^{-p}}\,\mathrm{d}x$ 收敛的充要条件为指数小于 1：<br />
+$$-p < 1 \implies p > -1$$</p>
+<p>[4] 综合取交集：<br />
+两端奇点均需收敛，故 $p$ 的取值范围为 $-1 < p < 1$，即 $(-1, 1)$. 故选 [A].</p>
+<hr />
+<p><strong>(反常积分综合命题判定)<font color=deeppink>题目[13]:非负函数反常积分与极限真假命题判定</font></strong></p>
+<p>设非负函数 $f(x)$ 在 $[0, +\infty)$ 上具有有界导数，给出以下四个命题:</p>
+<p>[1] 若 $\int_0^{+\infty} f^2(x)\mathrm{d}x$ 收敛，则 $\int_0^{+\infty} f(x)\mathrm{d}x$ 收敛；</p>
+<p>[2] 若 $\int_0^{+\infty} f(x)\mathrm{d}x$ 收敛，则 $\int_0^{+\infty} f^2(x)\mathrm{d}x$ 收敛；</p>
+<p>[3] 若 $\lim\limits_{x \to +\infty} x^2 f(x)$ 存在，则 $\int_0^{+\infty} f(x)\mathrm{d}x$ 收敛；</p>
+<p>[4] 若 $\int_0^{+\infty} f(x)\mathrm{d}x$ 收敛，则 $\lim\limits_{x \to +\infty} x^2 f(x)$ 存在.</p>
+<p>其中，真命题的个数为 $(\qquad)$.</p>
+<p>[A] 1</p>
+<p>[B] 2</p>
+<p>[C] 3</p>
+<p>[D] 4</p>
+<p>答案: [B]</p>
+<p>主要思路:[逐项通过芭芭拉引理（Barbalat引理）证明命题[2]、比较审敛法证明命题[3]，并通过构造幂函数反例排除命题[1]与[4]]</p>
+<p>[1] 检验命题[1]：错误.<br />
+反例：取 $f(x) = \frac{1}{x+1}$ ($x \geqslant 0$).<br />
+导数 $f'(x) = -\frac{1}{(x+1)^2}$ 在 $[0, +\infty)$ 上有界.<br />
+$\int_0^{+\infty} f^2(x)\,\mathrm{d}x = \int_0^{+\infty} \frac{1}{(x+1)^2}\,\mathrm{d}x = 1$ 收敛.<br />
+但 $\int_0^{+\infty} f(x)\,\mathrm{d}x = \int_0^{+\infty} \frac{1}{x+1}\,\mathrm{d}x = +\infty$ 发散. 故[1]为假命题.</p>
+<p>[2] 检验命题[2]：正确.<br />
+已知 $f(x) \geqslant 0$ 且 $|f'(x)| \leqslant M$.<br />
+由芭芭拉引理（Barbalat's Lemma）：若非负可微函数的导数有界且其在 $[0, +\infty)$ 上的反常积分收敛，则必有：<br />
+$$\lim_{x\to +\infty} f(x) = 0$$<br />
+（反证：若不趋于 0，结合导数有界可构造底宽固定的小峰，导致积分发散）.<br />
+因此，存在 $X > 0$，当 $x \geqslant X$ 时，$0 \leqslant f(x) \leqslant 1$.<br />
+从而当 $x \geqslant X$ 时，$f^2(x) \leqslant f(x)$.<br />
+由比较审敛法，$\int_X^{+\infty} f^2(x)\,\mathrm{d}x$ 收敛.<br />
+再由连续性在有限区间 $[0, X]$ 上可积，故 $\int_0^{+\infty} f^2(x)\,\mathrm{d}x$ 收敛. 故[2]为真命题.</p>
+<p>[3] 检验命题[3]：正确.<br />
+设 $\lim_{x\to +\infty} x^2 f(x) = L$ 存在.<br />
+因为 $f(x) \geqslant 0$，所以 $L \geqslant 0$.<br />
+当 $x \to +\infty$ 时，$f(x) \sim \frac{L}{x^2}$（或 $f(x) = o(1/x^2)$ 若 $L=0$）.<br />
+因为 $\int_1^{+\infty} \frac{1}{x^2}\,\mathrm{d}x$ 收敛，由比较审敛法的极限形式，$\int_1^{+\infty} f(x)\,\mathrm{d}x$ 收敛.<br />
+又 $f(x)$ 连续，在 $[0, 1]$ 上定积分存在，故 $\int_0^{+\infty} f(x)\,\mathrm{d}x$ 收敛. 故[3]为真命题.</p>
+<p>[4] 检验命题[4]：错误.<br />
+反例：取 $f(x) = \frac{1}{(x+1)^{3/2}}$ ($x \geqslant 0$).<br />
+显然 $f(x) \geqslant 0$ 且导数有界.<br />
+$\int_0^{+\infty} f(x)\,\mathrm{d}x = \int_0^{+\infty} (x+1)^{-3/2}\,\mathrm{d}x = 2$ 收敛.<br />
+但：<br />
+$$\lim_{x\to +\infty} x^2 f(x) = \lim_{x\to +\infty} \frac{x^2}{(x+1)^{3/2}} = +\infty$$<br />
+极限不存在. 故[4]为假命题.</p>
+<p>综上，真命题只有[2]与[3]，共 2 个. 故选 [B].</p>
+<hr />
+<p><strong>(泰勒展开与反常积分收敛)<font color=deeppink>题目[14]:指数余弦差函数的反常积分收敛范围</font></strong></p>
+<p>若反常积分 $\int_1^{+\infty} \left(\mathrm{e}^{-\cos\frac{1}{x}} - \mathrm{e}^{-1}\right) x^k\mathrm{d}x$ 收敛，则 $k$ 的取值范围是 $\underline{\qquad\qquad}$.</p>
+<p>答案: $k < 1$</p>
+<p>主要思路:[对被积函数在无穷远处进行麦克劳林展开确定主部阶数，对应 $p$-积分收敛条件]</p>
+<p>[1] 展开被积函数：<br />
+当 $x \to +\infty$ 时，$\frac{1}{x} \to 0$.<br />
+由余弦函数的泰勒展开：<br />
+$$\cos\frac{1}{x} = 1 - \frac{1}{2x^2} + O\left(\frac{1}{x^4}\right)$$<br />
+$$-\cos\frac{1}{x} = -1 + \frac{1}{2x^2} + O\left(\frac{1}{x^4}\right)$$<br />
+代入指数函数：<br />
+$$\mathrm{e}^{-\cos\frac{1}{x}} = \mathrm{e}^{-1 + \frac{1}{2x^2} + O(x^{-4})} = \mathrm{e}^{-1} \cdot \mathrm{e}^{\frac{1}{2x^2} + O(x^{-4})} = \mathrm{e}^{-1}\left(1 + \frac{1}{2x^2} + O\left(\frac{1}{x^4}\right)\right)$$<br />
+因此：<br />
+$$\mathrm{e}^{-\cos\frac{1}{x}} - \mathrm{e}^{-1} = \frac{\mathrm{e}^{-1}}{2x^2} + O\left(\frac{1}{x^4}\right) \sim \frac{1}{2\mathrm{e} x^2}$$</p>
+<p>[2] 确定反常积分的收敛条件：<br />
+整个被积函数满足：<br />
+$$\left(\mathrm{e}^{-\cos\frac{1}{x}} - \mathrm{e}^{-1}\right) x^k \sim \frac{1}{2\mathrm{e}} x^{k - 2} = \frac{1}{2\mathrm{e} x^{2 - k}}$$<br />
+反常积分 $\int_1^{+\infty} \frac{1}{x^{2 - k}}\,\mathrm{d}x$ 收敛的充要条件是：<br />
+$$2 - k > 1 \iff k < 1$$</p>
+<hr />
+<p><strong>(反常积分审敛判定)<font color=deeppink>题目[15]:反常积分发散项识别</font></strong></p>
+<p>下列反常积分中发散的是 $(\qquad)$.</p>
+<p>[A] $\int_0^{+\infty} \dfrac{\mathrm{e}^{-x}}{\sqrt{x}}\mathrm{d}x$</p>
+<p>[B] $\int_0^{+\infty} x^2\mathrm{e}^{-x^2}\mathrm{d}x$</p>
+<p>[C] $\int_0^{+\infty} \dfrac{\mathrm{d}x}{x\ln^2 x}$</p>
+<p>[D] $\int_0^{+\infty} \dfrac{\mathrm{d}x}{(x+2)\ln^2(x+2)}$</p>
+<p>答案: [C]</p>
+<p>主要思路:[逐项分析奇点位置，[C] 中 $x=1$ 处对数平方使积分发散]</p>
+<p>[1] 检验 [A]：<br />
+奇点在 $x = 0$ 与 $+\infty$.<br />
+在 $x = 0$ 处：$\frac{\mathrm{e}^{-x}}{\sqrt{x}} \sim \frac{1}{x^{1/2}}$，幂指数 $1/2 < 1$，积分收敛；<br />
+在 $+\infty$ 处：$\lim_{x\to +\infty} x^2 \frac{\mathrm{e}^{-x}}{\sqrt{x}} = 0$，积分收敛.<br />
+故 [A] 收敛（实际上是 $\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$）.</p>
+<p>[2] 检验 [B]：<br />
+函数在 $[0, +\infty)$ 上无有限奇点.<br />
+在 $+\infty$ 处：$\lim_{x\to +\infty} x^4 (x^2 \mathrm{e}^{-x^2}) = 0$，指数衰减远快于任意幂函数，积分收敛.</p>
+<p>[3] 检验 [C]：<br />
+被积函数 $\frac{1}{x\ln^2 x}$ 在区间 $(0, +\infty)$ 内存在两个奇点：$x = 0$ 和 $x = 1$.<br />
+特别考察 $x = 1$ 处的奇点：<br />
+原函数为 $\int \frac{\mathrm{d}x}{x\ln^2 x} = -\frac{1}{\ln x}$.<br />
+在 $x = 1$ 的邻域内计算：<br />
+$$\lim_{\varepsilon\to 0^+} \left[-\frac{1}{\ln x}\right]_{1+\varepsilon}^2 = -\frac{1}{\ln 2} + \lim_{\varepsilon\to 0^+} \frac{1}{\ln(1+\varepsilon)} = +\infty$$<br />
+因此积分在 $x = 1$ 处发散！故 [C] 发散.</p>
+<p>[4] 检验 [D]：<br />
+当 $x \in [0, +\infty)$ 时，$x + 2 \geqslant 2$，$\ln(x+2) \geqslant \ln 2 > 0$，无有限奇点.<br />
+在 $+\infty$ 处：<br />
+$$\int_0^{+\infty} \frac{\mathrm{d}(x+2)}{(x+2)\ln^2(x+2)} = \left[-\frac{1}{\ln(x+2)}\right]_0^{+\infty} = 0 - \left(-\frac{1}{\ln 2}\right) = \frac{1}{\ln 2} \quad (\text{收敛})$$</p>
+<p>故选 [C].</p>
+<hr />
+<p><strong>(反常积分审敛判定)<font color=deeppink>题目[16]:反常积分收敛项识别</font></strong></p>
+<p>下列反常积分中收敛的是 $(\qquad)$.</p>
+<p>[A] $\int_1^{+\infty} \dfrac{\mathrm{d}x}{\sqrt{x^2 - 1}}$</p>
+<p>[B] $\int_1^{+\infty} \dfrac{\mathrm{d}x}{\sqrt{x(x-1)}}$</p>
+<p>[C] $\int_1^{+\infty} \dfrac{\mathrm{d}x}{x^2\sqrt{x^2 - 1}}$</p>
+<p>[D] $\int_1^{+\infty} \dfrac{\mathrm{d}x}{x(x^2 - 1)}$</p>
+<p>答案: [C]</p>
+<p>主要思路:[对每个积分分别考察在奇点 $x=1$ 和无穷远点 $+\infty$ 处的渐近阶数]</p>
+<p>[1] 检验 [A]：<br />
+在 $x \to 1^+$ 时：$\sqrt{x^2-1} = \sqrt{(x-1)(x+1)} \sim \sqrt{2}\sqrt{x-1}$，指数 $1/2 < 1$，在 1 处收敛；<br />
+但在 $x \to +\infty$ 时：$\frac{1}{\sqrt{x^2-1}} \sim \frac{1}{x}$，$\int^{+\infty} \frac{\mathrm{d}x}{x}$ 发散. 故 [A] 发散.</p>
+<p>[2] 检验 [B]：<br />
+在 $x \to 1^+$ 时：$\sqrt{x(x-1)} \sim \sqrt{x-1}$，在 1 处收敛；<br />
+但在 $x \to +\infty$ 时：$\frac{1}{\sqrt{x(x-1)}} \sim \frac{1}{x}$，发散. 故 [B] 发散.</p>
+<p>[3] 检验 [C]：<br />
+在 $x \to 1^+$ 时：$x^2\sqrt{x^2-1} \sim \sqrt{2}\sqrt{x-1}$，指数 $1/2 < 1$，在 1 处收敛；<br />
+在 $x \to +\infty$ 时：$\frac{1}{x^2\sqrt{x^2-1}} \sim \frac{1}{x^3}$，指数 $3 > 1$，在 $+\infty$ 处收敛.<br />
+两处奇点均收敛，故 [C] 收敛.</p>
+<p>[4] 检验 [D]：<br />
+在 $x \to 1^+$ 时：$x(x^2-1) = x(x-1)(x+1) \sim 2(x-1)$，$\int_1 \frac{\mathrm{d}x}{x-1}$ 发散. 故 [D] 发散.</p>
+<p>故选 [C].</p>
+<hr />
+<p><strong>(微分方程与对称变上限积分)<font color=deeppink>题目[17]:一阶线性微分方程与含绝对值的变上限积分求导</font></strong></p>
+<p>设 $y = y(x)$ 满足 $[(1+x)y - 1]\mathrm{d}x + x(1+x)\mathrm{d}y = 0$, $y(1) = \ln 2$.</p>
+<p>(1) 求 $y = y(x)$ 的表达式及定义域；</p>
+<p>(2) 记 $f(x) = \int_{-1}^x y(|t|)\mathrm{d}t$，求 $f'(0)$.</p>
+<p>答案: (1) $y = \dfrac{\ln(1+x)}{x}$, 定义域为 $(-1, 0) \cup (0, +\infty)$ (若补充定义 $y(0)=1$ 则为 $(-1, +\infty)$); (2) $f'(0) = 1$</p>
+<p>主要思路:[(1)改写为一阶线性微分方程，利用通解公式或积分因子结合初值定解；(2)由导数定义或变上限积分连续性计算导数值]</p>
+<p>[1] 求解(1)：<br />
+原方程可化为：<br />
+$$x(1+x)\frac{\mathrm{d}y}{\mathrm{d}x} + (1+x)y = 1$$<br />
+两边同除以 $x(1+x)$：<br />
+$$\frac{\mathrm{d}y}{\mathrm{d}x} + \frac{1}{x}y = \frac{1}{x(1+x)}$$<br />
+这是一个一阶非齐次线性微分方程.<br />
+积分因子为 $\mathrm{e}^{\int \frac{1}{x}\mathrm{d}x} = x$（因初值点在 $x=1 > 0$）.<br />
+方程两边同乘 $x$：<br />
+$$(xy)' = \frac{1}{1+x}$$<br />
+两边积分：<br />
+$$xy = \int \frac{1}{1+x}\,\mathrm{d}x = \ln(1+x) + C$$<br />
+代入初始条件 $x=1, y=\ln 2$：<br />
+$$1 \cdot \ln 2 = \ln 2 + C \implies C = 0$$<br />
+因此：<br />
+$$y = \frac{\ln(1+x)}{x}$$<br />
+由真数 $1+x > 0$ 且分母 $x \ne 0$，其定义域为 $(-1, 0) \cup (0, +\infty)$.<br />
+（注：由于 $\lim_{x\to 0}\frac{\ln(1+x)}{x} = 1$，若补充定义 $y(0) = 1$，则在 $(-1, +\infty)$ 上连续）.</p>
+<p>[2] 求解(2)：<br />
+由导数定义：<br />
+$$f'(0) = \lim_{x\to 0} \frac{f(x) - f(0)}{x} = \lim_{x\to 0} \frac{\int_{-1}^x y(|t|)\,\mathrm{d}t - \int_{-1}^0 y(|t|)\,\mathrm{d}t}{x} = \lim_{x\to 0} \frac{\int_0^x y(|t|)\,\mathrm{d}t}{x}$$<br />
+由积分第一中值定理（或洛必达法则）：<br />
+存在 $\xi$ 介于 $0$ 与 $x$ 之间，使得 $\int_0^x y(|t|)\,\mathrm{d}t = y(|\xi|) \cdot x$.<br />
+因此：<br />
+$$f'(0) = \lim_{x\to 0} y(|\xi|) = \lim_{u\to 0^+} y(u) = \lim_{u\to 0^+} \frac{\ln(1+u)}{u} = 1$$<br />
+故 $f'(0) = 1$.</p>
+<hr />
+<p><strong>(黎曼和与高阶导数拐点)<font color=deeppink>题目[18]:变上限积分复合函数的拐点判定</font></strong></p>
+<p>设 $f(x) = \lim\limits_{n \to \infty} \dfrac{x}{n} \left(\mathrm{e}^{-\frac{x^2}{n^2}} + \mathrm{e}^{-\frac{4x^2}{n^2}} + \cdots + \mathrm{e}^{-x^2}\right)$，求:</p>
+<p>(1) $f(x)$ 的表达式；</p>
+<p>(2) 曲线 $y = \mathrm{e}^{x^2} f(x)$ 的拐点.</p>
+<p>答案: (1) $f(x) = \int_0^x \mathrm{e}^{-u^2}\mathrm{d}u$; (2) 拐点为 $(0, 0)$</p>
+<p>主要思路:[(1)识别黎曼和并换元转化为标准变上限积分；(2)对 $y=\mathrm{e}^{x^2}f(x)$ 求二阶导数并由严格保号性确定拐点]</p>
+<p>[1] 求解(1)：<br />
+原式和式可写为：<br />
+$$f(x) = x \lim_{n\to\infty} \frac{1}{n} \sum_{k=1}^n \mathrm{e}^{-x^2 \left(\frac{k}{n}\right)^2}$$<br />
+此为函数 $g(t) = \mathrm{e}^{-x^2 t^2}$ 在 $[0, 1]$ 上的黎曼和极限：<br />
+$$f(x) = x \int_0^1 \mathrm{e}^{-x^2 t^2}\,\mathrm{d}t$$<br />
+作换元 $u = xt$，则 $\mathrm{d}u = x\,\mathrm{d}t$：<br />
+$$f(x) = \int_0^x \mathrm{e}^{-u^2}\,\mathrm{d}u$$</p>
+<p>[2] 求解(2)：<br />
+设 $y = g(x) = \mathrm{e}^{x^2} f(x) = \mathrm{e}^{x^2} \int_0^x \mathrm{e}^{-u^2}\,\mathrm{d}u$.<br />
+求一阶导数：<br />
+$$y' = 2x\mathrm{e}^{x^2} \int_0^x \mathrm{e}^{-u^2}\,\mathrm{d}u + \mathrm{e}^{x^2} \cdot \mathrm{e}^{-x^2} = 2x y + 1$$<br />
+求二阶导数：<br />
+$$y'' = (2xy + 1)' = 2y + 2xy' = 2y + 2x(2xy + 1) = (4x^2 + 2)y + 2x$$<br />
+代入 $y = g(x)$：<br />
+$$y'' = (4x^2 + 2)\mathrm{e}^{x^2}\int_0^x \mathrm{e}^{-u^2}\,\mathrm{d}u + 2x$$<br />
+分析 $y''$ 的零点与符号：<br />
+因为被积函数 $\mathrm{e}^{-u^2} > 0$ 为偶函数，其变上限积分 $f(x) = \int_0^x \mathrm{e}^{-u^2}\mathrm{d}u$ 为奇函数.<br />
+当 $x > 0$ 时，$\int_0^x \mathrm{e}^{-u^2}\mathrm{d}u > 0$，且 $4x^2 + 2 > 0, 2x > 0$，因此 $y'' > 0$；<br />
+当 $x < 0$ 时，$\int_0^x \mathrm{e}^{-u^2}\mathrm{d}u < 0$，且 $2x < 0$，因此 $y'' < 0$；<br />
+当 $x = 0$ 时，$y''(0) = 0$，且 $y(0) = 0$.<br />
+二阶导数在 $x = 0$ 两侧严格变号，故 $x = 0$ 为拐点横坐标.<br />
+因此曲线的拐点为 $(0, 0)$.</p>
+<hr />
+<p><strong>(定积分定义与多项式和式极限)<font color=deeppink>题目[19]:和式极限与定积分计算</font></strong></p>
+<p>设 $f(x) = x^2$，$f[\varphi(x)] = -x^2 + 2x + 3$ 且 $\varphi(x) \ge 0$，则 $\lim\limits_{n \to \infty} \dfrac{1}{n^3} \sum\limits_{i=1}^n i^2(n-i) \cdot \dfrac{1}{n + \varphi(x)} = (\qquad)$.</p>
+<p>[A] $\dfrac{1}{12}$</p>
+<p>[B] $\dfrac{1}{6}$</p>
+<p>[C] $\dfrac{1}{3}$</p>
+<p>[D] $\dfrac{2}{3}$</p>
+<p>答案: [A]</p>
+<p>主要思路:[对固定 $x$，分析 $\frac{1}{n+\varphi(x)}$ 在 $n\to\infty$ 时的渐近等价，提取因子后转化为定积分计算]</p>
+<p>[1] 分析极限中的因子：<br />
+对于给定的 $x$，$\varphi(x)$ 为确定的非负常数.<br />
+当 $n \to \infty$ 时：<br />
+$$\frac{1}{n + \varphi(x)} = \frac{1}{n\left(1 + \frac{\varphi(x)}{n}\right)} \sim \frac{1}{n}$$<br />
+（严格地，利用夹逼定理：$\frac{1}{n + \varphi(x)} = \frac{1}{n} - \frac{\varphi(x)}{n(n+\varphi(x))}$，后项求和后阶数为 $O(1/n) \to 0$）.</p>
+<p>[2] 转化为黎曼和：<br />
+原和式极限为：<br />
+$$\lim_{n\to\infty} \frac{1}{n^3} \sum_{i=1}^n i^2(n - i) \cdot \frac{1}{n} = \lim_{n\to\infty} \frac{1}{n^4} \sum_{i=1}^n i^2(n - i)$$<br />
+变形为定积分形式：<br />
+$$\frac{1}{n^4} \sum_{i=1}^n i^2(n - i) = \frac{1}{n} \sum_{i=1}^n \left(\frac{i}{n}\right)^2 \left(1 - \frac{i}{n}\right)$$<br />
+由定积分定义：<br />
+$$\lim_{n\to\infty} \frac{1}{n} \sum_{i=1}^n \left(\frac{i}{n}\right)^2 \left(1 - \frac{i}{n}\right) = \int_0^1 t^2(1 - t)\,\mathrm{d}t$$</p>
+<p>[3] 计算定积分：<br />
+$$\int_0^1 t^2(1 - t)\,\mathrm{d}t = \int_0^1 (t^2 - t^3)\,\mathrm{d}t = \left[\frac{t^3}{3} - \frac{t^4}{4}\right]_0^1 = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}$$<br />
+故选 [A].</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>

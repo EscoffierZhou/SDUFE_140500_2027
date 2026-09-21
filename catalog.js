@@ -456,8 +456,8 @@ window.CATALOG_DATA = {
       "stats": {
         "totalDocs": 116,
         "formats": {
-          "html": 93,
-          "pdf": 80,
+          "html": 114,
+          "pdf": 101,
           "md": 116
         }
       },
@@ -580,10 +580,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "线性代数1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/线性代数/Chap01行列式/线性代数1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/线性代数/Chap01行列式/线性代数1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/线性代数/Chap01行列式/线性代数1000b强化篇.md"
+                    "html": "302 数学二/线性代数/Chap01行列式/线性代数1000b强化篇.html",
+                    "md": "302 数学二/线性代数/Chap01行列式/线性代数1000b强化篇.md",
+                    "pdf": "302 数学二/线性代数/Chap01行列式/线性代数1000b强化篇.pdf"
                   }
                 }
               ]
@@ -651,10 +653,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "线性代数1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/线性代数/Chap02矩阵/线性代数1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/线性代数/Chap02矩阵/线性代数1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/线性代数/Chap02矩阵/线性代数1000b强化篇.md"
+                    "html": "302 数学二/线性代数/Chap02矩阵/线性代数1000b强化篇.html",
+                    "md": "302 数学二/线性代数/Chap02矩阵/线性代数1000b强化篇.md",
+                    "pdf": "302 数学二/线性代数/Chap02矩阵/线性代数1000b强化篇.pdf"
                   }
                 }
               ]
@@ -722,10 +726,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "线性代数1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/线性代数/Chap03向量组/线性代数1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/线性代数/Chap03向量组/线性代数1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/线性代数/Chap03向量组/线性代数1000b强化篇.md"
+                    "html": "302 数学二/线性代数/Chap03向量组/线性代数1000b强化篇.html",
+                    "md": "302 数学二/线性代数/Chap03向量组/线性代数1000b强化篇.md",
+                    "pdf": "302 数学二/线性代数/Chap03向量组/线性代数1000b强化篇.pdf"
                   }
                 }
               ]
@@ -793,10 +799,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "线性代数1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/线性代数/Chap04线性方程组/线性代数1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/线性代数/Chap04线性方程组/线性代数1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/线性代数/Chap04线性方程组/线性代数1000b强化篇.md"
+                    "html": "302 数学二/线性代数/Chap04线性方程组/线性代数1000b强化篇.html",
+                    "md": "302 数学二/线性代数/Chap04线性方程组/线性代数1000b强化篇.md",
+                    "pdf": "302 数学二/线性代数/Chap04线性方程组/线性代数1000b强化篇.pdf"
                   }
                 }
               ]
@@ -864,10 +872,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "线性代数1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/线性代数/Chap05特征值与特征向量/线性代数1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/线性代数/Chap05特征值与特征向量/线性代数1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/线性代数/Chap05特征值与特征向量/线性代数1000b强化篇.md"
+                    "html": "302 数学二/线性代数/Chap05特征值与特征向量/线性代数1000b强化篇.html",
+                    "md": "302 数学二/线性代数/Chap05特征值与特征向量/线性代数1000b强化篇.md",
+                    "pdf": "302 数学二/线性代数/Chap05特征值与特征向量/线性代数1000b强化篇.pdf"
                   }
                 }
               ]
@@ -932,10 +942,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "线性代数1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/线性代数/Chap06二次型/线性代数1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/线性代数/Chap06二次型/线性代数1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/线性代数/Chap06二次型/线性代数1000b强化篇.md"
+                    "html": "302 数学二/线性代数/Chap06二次型/线性代数1000b强化篇.html",
+                    "md": "302 数学二/线性代数/Chap06二次型/线性代数1000b强化篇.md",
+                    "pdf": "302 数学二/线性代数/Chap06二次型/线性代数1000b强化篇.pdf"
                   }
                 }
               ]
@@ -987,10 +999,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap01函数极限与连续/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap01函数极限与连续/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap01函数极限与连续/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap01函数极限与连续/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap01函数极限与连续/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap01函数极限与连续/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1025,10 +1039,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap02数列极限/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap02数列极限/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap02数列极限/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap02数列极限/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap02数列极限/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap02数列极限/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1063,10 +1079,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap03一元函数微分学的概念/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap03一元函数微分学的概念/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap03一元函数微分学的概念/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap03一元函数微分学的概念/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap03一元函数微分学的概念/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap03一元函数微分学的概念/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1123,10 +1141,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap04一元函数微分学的计算/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap04一元函数微分学的计算/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap04一元函数微分学的计算/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap04一元函数微分学的计算/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap04一元函数微分学的计算/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap04一元函数微分学的计算/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1172,10 +1192,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap05一元函数微分学的应用(几何)/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap05一元函数微分学的应用(几何)/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap05一元函数微分学的应用(几何)/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap05一元函数微分学的应用(几何)/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap05一元函数微分学的应用(几何)/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap05一元函数微分学的应用(几何)/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1232,10 +1254,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap06一元函数微分学的应用(中值定理&微分等式&微分不等式)/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap06一元函数微分学的应用(中值定理&微分等式&微分不等式)/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap06一元函数微分学的应用(中值定理&微分等式&微分不等式)/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap06一元函数微分学的应用(中值定理&微分等式&微分不等式)/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap06一元函数微分学的应用(中值定理&微分等式&微分不等式)/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap06一元函数微分学的应用(中值定理&微分等式&微分不等式)/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1270,10 +1294,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap07一元函数微分学的应用(物理应用和经济应用)/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap07一元函数微分学的应用(物理应用和经济应用)/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap07一元函数微分学的应用(物理应用和经济应用)/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap07一元函数微分学的应用(物理应用和经济应用)/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap07一元函数微分学的应用(物理应用和经济应用)/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap07一元函数微分学的应用(物理应用和经济应用)/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1330,10 +1356,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap08一元函数积分学的概念与性质/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1401,10 +1429,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1472,10 +1502,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1543,10 +1575,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1614,10 +1648,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1685,10 +1721,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1752,10 +1790,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap14二重积分/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap14二重积分/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap14二重积分/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap14二重积分/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap14二重积分/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap14二重积分/高等数学1000b强化篇.pdf"
                   }
                 }
               ]
@@ -1819,10 +1859,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000b强化篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap15微分方程/高等数学1000b强化篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap15微分方程/高等数学1000b强化篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap15微分方程/高等数学1000b强化篇.md"
+                    "html": "302 数学二/高等数学/Chap15微分方程/高等数学1000b强化篇.html",
+                    "md": "302 数学二/高等数学/Chap15微分方程/高等数学1000b强化篇.md",
+                    "pdf": "302 数学二/高等数学/Chap15微分方程/高等数学1000b强化篇.pdf"
                   }
                 }
               ]

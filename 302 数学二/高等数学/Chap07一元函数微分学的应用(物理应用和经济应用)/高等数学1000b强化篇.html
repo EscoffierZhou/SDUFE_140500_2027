@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>高等数学1000b强化篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h1>第七章 一元函数微分学的应用（三）——物理应用（强化篇）</h1>
+<p><strong>(相关变化率与几何运动)<font color=deeppink>题目[1]:抛物线上质点到原点距离的变化率</font></strong></p>
+<p>质点 $P$ 沿抛物线 $x = y^2 (y > 0)$ 移动，$P$ 的横坐标 $x$ 的变化速度为 $5\text{ cm/s}$. 当 $x = 9$ 时，点 $P$ 到原点 $O$ 的距离变化速度为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $\dfrac{19\sqrt{10}}{12}\text{ cm/s}$</p>
+<p>主要思路:[建立质点到原点距离关于 $x$ 的函数表达式，利用链式法则计算相关变化率]</p>
+<p>[1] 建立距离函数：<br />
+质点 $P$ 在抛物线 $x = y^2$ ($y > 0$) 上运动，其坐标为 $(x, y) = (x, \sqrt{x})$.<br />
+质点 $P$ 到原点 $O(0, 0)$ 的距离为：<br />
+$$L = \sqrt{x^2 + y^2} = \sqrt{x^2 + x}$$</p>
+<p>[2] 求导并代入变化率：<br />
+对时间 $t$ 求导，由复合函数求导法则：<br />
+$$\frac{\mathrm{d}L}{\mathrm{d}t} = \frac{\mathrm{d}L}{\mathrm{d}x} \cdot \frac{\mathrm{d}x}{\mathrm{d}t} = \frac{2x + 1}{2\sqrt{x^2 + x}} \cdot \frac{\mathrm{d}x}{\mathrm{d}t}$$</p>
+<p>[3] 代入 $x = 9$ 计算：<br />
+当 $x = 9$ 时：<br />
+$$\sqrt{x^2 + x} = \sqrt{81 + 9} = \sqrt{90} = 3\sqrt{10}$$<br />
+$$2x + 1 = 2 \times 9 + 1 = 19$$<br />
+已知 $\frac{\mathrm{d}x}{\mathrm{d}t} = 5\text{ cm/s}$，代入得：<br />
+$$\left.\frac{\mathrm{d}L}{\mathrm{d}t}\right|_{x=9} = \frac{19}{2 \times 3\sqrt{10}} \times 5 = \frac{95}{6\sqrt{10}} = \frac{19\sqrt{10}}{12}\text{ cm/s}$$</p>
+<hr />
+<p><strong>(相关变化率与几何体度量)<font color=deeppink>题目[2]:球体表面积与体积的变化率</font></strong></p>
+<p>球的半径以 $5\text{ cm/s}$ 的速度匀速增长，当球的半径为 $50\text{ cm}$ 时，球的表面积和体积的增长速度各是多少？</p>
+<p>答案: 表面积增长速度为 $2000\pi\text{ cm}^2/\text{s}$，体积增长速度为 $50000\pi\text{ cm}^3/\text{s}$</p>
+<p>主要思路:[根据球的表面积与体积公式，分别对时间 $t$ 求导建立相关变化率方程]</p>
+<p>[1] 表面积的增长速度：<br />
+球的表面积公式为 $S = 4\pi R^2$.<br />
+两边对时间 $t$ 求导：<br />
+$$\frac{\mathrm{d}S}{\mathrm{d}t} = 8\pi R \cdot \frac{\mathrm{d}R}{\mathrm{d}t}$$<br />
+已知 $\frac{\mathrm{d}R}{\mathrm{d}t} = 5\text{ cm/s}$，当 $R = 50\text{ cm}$ 时：<br />
+$$\left.\frac{\mathrm{d}S}{\mathrm{d}t}\right|_{R=50} = 8\pi \times 50 \times 5 = 2000\pi\text{ cm}^2/\text{s}$$</p>
+<p>[2] 体积的增长速度：<br />
+球的体积公式为 $V = \frac{4}{3}\pi R^3$.<br />
+两边对时间 $t$ 求导：<br />
+$$\frac{\mathrm{d}V}{\mathrm{d}t} = 4\pi R^2 \cdot \frac{\mathrm{d}R}{\mathrm{d}t}$$<br />
+当 $R = 50\text{ cm}$ 时：<br />
+$$\left.\frac{\mathrm{d}V}{\mathrm{d}t}\right|_{R=50} = 4\pi \times 50^2 \times 5 = 4\pi \times 2500 \times 5 = 50000\pi\text{ cm}^3/\text{s}$$</p>
+<hr />
+<p><strong>(动态切线与所围面积变化率)<font color=deeppink>题目[3]:切线所围面积的变化率与驻点求解</font></strong></p>
+<p>已知曲线 $L: y = \ln\sqrt{x}\ (2 \le x \le 4)$，在 $L$ 上的任意点 $P(x,y)$ 作切线，记切线与曲线 $L$ 在 $2 \le x \le 4$ 时所围成的有界区域的面积为 $S$.</p>
+<p>(1) 求一点 $P_0$，使上述面积 $S$ 关于 $x$ 的变化率为零；</p>
+<p>(2) 当点 $P(x,y)$ 在曲线上移动至 $\left(\mathrm{e}, \dfrac{1}{2}\right)$ 时，横坐标关于时间的变化率为 $1$，求此时面积关于时间的变化率 $\dfrac{\mathrm{d}S}{\mathrm{d}t}$.</p>
+<p>答案: (1) $P_0\left(3, \frac{1}{2}\ln 3\right)$; (2) $\dfrac{\mathrm{d}S}{\mathrm{d}t} = \dfrac{\mathrm{e} - 3}{\mathrm{e}^2}$</p>
+<p>主要思路:[(1)写出切线方程，对积分变量 $X$ 积分表示出面积 $S(x)$，对 $x$ 求导求驻点；(2)利用复合函数链式法则计算 $\frac{\mathrm{d}S}{\mathrm{d}t}$]</p>
+<p>[1] 写出切线方程并建立面积函数：<br />
+曲线方程为 $y = \ln\sqrt{x} = \frac{1}{2}\ln x$ ($2 \leqslant x \leqslant 4$).<br />
+导数为 $y' = \frac{1}{2x}$.<br />
+二阶导数 $y'' = -\frac{1}{2x^2} < 0$，因此曲线在 $[2, 4]$ 上是严格上凸的，任意切线均位于曲线上方（除切点外）.<br />
+在点 $P(x, y)$ 处的切线方程（以 $X, Y$ 为坐标）为：<br />
+$$Y - \frac{1}{2}\ln x = \frac{1}{2x}(X - x) \implies Y = \frac{1}{2}\ln x + \frac{1}{2x}(X - x)$$<br />
+切线与曲线在 $X \in [2, 4]$ 之间所围成的有界区域面积为：<br />
+$$S(x) = \int_2^4 \left[\left(\frac{1}{2}\ln x + \frac{1}{2x}(X - x)\right) - \frac{1}{2}\ln X\right]\,\mathrm{d}X$$<br />
+将积分展开：<br />
+$$S(x) = \frac{1}{2}\ln x \int_2^4 \mathrm{d}X + \frac{1}{2x}\int_2^4 (X - x)\,\mathrm{d}X - \frac{1}{2}\int_2^4 \ln X\,\mathrm{d}X$$<br />
+计算前两项积分：<br />
+$$\int_2^4 \mathrm{d}X = 4 - 2 = 2$$<br />
+$$\int_2^4 (X - x)\,\mathrm{d}X = \left[\frac{X^2}{2} - xX\right]_2^4 = (8 - 4x) - (2 - 2x) = 6 - 2x$$<br />
+第三项为与参数 $x$ 无关的常数，记为 $C = \frac{1}{2}\int_2^4 \ln X\,\mathrm{d}X$.<br />
+整理得：<br />
+$$S(x) = \ln x + \frac{6 - 2x}{2x} - C = \ln x + \frac{3}{x} - 1 - C$$</p>
+<p>[2] 求解(1)：<br />
+计算面积 $S$ 关于 $x$ 的导数（变化率）：<br />
+$$\frac{\mathrm{d}S}{\mathrm{d}x} = \frac{1}{x} - \frac{3}{x^2} = \frac{x - 3}{x^2}$$<br />
+令 $\frac{\mathrm{d}S}{\mathrm{d}x} = 0$，得：<br />
+$$x - 3 = 0 \implies x = 3 \in [2, 4]$$<br />
+对应的纵坐标为：<br />
+$$y = \ln\sqrt{3} = \frac{1}{2}\ln 3$$<br />
+故所求点为 $P_0\left(3, \frac{1}{2}\ln 3\right)$.</p>
+<p>[3] 求解(2)：<br />
+由复合函数求导法则：<br />
+$$\frac{\mathrm{d}S}{\mathrm{d}t} = \frac{\mathrm{d}S}{\mathrm{d}x} \cdot \frac{\mathrm{d}x}{\mathrm{d}t}$$<br />
+当点 $P$ 移动至 $\left(\mathrm{e}, \frac{1}{2}\right)$ 时，横坐标 $x = \mathrm{e}$.<br />
+此时面积对 $x$ 的变化率为：<br />
+$$\left.\frac{\mathrm{d}S}{\mathrm{d}x}\right|_{x=\mathrm{e}} = \frac{\mathrm{e} - 3}{\mathrm{e}^2}$$<br />
+已知此时横坐标关于时间的变化率为 $\frac{\mathrm{d}x}{\mathrm{d}t} = 1$，因此：<br />
+$$\left.\frac{\mathrm{d}S}{\mathrm{d}t}\right|_{x=\mathrm{e}} = \frac{\mathrm{e} - 3}{\mathrm{e}^2} \times 1 = \frac{\mathrm{e} - 3}{\mathrm{e}^2}$$</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>

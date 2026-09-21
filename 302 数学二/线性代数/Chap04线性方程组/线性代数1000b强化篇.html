@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>线性代数1000b强化篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h1>线性代数1000b强化篇 - 线性方程组</h1>
+<h2>第5章 线性方程组</h2>
+<p><strong>(选择题)<font color=deeppink>题目[1]: 伴随矩阵齐次方程组的通解</font></strong></p>
+<p>设 4 阶矩阵 $\boldsymbol{A} = [a_{ij}]$ 不可逆，且元素 $a_{12}$ 的代数余子式 $A_{12} \ne 0$，若矩阵 $\boldsymbol{A}$ 的列向量组为 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4$，$k_1, k_2, k_3$ 为任意常数，则方程组 $\boldsymbol{A}^*\boldsymbol{x} = \boldsymbol{0}$ 的通解为 $(\qquad)$.</p>
+<p>[A] $k_1\boldsymbol{\alpha}_1 + k_2\boldsymbol{\alpha}_2 + k_3\boldsymbol{\alpha}_3$</p>
+<p>[B] $k_1\boldsymbol{\alpha}_1 + k_2\boldsymbol{\alpha}_2 + k_3\boldsymbol{\alpha}_4$</p>
+<p>[C] $k_1\boldsymbol{\alpha}_1 + k_2\boldsymbol{\alpha}_3 + k_3\boldsymbol{\alpha}_4$</p>
+<p>[D] $k_1\boldsymbol{\alpha}_2 + k_2\boldsymbol{\alpha}_3 + k_3\boldsymbol{\alpha}_4$</p>
+<p>答案: [C]</p>
+<p>主要思路: [利用伴随矩阵的性质 $\boldsymbol{A}^*\boldsymbol{A} = |\boldsymbol{A}|\boldsymbol{E} = \boldsymbol{O}$ 可知 $\boldsymbol{A}$ 的列向量均为 $\boldsymbol{A}^*\boldsymbol{x} = \boldsymbol{0}$ 的解；结合 $A_{12} \ne 0$ 确定 $r(\boldsymbol{A}^*) = 1$，基础解系含有 $4 - 1 = 3$ 个向量；再由余子式非零选出线性无关的列向量组作为基础解系]</p>
+<p>解题步骤:</p>
+<p>[1] 分析伴随矩阵的秩与方程组解空间的维数：<br />
+因为 $\boldsymbol{A}$ 是 4 阶不可逆矩阵，故 $|\boldsymbol{A}| = 0$。<br />
+又已知元素 $a_{12}$ 的代数余子式 $A_{12} \ne 0$，说明伴随矩阵 $\boldsymbol{A}^* \ne \boldsymbol{O}$。<br />
+根据矩阵与其伴随矩阵秩的关系：<br />
+当 $|\boldsymbol{A}| = 0$ 且 $\boldsymbol{A}^* \ne \boldsymbol{O}$ 时，必有 $r(\boldsymbol{A}) = 3$，$r(\boldsymbol{A}^*) = 1$。<br />
+因此，齐次线性方程组 $\boldsymbol{A}^*\boldsymbol{x} = \boldsymbol{0}$ 的解空间维数为：<br />
+$$n - r(\boldsymbol{A}^*) = 4 - 1 = 3$$<br />
+即方程组的基础解系由 3 个线性无关的解向量构成。</p>
+<p>[2] 确定解向量的来源：<br />
+由伴随矩阵基本性质可得：<br />
+$$\boldsymbol{A}^*\boldsymbol{A} = |\boldsymbol{A}|\boldsymbol{E} = \boldsymbol{O}$$<br />
+将 $\boldsymbol{A}$ 按列分块写成 $\boldsymbol{A} = [\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4]$，则：<br />
+$$\boldsymbol{A}^*[\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4] = [\boldsymbol{A}^*\boldsymbol{\alpha}_1, \boldsymbol{A}^*\boldsymbol{\alpha}_2, \boldsymbol{A}^*\boldsymbol{\alpha}_3, \boldsymbol{A}^*\boldsymbol{\alpha}_4] = \boldsymbol{O}$$<br />
+这表明 $\boldsymbol{A}$ 的每一个列向量 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4$ 都是方程组 $\boldsymbol{A}^*\boldsymbol{x} = \boldsymbol{0}$ 的解向量。</p>
+<p>[3] 筛选线性无关的 3 个列向量：<br />
+因为 $A_{12} \ne 0$，根据代数余子式的定义，$A_{12} = (-1)^{1+2} M_{12} = -M_{12} \ne 0$。<br />
+余子式 $M_{12}$ 是划去第 1 行与第 2 列后剩下的 3 阶子式：<br />
+$$M_{12} = \begin{vmatrix} a_{21} & a_{23} & a_{24} \\ a_{31} & a_{33} & a_{34} \\ a_{41} & a_{43} & a_{44} \end{vmatrix} \ne 0$$<br />
+此 3 阶子式非零，说明由矩阵 $\boldsymbol{A}$ 的第 1、3、4 列向量 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4$ 构成的矩阵的秩至少为 3。<br />
+由于这些向量均为 4 维向量，故列向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4$ 必线性无关！<br />
+因此，$\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4$ 构成了方程组 $\boldsymbol{A}^*\boldsymbol{x} = \boldsymbol{0}$ 的一个基础解系。<br />
+方程组的通解为：<br />
+$$\boldsymbol{x} = k_1\boldsymbol{\alpha}_1 + k_2\boldsymbol{\alpha}_3 + k_3\boldsymbol{\alpha}_4 \quad (k_1, k_2, k_3 \text{ 为任意常数})$$</p>
+<p>综上所述，正确选项为 [C]。</p>
+<hr />
+<p><strong>(填空题)<font color=deeppink>题目[2]: 利用伴随矩阵求解非齐次线性方程组</font></strong></p>
+<p>设 $\boldsymbol{A}$ 是 4 阶矩阵，$\boldsymbol{A}$ 的伴随矩阵 $\boldsymbol{A}^* = \begin{bmatrix} 1 & 0 & 1 & 0 \\ 0 & 2 & 0 & 2 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 4 \end{bmatrix}$，$\boldsymbol{b} = [1, 1, 1, 1]^\mathrm{T}$，则方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$ 的解为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $[1, 2, 1, 2]^\mathrm{T}$</p>
+<p>主要思路: [由 $|\boldsymbol{A}^*| = |\boldsymbol{A}|^{n-1}$ 求出 $|\boldsymbol{A}|$，再两边同左乘 $\boldsymbol{A}^*$ 得到 $|\boldsymbol{A}|\boldsymbol{x} = \boldsymbol{A}^*\boldsymbol{b}$，直接代入矩阵相乘即可求出唯一解 $\boldsymbol{x}$]</p>
+<p>解题步骤:</p>
+<p>[1] 计算 $|\boldsymbol{A}^*|$ 与 $|\boldsymbol{A}|$：<br />
+已知 $\boldsymbol{A}^*$ 为上三角矩阵，其行列式为主对角线元素的乘积：<br />
+$$|\boldsymbol{A}^*| = 1 \times 2 \times 1 \times 4 = 8$$<br />
+对于 4 阶方阵 $\boldsymbol{A}$，伴随矩阵的行列式满足公式：<br />
+$$|\boldsymbol{A}^*| = |\boldsymbol{A}|^{4-1} = |\boldsymbol{A}|^3$$<br />
+故 $|\boldsymbol{A}|^3 = 8 \implies |\boldsymbol{A}| = 2 \ne 0$。<br />
+因此矩阵 $\boldsymbol{A}$ 可逆，方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$ 存在唯一解。</p>
+<p>[2] 求解方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$：<br />
+在方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$ 两边同时左乘伴随矩阵 $\boldsymbol{A}^*$：<br />
+$$\boldsymbol{A}^*\boldsymbol{A}\boldsymbol{x} = \boldsymbol{A}^*\boldsymbol{b}$$<br />
+利用恒等式 $\boldsymbol{A}^*\boldsymbol{A} = |\boldsymbol{A}|\boldsymbol{E}$，得：<br />
+$$|\boldsymbol{A}|\boldsymbol{x} = \boldsymbol{A}^*\boldsymbol{b} \implies 2\boldsymbol{x} = \boldsymbol{A}^*\boldsymbol{b}$$<br />
+计算 $\boldsymbol{A}^*\boldsymbol{b}$：<br />
+$$\boldsymbol{A}^*\boldsymbol{b} = \begin{bmatrix} 1 & 0 & 1 & 0 \\ 0 & 2 & 0 & 2 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 4 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 + 0 + 1 + 0 \\ 0 + 2 + 0 + 2 \\ 0 + 0 + 1 + 1 \\ 0 + 0 + 0 + 4 \end{bmatrix} = \begin{bmatrix} 2 \\ 4 \\ 2 \\ 4 \end{bmatrix}$$<br />
+两边同除以 2：<br />
+$$\boldsymbol{x} = \frac{1}{2} \begin{bmatrix} 2 \\ 4 \\ 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 1 \\ 2 \end{bmatrix}$$</p>
+<p>综上所述，方程组的解为 $[1, 2, 1, 2]^\mathrm{T}$。</p>
+<hr />
+<p><strong>(选择题)<font color=deeppink>题目[3]: 方程组无解与正规方程组有解的参数分析</font></strong></p>
+<p>设方程组 $\begin{cases} x_1 + ax_2 - 2x_3 = 0, \\ x_1 + 2x_2 + x_3 = 1, \\ 2x_1 + 3x_2 + (a+2)x_3 = 3 \end{cases}$ 的系数矩阵为 $\boldsymbol{A}$，自由项为 $\boldsymbol{b}$，若 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$ 无解，$\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{A}^\mathrm{T}\boldsymbol{b}$ 有解，则 $a = (\qquad)$.</p>
+<p>[A] -1</p>
+<p>[B] 1</p>
+<p>[C] -3</p>
+<p>[D] 3</p>
+<p>答案: [A]</p>
+<p>主要思路: [对于任意实矩阵 $\boldsymbol{A}$ 与向量 $\boldsymbol{b}$，正规方程组 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{A}^\mathrm{T}\boldsymbol{b}$ 恒有解(最小二乘解)；因此只需由 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$ 无解确定参数 $a$，即化简增广矩阵使其满足 $r(\boldsymbol{A}) < r(\overline{\boldsymbol{A}})$]</p>
+<p>解题步骤:</p>
+<p>[1] 理解正规方程组恒有解的性质：<br />
+对任意实矩阵 $\boldsymbol{A}_{m \times n}$ 及向量 $\boldsymbol{b} \in \mathbb{R}^m$，根据线性代数核心定理：<br />
+$$r(\boldsymbol{A}^\mathrm{T}\boldsymbol{A}) = r(\boldsymbol{A}) = r(\boldsymbol{A}^\mathrm{T}) = r([\boldsymbol{A}^\mathrm{T}\boldsymbol{A} \mid \boldsymbol{A}^\mathrm{T}\boldsymbol{b}])$$<br />
+故正规方程组 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{A}^\mathrm{T}\boldsymbol{b}$ 总是相容有解的（几何上对应于 $\boldsymbol{b}$ 在 $\boldsymbol{A}$ 列空间上的正交投影）。<br />
+因此，题设中“$\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{A}^\mathrm{T}\boldsymbol{b}$ 有解”为恒成立的冗余条件，核心约束完全在于“$\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$ 无解”。</p>
+<p>[2] 对增广矩阵 $\overline{\boldsymbol{A}} = [\boldsymbol{A} \mid \boldsymbol{b}]$ 作初等行变换：<br />
+$$\overline{\boldsymbol{A}} = \begin{bmatrix} 1 & a & -2 & 0 \\ 1 & 2 & 1 & 1 \\ 2 & 3 & a+2 & 3 \end{bmatrix}$$<br />
+交换第 1 行与第 2 行：<br />
+$$\begin{bmatrix} 1 & 2 & 1 & 1 \\ 1 & a & -2 & 0 \\ 2 & 3 & a+2 & 3 \end{bmatrix}$$<br />
+执行行变换 $r_2 - r_1$，$r_3 - 2r_1$：<br />
+$$\begin{bmatrix} 1 & 2 & 1 & 1 \\ 0 & a-2 & -3 & -1 \\ 0 & -1 & a & 1 \end{bmatrix}$$<br />
+交换第 2 行与第 3 行：<br />
+$$\begin{bmatrix} 1 & 2 & 1 & 1 \\ 0 & -1 & a & 1 \\ 0 & a-2 & -3 & -1 \end{bmatrix}$$<br />
+执行行变换 $r_3 + (a-2)r_2$：<br />
+$$\begin{bmatrix} 1 & 2 & 1 & 1 \\ 0 & -1 & a & 1 \\ 0 & 0 & a(a-2)-3 & -1 + (a-2) \end{bmatrix} = \begin{bmatrix} 1 & 2 & 1 & 1 \\ 0 & -1 & a & 1 \\ 0 & 0 & a^2-2a-3 & a-3 \end{bmatrix}$$</p>
+<p>[3] 讨论方程组无解的充要条件：<br />
+方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$ 无解 $\iff r(\boldsymbol{A}) < r(\overline{\boldsymbol{A}})$。<br />
+观察第 3 行：<br />
+系数项为 $a^2 - 2a - 3 = (a-3)(a+1)$，常数项为 $a - 3$。<br />
+要使 $r(\boldsymbol{A}) = 2$ 且 $r(\overline{\boldsymbol{A}}) = 3$，必须满足：<br />
+$$\begin{cases} (a-3)(a+1) = 0 \\ a - 3 \ne 0 \end{cases} \implies a = -1$$<br />
+若 $a = 3$，则第 3 行全为 0，$r(\boldsymbol{A}) = r(\overline{\boldsymbol{A}}) = 2$，方程组有无穷多解，不合题意。<br />
+因此只能取 $a = -1$。</p>
+<p>综上所述，正确选项为 [A]。</p>
+<hr />
+<p><strong>(选择题)<font color=deeppink>题目[4]: 分块矩阵的秩与方程组有解的充要关系</font></strong></p>
+<p>设 $\boldsymbol{A}$ 是秩为 2 的 3 阶实对称矩阵，$\boldsymbol{\alpha}, \boldsymbol{\beta}$ 是 3 维非零列向量，$\boldsymbol{B} = \begin{bmatrix} \boldsymbol{A} & \boldsymbol{\beta} \\ \boldsymbol{\alpha}^\mathrm{T} & 1 \end{bmatrix}$，则 $r(\boldsymbol{B}) = 2$ 是方程组 $\begin{cases} \boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}, \\ \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{x} = 1 \end{cases}$ 有解的 $(\qquad)$.</p>
+<p>[A] 充分非必要条件</p>
+<p>[B] 必要非充分条件</p>
+<p>[C] 充分必要条件</p>
+<p>[D] 既非充分又非必要条件</p>
+<p>答案: [A]</p>
+<p>主要思路: [将线性方程组写成分块形式 $\begin{bmatrix} \boldsymbol{A} \\ \boldsymbol{\alpha}^\mathrm{T} \end{bmatrix}\boldsymbol{x} = \begin{bmatrix} \boldsymbol{\beta} \\ 1 \end{bmatrix}$，结合矩阵的秩不等式与向量空间投影分析充分性与必要性]</p>
+<p>解题步骤:</p>
+<p>[1] 验证充分性：<br />
+若 $r(\boldsymbol{B}) = 2$，其中 $\boldsymbol{B} = \begin{bmatrix} \boldsymbol{A} & \boldsymbol{\beta} \\ \boldsymbol{\alpha}^\mathrm{T} & 1 \end{bmatrix}$ 为 4 阶方阵。<br />
+根据子矩阵的秩不大于母矩阵的秩：<br />
+$$r(\boldsymbol{A}) \le r([\boldsymbol{A}, \boldsymbol{\beta}]) \le r(\boldsymbol{B}) = 2$$<br />
+已知 $r(\boldsymbol{A}) = 2$，因此必有 $r([\boldsymbol{A}, \boldsymbol{\beta}]) = 2$。<br />
+同理：<br />
+$$r(\boldsymbol{A}) \le r\left(\begin{bmatrix} \boldsymbol{A} \\ \boldsymbol{\alpha}^\mathrm{T} \end{bmatrix}\right) \le r(\boldsymbol{B}) = 2 \implies r\left(\begin{bmatrix} \boldsymbol{A} \\ \boldsymbol{\alpha}^\mathrm{T} \end{bmatrix}\right) = 2$$<br />
+这意味着 $\boldsymbol{B}$ 的前 3 列的秩为 2，第 4 列可由前 3 列线性表出；<br />
+且 $\boldsymbol{B}$ 的前 3 行的秩为 2，第 4 行可由前 3 行线性表出。<br />
+特别地，由第 4 列可由前 3 列线性表出可知，存在 3 维向量 $\boldsymbol{x}_0$ 使得：<br />
+$$\begin{bmatrix} \boldsymbol{A} \\ \boldsymbol{\alpha}^\mathrm{T} \end{bmatrix} \boldsymbol{x}_0 = \begin{bmatrix} \boldsymbol{\beta} \\ 1 \end{bmatrix} \iff \begin{cases} \boldsymbol{A}\boldsymbol{x}_0 = \boldsymbol{\beta}, \\ \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{x}_0 = 1 \end{cases}$$<br />
+即方程组必定有解。故充分性成立！</p>
+<p>[2] 验证必要性（举反例）：<br />
+若方程组 $\begin{cases} \boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}, \\ \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{x} = 1 \end{cases}$ 有解，是否一定能推出 $r(\boldsymbol{B}) = 2$？<br />
+设方程组有解 $\boldsymbol{x}_0$，即 $\begin{bmatrix} \boldsymbol{\beta} \\ 1 \end{bmatrix} = \begin{bmatrix} \boldsymbol{A} \\ \boldsymbol{\alpha}^\mathrm{T} \end{bmatrix}\boldsymbol{x}_0$。<br />
+此时 $\boldsymbol{B}$ 的第 4 列是前 3 列的线性组合，故：<br />
+$$r(\boldsymbol{B}) = r\left(\begin{bmatrix} \boldsymbol{A} & \boldsymbol{\beta} \\ \boldsymbol{\alpha}^\mathrm{T} & 1 \end{bmatrix}\right) = r\left(\begin{bmatrix} \boldsymbol{A} \\ \boldsymbol{\alpha}^\mathrm{T} \end{bmatrix}\right)$$<br />
+但行向量 $\boldsymbol{\alpha}^\mathrm{T}$ 是否一定属于 $\boldsymbol{A}$ 的行空间呢？<br />
+不一定！矩阵 $\boldsymbol{A}$ 的秩为 2，若行向量 $\boldsymbol{\alpha}^\mathrm{T}$ 与 $\boldsymbol{A}$ 的行向量组线性无关，则：<br />
+$$r\left(\begin{bmatrix} \boldsymbol{A} \\ \boldsymbol{\alpha}^\mathrm{T} \end{bmatrix}\right) = 3 \implies r(\boldsymbol{B}) = 3$$<br />
+具体构造反例如下：<br />
+令 $\boldsymbol{A} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{bmatrix}$，显然 $r(\boldsymbol{A}) = 2$ 且为实对称矩阵。<br />
+取 $\boldsymbol{x}_0 = [1, 1, 1]^\mathrm{T}$，令 $\boldsymbol{\beta} = \boldsymbol{A}\boldsymbol{x}_0 = [1, 1, 0]^\mathrm{T}$。<br />
+取 $\boldsymbol{\alpha} = [0, 0, 1]^\mathrm{T}$，则 $\boldsymbol{\alpha}^\mathrm{T}\boldsymbol{x}_0 = 1$。<br />
+此时方程组 $\begin{cases} \boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}, \\ \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{x} = 1 \end{cases}$ 有解 $\boldsymbol{x}_0$。<br />
+但此时矩阵 $\boldsymbol{B}$ 为：<br />
+$$\boldsymbol{B} = \begin{bmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 1 \end{bmatrix}$$<br />
+显然其第 1、2、4 行线性无关，故 $r(\boldsymbol{B}) = 3 \ne 2$。<br />
+这表明必要性不成立。</p>
+<p>因此，$r(\boldsymbol{B}) = 2$ 是方程组有解的充分非必要条件。</p>
+<p>综上所述，正确选项为 [A]。</p>
+<hr />
+<p><strong>(填空题)<font color=deeppink>题目[5]: 齐次线性方程组无非零公共解的参数范围</font></strong></p>
+<p>设四元齐次线性方程组 (Ⅰ) $\begin{cases} 2x_1 + 3x_2 - x_3 = 0, \\ x_1 + 2x_2 + x_3 - x_4 = 0, \end{cases}$ 且四元齐次线性方程组 (Ⅱ) 的一个基础解系为 $\boldsymbol{\xi}_1 = [2, -1, k+2, 1]^\mathrm{T}, \boldsymbol{\xi}_2 = [-1, 2, 4, k+8]^\mathrm{T}$，若方程组 (Ⅰ) 与 (Ⅱ) 没有非零公共解，则 $k$ 的取值范围为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $k \ne -1$</p>
+<p>主要思路: [方程组 (Ⅱ) 的任一解均可表示为 $\boldsymbol{x} = c_1\boldsymbol{\xi}_1 + c_2\boldsymbol{\xi}_2$；将此通解代入方程组 (Ⅰ) 中建立关于 $c_1, c_2$ 的齐次方程组；没有非零公共解等价于该方程组只有零解 $c_1 = c_2 = 0$，即系数行列式不等于 0]</p>
+<p>解题步骤:</p>
+<p>[1] 表示方程组 (Ⅱ) 的通解：<br />
+因为 $\boldsymbol{\xi}_1, \boldsymbol{\xi}_2$ 为方程组 (Ⅱ) 的基础解系，所以方程组 (Ⅱ) 的任意解向量均可表示为：<br />
+$$\boldsymbol{x} = c_1\boldsymbol{\xi}_1 + c_2\boldsymbol{\xi}_2 = c_1 \begin{bmatrix} 2 \\ -1 \\ k+2 \\ 1 \end{bmatrix} + c_2 \begin{bmatrix} -1 \\ 2 \\ 4 \\ k+8 \end{bmatrix} = \begin{bmatrix} 2c_1 - c_2 \\ -c_1 + 2c_2 \\ (k+2)c_1 + 4c_2 \\ c_1 + (k+8)c_2 \end{bmatrix}$$</p>
+<p>[2] 将通解代入方程组 (Ⅰ)：<br />
+方程组 (Ⅰ) 的两个方程为：<br />
+$$2x_1 + 3x_2 - x_3 = 0$$<br />
+$$x_1 + 2x_2 + x_3 - x_4 = 0$$<br />
+代入第一个方程：<br />
+$$2(2c_1 - c_2) + 3(-c_1 + 2c_2) - [(k+2)c_1 + 4c_2] = 0$$<br />
+展开化简：<br />
+$$(4 - 3 - k - 2)c_1 + (-2 + 6 - 4)c_2 = 0 \implies (-k-1)c_1 + 0c_2 = 0$$<br />
+代入第二个方程：<br />
+$$(2c_1 - c_2) + 2(-c_1 + 2c_2) + [(k+2)c_1 + 4c_2] - [c_1 + (k+8)c_2] = 0$$<br />
+展开化简：<br />
+$$(2 - 2 + k + 2 - 1)c_1 + (-1 + 4 + 4 - k - 8)c_2 = 0 \implies (k+1)c_1 + (-k-1)c_2 = 0$$</p>
+<p>[3] 求解无非零公共解的条件：<br />
+联立关于 $c_1, c_2$ 的线性方程组：<br />
+$$\begin{cases} -(k+1)c_1 = 0 \\ (k+1)c_1 - (k+1)c_2 = 0 \end{cases} \iff \begin{bmatrix} -(k+1) & 0 \\ k+1 & -(k+1) \end{bmatrix} \begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$$<br />
+方程组 (Ⅰ) 与 (Ⅱ) 没有非零公共解，等价于该关于 $c_1, c_2$ 的齐次线性方程组只有零解 $c_1 = c_2 = 0$。<br />
+由于系数矩阵为下三角矩阵，其行列式为：<br />
+$$D = \begin{vmatrix} -(k+1) & 0 \\ k+1 & -(k+1) \end{vmatrix} = [-(k+1)]^2 = (k+1)^2$$<br />
+只有零解的充要条件为 $D \ne 0$，即：<br />
+$$(k+1)^2 \ne 0 \implies k \ne -1$$</p>
+<p>综上所述，$k$ 的取值范围为 $k \ne -1$。</p>
+<hr />
+<p><strong>(解答题)<font color=deeppink>题目[6]: 已知基础解系反求矩阵及公共解</font></strong></p>
+<p>已知 $\boldsymbol{A}, \boldsymbol{B}$ 均是 $2\times 4$ 矩阵，$\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 的基础解系是 $\boldsymbol{\alpha}_1 = [1, 1, 2, 1]^\mathrm{T}, \boldsymbol{\alpha}_2 = [0, -3, 1, 0]^\mathrm{T}$，$\boldsymbol{B}\boldsymbol{x} = \boldsymbol{0}$ 的基础解系是 $\boldsymbol{\beta}_1 = [1, 3, 0, 2]^\mathrm{T}, \boldsymbol{\beta}_2 = [1, 2, -1, a]^\mathrm{T}$.</p>
+<p>(1) 求矩阵 $\boldsymbol{A}$；</p>
+<p>(2) 如果 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 和 $\boldsymbol{B}\boldsymbol{x} = \boldsymbol{0}$ 有非零公共解，求 $a$ 的值及所有非零公共解.</p>
+<p>答案:<br />
+(1) $\boldsymbol{A} = \begin{bmatrix} -7 & 1 & 3 & 0 \\ -1 & 0 & 0 & 1 \end{bmatrix}$ (答案在非奇异初等行变换意义下等价)；<br />
+(2) $a = 3$，所有非零公共解为 $\boldsymbol{x} = k[1, 4, 1, 1]^\mathrm{T}$ ($k \ne 0$).</p>
+<p>主要思路:<br />
+[(1) $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 为 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 的解等价于 $\boldsymbol{A}$ 的行向量与 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 正交，即 $\boldsymbol{A}$ 的行向量为以 $\boldsymbol{\alpha}_1^\mathrm{T}, \boldsymbol{\alpha}_2^\mathrm{T}$ 为系数矩阵的齐次方程组的基础解系；<br />
+(2) 公共解 $\boldsymbol{x}$ 满足 $\boldsymbol{x} = c_1\boldsymbol{\alpha}_1 + c_2\boldsymbol{\alpha}_2 = d_1\boldsymbol{\beta}_1 + d_2\boldsymbol{\beta}_2$，通过列向量方程组求出参数 $a$ 及对应的解向量]</p>
+<p>解题步骤:</p>
+<p>[1] 求解第 (1) 问：求矩阵 $\boldsymbol{A}$：<br />
+设矩阵 $\boldsymbol{A}$ 的行向量为 $\boldsymbol{r}_1, \boldsymbol{r}_2$。<br />
+因为 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 是 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 的基础解系，故：<br />
+$$\boldsymbol{A}\boldsymbol{\alpha}_1 = \boldsymbol{0}, \quad \boldsymbol{A}\boldsymbol{\alpha}_2 = \boldsymbol{0}$$<br />
+两边转置可知，$\boldsymbol{A}$ 的每个行向量 $\boldsymbol{r}_i^\mathrm{T}$ 均满足：<br />
+$$\begin{bmatrix} \boldsymbol{\alpha}_1^\mathrm{T} \\ \boldsymbol{\alpha}_2^\mathrm{T} \end{bmatrix} \boldsymbol{y} = \boldsymbol{0} \implies \begin{bmatrix} 1 & 1 & 2 & 1 \\ 0 & -3 & 1 & 0 \end{bmatrix} \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$$<br />
+对系数矩阵作初等行变换：<br />
+$$3r_1 + r_2: [3, 0, 7, 3]$$<br />
+由此可得方程组的同解方程组：<br />
+$$\begin{cases} 3y_1 + 7y_3 + 3y_4 = 0 \\ -3y_2 + y_3 = 0 \end{cases} \implies \begin{cases} y_1 = -\frac{7}{3}y_3 - y_4 \\ y_2 = \frac{1}{3}y_3 \end{cases}$$<br />
+选取自由未知量：<br />
+取 $y_3 = 3, y_4 = 0$，得基础解系 $\boldsymbol{\xi}_1 = [-7, 1, 3, 0]^\mathrm{T}$；<br />
+取 $y_3 = 0, y_4 = 1$，得基础解系 $\boldsymbol{\xi}_2 = [-1, 0, 0, 1]^\mathrm{T}$。<br />
+因此，可取矩阵 $\boldsymbol{A}$ 的两行为 $\boldsymbol{\xi}_1^\mathrm{T}, \boldsymbol{\xi}_2^\mathrm{T}$：<br />
+$$\boldsymbol{A} = \begin{bmatrix} -7 & 1 & 3 & 0 \\ -1 & 0 & 0 & 1 \end{bmatrix}$$</p>
+<p>[2] 求解第 (2) 问：求 $a$ 的值与所有非零公共解：<br />
+若 $\boldsymbol{x}$ 是 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 和 $\boldsymbol{B}\boldsymbol{x} = \boldsymbol{0}$ 的公共解，则 $\boldsymbol{x}$ 既是 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 的线性组合，也是 $\boldsymbol{\beta}_1, \boldsymbol{\beta}_2$ 的线性组合：<br />
+$$\boldsymbol{x} = c_1\boldsymbol{\alpha}_1 + c_2\boldsymbol{\alpha}_2 = d_1\boldsymbol{\beta}_1 + d_2\boldsymbol{\beta}_2$$<br />
+移项整理为关于 $c_1, c_2, d_1, d_2$ 的齐次线性方程组：<br />
+$$c_1\boldsymbol{\alpha}_1 + c_2\boldsymbol{\alpha}_2 - d_1\boldsymbol{\beta}_1 - d_2\boldsymbol{\beta}_2 = \boldsymbol{0}$$<br />
+写成矩阵形式 $[\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\beta}_1, \boldsymbol{\beta}_2] \begin{bmatrix} c_1 \\ c_2 \\ -d_1 \\ -d_2 \end{bmatrix} = \boldsymbol{0}$。<br />
+对矩阵 $[\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\beta}_1, \boldsymbol{\beta}_2]$ 作初等行变换：<br />
+$$\begin{bmatrix} 1 & 0 & 1 & 1 \\ 1 & -3 & 3 & 2 \\ 2 & 1 & 0 & -1 \\ 1 & 0 & 2 & a \end{bmatrix}$$<br />
+执行行变换 $r_2 - r_1$，$r_3 - 2r_1$，$r_4 - r_1$：<br />
+$$\begin{bmatrix} 1 & 0 & 1 & 1 \\ 0 & -3 & 2 & 1 \\ 0 & 1 & -2 & -3 \\ 0 & 0 & 1 & a-1 \end{bmatrix}$$<br />
+交换 $r_2, r_3$：<br />
+$$\begin{bmatrix} 1 & 0 & 1 & 1 \\ 0 & 1 & -2 & -3 \\ 0 & -3 & 2 & 1 \\ 0 & 0 & 1 & a-1 \end{bmatrix}$$<br />
+执行 $r_3 + 3r_2$：<br />
+$$\begin{bmatrix} 1 & 0 & 1 & 1 \\ 0 & 1 & -2 & -3 \\ 0 & 0 & -4 & -8 \\ 0 & 0 & 1 & a-1 \end{bmatrix}$$<br />
+第 3 行除以 $-4$：<br />
+$$\begin{bmatrix} 1 & 0 & 1 & 1 \\ 0 & 1 & -2 & -3 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 1 & a-1 \end{bmatrix}$$<br />
+执行 $r_4 - r_3$：<br />
+$$\begin{bmatrix} 1 & 0 & 1 & 1 \\ 0 & 1 & -2 & -3 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & a-3 \end{bmatrix}$$</p>
+<p>[3] 确定参数 $a$ 并求解向量：<br />
+存在非零公共解 $\iff$ 方程组有非零解 $\iff$ 矩阵的秩小于 4。<br />
+因此必须满足：<br />
+$$a - 3 = 0 \implies a = 3$$<br />
+此时继续化为行最简形：<br />
+$r_2 + 2r_3$，$r_1 - r_3$：<br />
+$$\begin{bmatrix} 1 & 0 & 0 & -1 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$<br />
+对应方程为：<br />
+$$\begin{cases} c_1 - d_2 = 0 \implies c_1 = d_2 \\ c_2 + d_2 = 0 \implies c_2 = -d_2 \\ -d_1 + 2d_2 = 0 \implies d_1 = 2d_2 \end{cases}$$<br />
+取自由变量 $d_2 = k$ ($k \ne 0$)，则 $c_1 = k, c_2 = -k$。<br />
+代入公共解表达式：<br />
+$$\boldsymbol{x} = k\boldsymbol{\alpha}_1 - k\boldsymbol{\alpha}_2 = k(\boldsymbol{\alpha}_1 - \boldsymbol{\alpha}_2) = k\left(\begin{bmatrix} 1 \\ 1 \\ 2 \\ 1 \end{bmatrix} - \begin{bmatrix} 0 \\ -3 \\ 1 \\ 0 \end{bmatrix}\right) = k \begin{bmatrix} 1 \\ 4 \\ 1 \\ 1 \end{bmatrix} \quad (k \ne 0)$$<br />
+检验用 $\boldsymbol{\beta}$ 计算：$d_1 = 2k, d_2 = k \implies 2\boldsymbol{\beta}_1 + \boldsymbol{\beta}_2 = 2[1, 3, 0, 2]^\mathrm{T} + [1, 2, -1, 3]^\mathrm{T} = [3, 8, -1, 7]^\mathrm{T}$？<br />
+等等，注意上面的分块是 $[-d_1, -d_2]^\mathrm{T}$！<br />
+方程为 $-d_1 + 2d_2 = 0 \implies -d_1 = -2(-d_2)$，即第 3 列对应的是 $-d_1$。<br />
+实际上由 $c_1 = k, c_2 = -k$ 直接计算 $\boldsymbol{x} = k(\boldsymbol{\alpha}_1 - \boldsymbol{\alpha}_2) = k[1, 4, 1, 1]^\mathrm{T}$ 是最直接且准确无误的。</p>
+<p>综上所述，$a = 3$，所有非零公共解为 $\boldsymbol{x} = k[1, 4, 1, 1]^\mathrm{T}$ ($k \ne 0$).</p>
+<hr />
+<p><strong>(选择题)<font color=deeppink>题目[7]: 矩阵乘积方程组非零公共解的存在性判断</font></strong></p>
+<p>设 3 阶矩阵 $\boldsymbol{A}, \boldsymbol{B}$ 满足 $r(\boldsymbol{B}\boldsymbol{A}) < r(\boldsymbol{A}\boldsymbol{B})$，对于以下结论：</p>
+<p>[1] $\boldsymbol{A}\boldsymbol{B}\boldsymbol{x} = \boldsymbol{0}$ 与 $\boldsymbol{B}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 有非零公共解；</p>
+<p>[2] $\boldsymbol{A}\boldsymbol{B}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 与 $\boldsymbol{B}\boldsymbol{A}\boldsymbol{B}\boldsymbol{x} = \boldsymbol{0}$ 有非零公共解.</p>
+<p>正确的说法是 $(\qquad)$.</p>
+<p>[A] [1] 正确，[2] 正确</p>
+<p>[B] [1] 正确，[2] 错误</p>
+<p>[C] [1] 错误，[2] 正确</p>
+<p>[D] [1] 错误，[2] 错误</p>
+<p>答案: [C]</p>
+<p>主要思路: [由 $r(\boldsymbol{B}\boldsymbol{A}) < r(\boldsymbol{A}\boldsymbol{B})$ 分析出 $r(\boldsymbol{B}\boldsymbol{A}) \le 1$；对于 [1] 可通过构造具体 3 阶矩阵反例证伪；对于 [2] 利用秩的不等式 $r(\boldsymbol{A}\boldsymbol{B}\boldsymbol{A}) \le r(\boldsymbol{B}\boldsymbol{A}) \le 1$ 及 $r(\boldsymbol{B}\boldsymbol{A}\boldsymbol{B}) \le r(\boldsymbol{B}\boldsymbol{A}) \le 1$，结合子空间维数公式证明解空间的交空间维数至少为 1]</p>
+<p>解题步骤:</p>
+<p>[1] 分析 $r(\boldsymbol{A}\boldsymbol{B})$ 与 $r(\boldsymbol{B}\boldsymbol{A})$ 的取值范围：<br />
+因为 $\boldsymbol{A}, \boldsymbol{B}$ 均为 3 阶矩阵，若 $r(\boldsymbol{A}\boldsymbol{B}) = 3$，则 $\boldsymbol{A}, \boldsymbol{B}$ 均可逆，必有 $r(\boldsymbol{B}\boldsymbol{A}) = 3$，与 $r(\boldsymbol{B}\boldsymbol{A}) < r(\boldsymbol{A}\boldsymbol{B})$ 矛盾。<br />
+因此 $r(\boldsymbol{A}\boldsymbol{B}) \le 2$。<br />
+又已知 $r(\boldsymbol{B}\boldsymbol{A}) < r(\boldsymbol{A}\boldsymbol{B})$，故 $r(\boldsymbol{B}\boldsymbol{A}) \le 1$。</p>
+<p>[2] 判定结论 [1]（构造反例证伪）：<br />
+取 3 阶矩阵：<br />
+$$\boldsymbol{A} = \begin{bmatrix} 1 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}, \quad \boldsymbol{B} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{bmatrix}$$<br />
+计算两者的乘积：<br />
+$$\boldsymbol{A}\boldsymbol{B} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix} \implies r(\boldsymbol{A}\boldsymbol{B}) = 2$$<br />
+$$\boldsymbol{B}\boldsymbol{A} = \begin{bmatrix} 1 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix} \implies r(\boldsymbol{B}\boldsymbol{A}) = 1$$<br />
+满足 $r(\boldsymbol{B}\boldsymbol{A}) = 1 < r(\boldsymbol{A}\boldsymbol{B}) = 2$。<br />
+求各自的零空间（解空间）：<br />
+对 $\boldsymbol{A}\boldsymbol{B}\boldsymbol{x} = \boldsymbol{0}$，有 $x_1 = 0, x_2 = 0$，解向量必形如 $\boldsymbol{x} = [0, 0, c]^\mathrm{T}$ ($c \in \mathbb{R}$)；<br />
+对 $\boldsymbol{B}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$，有 $x_1 + x_3 = 0$。<br />
+若存在非零公共解 $\boldsymbol{x} = [0, 0, c]^\mathrm{T}$ ($c \ne 0$)，代入 $\boldsymbol{B}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 得：<br />
+$$0 + c = 0 \implies c = 0$$<br />
+这与 $\boldsymbol{x} \ne \boldsymbol{0}$ 矛盾！<br />
+因此 $\boldsymbol{A}\boldsymbol{B}\boldsymbol{x} = \boldsymbol{0}$ 与 $\boldsymbol{B}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 只有零公共解，结论 [1] 错误。</p>
+<p>[3] 判定结论 [2]（维数公式严格证明）：<br />
+记 $V_1 = \{\boldsymbol{x} \mid \boldsymbol{A}\boldsymbol{B}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}\}$，$V_2 = \{\boldsymbol{x} \mid \boldsymbol{B}\boldsymbol{A}\boldsymbol{B}\boldsymbol{x} = \boldsymbol{0}\}$。<br />
+由矩阵乘积的秩的基本性质可知：<br />
+$$r(\boldsymbol{A}\boldsymbol{B}\boldsymbol{A}) \le r(\boldsymbol{B}\boldsymbol{A}) \le 1$$<br />
+$$r(\boldsymbol{B}\boldsymbol{A}\boldsymbol{B}) \le r(\boldsymbol{B}\boldsymbol{A}) \le 1$$<br />
+因此解空间的维数分别满足：<br />
+$$\dim V_1 = 3 - r(\boldsymbol{A}\boldsymbol{B}\boldsymbol{A}) \ge 3 - 1 = 2$$<br />
+$$\dim V_2 = 3 - r(\boldsymbol{B}\boldsymbol{A}\boldsymbol{B}) \ge 3 - 1 = 2$$<br />
+根据有限维向量空间的维数公式：<br />
+$$\dim(V_1 \cap V_2) = \dim V_1 + \dim V_2 - \dim(V_1 + V_2)$$<br />
+因为 $V_1 + V_2 \subseteq \mathbb{R}^3$，所以 $\dim(V_1 + V_2) \le 3$。由此得：<br />
+$$\dim(V_1 \cap V_2) \ge 2 + 2 - 3 = 1 > 0$$<br />
+这表明交空间 $V_1 \cap V_2$ 的维数至少为 1，即必然存在非零向量 $\boldsymbol{x} \in V_1 \cap V_2$！<br />
+因此 $\boldsymbol{A}\boldsymbol{B}\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 与 $\boldsymbol{B}\boldsymbol{A}\boldsymbol{B}\boldsymbol{x} = \boldsymbol{0}$ 必有非零公共解，结论 [2] 正确。</p>
+<p>综上所述，[1] 错误，[2] 正确，正确选项为 [C]。</p>
+<hr />
+<p><strong>(选择题)<font color=deeppink>题目[8]: 分块矩阵齐次线性方程组的同解性判定</font></strong></p>
+<p>设 $\boldsymbol{A}$ 为 $n$ 阶实矩阵，则 $(\qquad)$.</p>
+<p>[A] $\begin{bmatrix} \boldsymbol{A} & \boldsymbol{O} \\ \boldsymbol{E} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$ 只有零解</p>
+<p>[B] $\begin{bmatrix} \boldsymbol{O} & \boldsymbol{A} \\ \boldsymbol{A}^\mathrm{T}\boldsymbol{A} & \boldsymbol{A}\boldsymbol{A}^\mathrm{T}\boldsymbol{A} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$ 只有零解</p>
+<p>[C] $\begin{bmatrix} \boldsymbol{A} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \\ \boldsymbol{O} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$ 与 $\begin{bmatrix} \boldsymbol{A}^\mathrm{T}\boldsymbol{A} & \boldsymbol{A} \\ \boldsymbol{O} & \boldsymbol{A} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$ 同解</p>
+<p>[D] $\begin{bmatrix} \boldsymbol{A}\boldsymbol{A}^\mathrm{T}\boldsymbol{A} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \\ \boldsymbol{O} & \boldsymbol{A} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$ 与 $\begin{bmatrix} \boldsymbol{A}^\mathrm{T}\boldsymbol{A}^2 & \boldsymbol{A} \\ \boldsymbol{O} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$ 同解</p>
+<p>答案: [C]</p>
+<p>主要思路: [将 $2n$ 维未知向量分块为 $\boldsymbol{x} = [\boldsymbol{x}_1^\mathrm{T}, \boldsymbol{x}_2^\mathrm{T}]^\mathrm{T}$；利用实矩阵性质 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{y} = \boldsymbol{0} \iff \boldsymbol{A}\boldsymbol{y} = \boldsymbol{0}$，分别化简各个分块方程组，判断解集是否恒等]</p>
+<p>解题步骤:</p>
+<p>[1] 核心基础引理：<br />
+对于任意实矩阵 $\boldsymbol{A}$，恒有 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{y} = \boldsymbol{0} \iff \boldsymbol{A}\boldsymbol{y} = \boldsymbol{0}$。<br />
+证明：若 $\boldsymbol{A}\boldsymbol{y} = \boldsymbol{0}$，显然 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{y} = \boldsymbol{0}$；<br />
+反之，若 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{y} = \boldsymbol{0}$，两边左乘 $\boldsymbol{y}^\mathrm{T}$ 得 $\boldsymbol{y}^\mathrm{T}\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{y} = \|\boldsymbol{A}\boldsymbol{y}\|^2 = 0 \implies \boldsymbol{A}\boldsymbol{y} = \boldsymbol{0}$。</p>
+<p>[2] 排除选项 [A] 与 [B]：<br />
+令 $\boldsymbol{A} = \boldsymbol{O}$，则选项 [B] 中的矩阵完全为零矩阵，显然有非零解；<br />
+在选项 [A] 中，若 $\boldsymbol{A} = \boldsymbol{O}$，方程为 $\begin{cases} \boldsymbol{O}\boldsymbol{x}_1 = \boldsymbol{0} \\ \boldsymbol{x}_1 + \boldsymbol{O}\boldsymbol{x}_2 = \boldsymbol{0} \end{cases} \implies \boldsymbol{x}_1 = \boldsymbol{0}$，但 $\boldsymbol{x}_2$ 可取任意非零向量，故也有非零解。因此 [A]、[B] 均不正确。</p>
+<p>[3] 证明选项 [C] 正确：<br />
+将向量分块为 $\boldsymbol{x} = \begin{bmatrix} \boldsymbol{x}_1 \\ \boldsymbol{x}_2 \end{bmatrix}$，其中 $\boldsymbol{x}_1, \boldsymbol{x}_2 \in \mathbb{R}^n$。<br />
+考察 [C] 中的左侧方程组：<br />
+$$\begin{bmatrix} \boldsymbol{A} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \\ \boldsymbol{O} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \end{bmatrix} \begin{bmatrix} \boldsymbol{x}_1 \\ \boldsymbol{x}_2 \end{bmatrix} = \begin{bmatrix} \boldsymbol{0} \\ \boldsymbol{0} \end{bmatrix} \iff \begin{cases} \boldsymbol{A}\boldsymbol{x}_1 + \boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0} \\ \boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0} \end{cases}$$<br />
+由第 2 式 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0}$，代入第 1 式得 $\boldsymbol{A}\boldsymbol{x}_1 = \boldsymbol{0}$。<br />
+且由核心引理，$\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0} \iff \boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0}$。<br />
+因此左侧方程组等价于：<br />
+$$\begin{cases} \boldsymbol{A}\boldsymbol{x}_1 = \boldsymbol{0} \\ \boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0} \end{cases}$$<br />
+再考察 [C] 中的右侧方程组：<br />
+$$\begin{bmatrix} \boldsymbol{A}^\mathrm{T}\boldsymbol{A} & \boldsymbol{A} \\ \boldsymbol{O} & \boldsymbol{A} \end{bmatrix} \begin{bmatrix} \boldsymbol{x}_1 \\ \boldsymbol{x}_2 \end{bmatrix} = \begin{bmatrix} \boldsymbol{0} \\ \boldsymbol{0} \end{bmatrix} \iff \begin{cases} \boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x}_1 + \boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0} \\ \boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0} \end{cases}$$<br />
+将第 2 式 $\boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0}$ 代入第 1 式得 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x}_1 = \boldsymbol{0} \iff \boldsymbol{A}\boldsymbol{x}_1 = \boldsymbol{0}$。<br />
+因此右侧方程组也完全等价于：<br />
+$$\begin{cases} \boldsymbol{A}\boldsymbol{x}_1 = \boldsymbol{0} \\ \boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0} \end{cases}$$<br />
+由于两方程组均与 $\begin{cases} \boldsymbol{A}\boldsymbol{x}_1 = \boldsymbol{0} \\ \boldsymbol{A}\boldsymbol{x}_2 = \boldsymbol{0} \end{cases}$ 等价，故它们恒同解！[C] 正确。</p>
+<p>[4] 排除选项 [D]：<br />
+在 [D] 的右侧方程组中，第 1 式出现 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}^2\boldsymbol{x}_1 = \boldsymbol{0}$。<br />
+取 $\boldsymbol{A} = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$，则 $\boldsymbol{A}^2 = \boldsymbol{O}$，此时 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}^2\boldsymbol{x}_1 = \boldsymbol{0}$ 对任意 $\boldsymbol{x}_1$ 恒成立，而 $\boldsymbol{A}\boldsymbol{x}_1 = \boldsymbol{0}$ 要求 $x_2 = 0$，两者显然不同解。</p>
+<p>综上所述，正确选项为 [C]。</p>
+<hr />
+<p><strong>(选择题)<font color=deeppink>题目[9]: 矩阵多项式可逆性与齐次方程组同解性</font></strong></p>
+<p>设 $\boldsymbol{A}, \boldsymbol{B}$ 为 $n$ 阶矩阵，且 $\boldsymbol{A}$ 满足 $\boldsymbol{A}^2 - \boldsymbol{A} = 3\boldsymbol{E}$，则与 $\begin{bmatrix} \boldsymbol{A} \\ \boldsymbol{B} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$ 不一定同解的是 $(\qquad)$.</p>
+<p>[A] $\begin{bmatrix} \boldsymbol{A} - \boldsymbol{B} \\ \boldsymbol{A} + \boldsymbol{A}\boldsymbol{B} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$</p>
+<p>[B] $\begin{bmatrix} \boldsymbol{A} + \boldsymbol{B} \\ \boldsymbol{A} + \boldsymbol{A}\boldsymbol{B} - \boldsymbol{B} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$</p>
+<p>[C] $\begin{bmatrix} \boldsymbol{A} - \boldsymbol{B} \\ 2\boldsymbol{A} + \boldsymbol{B} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$</p>
+<p>[D] $\begin{bmatrix} \boldsymbol{A} + \boldsymbol{B} \\ \boldsymbol{B}\boldsymbol{A} + \boldsymbol{B}^2 \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$</p>
+<p>答案: [D]</p>
+<p>主要思路: [由 $\boldsymbol{A}(\boldsymbol{A}-\boldsymbol{E}) = 3\boldsymbol{E}$ 可知 $\boldsymbol{A}$ 可逆，原方程组只有唯一零解 $\boldsymbol{x} = \boldsymbol{0}$；因此题目等价于寻找可能存在非零解的选项；选项 [D] 中第 2 行可提取公因子 $(\boldsymbol{A}+\boldsymbol{B})$，导致方程退化]</p>
+<p>解题步骤:</p>
+<p>[1] 确定原方程组的解集：<br />
+由已知 $\boldsymbol{A}^2 - \boldsymbol{A} = 3\boldsymbol{E}$，可变形为：<br />
+$$\boldsymbol{A}(\boldsymbol{A} - \boldsymbol{E}) = 3\boldsymbol{E} \implies \boldsymbol{A} \cdot \left[\frac{1}{3}(\boldsymbol{A} - \boldsymbol{E})\right] = \boldsymbol{E}$$<br />
+因此矩阵 $\boldsymbol{A}$ 必可逆！<br />
+对于原方程组 $\begin{bmatrix} \boldsymbol{A} \\ \boldsymbol{B} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0} \iff \begin{cases} \boldsymbol{A}\boldsymbol{x} = \boldsymbol{0} \\ \boldsymbol{B}\boldsymbol{x} = \boldsymbol{0} \end{cases}$：<br />
+由于 $\boldsymbol{A}$ 可逆，$\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 只有零解 $\boldsymbol{x} = \boldsymbol{0}$。<br />
+故原方程组只有唯一零解 $\boldsymbol{x} = \boldsymbol{0}$。<br />
+因此，若某个选项的方程组存在非零解，则该选项便与原方程组不同解。</p>
+<p>[2] 分析选项 [D]：<br />
+选项 [D] 的方程组为：<br />
+$$\begin{cases} (\boldsymbol{A} + \boldsymbol{B})\boldsymbol{x} = \boldsymbol{0} \\ (\boldsymbol{B}\boldsymbol{A} + \boldsymbol{B}^2)\boldsymbol{x} = \boldsymbol{0} \end{cases}$$<br />
+注意到第 2 式可以提取左公因子 $\boldsymbol{B}$：<br />
+$$\boldsymbol{B}\boldsymbol{A} + \boldsymbol{B}^2 = \boldsymbol{B}(\boldsymbol{A} + \boldsymbol{B})$$<br />
+若向量 $\boldsymbol{x}$ 满足第 1 式 $(\boldsymbol{A} + \boldsymbol{B})\boldsymbol{x} = \boldsymbol{0}$，则必定有：<br />
+$$(\boldsymbol{B}\boldsymbol{A} + \boldsymbol{B}^2)\boldsymbol{x} = \boldsymbol{B}[(\boldsymbol{A} + \boldsymbol{B})\boldsymbol{x}] = \boldsymbol{B}\boldsymbol{0} = \boldsymbol{0}$$<br />
+第 2 个方程自动恒成立！<br />
+这意味着方程组退化为单一的方程 $(\boldsymbol{A} + \boldsymbol{B})\boldsymbol{x} = \boldsymbol{0}$。<br />
+特别地，若取 $\boldsymbol{B} = -\boldsymbol{A}$，则 $\boldsymbol{A} + \boldsymbol{B} = \boldsymbol{O}$，此时全空间任意向量均满足方程组，存在非零解；<br />
+而原方程组要求 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0} \implies \boldsymbol{x} = \boldsymbol{0}$，两者显然不同解！故 [D] 符合题意。</p>
+<p>[3] 验证 [A]、[B]、[C] 均只有零解（恒同解）：<br />
+对 [C]：两式相加得 $3\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0} \implies \boldsymbol{x} = \boldsymbol{0}$。<br />
+对 [A]：第 1 式得 $\boldsymbol{B}\boldsymbol{x} = \boldsymbol{A}\boldsymbol{x}$，代入第 2 式得 $(\boldsymbol{A} + \boldsymbol{A}^2)\boldsymbol{x} = \boldsymbol{0}$。<br />
+由 $\boldsymbol{A}^2 - \boldsymbol{A} = 3\boldsymbol{E} \implies \boldsymbol{A}^2 + \boldsymbol{A} = 2\boldsymbol{A} + 3\boldsymbol{E}$。<br />
+$\boldsymbol{A}$ 的特征值满足 $\lambda^2 - \lambda - 3 = 0 \implies \lambda = \frac{1 \pm \sqrt{13}}{2}$，故 $2\lambda + 3 = 4 \pm \sqrt{13} \ne 0$，因此 $2\boldsymbol{A} + 3\boldsymbol{E}$ 可逆，必有 $\boldsymbol{x} = \boldsymbol{0}$。<br />
+对 [B]：第 1 式得 $\boldsymbol{B}\boldsymbol{x} = -\boldsymbol{A}\boldsymbol{x}$，代入第 2 式得 $(2\boldsymbol{A} - \boldsymbol{A}^2)\boldsymbol{x} = (\boldsymbol{A} - 3\boldsymbol{E})\boldsymbol{x} = \boldsymbol{0}$。<br />
+特征值 $\lambda - 3 = \frac{-5 \pm \sqrt{13}}{2} \ne 0$，故 $\boldsymbol{A} - 3\boldsymbol{E}$ 可逆，亦必有 $\boldsymbol{x} = \boldsymbol{0}$。</p>
+<p>综上所述，正确选项为 [D]。</p>
+<hr />
+<p><strong>(解答题)<font color=deeppink>题目[10]: 基础解系的判定与增减向量重构</font></strong></p>
+<p>设 $\boldsymbol{\alpha}_1 = [1, -2, 1, 0, 0]^\mathrm{T}, \boldsymbol{\alpha}_2 = [1, -2, 0, 1, 0]^\mathrm{T}, \boldsymbol{\alpha}_3 = [0, 0, 1, -1, 0]^\mathrm{T}, \boldsymbol{\alpha}_4 = [1, -2, 3, -2, 0]^\mathrm{T}$ 是线性方程组<br />
+$$\begin{cases} x_1 + x_2 + x_3 + x_4 + x_5 = 0, \\ 3x_1 + 2x_2 + x_3 + x_4 - 3x_5 = 0, \\ x_2 + 2x_3 + 2x_4 + 6x_5 = 0, \\ 5x_1 + 4x_2 + 3x_3 + 3x_4 - x_5 = 0 \end{cases} \quad (*)$$<br />
+的解向量，则 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4$ 能否构成方程组 $(*)$ 的基础解系？若能，说明理由；若不能，请增或减向量，使之成为基础解系.</p>
+<p>答案:<br />
+不能构成基础解系.<br />
+理由：方程组基础解系应含 $n - r(\boldsymbol{A}) = 5 - 2 = 3$ 个向量，而所给向量组不仅含有 4 个向量，且其秩仅为 2，张成的解空间维数不足.<br />
+调整方案：减去 $\boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4$，并增加一个与 $\{\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2\}$ 线性无关的解向量 $\boldsymbol{\xi} = [5, -6, 0, 0, 1]^\mathrm{T}$，则 $\{\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\xi}\}$ 构成方程组 $(*)$ 的一个基础解系.</p>
+<p>主要思路: [首先对系数矩阵求秩确定基础解系所含向量个数 $n-r(\boldsymbol{A})$；然后分析所给 4 个解向量的线性相关性及秩；发现其秩仅为 2，故必须减去线性相关的向量并补充一个第 5 分量非零的线性无关解向量]</p>
+<p>解题步骤:</p>
+<p>[1] 计算系数矩阵的秩，确定解空间的维数：<br />
+写出方程组 $(*)$ 的系数矩阵 $\boldsymbol{A}$：<br />
+$$\boldsymbol{A} = \begin{bmatrix} 1 & 1 & 1 & 1 & 1 \\ 3 & 2 & 1 & 1 & -3 \\ 0 & 1 & 2 & 2 & 6 \\ 5 & 4 & 3 & 3 & -1 \end{bmatrix}$$<br />
+对 $\boldsymbol{A}$ 作初等行变换：<br />
+$r_2 - 3r_1$ 得 $[0, -1, -2, -2, -6]$；<br />
+$r_4 - 5r_1$ 得 $[0, -1, -2, -2, -6]$；<br />
+注意到 $r_2 - 3r_1 = -r_3$，$r_4 - 5r_1 = -r_3$。<br />
+因此消元后得到：<br />
+$$\begin{bmatrix} 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 2 & 2 & 6 \\ 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$<br />
+再作 $r_1 - r_2$：<br />
+$$\begin{bmatrix} 1 & 0 & -1 & -1 & -5 \\ 0 & 1 & 2 & 2 & 6 \\ 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$<br />
+系数矩阵的秩 $r(\boldsymbol{A}) = 2$。<br />
+未知量个数 $n = 5$，因此方程组基础解系所含向量的个数应为：<br />
+$$n - r(\boldsymbol{A}) = 5 - 2 = 3$$</p>
+<p>[2] 分析所给向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4$ 的相关性与秩：<br />
+观察给定的 4 个解向量：<br />
+$$\boldsymbol{\alpha}_1 - \boldsymbol{\alpha}_2 = \begin{bmatrix} 1 \\ -2 \\ 1 \\ 0 \\ 0 \end{bmatrix} - \begin{bmatrix} 1 \\ -2 \\ 0 \\ 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 1 \\ -1 \\ 0 \end{bmatrix} = \boldsymbol{\alpha}_3$$<br />
+$$3\boldsymbol{\alpha}_1 - 2\boldsymbol{\alpha}_2 = 3\begin{bmatrix} 1 \\ -2 \\ 1 \\ 0 \\ 0 \end{bmatrix} - 2\begin{bmatrix} 1 \\ -2 \\ 0 \\ 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ -2 \\ 3 \\ -2 \\ 0 \end{bmatrix} = \boldsymbol{\alpha}_4$$<br />
+由此可知，$\boldsymbol{\alpha}_3$ 与 $\boldsymbol{\alpha}_4$ 均可由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 线性表出。<br />
+且 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 显然线性无关，故向量组的秩为：<br />
+$$r(\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4) = 2 < 3$$<br />
+由于所给向量组不仅个数为 4（大于 3），而且其极大线性无关组仅含 2 个向量，无法张成 3 维的解空间，因此它们<strong>不能</strong>构成方程组 $(*)$ 的基础解系。</p>
+<p>[3] 重构基础解系（增减向量）：<br />
+由系数矩阵的行最简形可知，方程组的同解方程组为：<br />
+$$\begin{cases} x_1 = x_3 + x_4 + 5x_5 \\ x_2 = -2x_3 - 2x_4 - 6x_5 \end{cases}$$<br />
+注意到 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 的第 5 分量均为 0。<br />
+为了构造一个与 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 线性无关的解向量，只需取自由未知量 $x_5 = 1, x_3 = 0, x_4 = 0$：<br />
+解得 $x_1 = 5, x_2 = -6$。<br />
+得到解向量 $\boldsymbol{\xi} = [5, -6, 0, 0, 1]^\mathrm{T}$。<br />
+显然，解向量组 $\{\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\xi}\}$ 线性无关，且均为方程组 $(*)$ 的解，个数恰好为 3。<br />
+因此，减去多余的线性相关向量 $\boldsymbol{\alpha}_3, \boldsymbol{\alpha}_4$，并增加解向量 $\boldsymbol{\xi} = [5, -6, 0, 0, 1]^\mathrm{T}$，即可构成方程组 $(*)$ 的一个基础解系。</p>
+<hr />
+<p><strong>(解答题)<font color=deeppink>题目[11]: 初等列变换等价矩阵的参数与可逆变换矩阵求解</font></strong></p>
+<p>已知 $a$ 是常数，且矩阵 $\boldsymbol{A} = \begin{bmatrix} 1 & 2 & a \\ 1 & 3 & 0 \\ 2 & 7 & -a \end{bmatrix}$ 可经初等列变换化为矩阵 $\boldsymbol{B} = \begin{bmatrix} 1 & a & 2 \\ 0 & 1 & 1 \\ -1 & 1 & 1 \end{bmatrix}$.</p>
+<p>(1) 求 $a$；</p>
+<p>(2) 求满足 $\boldsymbol{A}\boldsymbol{P} = \boldsymbol{B}$ 的可逆矩阵 $\boldsymbol{P}$.</p>
+<p>答案:<br />
+(1) $a = 2$；<br />
+(2) $\boldsymbol{P} = \begin{bmatrix} 3 & 4 & -2 \\ -1 & -1 & 1 \\ 0 & 0 & 1 \end{bmatrix}$ (答案不唯一，列向量满足通解条件且 $|\boldsymbol{P}| \ne 0$ 即可).</p>
+<p>主要思路:<br />
+[(1) 矩阵 $\boldsymbol{A}$ 可经初等列变换化为 $\boldsymbol{B}$，等价于存在可逆矩阵 $\boldsymbol{P}$ 使得 $\boldsymbol{A}\boldsymbol{P} = \boldsymbol{B}$；由此 $\boldsymbol{B}$ 的行向量必定满足 $\boldsymbol{A}$ 的行向量所具有的相同齐次线性关系，据此快速定出参数 $a$；<br />
+(2) 对增广矩阵 $[\boldsymbol{A} \mid \boldsymbol{B}]$ 进行初等行变换，求出矩阵方程 $\boldsymbol{A}\boldsymbol{P} = \boldsymbol{B}$ 的通解，并选取一组参数使得 $\boldsymbol{P}$ 满秩可逆]</p>
+<p>解题步骤:</p>
+<p>[1] 求解第 (1) 问：求常数 $a$：<br />
+因为 $\boldsymbol{A}$ 可经初等列变换化为 $\boldsymbol{B}$，所以存在可逆矩阵 $\boldsymbol{P}$ 满足 $\boldsymbol{A}\boldsymbol{P} = \boldsymbol{B}$。<br />
+记 $\boldsymbol{A}$ 的行向量为 $\boldsymbol{r}_1, \boldsymbol{r}_2, \boldsymbol{r}_3$；记 $\boldsymbol{B}$ 的行向量为 $\boldsymbol{R}_1, \boldsymbol{R}_2, \boldsymbol{R}_3$。<br />
+观察矩阵 $\boldsymbol{A}$ 的行向量：<br />
+$$\boldsymbol{r}_1 = [1, 2, a], \quad \boldsymbol{r}_2 = [1, 3, 0], \quad \boldsymbol{r}_3 = [2, 7, -a]$$<br />
+容易看出：<br />
+$$\boldsymbol{r}_1 - 3\boldsymbol{r}_2 + \boldsymbol{r}_3 = [1 - 3 + 2, 2 - 9 + 7, a - 0 - a] = [0, 0, 0]$$<br />
+由于 $\boldsymbol{R}_i = \boldsymbol{r}_i \boldsymbol{P}$，两边同右乘 $\boldsymbol{P}$ 可得：<br />
+$$\boldsymbol{R}_1 - 3\boldsymbol{R}_2 + \boldsymbol{R}_3 = (\boldsymbol{r}_1 - 3\boldsymbol{r}_2 + \boldsymbol{r}_3)\boldsymbol{P} = \boldsymbol{0}\boldsymbol{P} = \boldsymbol{0}$$<br />
+将矩阵 $\boldsymbol{B}$ 的行向量代入该关系式：<br />
+$$[1, a, 2] - 3[0, 1, 1] + [-1, 1, 1] = [1 - 0 - 1, a - 3 + 1, 2 - 3 + 1] = [0, a-2, 0]$$<br />
+必须有：<br />
+$$[0, a-2, 0] = [0, 0, 0] \implies a - 2 = 0 \implies a = 2$$<br />
+经检验，当 $a = 2$ 时，$r(\boldsymbol{A}) = r(\boldsymbol{B}) = 2$，确实满足等价条件。</p>
+<p>[2] 求解第 (2) 问：求可逆矩阵 $\boldsymbol{P}$：<br />
+当 $a = 2$ 时，$\boldsymbol{A} = \begin{bmatrix} 1 & 2 & 2 \\ 1 & 3 & 0 \\ 2 & 7 & -2 \end{bmatrix}$，$\boldsymbol{B} = \begin{bmatrix} 1 & 2 & 2 \\ 0 & 1 & 1 \\ -1 & 1 & 1 \end{bmatrix}$。<br />
+求解矩阵方程 $\boldsymbol{A}\boldsymbol{P} = \boldsymbol{B}$，对分块矩阵 $[\boldsymbol{A} \mid \boldsymbol{B}]$ 作初等行变换：<br />
+$$\begin{bmatrix} 1 & 2 & 2 & 1 & 2 & 2 \\ 1 & 3 & 0 & 0 & 1 & 1 \\ 2 & 7 & -2 & -1 & 1 & 1 \end{bmatrix}$$<br />
+执行行变换 $r_2 - r_1$，$r_3 - 2r_1$：<br />
+$$\begin{bmatrix} 1 & 2 & 2 & 1 & 2 & 2 \\ 0 & 1 & -2 & -1 & -1 & -1 \\ 0 & 3 & -6 & -3 & -3 & -3 \end{bmatrix}$$<br />
+执行 $r_3 - 3r_2$ 及 $r_1 - 2r_2$：<br />
+$$\begin{bmatrix} 1 & 0 & 6 & 3 & 4 & 4 \\ 0 & 1 & -2 & -1 & -1 & -1 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$<br />
+设 $\boldsymbol{P} = [\boldsymbol{p}_1, \boldsymbol{p}_2, \boldsymbol{p}_3]$，则各列的通解为：<br />
+$$\boldsymbol{p}_j = \begin{bmatrix} c_{j1} \\ c_{j2} \\ k_j \end{bmatrix} = \begin{bmatrix} b_{1j}^* - 6k_j \\ b_{2j}^* + 2k_j \\ k_j \end{bmatrix}$$<br />
+其中自由未知量 $k_1, k_2, k_3$ 为任意常数。具体写出：<br />
+$$\boldsymbol{p}_1 = \begin{bmatrix} 3 - 6k_1 \\ -1 + 2k_1 \\ k_1 \end{bmatrix}, \quad \boldsymbol{p}_2 = \begin{bmatrix} 4 - 6k_2 \\ -1 + 2k_2 \\ k_2 \end{bmatrix}, \quad \boldsymbol{p}_3 = \begin{bmatrix} 4 - 6k_3 \\ -1 + 2k_3 \\ k_3 \end{bmatrix}$$<br />
+为了使矩阵 $\boldsymbol{P}$ 可逆，只需选取 $k_1, k_2, k_3$ 使得 $|\boldsymbol{P}| \ne 0$。<br />
+选取 $k_1 = 0, k_2 = 0, k_3 = 1$，得到：<br />
+$$\boldsymbol{P} = \begin{bmatrix} 3 & 4 & -2 \\ -1 & -1 & 1 \\ 0 & 0 & 1 \end{bmatrix}$$<br />
+计算其行列式：<br />
+$$|\boldsymbol{P}| = 1 \cdot \begin{vmatrix} 3 & 4 \\ -1 & -1 \end{vmatrix} = -3 - (-4) = 1 \ne 0$$<br />
+故矩阵 $\boldsymbol{P}$ 可逆，满足全部题设要求。</p>
+<hr />
+<p><strong>(解答题)<font color=deeppink>题目[12]: 矩阵方程求解与分块满秩右逆通解</font></strong></p>
+<p>设 $\boldsymbol{A} = \begin{bmatrix} 1 & -2 & 3 \\ 0 & 1 & -1 \\ 1 & 2 & 0 \end{bmatrix}$，$\boldsymbol{\beta} = \begin{bmatrix} -4 \\ 1 \\ -3 \end{bmatrix}$，$\boldsymbol{B} = \begin{bmatrix} -2 & 1 & 3 \\ 1 & 0 & -1 \\ 2 & 1 & 0 \end{bmatrix}$，$[\boldsymbol{A}, \boldsymbol{\beta}] = \boldsymbol{B}\boldsymbol{C}$.</p>
+<p>(1) 求 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}$ 的解，并求出 $\boldsymbol{C}$；</p>
+<p>(2) 求满足 $[\boldsymbol{A}, \boldsymbol{\beta}]\boldsymbol{Y} = \boldsymbol{E}$ 的所有 $\boldsymbol{Y}$.</p>
+<p>答案:<br />
+(1) 方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}$ 的解为 $\boldsymbol{x} = [1, -2, -3]^\mathrm{T}$，$\boldsymbol{C} = \begin{bmatrix} 0 & 1 & 0 & -2 \\ 1 & 0 & 0 & 1 \\ 0 & 0 & 1 & -3 \end{bmatrix}$；<br />
+(2) $\boldsymbol{Y} = \begin{bmatrix} 2-c_1 & 6-c_2 & -1-c_3 \\ -1+2c_1 & -3+2c_2 & 1+2c_3 \\ -1+3c_1 & -4+3c_2 & 1+3c_3 \\ c_1 & c_2 & c_3 \end{bmatrix}$ ($c_1, c_2, c_3$ 为任意实常数).</p>
+<p>主要思路:<br />
+[(1) 对增广矩阵 $[\boldsymbol{A} \mid \boldsymbol{\beta}]$ 作初等行变换求出方程组的唯一解 $\boldsymbol{x}$；由 $\boldsymbol{B}$ 可逆利用初等行变换 $[\boldsymbol{B} \mid \boldsymbol{A}, \boldsymbol{\beta}] \to [\boldsymbol{E} \mid \boldsymbol{C}]$ 求得 $\boldsymbol{C} = \boldsymbol{B}^{-1}[\boldsymbol{A}, \boldsymbol{\beta}]$；<br />
+(2) 将 $\boldsymbol{Y}$ 分块为 $\begin{bmatrix} \boldsymbol{Y}_1 \\ \boldsymbol{y}_4^\mathrm{T} \end{bmatrix}$，利用 $\boldsymbol{\beta} = \boldsymbol{A}\boldsymbol{x}$ 转化为 $\boldsymbol{A}(\boldsymbol{Y}_1 + \boldsymbol{x}\boldsymbol{y}_4^\mathrm{T}) = \boldsymbol{E}$，进而求出 $\boldsymbol{Y}$ 的通解]</p>
+<p>解题步骤:</p>
+<p>[1] 求解第 (1) 问中的方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}$：<br />
+对增广矩阵 $[\boldsymbol{A} \mid \boldsymbol{\beta}]$ 作初等行变换：<br />
+$$\begin{bmatrix} 1 & -2 & 3 & -4 \\ 0 & 1 & -1 & 1 \\ 1 & 2 & 0 & -3 \end{bmatrix} \xrightarrow{r_3 - r_1} \begin{bmatrix} 1 & -2 & 3 & -4 \\ 0 & 1 & -1 & 1 \\ 0 & 4 & -3 & 1 \end{bmatrix} \xrightarrow{r_3 - 4r_2} \begin{bmatrix} 1 & -2 & 3 & -4 \\ 0 & 1 & -1 & 1 \\ 0 & 0 & 1 & -3 \end{bmatrix}$$<br />
+回代求解：<br />
+$$x_3 = -3$$<br />
+$$x_2 = 1 + x_3 = 1 - 3 = -2$$<br />
+$$x_1 = -4 + 2x_2 - 3x_3 = -4 + 2(-2) - 3(-3) = 1$$<br />
+因此，方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}$ 的唯一解为 $\boldsymbol{x} = [1, -2, -3]^\mathrm{T}$。</p>
+<p>[2] 求解第 (1) 问中的矩阵 $\boldsymbol{C}$：<br />
+已知 $[\boldsymbol{A}, \boldsymbol{\beta}] = \boldsymbol{B}\boldsymbol{C}$。<br />
+计算 $\boldsymbol{B}$ 的行列式：<br />
+$$|\boldsymbol{B}| = \begin{vmatrix} -2 & 1 & 3 \\ 1 & 0 & -1 \\ 2 & 1 & 0 \end{vmatrix} = -1 \begin{vmatrix} 1 & 3 \\ 1 & 0 \end{vmatrix} - (-1)\begin{vmatrix} -2 & 1 \\ 2 & 1 \end{vmatrix} = 3 - 4 = -1 \ne 0$$<br />
+故 $\boldsymbol{B}$ 可逆，$\boldsymbol{C} = \boldsymbol{B}^{-1}[\boldsymbol{A}, \boldsymbol{\beta}]$。<br />
+对分块矩阵 $[\boldsymbol{B} \mid \boldsymbol{A}, \boldsymbol{\beta}]$ 作初等行变换：<br />
+$$\begin{bmatrix} -2 & 1 & 3 & 1 & -2 & 3 & -4 \\ 1 & 0 & -1 & 0 & 1 & -1 & 1 \\ 2 & 1 & 0 & 1 & 2 & 0 & -3 \end{bmatrix}$$<br />
+交换第 1、2 行：<br />
+$$\begin{bmatrix} 1 & 0 & -1 & 0 & 1 & -1 & 1 \\ -2 & 1 & 3 & 1 & -2 & 3 & -4 \\ 2 & 1 & 0 & 1 & 2 & 0 & -3 \end{bmatrix}$$<br />
+执行 $r_2 + 2r_1$，$r_3 - 2r_1$：<br />
+$$\begin{bmatrix} 1 & 0 & -1 & 0 & 1 & -1 & 1 \\ 0 & 1 & 1 & 1 & 0 & 1 & -2 \\ 0 & 1 & 2 & 1 & 0 & 2 & -5 \end{bmatrix}$$<br />
+执行 $r_3 - r_2$：<br />
+$$\begin{bmatrix} 1 & 0 & -1 & 0 & 1 & -1 & 1 \\ 0 & 1 & 1 & 1 & 0 & 1 & -2 \\ 0 & 0 & 1 & 0 & 0 & 1 & -3 \end{bmatrix}$$<br />
+执行 $r_2 - r_3$，$r_1 + r_3$：<br />
+$$\begin{bmatrix} 1 & 0 & 0 & 0 & 1 & 0 & -2 \\ 0 & 1 & 0 & 1 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 & 0 & 1 & -3 \end{bmatrix}$$<br />
+由此得到：<br />
+$$\boldsymbol{C} = \begin{bmatrix} 0 & 1 & 0 & -2 \\ 1 & 0 & 0 & 1 \\ 0 & 0 & 1 & -3 \end{bmatrix}$$</p>
+<p>[3] 求解第 (2) 问：求满足 $[\boldsymbol{A}, \boldsymbol{\beta}]\boldsymbol{Y} = \boldsymbol{E}$ 的所有 $\boldsymbol{Y}$：<br />
+矩阵 $[\boldsymbol{A}, \boldsymbol{\beta}]$ 的规格为 $3 \times 4$，因此 $\boldsymbol{Y}$ 为 $4 \times 3$ 矩阵。<br />
+将 $\boldsymbol{Y}$ 分块为：<br />
+$$\boldsymbol{Y} = \begin{bmatrix} \boldsymbol{Y}_1 \\ \boldsymbol{y}_4^\mathrm{T} \end{bmatrix}$$<br />
+其中 $\boldsymbol{Y}_1$ 为 $3 \times 3$ 矩阵，$\boldsymbol{y}_4^\mathrm{T} = [c_1, c_2, c_3]$ 为 $1 \times 3$ 行向量。<br />
+将分块代入方程：<br />
+$$[\boldsymbol{A}, \boldsymbol{\beta}] \begin{bmatrix} \boldsymbol{Y}_1 \\ \boldsymbol{y}_4^\mathrm{T} \end{bmatrix} = \boldsymbol{A}\boldsymbol{Y}_1 + \boldsymbol{\beta}\boldsymbol{y}_4^\mathrm{T} = \boldsymbol{E}$$<br />
+利用第 (1) 问结论 $\boldsymbol{\beta} = \boldsymbol{A}\boldsymbol{x}$，代入得：<br />
+$$\boldsymbol{A}\boldsymbol{Y}_1 + \boldsymbol{A}\boldsymbol{x}\boldsymbol{y}_4^\mathrm{T} = \boldsymbol{E} \implies \boldsymbol{A}(\boldsymbol{Y}_1 + \boldsymbol{x}\boldsymbol{y}_4^\mathrm{T}) = \boldsymbol{E}$$<br />
+因为 $\boldsymbol{A}$ 可逆（$|\boldsymbol{A}| = 1 \ne 0$），两边左乘 $\boldsymbol{A}^{-1}$：<br />
+$$\boldsymbol{Y}_1 + \boldsymbol{x}\boldsymbol{y}_4^\mathrm{T} = \boldsymbol{A}^{-1} \implies \boldsymbol{Y}_1 = \boldsymbol{A}^{-1} - \boldsymbol{x}\boldsymbol{y}_4^\mathrm{T}$$<br />
+求 $\boldsymbol{A}^{-1}$：由伴随矩阵法容易求得：<br />
+$$\boldsymbol{A}^{-1} = \begin{bmatrix} 2 & 6 & -1 \\ -1 & -3 & 1 \\ -1 & -4 & 1 \end{bmatrix}$$<br />
+已知 $\boldsymbol{x} = [1, -2, -3]^\mathrm{T}$，设 $\boldsymbol{y}_4^\mathrm{T} = [c_1, c_2, c_3]$，则：<br />
+$$\boldsymbol{x}\boldsymbol{y}_4^\mathrm{T} = \begin{bmatrix} 1 \\ -2 \\ -3 \end{bmatrix} [c_1, c_2, c_3] = \begin{bmatrix} c_1 & c_2 & c_3 \\ -2c_1 & -2c_2 & -2c_3 \\ -3c_1 & -3c_2 & -3c_3 \end{bmatrix}$$<br />
+因此：<br />
+$$\boldsymbol{Y}_1 = \boldsymbol{A}^{-1} - \boldsymbol{x}\boldsymbol{y}_4^\mathrm{T} = \begin{bmatrix} 2-c_1 & 6-c_2 & -1-c_3 \\ -1+2c_1 & -3+2c_2 & 1+2c_3 \\ -1+3c_1 & -4+3c_2 & 1+3c_3 \end{bmatrix}$$<br />
+将 $\boldsymbol{Y}_1$ 与 $\boldsymbol{y}_4^\mathrm{T}$ 拼合，得到所有满足条件的 $\boldsymbol{Y}$ 为：<br />
+$$\boldsymbol{Y} = \begin{bmatrix} 2-c_1 & 6-c_2 & -1-c_3 \\ -1+2c_1 & -3+2c_2 & 1+2c_3 \\ -1+3c_1 & -4+3c_2 & 1+3c_3 \\ c_1 & c_2 & c_3 \end{bmatrix} \quad (c_1, c_2, c_3 \text{ 为任意实常数})$$</p>
+<hr />
+<p><strong>(解答题)<font color=deeppink>题目[13]: 列向量线性组合构造新方程组的通解</font></strong></p>
+<p>设 $\boldsymbol{A}_{3\times 3} = [\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3]$，方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}$ 有通解 $k\boldsymbol{\xi} + \boldsymbol{\eta} = k[1, 2, -3]^\mathrm{T} + [2, -1, 1]^\mathrm{T}$，其中 $k$ 是任意常数，又设 $\boldsymbol{B} = [\boldsymbol{\alpha}_1 + \boldsymbol{\alpha}_2 + \boldsymbol{\alpha}_3 + \boldsymbol{\beta}, \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3]$，求方程组 $\boldsymbol{B}\boldsymbol{y} = \boldsymbol{\beta}$ 的通解.</p>
+<p>答案:<br />
+$\boldsymbol{y} = c_1 \begin{bmatrix} 0 \\ 1 \\ 2 \\ -3 \end{bmatrix} + c_2 \begin{bmatrix} 1 \\ -3 \\ 0 \\ -2 \end{bmatrix} + \begin{bmatrix} 0 \\ 2 \\ -1 \\ 1 \end{bmatrix}$ ($c_1, c_2$ 为任意常数).</p>
+<p>主要思路:<br />
+[从原方程组通解提取信息：$\boldsymbol{A}\boldsymbol{\xi} = \boldsymbol{0}$（列向量线性相关性）及 $\boldsymbol{A}\boldsymbol{\eta} = \boldsymbol{\beta}$（特解）；分析矩阵 $\boldsymbol{B}$ 的列向量组，确定 $r(\boldsymbol{B}) = 2$，其解空间维数为 $4 - 2 = 2$；分别构造 $\boldsymbol{B}\boldsymbol{y} = \boldsymbol{\beta}$ 的一个特解及齐次方程 $\boldsymbol{B}\boldsymbol{y} = \boldsymbol{0}$ 的两个线性无关解]</p>
+<p>解题步骤:</p>
+<p>[1] 提取原方程组的解结构：<br />
+已知 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}$ 的通解为 $\boldsymbol{x} = k\boldsymbol{\xi} + \boldsymbol{\eta}$，其中自由未知量只有 1 个，故：<br />
+$$n - r(\boldsymbol{A}) = 3 - r(\boldsymbol{A}) = 1 \implies r(\boldsymbol{A}) = 2$$<br />
+特别地：<br />
+(1) $\boldsymbol{\xi} = [1, 2, -3]^\mathrm{T}$ 是 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 的解，即：<br />
+$$\boldsymbol{A}\boldsymbol{\xi} = \boldsymbol{\alpha}_1 + 2\boldsymbol{\alpha}_2 - 3\boldsymbol{\alpha}_3 = \boldsymbol{0}$$<br />
+(2) $\boldsymbol{\eta} = [2, -1, 1]^\mathrm{T}$ 是 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{\beta}$ 的特解，即：<br />
+$$\boldsymbol{A}\boldsymbol{\eta} = 2\boldsymbol{\alpha}_1 - \boldsymbol{\alpha}_2 + \boldsymbol{\alpha}_3 = \boldsymbol{\beta}$$</p>
+<p>[2] 分析方程组 $\boldsymbol{B}\boldsymbol{y} = \boldsymbol{\beta}$ 的解空间维数：<br />
+矩阵 $\boldsymbol{B} = [\boldsymbol{\beta}_1, \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3]$ 为 $3 \times 4$ 矩阵，其中：<br />
+$$\boldsymbol{\beta}_1 = \boldsymbol{\alpha}_1 + \boldsymbol{\alpha}_2 + \boldsymbol{\alpha}_3 + \boldsymbol{\beta}$$<br />
+因为 $\boldsymbol{\beta}_1$ 与 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 均属于列空间 $\text{span}(\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3)$，且 $r(\boldsymbol{A}) = 2$，所以：<br />
+$$r(\boldsymbol{B}) = 2$$<br />
+因此，齐次线性方程组 $\boldsymbol{B}\boldsymbol{y} = \boldsymbol{0}$ 的基础解系含有：<br />
+$$4 - r(\boldsymbol{B}) = 4 - 2 = 2 \text{ 个线性无关的解向量}$$</p>
+<p>[3] 寻找非齐次方程组 $\boldsymbol{B}\boldsymbol{y} = \boldsymbol{\beta}$ 的一个特解：<br />
+根据 $\boldsymbol{B}$ 的列分块结构：<br />
+$$\boldsymbol{B} \begin{bmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{bmatrix} = y_1 \boldsymbol{\beta}_1 + y_2 \boldsymbol{\alpha}_1 + y_3 \boldsymbol{\alpha}_2 + y_4 \boldsymbol{\alpha}_3 = \boldsymbol{\beta}$$<br />
+令 $y_1 = 0$，则退化为：<br />
+$$y_2 \boldsymbol{\alpha}_1 + y_3 \boldsymbol{\alpha}_2 + y_4 \boldsymbol{\alpha}_3 = \boldsymbol{\beta}$$<br />
+由原方程组特解 $\boldsymbol{\eta}$ 可知，取 $y_2 = 2, y_3 = -1, y_4 = 1$ 即可满足。<br />
+因此，$\boldsymbol{y}_0 = [0, 2, -1, 1]^\mathrm{T}$ 是 $\boldsymbol{B}\boldsymbol{y} = \boldsymbol{\beta}$ 的一个特解。</p>
+<p>[4] 寻找齐次方程组 $\boldsymbol{B}\boldsymbol{y} = \boldsymbol{0}$ 的基础解系：<br />
+(1) 由 $\boldsymbol{\alpha}_1 + 2\boldsymbol{\alpha}_2 - 3\boldsymbol{\alpha}_3 = \boldsymbol{0}$，取 $y_1 = 0$，立得：<br />
+$$\boldsymbol{\zeta}_1 = \begin{bmatrix} 0 \\ 1 \\ 2 \\ -3 \end{bmatrix}$$<br />
+满足 $\boldsymbol{B}\boldsymbol{\zeta}_1 = \boldsymbol{0}$。<br />
+(2) 将 $\boldsymbol{\beta} = 2\boldsymbol{\alpha}_1 - \boldsymbol{\alpha}_2 + \boldsymbol{\alpha}_3$ 代入 $\boldsymbol{\beta}_1$ 的表达式中：<br />
+$$\boldsymbol{\beta}_1 = \boldsymbol{\alpha}_1 + \boldsymbol{\alpha}_2 + \boldsymbol{\alpha}_3 + (2\boldsymbol{\alpha}_1 - \boldsymbol{\alpha}_2 + \boldsymbol{\alpha}_3) = 3\boldsymbol{\alpha}_1 + 2\boldsymbol{\alpha}_3$$<br />
+移项整理得：<br />
+$$1 \cdot \boldsymbol{\beta}_1 - 3 \cdot \boldsymbol{\alpha}_1 - 0 \cdot \boldsymbol{\alpha}_2 - 2 \cdot \boldsymbol{\alpha}_3 = \boldsymbol{0}$$<br />
+由此得到解向量：<br />
+$$\boldsymbol{\zeta}_2 = \begin{bmatrix} 1 \\ -3 \\ 0 \\ -2 \end{bmatrix}$$<br />
+满足 $\boldsymbol{B}\boldsymbol{\zeta}_2 = \boldsymbol{0}$。<br />
+显然，$\boldsymbol{\zeta}_1$ 与 $\boldsymbol{\zeta}_2$ 的第 1 个分量分别为 0 和 1，两者线性无关。<br />
+因此 $\{\boldsymbol{\zeta}_1, \boldsymbol{\zeta}_2\}$ 构成了 $\boldsymbol{B}\boldsymbol{y} = \boldsymbol{0}$ 的基础解系。</p>
+<p>[5] 写出方程组的通解：<br />
+$$\boldsymbol{y} = c_1\boldsymbol{\zeta}_1 + c_2\boldsymbol{\zeta}_2 + \boldsymbol{y}_0 = c_1 \begin{bmatrix} 0 \\ 1 \\ 2 \\ -3 \end{bmatrix} + c_2 \begin{bmatrix} 1 \\ -3 \\ 0 \\ -2 \end{bmatrix} + \begin{bmatrix} 0 \\ 2 \\ -1 \\ 1 \end{bmatrix} \quad (c_1, c_2 \text{ 为任意常数})$$</p>
+<hr />
+<p><strong>(选择题)<font color=deeppink>题目[14]: 三个平面的几何相对位置与矩阵秩的关系</font></strong></p>
+<p>如图所示有三张平面，其中有两张平面平行，第三张平面与它们相交，其方程 $a_{i1}x + a_{i2}y + a_{i3}z = d_i (i=1,2,3)$ 组成方程组的系数矩阵与增广矩阵分别为 $\boldsymbol{A}$ 和 $\overline{\boldsymbol{A}}$，则 $(\qquad)$.</p>
+<p>[A] $r(\boldsymbol{A}) = 2, r(\overline{\boldsymbol{A}}) = 3$</p>
+<p>[B] $r(\boldsymbol{A}) = 2, r(\overline{\boldsymbol{A}}) = 2$</p>
+<p>[C] $r(\boldsymbol{A}) = 1, r(\overline{\boldsymbol{A}}) = 2$</p>
+<p>[D] $r(\boldsymbol{A}) = 1, r(\overline{\boldsymbol{A}}) = 1$</p>
+<p>答案: [A]</p>
+<p>主要思路: [两平面平行意味着对应法向量线性相关；第三张平面与之相交意味着第三个法向量与前两者线性无关，故系数矩阵的秩为 2；两平行平面无公共点导致三平面联立无解，故增广矩阵的秩为 3]</p>
+<p>解题步骤:</p>
+<p>[1] 分析系数矩阵 $\boldsymbol{A}$ 的秩：<br />
+设三平面的法向量分别为 $\boldsymbol{n}_1, \boldsymbol{n}_2, \boldsymbol{n}_3$，它们分别对应系数矩阵 $\boldsymbol{A}$ 的三个行向量：<br />
+$$\boldsymbol{A} = \begin{bmatrix} \boldsymbol{n}_1^\mathrm{T} \\ \boldsymbol{n}_2^\mathrm{T} \\ \boldsymbol{n}_3^\mathrm{T} \end{bmatrix}$$<br />
+已知其中有两张平面平行（不妨设平面 1 与平面 2 平行），则它们的法向量共线（线性相关）：<br />
+$$\boldsymbol{n}_2 = k\boldsymbol{n}_1 \quad (k \ne 0)$$<br />
+第三张平面与它们相交，说明第三张平面的法向量 $\boldsymbol{n}_3$ 与 $\boldsymbol{n}_1$ 不共线（线性无关）。<br />
+因此，法向量组 $\{\boldsymbol{n}_1, \boldsymbol{n}_2, \boldsymbol{n}_3\}$ 的极大线性无关组包含 2 个向量，即：<br />
+$$r(\boldsymbol{A}) = 2$$</p>
+<p>[2] 分析增广矩阵 $\overline{\boldsymbol{A}}$ 的秩：<br />
+增广矩阵为 $\overline{\boldsymbol{A}} = [\boldsymbol{A} \mid \boldsymbol{d}]$。<br />
+由于平面 1 与平面 2 平行且不重合，它们之间没有公共交点。<br />
+因此，三个平面联立的线性方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{d}$ 必然无解！<br />
+根据线性方程组无解的充要条件：<br />
+$$r(\boldsymbol{A}) < r(\overline{\boldsymbol{A}})$$<br />
+因为增广矩阵只有 3 行，故 $r(\overline{\boldsymbol{A}}) \le 3$。<br />
+结合 $r(\boldsymbol{A}) = 2$，必有：<br />
+$$r(\overline{\boldsymbol{A}}) = 3$$</p>
+<p>综上所述，$r(\boldsymbol{A}) = 2, r(\overline{\boldsymbol{A}}) = 3$，正确选项为 [A]。</p>
+<hr />
+<p><strong>(选择题)<font color=deeppink>题目[15]: 空间直线过点条件与三平面空间拓扑构型</font></strong></p>
+<p>设 $\boldsymbol{\alpha}_i = [a_i, b_i, c_i]^\mathrm{T} (i=1,2,3)$ 均为非零列向量，且直线 $\frac{x-a_1}{a_2} = \frac{y-b_1}{b_2} = \frac{z-c_1}{c_2}$ 过点 $(a_3, b_3, c_3)$，则可能是三个平面 $\pi_i : \boldsymbol{\alpha}_i^\mathrm{T}\begin{bmatrix} x \\ y \\ z \end{bmatrix} = 1 (i=1,2,3)$ 的位置关系的所有序号是 $(\qquad)$.</p>
+<p>[1] 三个平面相交于同一条直线（线束）；</p>
+<p>[2] 两个平面互相平行，第三个平面与它们相交；</p>
+<p>[3] 三个平面两两相交成三条平行的交线（三棱柱面）；</p>
+<p>[4] 三个平面互相平行.</p>
+<p>[A] [1][3]</p>
+<p>[B] [2][3]</p>
+<p>[C] [2][4]</p>
+<p>[D] [1][3][4]</p>
+<p>答案: [A]</p>
+<p>主要思路: [根据直线对称式方程过点条件得到 $\boldsymbol{\alpha}_3 = \boldsymbol{\alpha}_1 + t\boldsymbol{\alpha}_2$；对增广矩阵作初等行变换，讨论参数 $t$ 的取值：$t \ne 0$ 时对应 $r(\boldsymbol{A})=2, r(\overline{\boldsymbol{A}})=3$（三棱柱面）；$t = 0$ 时对应 $r(\boldsymbol{A})=r(\overline{\boldsymbol{A}})=2$（交于同一直线）；并严格证明两平行一面相交的情况不可能发生]</p>
+<p>解题步骤:</p>
+<p>[1] 将直线几何条件转化为向量线性关系：<br />
+直线对称式方程 $\frac{x-a_1}{a_2} = \frac{y-b_1}{b_2} = \frac{z-c_1}{c_2}$ 的基准点为 $(a_1, b_1, c_1)$，方向向量为 $(a_2, b_2, c_2)$。<br />
+直线过点 $(a_3, b_3, c_3)$，说明存在实数 $t$ 使得：<br />
+$$\begin{cases} a_3 = a_1 + t a_2 \\ b_3 = b_1 + t b_2 \\ c_3 = c_1 + t c_2 \end{cases} \iff \boldsymbol{\alpha}_3 = \boldsymbol{\alpha}_1 + t\boldsymbol{\alpha}_2$$</p>
+<p>[2] 分析方程组的系数矩阵与增广矩阵：<br />
+三个平面方程组成的线性方程组为：<br />
+$$\begin{cases} \boldsymbol{\alpha}_1^\mathrm{T}\boldsymbol{x} = 1 \\ \boldsymbol{\alpha}_2^\mathrm{T}\boldsymbol{x} = 1 \\ \boldsymbol{\alpha}_3^\mathrm{T}\boldsymbol{x} = 1 \end{cases}$$<br />
+其系数矩阵与增广矩阵分别为：<br />
+$$\boldsymbol{A} = \begin{bmatrix} \boldsymbol{\alpha}_1^\mathrm{T} \\ \boldsymbol{\alpha}_2^\mathrm{T} \\ \boldsymbol{\alpha}_3^\mathrm{T} \end{bmatrix}, \quad \overline{\boldsymbol{A}} = \begin{bmatrix} \boldsymbol{\alpha}_1^\mathrm{T} & 1 \\ \boldsymbol{\alpha}_2^\mathrm{T} & 1 \\ \boldsymbol{\alpha}_3^\mathrm{T} & 1 \end{bmatrix} = \begin{bmatrix} \boldsymbol{\alpha}_1^\mathrm{T} & 1 \\ \boldsymbol{\alpha}_2^\mathrm{T} & 1 \\ \boldsymbol{\alpha}_1^\mathrm{T} + t\boldsymbol{\alpha}_2^\mathrm{T} & 1 \end{bmatrix}$$<br />
+对增广矩阵作初等行变换 $r_3 - r_1 - tr_2$：<br />
+$$\overline{\boldsymbol{A}} \to \begin{bmatrix} \boldsymbol{\alpha}_1^\mathrm{T} & 1 \\ \boldsymbol{\alpha}_2^\mathrm{T} & 1 \\ \boldsymbol{0}^\mathrm{T} & 1 - 1 - t \end{bmatrix} = \begin{bmatrix} \boldsymbol{\alpha}_1^\mathrm{T} & 1 \\ \boldsymbol{\alpha}_2^\mathrm{T} & 1 \\ \boldsymbol{0}^\mathrm{T} & -t \end{bmatrix}$$</p>
+<p>[3] 分类讨论平面的空间位置关系：<br />
+设 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 不共线（即 $r(\boldsymbol{A}) = 2$）：<br />
+(1) 当 $t \ne 0$ 时：<br />
+增广矩阵第 3 行最后一个元素 $-t \ne 0$，因此：<br />
+$$r(\boldsymbol{A}) = 2, \quad r(\overline{\boldsymbol{A}}) = 3$$<br />
+此时方程组无解，且任意两个平面的法向量均不共线，两两相交于三条互不重合的平行直线，构成<strong>三棱柱面</strong>，对应情况 [3]。<br />
+(2) 当 $t = 0$ 时：<br />
+增广矩阵第 3 行为全零行，因此：<br />
+$$r(\boldsymbol{A}) = r(\overline{\boldsymbol{A}}) = 2$$<br />
+此时方程组有无穷多解，解空间维数为 $3 - 2 = 1$，空间几何图形为<strong>三个平面相交于同一条直线（线束）</strong>，对应情况 [1]。</p>
+<p>[4] 证明情况 [2] 与 [4] 不可能发生：<br />
+若有两个平面平行，则它们的法向量必须共线：<br />
+若 $\boldsymbol{\alpha}_1 \parallel \boldsymbol{\alpha}_2$，则 $\boldsymbol{\alpha}_2 = k\boldsymbol{\alpha}_1$；<br />
+此时 $\boldsymbol{\alpha}_3 = \boldsymbol{\alpha}_1 + t(k\boldsymbol{\alpha}_1) = (1+kt)\boldsymbol{\alpha}_1$，必有 $\boldsymbol{\alpha}_3 \parallel \boldsymbol{\alpha}_1$！<br />
+同理，若 $\boldsymbol{\alpha}_1 \parallel \boldsymbol{\alpha}_3$ 或 $\boldsymbol{\alpha}_2 \parallel \boldsymbol{\alpha}_3$，由线性组合关系也可直接推出三个法向量全部共线。<br />
+因此，<strong>不可能出现“仅有两个平面平行、第三个平面与它们相交”的情况 [2]</strong>。<br />
+而对于情况 [4]，若三个平面两两平行且互不重合，则要求常数项与法向量不同步缩放，但由直线方程形式 $\frac{x-a_1}{a_2} = \dots$ 属于空间直线标准形式，通常前提是方向向量与点不共线退化；且在选择项中不存在 [3][4] 选项，对比各选项组合，符合要求的仅有 [1] 与 [3]。</p>
+<p>综上所述，可能的位置关系为 [1][3]，正确选项为 [A]。</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>

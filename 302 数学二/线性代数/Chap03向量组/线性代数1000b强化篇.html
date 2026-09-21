@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>线性代数1000b强化篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h1>线性代数1000b强化篇 - 向量组</h1>
+<h2>第6章 向量组</h2>
+<hr />
+<p><strong>(线性变换与向量组相关性判定)<font color=deeppink>题目[1]:矩阵左乘与向量组线性相关性传递</font></strong></p>
+<p>设 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \cdots, \boldsymbol{\alpha}_s$ 是 $n$ 维列向量，$\boldsymbol{A}$ 是 $m\times n$ 矩阵，记向量组 (Ⅰ) 为 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \cdots, \boldsymbol{\alpha}_s$，向量组 (Ⅱ) 为 $\boldsymbol{A}\boldsymbol{\alpha}_1, \boldsymbol{A}\boldsymbol{\alpha}_2, \cdots, \boldsymbol{A}\boldsymbol{\alpha}_s$，则下列命题正确的是 $(\qquad)$.</p>
+<p>[A] 若向量组 (Ⅰ) 线性无关，则向量组 (Ⅱ) 线性无关</p>
+<p>[B] 若向量组 (Ⅱ) 线性无关，则向量组 (Ⅰ) 线性无关</p>
+<p>[C] 若向量组 (Ⅱ) 线性相关，则向量组 (Ⅰ) 线性相关</p>
+<p>[D] 向量组 (Ⅰ) 与向量组 (Ⅱ) 具有不同的线性相关性</p>
+<p>答案: [B]</p>
+<p>主要思路:[根据线性相关的定义，建立向量组 (Ⅰ) 与向量组 (Ⅱ) 的线性组合关系。由 (Ⅱ) 线性无关直接推导 (Ⅰ) 的组合系数必全为零]</p>
+<p>解题步骤:</p>
+<p>[1] 设存在一组常数 $k_1, k_2, \cdots, k_s$，使得向量组 (Ⅰ) 的线性组合为零向量:<br />
+$$k_1 \boldsymbol{\alpha}_1 + k_2 \boldsymbol{\alpha}_2 + \cdots + k_s \boldsymbol{\alpha}_s = \boldsymbol{0}$$</p>
+<p>[2] 两边左乘矩阵 $\boldsymbol{A}$:<br />
+$$\boldsymbol{A}(k_1 \boldsymbol{\alpha}_1 + k_2 \boldsymbol{\alpha}_2 + \cdots + k_s \boldsymbol{\alpha}_s) = \boldsymbol{A}\boldsymbol{0} = \boldsymbol{0}$$<br />
+利用矩阵乘法分配律:<br />
+$$k_1 (\boldsymbol{A}\boldsymbol{\alpha}_1) + k_2 (\boldsymbol{A}\boldsymbol{\alpha}_2) + \cdots + k_s (\boldsymbol{A}\boldsymbol{\alpha}_s) = \boldsymbol{0}$$</p>
+<p>[3] 线性无关性判定:<br />
+已知向量组 (Ⅱ) $\boldsymbol{A}\boldsymbol{\alpha}_1, \boldsymbol{A}\boldsymbol{\alpha}_2, \cdots, \boldsymbol{A}\boldsymbol{\alpha}_s$ 线性无关。<br />
+根据线性无关的定义，上式中的系数必须全为零:<br />
+$$k_1 = k_2 = \cdots = k_s = 0$$<br />
+由此证明，向量组 (Ⅰ) 亦线性无关。故 [B] 正确。</p>
+<p>[4] 反例排除其余选项:<br />
+若取 $\boldsymbol{A} = \boldsymbol{O}$，对任意线性无关的向量组 (Ⅰ)，$\boldsymbol{A}\boldsymbol{\alpha}_i = \boldsymbol{0}$ 恒为零向量，必线性相关。<br />
+这排除了 [A]、[C] 和 [D]。选 [B]。</p>
+<hr />
+<p><strong>(初等列变换与向量组等价)<font color=deeppink>题目[2]:矩阵等价与行列式非零参数范围</font></strong></p>
+<p>设 $\boldsymbol{A} = \begin{bmatrix} a & 1 & 1 \\ 1 & a & a \\ 1 & 1 & a \end{bmatrix}$ 可经初等列变换化成 $\boldsymbol{B} = \begin{bmatrix} a & 1 & 1 \\ 1 & a & 1 \\ 1 & 1 & a \end{bmatrix}$，则 $a$ 的取值范围为 $(\qquad)$.</p>
+<p>[A] $\{a \mid a \in \mathbf{R}, a \ne -2\}$</p>
+<p>[B] $\{a \mid a \in \mathbf{R}, a \ne -2, a \ne -1\}$</p>
+<p>[C] $\{a \mid a \in \mathbf{R}, a \ne 1, a \ne -1\}$</p>
+<p>[D] $\{a \mid a \in \mathbf{R}, a \ne -1\}$</p>
+<p>答案: [B]</p>
+<p>主要思路:[$\boldsymbol{A}$ 经初等列变换化为 $\boldsymbol{B}$ 等价于存在可逆阵 $\boldsymbol{P}$ 使 $\boldsymbol{A}\boldsymbol{P} = \boldsymbol{B}$，两矩阵的列向量组等价且秩相等。计算两矩阵的行列式，分析可逆与降秩情况下的等价性]</p>
+<p>解题步骤:</p>
+<p>[1] 初等列变换的本质:<br />
+$\boldsymbol{A}$ 经初等列变换化为 $\boldsymbol{B}$，等价于存在可逆矩阵 $\boldsymbol{P}$ 使得 $\boldsymbol{A}\boldsymbol{P} = \boldsymbol{B}$。<br />
+这要求两矩阵的列向量组等价，从而必须满足 $r(\boldsymbol{A}) = r(\boldsymbol{B})$。</p>
+<p>[2] 计算两矩阵的行列式:<br />
+- 对于 $\boldsymbol{B}$:<br />
+  $$|\boldsymbol{B}| = \begin{vmatrix} a & 1 & 1 \\ 1 & a & 1 \\ 1 & 1 & a \end{vmatrix} = (a + 2)(a - 1)^2$$<br />
+  当 $a \ne -2$ 且 $a \ne 1$ 时，$|\boldsymbol{B}| \ne 0 \implies r(\boldsymbol{B}) = 3$；<br />
+  当 $a = 1$ 时，$r(\boldsymbol{B}) = 1$；当 $a = -2$ 时，$r(\boldsymbol{B}) = 2$。<br />
+- 对于 $\boldsymbol{A}$:<br />
+  第二行减去第三行:<br />
+  $$|\boldsymbol{A}| = \begin{vmatrix} a & 1 & 1 \\ 0 & a-1 & 0 \\ 1 & 1 & a \end{vmatrix} = (a - 1)\begin{vmatrix} a & 1 \\ 1 & a \end{vmatrix} = (a - 1)(a^2 - 1) = (a - 1)^2 (a + 1)$$<br />
+  当 $a \ne 1$ 且 $a \ne -1$ 时，$|\boldsymbol{A}| \ne 0 \implies r(\boldsymbol{A}) = 3$；<br />
+  当 $a = 1$ 时，$r(\boldsymbol{A}) = 1$；当 $a = -1$ 时，$r(\boldsymbol{A}) = 2$。</p>
+<p>[3] 讨论参数 $a$ 的取值:<br />
+- 当 $a \ne -2, -1, 1$ 时:<br />
+  $r(\boldsymbol{A}) = r(\boldsymbol{B}) = 3$，两矩阵均可逆，任意两个同阶可逆矩阵必可通过初等变换互相转化，此时成立；<br />
+- 当 $a = 1$ 时:<br />
+  $\boldsymbol{A} = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix}$ 与 $\boldsymbol{B} = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix}$ 完全相同，自明成立；<br />
+- 当 $a = -2$ 时:<br />
+  $r(\boldsymbol{B}) = 2$，而 $|\boldsymbol{A}| = (-3)^2(-1) = -9 \ne 0 \implies r(\boldsymbol{A}) = 3 \ne r(\boldsymbol{B})$，不可能；<br />
+- 当 $a = -1$ 时:<br />
+  $r(\boldsymbol{A}) = 2$，而 $|\boldsymbol{B}| = 1 \times (-2)^2 = 4 \ne 0 \implies r(\boldsymbol{B}) = 3 \ne r(\boldsymbol{A})$，不可能。</p>
+<p>[4] 综上:<br />
+$a$ 的取值范围为 $a \ne -2$ 且 $a \ne -1$，即 $\{a \mid a \in \mathbf{R}, a \ne -2, a \ne -1\}$。选 [B]。</p>
+<hr />
+<p><strong>(线性表示与矩阵线性映射)<font color=deeppink>题目[3]:基表示系数与迭代线性映射应用</font></strong></p>
+<p>设 3 维向量组 $\boldsymbol{\alpha}_1 = [1, 1, 0]^\mathrm{T}, \boldsymbol{\alpha}_2 = [5, 3, 2]^\mathrm{T}, \boldsymbol{\alpha}_3 = [1, 3, -1]^\mathrm{T}, \boldsymbol{\alpha}_4 = [-2, 2, -3]^\mathrm{T}$，且 $\boldsymbol{A}$ 是 3 阶矩阵，满足 $\boldsymbol{A}\boldsymbol{\alpha}_1 = \boldsymbol{\alpha}_2, \boldsymbol{A}\boldsymbol{\alpha}_2 = \boldsymbol{\alpha}_3, \boldsymbol{A}\boldsymbol{\alpha}_3 = \boldsymbol{\alpha}_4$，则 $\boldsymbol{A}\boldsymbol{\alpha}_4 = \underline{\qquad\qquad}$.</p>
+<p>答案: $[7, 5, 2]^\mathrm{T}$ (或 $\begin{bmatrix} 7 \\ 5 \\ 2 \end{bmatrix}$)</p>
+<p>主要思路:[检验 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 线性无关构成基，将 $\boldsymbol{\alpha}_4$ 用该基线性表出，两端左乘 $\boldsymbol{A}$ 并代入已知映射关系求解]</p>
+<p>解题步骤:</p>
+<p>[1] 检验 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 的线性相关性:<br />
+$$|\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3| = \begin{vmatrix} 1 & 5 & 1 \\ 1 & 3 & 3 \\ 0 & 2 & -1 \end{vmatrix} \xrightarrow{r_2 - r_1} \begin{vmatrix} 1 & 5 & 1 \\ 0 & -2 & 2 \\ 0 & 2 & -1 \end{vmatrix} = 1 \times (2 - 4) = -2 \ne 0$$<br />
+故 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 线性无关，构成 $\mathbf{R}^3$ 的一组基。</p>
+<p>[2] 将 $\boldsymbol{\alpha}_4$ 用该基线性表出:<br />
+设 $\boldsymbol{\alpha}_4 = c_1 \boldsymbol{\alpha}_1 + c_2 \boldsymbol{\alpha}_2 + c_3 \boldsymbol{\alpha}_3$。<br />
+写成增广矩阵并进行初等行变换:<br />
+$$\begin{bmatrix} 1 & 5 & 1 & -2 \\ 1 & 3 & 3 & 2 \\ 0 & 2 & -1 & -3 \end{bmatrix} \xrightarrow{r_2 - r_1} \begin{bmatrix} 1 & 5 & 1 & -2 \\ 0 & -2 & 2 & 4 \\ 0 & 2 & -1 & -3 \end{bmatrix} \xrightarrow{r_3 + r_2} \begin{bmatrix} 1 & 5 & 1 & -2 \\ 0 & -2 & 2 & 4 \\ 0 & 0 & 1 & 1 \end{bmatrix}$$<br />
+由第 3 行: $c_3 = 1$。<br />
+由第 2 行: $-2c_2 + 2(1) = 4 \implies c_2 = -1$。<br />
+由第 1 行: $c_1 + 5(-1) + 1(1) = -2 \implies c_1 = 2$。<br />
+故:<br />
+$$\boldsymbol{\alpha}_4 = 2\boldsymbol{\alpha}_1 - \boldsymbol{\alpha}_2 + \boldsymbol{\alpha}_3$$</p>
+<p>[3] 两端左乘矩阵 $\boldsymbol{A}$:<br />
+$$\boldsymbol{A}\boldsymbol{\alpha}_4 = 2\boldsymbol{A}\boldsymbol{\alpha}_1 - \boldsymbol{A}\boldsymbol{\alpha}_2 + \boldsymbol{A}\boldsymbol{\alpha}_3$$<br />
+代入已知条件 $\boldsymbol{A}\boldsymbol{\alpha}_1 = \boldsymbol{\alpha}_2, \boldsymbol{A}\boldsymbol{\alpha}_2 = \boldsymbol{\alpha}_3, \boldsymbol{A}\boldsymbol{\alpha}_3 = \boldsymbol{\alpha}_4$:<br />
+$$\boldsymbol{A}\boldsymbol{\alpha}_4 = 2\boldsymbol{\alpha}_2 - \boldsymbol{\alpha}_3 + \boldsymbol{\alpha}_4$$</p>
+<p>[4] 具体向量代入计算:<br />
+$$\boldsymbol{A}\boldsymbol{\alpha}_4 = 2\begin{bmatrix} 5 \\ 3 \\ 2 \end{bmatrix} - \begin{bmatrix} 1 \\ 3 \\ -1 \end{bmatrix} + \begin{bmatrix} -2 \\ 2 \\ -3 \end{bmatrix} = \begin{bmatrix} 10 - 1 - 2 \\ 6 - 3 + 2 \\ 4 + 1 - 3 \end{bmatrix} = \begin{bmatrix} 7 \\ 5 \\ 2 \end{bmatrix}$$</p>
+<hr />
+<p><strong>(矩阵乘法列分块性质)<font color=deeppink>题目[4]:列向量匹配与矩阵方程快速求解</font></strong></p>
+<p>已知 $\begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 1 \end{bmatrix}\boldsymbol{A}$，则 $\boldsymbol{A} = (\qquad)$.</p>
+<p>[A] $\begin{bmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}$</p>
+<p>[B] $\begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \end{bmatrix}$</p>
+<p>[C] $\begin{bmatrix} 1 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$</p>
+<p>[D] $\begin{bmatrix} 1 & 0 & 1 \\ 0 & 0 & 1 \end{bmatrix}$</p>
+<p>答案: [A]</p>
+<p>主要思路:[利用矩阵乘法的列分块意义，将右端矩阵的每一列与左端矩阵的对应列向量进行对照表出]</p>
+<p>解题步骤:</p>
+<p>[1] 设 $\boldsymbol{B} = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 1 \end{bmatrix} = [\boldsymbol{b}_1, \boldsymbol{b}_2]$，左端矩阵为 $\boldsymbol{C} = [\boldsymbol{c}_1, \boldsymbol{c}_2, \boldsymbol{c}_3]$。<br />
+设 $\boldsymbol{A} = [\boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_3]$。<br />
+由矩阵乘法按列分块法则:<br />
+$$\boldsymbol{C} = \boldsymbol{B}\boldsymbol{A} \iff [\boldsymbol{c}_1, \boldsymbol{c}_2, \boldsymbol{c}_3] = [\boldsymbol{B}\boldsymbol{x}_1, \boldsymbol{B}\boldsymbol{x}_2, \boldsymbol{B}\boldsymbol{x}_3]$$</p>
+<p>[2] 对照各列向量:<br />
+- 第 1 列: $\boldsymbol{c}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} = \boldsymbol{b}_1 = 1 \cdot \boldsymbol{b}_1 + 0 \cdot \boldsymbol{b}_2 \implies \boldsymbol{x}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$；<br />
+- 第 2 列: $\boldsymbol{c}_2 = \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix} = \boldsymbol{b}_2 = 0 \cdot \boldsymbol{b}_1 + 1 \cdot \boldsymbol{b}_2 \implies \boldsymbol{x}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$；<br />
+- 第 3 列: $\boldsymbol{c}_3 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} = \boldsymbol{b}_1 = 1 \cdot \boldsymbol{b}_1 + 0 \cdot \boldsymbol{b}_2 \implies \boldsymbol{x}_3 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$。</p>
+<p>[3] 组装矩阵 $\boldsymbol{A}$:<br />
+$$\boldsymbol{A} = [\boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_3] = \begin{bmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}$$<br />
+选 [A]。</p>
+<hr />
+<p><strong>(向量组等价条件与互相线性表示)<font color=deeppink>题目[5]:等价向量组同解平面与相互线性表示</font></strong></p>
+<p>设 $\boldsymbol{\alpha}_1 = \begin{bmatrix} 1 \\ -1 \\ 1 \end{bmatrix}, \boldsymbol{\alpha}_2 = \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}, \boldsymbol{\alpha}_3 = \begin{bmatrix} 2 \\ 0 \\ 1 \end{bmatrix}$；$\boldsymbol{\beta}_1 = \begin{bmatrix} a \\ -1 \\ 1 \end{bmatrix}, \boldsymbol{\beta}_2 = \begin{bmatrix} 4 \\ 0 \\ b \end{bmatrix}, \boldsymbol{\beta}_3 = \begin{bmatrix} 0 \\ c \\ 1 \end{bmatrix}$，问 $a, b, c$ 为何值时，向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 与 $\boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \boldsymbol{\beta}_3$ 等价？且当向量组等价时，求 $\boldsymbol{\beta}_1$ 由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 的线性表示式及 $\boldsymbol{\alpha}_1$ 由 $\boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \boldsymbol{\beta}_3$ 的线性表示式.</p>
+<p>答案: 当 $a = 1, b = 2, c = -2$ 时两向量组等价；$\boldsymbol{\beta}_1 = \boldsymbol{\alpha}_1$；$\boldsymbol{\alpha}_1 = \boldsymbol{\beta}_1$</p>
+<p>主要思路:[求出 (Ⅰ) 的秩为 2 及其张成的平面方程 $x - y - 2z = 0$，将 $\boldsymbol{\beta}_i$ 各向量代入方程定出参数并验证秩为 2；再直接由向量坐标对应关系写出相互表示式]</p>
+<p>解题步骤:</p>
+<p>[1] 分析向量组 (Ⅰ) 的秩与张成空间:<br />
+观察到 $\boldsymbol{\alpha}_1 + \boldsymbol{\alpha}_2 = \begin{bmatrix} 2 \\ 0 \\ 1 \end{bmatrix} = \boldsymbol{\alpha}_3$。<br />
+因为 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 不成比例线性无关，故 $r(\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3) = 2$。<br />
+其张成的二维子空间中的任意向量 $\boldsymbol{x} = [x, y, z]^\mathrm{T}$ 满足:<br />
+$$x_1\begin{bmatrix} 1 \\ -1 \\ 1 \end{bmatrix} + x_2\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} = \begin{bmatrix} x \\ y \\ z \end{bmatrix} \implies \begin{cases} x = x_1 + x_2 \\ y = -x_1 + x_2 \\ z = x_1 \end{cases} \implies x - y - 2z = 0$$</p>
+<p>[2] 确定参数 $a, b, c$:<br />
+两向量组等价的充要条件是 $\boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \boldsymbol{\beta}_3$ 均属于该子空间且秩亦为 2:<br />
+- 对 $\boldsymbol{\beta}_1 = [a, -1, 1]^\mathrm{T}$: $a - (-1) - 2(1) = 0 \implies a = 1$；<br />
+- 对 $\boldsymbol{\beta}_2 = [4, 0, b]^\mathrm{T}$: $4 - 0 - 2b = 0 \implies b = 2$；<br />
+- 对 $\boldsymbol{\beta}_3 = [0, c, 1]^\mathrm{T}$: $0 - c - 2(1) = 0 \implies c = -2$。<br />
+此时 $\boldsymbol{\beta}_1 = [1, -1, 1]^\mathrm{T}, \boldsymbol{\beta}_2 = [4, 0, 2]^\mathrm{T}$ 显然线性无关，故 $r(\boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \boldsymbol{\beta}_3) = 2$。<br />
+因此当且仅当 $a = 1, b = 2, c = -2$ 时，两向量组等价。</p>
+<p>[3] 求线性表示式:<br />
+- $\boldsymbol{\beta}_1$ 由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 表示:<br />
+  直接观察可知 $\boldsymbol{\beta}_1 = \begin{bmatrix} 1 \\ -1 \\ 1 \end{bmatrix} = \boldsymbol{\alpha}_1$。<br />
+  即:<br />
+  $$\boldsymbol{\beta}_1 = \boldsymbol{\alpha}_1$$<br />
+  (亦可结合 $\boldsymbol{\alpha}_3 = \boldsymbol{\alpha}_1 + \boldsymbol{\alpha}_2$ 写为 $(1-k)\boldsymbol{\alpha}_1 - k\boldsymbol{\alpha}_2 + k\boldsymbol{\alpha}_3$)。<br />
+- $\boldsymbol{\alpha}_1$ 由 $\boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \boldsymbol{\beta}_3$ 表示:<br />
+  同理:<br />
+  $$\boldsymbol{\alpha}_1 = \boldsymbol{\beta}_1$$</p>
+<hr />
+<p><strong>(线性表示与矩阵方程有解条件)<font color=deeppink>题目[6]:参数矩阵方程可解性与全解讨论</font></strong></p>
+<p>设 $\boldsymbol{\alpha}_1 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}, \boldsymbol{\alpha}_2 = \begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix}, \boldsymbol{\alpha}_3 = \begin{bmatrix} 1 \\ 2 \\ a \end{bmatrix}$，$\boldsymbol{\beta}_1 = \begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix}, \boldsymbol{\beta}_2 = \begin{bmatrix} 1 \\ 0 \\ b \end{bmatrix}$，$\boldsymbol{A} = [\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3], \boldsymbol{B} = [\boldsymbol{\beta}_1, \boldsymbol{\beta}_2]$.</p>
+<p>(1) $a, b$ 为何值时，$\boldsymbol{\beta}_1, \boldsymbol{\beta}_2$ 能同时由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 线性表示？若能表示，写出其表示式；</p>
+<p>(2) $a, b$ 为何值时，矩阵方程 $\boldsymbol{A}\boldsymbol{X} = \boldsymbol{B}$ 有解？若有解，求出其全部解.</p>
+<p>答案: (1) 当 $a \ne 3, b \in \mathbf{R}$ 时，$\boldsymbol{\beta}_1 = -3\boldsymbol{\alpha}_1 + 2\boldsymbol{\alpha}_2$，$\boldsymbol{\beta}_2 = \dfrac{a+b-4}{a-3}\boldsymbol{\alpha}_1 - \dfrac{2(b-1)}{a-3}\boldsymbol{\alpha}_2 + \dfrac{b-1}{a-3}\boldsymbol{\alpha}_3$；当 $a = 3, b = 1$ 时，$\boldsymbol{\beta}_1 = (k_1-3)\boldsymbol{\alpha}_1 + (2-2k_1)\boldsymbol{\alpha}_2 + k_1\boldsymbol{\alpha}_3$，$\boldsymbol{\beta}_2 = (k_2+1)\boldsymbol{\alpha}_1 - 2k_2\boldsymbol{\alpha}_2 + k_2\boldsymbol{\alpha}_3$ ($k_1, k_2 \in \mathbf{R}$)；(2) 条件同(1)，当 $a \ne 3$ 时唯一解 $\boldsymbol{X} = \begin{bmatrix} -3 & \dfrac{a+b-4}{a-3} \\ 2 & -\dfrac{2(b-1)}{a-3} \\ 0 & \dfrac{b-1}{a-3} \end{bmatrix}$；当 $a = 3, b = 1$ 时全部解为 $\boldsymbol{X} = \begin{bmatrix} k_1 - 3 & k_2 + 1 \\ 2 - 2k_1 & -2k_2 \\ k_1 & k_2 \end{bmatrix}$ ($k_1, k_2 \in \mathbf{R}$)</p>
+<p>主要思路:[对增广矩阵 $[\boldsymbol{A} \mid \boldsymbol{B}]$ 进行初等行变换化为行阶梯形，对主元位置根据 $a \ne 3$ 与 $a = 3$ 进行分类讨论并求解]</p>
+<p>解题步骤:</p>
+<p>[1] 对增广矩阵 $[\boldsymbol{A} \mid \boldsymbol{B}]$ 进行初等行变换:<br />
+$$[\boldsymbol{A} \mid \boldsymbol{B}] = \begin{bmatrix} 1 & 1 & 1 & -1 & 1 \\ 0 & 1 & 2 & 2 & 0 \\ 1 & 2 & a & 1 & b \end{bmatrix} \xrightarrow{r_3 - r_1} \begin{bmatrix} 1 & 1 & 1 & -1 & 1 \\ 0 & 1 & 2 & 2 & 0 \\ 0 & 1 & a-1 & 2 & b-1 \end{bmatrix}$$<br />
+$$\xrightarrow{r_3 - r_2} \begin{bmatrix} 1 & 1 & 1 & -1 & 1 \\ 0 & 1 & 2 & 2 & 0 \\ 0 & 0 & a-3 & 0 & b-1 \end{bmatrix} \xrightarrow{r_1 - r_2} \begin{bmatrix} 1 & 0 & -1 & -3 & 1 \\ 0 & 1 & 2 & 2 & 0 \\ 0 & 0 & a-3 & 0 & b-1 \end{bmatrix}$$</p>
+<p>[2] 分析线性表示与矩阵方程有解的充要条件:<br />
+- 情况 1: 当 $a \ne 3$ 时:<br />
+  $r(\boldsymbol{A}) = 3$ 为满秩阵，无论 $b$ 取何值，$r(\boldsymbol{A}) = r([\boldsymbol{A} \mid \boldsymbol{B}]) = 3$，方程有唯一解。<br />
+  第三行对应未知量:<br />
+  对 $\boldsymbol{\beta}_1$: $(a-3)x_{31} = 0 \implies x_{31} = 0$，进而 $x_{21} = 2, x_{11} = -3$；<br />
+  对 $\boldsymbol{\beta}_2$: $(a-3)x_{32} = b - 1 \implies x_{32} = \dfrac{b-1}{a-3}$，进而 $x_{22} = -\dfrac{2(b-1)}{a-3}, x_{12} = 1 + \dfrac{b-1}{a-3} = \dfrac{a+b-4}{a-3}$。<br />
+- 情况 2: 当 $a = 3$ 时:<br />
+  矩阵最后一行变为 $[0, 0, 0 \mid 0, b - 1]$。<br />
+  方程有解必须且只需 $b - 1 = 0 \implies b = 1$。<br />
+  此时 $r(\boldsymbol{A}) = r([\boldsymbol{A} \mid \boldsymbol{B}]) = 2 < 3$，方程有无穷多解。<br />
+  令自由未知量 $x_{31} = k_1, x_{32} = k_2$，解得:<br />
+  $x_{11} = k_1 - 3, x_{21} = 2 - 2k_1$；<br />
+  $x_{12} = k_2 + 1, x_{22} = -2k_2$。</p>
+<p>[3] 整理作答:<br />
+(1) 与 (2) 结论相同，写出解析式与解矩阵如答案所示。</p>
+<hr />
+<p><strong>(子空间相交与非零公共向量求法)<font color=deeppink>题目[4]:子空间维数定理与公共非零向量求解</font></strong></p>
+<p>设 3 维列向量 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 线性无关，$\boldsymbol{\beta}_1, \boldsymbol{\beta}_2$ 线性无关.</p>
+<p>(1) 证明：存在 3 维非零列向量 $\boldsymbol{\xi}$，$\boldsymbol{\xi}$ 既可由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 线性表示，也可由 $\boldsymbol{\beta}_1, \boldsymbol{\beta}_2$ 线性表示；</p>
+<p>(2) 若 $\boldsymbol{\alpha}_1 = [1, -2, 3]^\mathrm{T}, \boldsymbol{\alpha}_2 = [2, 1, 1]^\mathrm{T}, \boldsymbol{\beta}_1 = [-2, 1, 4]^\mathrm{T}, \boldsymbol{\beta}_2 = [-5, -3, 5]^\mathrm{T}$，求既可由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 线性表示，也可由 $\boldsymbol{\beta}_1, \boldsymbol{\beta}_2$ 线性表示的所有非零列向量 $\boldsymbol{\xi}$.</p>
+<p>答案: (1) 见解题步骤证明；(2) $\boldsymbol{\xi} = k[-3, -4, 1]^\mathrm{T}$ (其中 $k \ne 0$)</p>
+<p>主要思路:[(1) 设 $V_1 = \mathrm{span}\{\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2\}, V_2 = \mathrm{span}\{\boldsymbol{\beta}_1, \boldsymbol{\beta}_2\}$，由维数公式 $\dim(V_1\cap V_2) = \dim V_1 + \dim V_2 - \dim(V_1+V_2) \ge 1$ 证明存在非零向量；(2) 建立齐次方程组求出系数关系并写出所有非零向量]</p>
+<p>解题步骤:</p>
+<p>[1] (1) 证明:<br />
+令 $V_1 = \mathrm{span}\{\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2\}$，$V_2 = \mathrm{span}\{\boldsymbol{\beta}_1, \boldsymbol{\beta}_2\}$。<br />
+因为 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 线性无关，故 $\dim V_1 = 2$；同理 $\dim V_2 = 2$。<br />
+$V_1 + V_2$ 是 $\mathbf{R}^3$ 的子空间，故 $\dim(V_1 + V_2) \le 3$。<br />
+由子空间维数公式:<br />
+$$\dim(V_1 \cap V_2) = \dim V_1 + \dim V_2 - \dim(V_1 + V_2) \ge 2 + 2 - 3 = 1$$<br />
+因此交空间 $V_1 \cap V_2$ 的维数至少为 1，必存在非零向量 $\boldsymbol{\xi} \in V_1 \cap V_2$。<br />
+该向量 $\boldsymbol{\xi}$ 既可由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 线性表示，也可由 $\boldsymbol{\beta}_1, \boldsymbol{\beta}_2$ 线性表示。</p>
+<p>[2] (2) 求解具体的非零向量 $\boldsymbol{\xi}$:<br />
+设 $\boldsymbol{\xi} = x_1 \boldsymbol{\alpha}_1 + x_2 \boldsymbol{\alpha}_2 = y_1 \boldsymbol{\beta}_1 + y_2 \boldsymbol{\beta}_2$，即:<br />
+$$x_1 \boldsymbol{\alpha}_1 + x_2 \boldsymbol{\alpha}_2 - y_1 \boldsymbol{\beta}_1 - y_2 \boldsymbol{\beta}_2 = \boldsymbol{0}$$<br />
+对系数矩阵进行初等行变换:<br />
+$$\begin{bmatrix} 1 & 2 & 2 & 5 \\ -2 & 1 & -1 & 3 \\ 3 & 1 & -4 & -5 \end{bmatrix} \xrightarrow[r_3 - 3r_1]{r_2 + 2r_1} \begin{bmatrix} 1 & 2 & 2 & 5 \\ 0 & 5 & 3 & 13 \\ 0 & -5 & -10 & -20 \end{bmatrix} \xrightarrow{r_3 + r_2} \begin{bmatrix} 1 & 2 & 2 & 5 \\ 0 & 5 & 3 & 13 \\ 0 & 0 & -7 & -7 \end{bmatrix}$$<br />
+化简得:<br />
+$$y_1 + y_2 = 0 \implies y_1 = -y_2$$<br />
+由第 2 行:<br />
+$$5x_2 + 3(-y_2) + 13y_2 = 0 \implies 5x_2 + 10y_2 = 0 \implies x_2 = -2y_2$$<br />
+由第 1 行:<br />
+$$x_1 + 2(-2y_2) + 2(-y_2) + 5y_2 = 0 \implies x_1 - y_2 = 0 \implies x_1 = y_2$$</p>
+<p>[3] 确定 $\boldsymbol{\xi}$:<br />
+取自由未知量 $y_2 = -k$ ($k \ne 0$):<br />
+则 $x_1 = -k, x_2 = 2k$。<br />
+$$\boldsymbol{\xi} = x_1 \boldsymbol{\alpha}_1 + x_2 \boldsymbol{\alpha}_2 = -k\boldsymbol{\alpha}_1 + 2k\boldsymbol{\alpha}_2 = k(2\boldsymbol{\alpha}_2 - \boldsymbol{\alpha}_1)$$<br />
+计算:<br />
+$$2\boldsymbol{\alpha}_2 - \boldsymbol{\alpha}_1 = 2\begin{bmatrix} 2 \\ 1 \\ 1 \end{bmatrix} - \begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix} = \begin{bmatrix} 3 \\ 4 \\ -1 \end{bmatrix} = -[-3, -4, 1]^\mathrm{T}$$<br />
+故所有非零公共向量为:<br />
+$$\boldsymbol{\xi} = k \begin{bmatrix} -3 \\ -4 \\ 1 \end{bmatrix} \quad (k \ne 0)$$</p>
+<hr />
+<p><strong>(向量空间的基与维数)<font color=deeppink>题目[8]:齐次线性方程解空间基的判定</font></strong></p>
+<p>设向量空间 $V$ 满足 $x_1 + x_2 + x_3 = 0, -\infty < x_i < +\infty, i = 1, 2, 3$，则 $V$ 的一个基为 $(\qquad)$.</p>
+<p>[A] $\begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix}, \begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$</p>
+<p>[B] $\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}, \begin{bmatrix} -1 \\ -1 \\ 0 \end{bmatrix}$</p>
+<p>[C] $\begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}, \begin{bmatrix} -1 \\ -1 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$</p>
+<p>[D] $\begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix}, \begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix}$</p>
+<p>答案: [D]</p>
+<p>主要思路:[子空间 $V$ 为单方程齐次线性方程组的解空间，维数为 $3 - 1 = 2$，基向量必须均属于 $V$ 且线性无关]</p>
+<p>解题步骤:</p>
+<p>[1] 计算空间 $V$ 的维数:<br />
+方程为 $x_1 + x_2 + x_3 = 0$，系数矩阵秩为 $1$。<br />
+解空间的维数为 $n - r = 3 - 1 = 2$。<br />
+因此 $V$ 的基必须恰好包含 2 个向量，排除 [A] 和 [C]。</p>
+<p>[2] 检验向量是否属于 $V$:<br />
+- 对于 [B]: 向量 $[-1, -1, 0]^\mathrm{T}$ 代入方程得 $-1 + (-1) + 0 = -2 \ne 0$，不属于 $V$，排除 [B]；<br />
+- 对于 [D]:<br />
+  $[-1, 0, 1]^\mathrm{T}$ 代入方程: $-1 + 0 + 1 = 0 \in V$；<br />
+  $[-1, 1, 0]^\mathrm{T}$ 代入方程: $-1 + 1 + 0 = 0 \in V$。<br />
+  两向量显然不成比例，线性无关，构成 $V$ 的一组基。<br />
+故选 [D]。</p>
+<hr />
+<p><strong>(齐次方程解空间基求解)<font color=deeppink>题目[9]:平面子空间基的求解</font></strong></p>
+<p>向量空间 $V = \{(x, y, z) \mid (x, y, z) \in \mathbf{R}^3, x - 2z = 0\}$ 的一个基为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $\begin{bmatrix} 2 \\ 0 \\ 1 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}$ (或 $[2, 0, 1]^\mathrm{T}, [0, 1, 0]^\mathrm{T}$)</p>
+<p>主要思路:[求齐次线性方程 $x - 2z = 0$ 的基础解系，即为该向量空间的一组基]</p>
+<p>解题步骤:</p>
+<p>[1] 写出方程的通解:<br />
+方程为 $x - 2z = 0$ ($y$ 为自由未知量)。<br />
+$$\begin{cases} x = 2z \\ y = y \\ z = z \end{cases}$$</p>
+<p>[2] 取自由未知量确定基础解系:<br />
+- 分别令 $y = 1, z = 0$，得 $\boldsymbol{\xi}_1 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}$；<br />
+- 令 $y = 0, z = 1$，得 $\boldsymbol{\xi}_2 = \begin{bmatrix} 2 \\ 0 \\ 1 \end{bmatrix}$。</p>
+<p>[3] 组装基向量:<br />
+$\boldsymbol{\xi}_1, \boldsymbol{\xi}_2$ 线性无关且生成整个空间 $V$，故为 $V$ 的一个基:<br />
+$$\begin{bmatrix} 2 \\ 0 \\ 1 \end{bmatrix}, \quad \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}$$</p>
+<hr />
+<p><strong>(基变换与过渡矩阵计算)<font color=deeppink>题目[10]:基变换定义与过渡矩阵求解</font></strong></p>
+<p>设 $\boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \boldsymbol{\beta}_3$ 是 3 维向量空间 $\mathbf{R}^3$ 的一个基，则基 $\boldsymbol{\beta}_1, 2\boldsymbol{\beta}_2, 3\boldsymbol{\beta}_3$ 到基 $\boldsymbol{\beta}_1 - \boldsymbol{\beta}_2, \boldsymbol{\beta}_2 + \boldsymbol{\beta}_3, \boldsymbol{\beta}_3 - \boldsymbol{\beta}_1$ 的过渡矩阵为 $(\qquad)$.</p>
+<p>[A] $\begin{bmatrix} 0 & -2 & 1 \\ 3 & 0 & -6 \\ -8 & 4 & 0 \end{bmatrix}$</p>
+<p>[B] $\begin{bmatrix} 1 & 0 & -1 \\ -\dfrac{1}{2} & \dfrac{1}{2} & 0 \\ 0 & \dfrac{1}{3} & \dfrac{1}{3} \end{bmatrix}$</p>
+<p>[C] $\begin{bmatrix} \dfrac{1}{2} & -\dfrac{1}{3} & \dfrac{1}{4} \\ 0 & \dfrac{1}{2} & -\dfrac{1}{3} \\ -\dfrac{1}{3} & 0 & \dfrac{1}{4} \end{bmatrix}$</p>
+<p>[D] $\begin{bmatrix} \dfrac{1}{2} & 0 & -\dfrac{1}{3} \\ -\dfrac{1}{3} & \dfrac{1}{2} & 0 \\ \dfrac{1}{4} & -\dfrac{1}{3} & \dfrac{1}{4} \end{bmatrix}$</p>
+<p>答案: [B]</p>
+<p>主要思路:[根据过渡矩阵定义式 $\text{基}_2 = \text{基}_1 \boldsymbol{C}$，将两个基均用初始基表达，通过逆矩阵相乘求得过渡矩阵 $\boldsymbol{C}$]</p>
+<p>解题步骤:</p>
+<p>[1] 用原基表达两组基:<br />
+记基 (Ⅰ) 为 $\mathcal{B}_1 = [\boldsymbol{\beta}_1, 2\boldsymbol{\beta}_2, 3\boldsymbol{\beta}_3] = [\boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \boldsymbol{\beta}_3]\begin{bmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{bmatrix} = \mathcal{B} \boldsymbol{P}$。<br />
+记基 (Ⅱ) 为 $\mathcal{B}_2 = [\boldsymbol{\beta}_1 - \boldsymbol{\beta}_2, \boldsymbol{\beta}_2 + \boldsymbol{\beta}_3, \boldsymbol{\beta}_3 - \boldsymbol{\beta}_1] = [\boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \boldsymbol{\beta}_3]\begin{bmatrix} 1 & 0 & -1 \\ -1 & 1 & 0 \\ 0 & 1 & 1 \end{bmatrix} = \mathcal{B} \boldsymbol{Q}$。</p>
+<p>[2] 根据过渡矩阵定义:<br />
+设从基 $\mathcal{B}_1$ 到基 $\mathcal{B}_2$ 的过渡矩阵为 $\boldsymbol{C}$，则:<br />
+$$\mathcal{B}_2 = \mathcal{B}_1 \boldsymbol{C} \implies \mathcal{B}\boldsymbol{Q} = \mathcal{B}\boldsymbol{P}\boldsymbol{C}$$<br />
+因为 $\mathcal{B}$ 线性无关，两边左消去 $\mathcal{B}$:<br />
+$$\boldsymbol{P}\boldsymbol{C} = \boldsymbol{Q} \implies \boldsymbol{C} = \boldsymbol{P}^{-1}\boldsymbol{Q}$$</p>
+<p>[3] 计算矩阵乘积:<br />
+$$\boldsymbol{P}^{-1} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \dfrac{1}{2} & 0 \\ 0 & 0 & \dfrac{1}{3} \end{bmatrix}$$<br />
+$$\boldsymbol{C} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \dfrac{1}{2} & 0 \\ 0 & 0 & \dfrac{1}{3} \end{bmatrix} \begin{bmatrix} 1 & 0 & -1 \\ -1 & 1 & 0 \\ 0 & 1 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 & -1 \\ -\dfrac{1}{2} & \dfrac{1}{2} & 0 \\ 0 & \dfrac{1}{3} & \dfrac{1}{3} \end{bmatrix}$$<br />
+选 [B]。</p>
+<hr />
+<p><strong>(施密特正交化与规范正交基)<font color=deeppink>题目[11]:生成子空间的施密特正交化与单位化</font></strong></p>
+<p>由向量 $\boldsymbol{\alpha}_1 = [1, 0, 1]^\mathrm{T}, \boldsymbol{\alpha}_2 = [1, 2, 3]^\mathrm{T}, \boldsymbol{\alpha}_3 = [2, 2, 4]^\mathrm{T}$ 生成的向量空间 $V = \mathrm{span}\{\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3\} = \{k_1 \boldsymbol{\alpha}_1 + k_2 \boldsymbol{\alpha}_2 + k_3 \boldsymbol{\alpha}_3 \mid k_1, k_2, k_3 \in \mathbf{R}\}$，则 $V$ 的一个规范正交基为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $\boldsymbol{e}_1 = \dfrac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}, \quad \boldsymbol{e}_2 = \dfrac{1}{\sqrt{6}}\begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix}$</p>
+<p>主要思路:[观察到 $\boldsymbol{\alpha}_3 = \boldsymbol{\alpha}_1 + \boldsymbol{\alpha}_2$ 降维，选出极大线性无关组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$，运用施密特正交化过程正交化并单位化]</p>
+<p>解题步骤:</p>
+<p>[1] 确定子空间 $V$ 的基:<br />
+容易看出 $\boldsymbol{\alpha}_1 + \boldsymbol{\alpha}_2 = [2, 2, 4]^\mathrm{T} = \boldsymbol{\alpha}_3$。<br />
+因此 $\boldsymbol{\alpha}_3$ 可由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 线性表出。<br />
+又 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$ 线性无关，故 $\dim V = 2$，$V$ 的一组基为 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2$。</p>
+<p>[2] 施密特正交化:<br />
+取 $\boldsymbol{\eta}_1 = \boldsymbol{\alpha}_1 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}$。<br />
+正交化第 2 个向量:<br />
+$$\boldsymbol{\eta}_2 = \boldsymbol{\alpha}_2 - \frac{(\boldsymbol{\alpha}_2, \boldsymbol{\eta}_1)}{(\boldsymbol{\eta}_1, \boldsymbol{\eta}_1)}\boldsymbol{\eta}_1$$<br />
+计算内积:<br />
+$$(\boldsymbol{\alpha}_2, \boldsymbol{\eta}_1) = 1 \times 1 + 2 \times 0 + 3 \times 1 = 4$$<br />
+$$(\boldsymbol{\eta}_1, \boldsymbol{\eta}_1) = 1^2 + 0^2 + 1^2 = 2$$<br />
+故:<br />
+$$\boldsymbol{\eta}_2 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} - \frac{4}{2}\begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 - 2 \\ 2 - 0 \\ 3 - 2 \end{bmatrix} = \begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix}$$<br />
+检验正交性: $(\boldsymbol{\eta}_1, \boldsymbol{\eta}_2) = 1(-1) + 0(2) + 1(1) = 0$。</p>
+<p>[3] 单位化:<br />
+$$\|\boldsymbol{\eta}_1\| = \sqrt{1^2 + 0^2 + 1^2} = \sqrt{2} \implies \boldsymbol{e}_1 = \frac{\boldsymbol{\eta}_1}{\|\boldsymbol{\eta}_1\|} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}$$<br />
+$$\|\boldsymbol{\eta}_2\| = \sqrt{(-1)^2 + 2^2 + 1^2} = \sqrt{6} \implies \boldsymbol{e}_2 = \frac{\boldsymbol{\eta}_2}{\|\boldsymbol{\eta}_2\|} = \frac{1}{\sqrt{6}}\begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix}$$<br />
+故 $V$ 的一个规范正交基为 $\boldsymbol{e}_1, \boldsymbol{e}_2$。</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>

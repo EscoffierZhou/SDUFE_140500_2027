@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>线性代数1000b强化篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h1>线性代数1000b强化篇 - 矩阵</h1>
+<h2>第3章 矩阵运算</h2>
+<hr />
+<p><strong>(矩阵乘法基本性质与反例)<font color=deeppink>题目[1]:二次型全零与矩阵全零辨析</font></strong></p>
+<p>设 $\boldsymbol{A}$ 是 $n$ 阶矩阵，则下列说法错误的是 $(\qquad)$.</p>
+<p>[A] 对任意的 $n$ 维列向量 $\boldsymbol{\xi}$，有 $\boldsymbol{A}\boldsymbol{\xi} = \boldsymbol{0}$，则 $\boldsymbol{A} = \boldsymbol{O}$</p>
+<p>[B] 对任意的 $n$ 维列向量 $\boldsymbol{\xi}$，有 $\boldsymbol{\xi}^\mathrm{T}\boldsymbol{A}\boldsymbol{\xi} = 0$，则 $\boldsymbol{A} = \boldsymbol{O}$</p>
+<p>[C] 对任意的 $n$ 阶矩阵 $\boldsymbol{B}$，有 $\boldsymbol{A}\boldsymbol{B} = \boldsymbol{O}$，则 $\boldsymbol{A} = \boldsymbol{O}$</p>
+<p>[D] 对任意的 $n$ 阶矩阵 $\boldsymbol{B}$，有 $\boldsymbol{B}^\mathrm{T}\boldsymbol{A}\boldsymbol{B} = \boldsymbol{O}$，则 $\boldsymbol{A} = \boldsymbol{O}$</p>
+<p>答案: [B]</p>
+<p>主要思路:[逐项分析矩阵乘法与二次型性质。任意列向量满足 $\boldsymbol{\xi}^\mathrm{T}\boldsymbol{A}\boldsymbol{\xi} = 0$ 仅能推得 $\boldsymbol{A}$ 为反对称矩阵，不能推得 $\boldsymbol{A} = \boldsymbol{O}$]</p>
+<p>解题步骤:</p>
+<p>[1] 分析选项 [A]:<br />
+取 $\boldsymbol{\xi} = \boldsymbol{e}_j$ (第 $j$ 个分量为 $1$、其余分量为 $0$ 的标准单位列向量)。<br />
+则 $\boldsymbol{A}\boldsymbol{\xi} = \boldsymbol{A}\boldsymbol{e}_j$ 恰为 $\boldsymbol{A}$ 的第 $j$ 列。<br />
+由题意，对任意 $j = 1, 2, \cdots, n$，均有 $\boldsymbol{A}\boldsymbol{e}_j = \boldsymbol{0}$，即 $\boldsymbol{A}$ 的每一列均为零向量，故 $\boldsymbol{A} = \boldsymbol{O}$。[A] 正确。</p>
+<p>[2] 分析选项 [B]:<br />
+若 $\boldsymbol{A}$ 是非零反对称矩阵（即 $\boldsymbol{A}^\mathrm{T} = -\boldsymbol{A} \ne \boldsymbol{O}$），例如取 $\boldsymbol{A} = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$。<br />
+对任意 $\boldsymbol{\xi} = [x_1, x_2]^\mathrm{T}$，均有:<br />
+$$\boldsymbol{\xi}^\mathrm{T}\boldsymbol{A}\boldsymbol{\xi} = [x_1, x_2]\begin{bmatrix} x_2 \\ -x_1 \end{bmatrix} = x_1 x_2 - x_2 x_1 = 0$$<br />
+但此时 $\boldsymbol{A} \ne \boldsymbol{O}$。因此由 $\boldsymbol{\xi}^\mathrm{T}\boldsymbol{A}\boldsymbol{\xi} = 0$ 只能推出 $\boldsymbol{A}$ 为反对称矩阵，无法推出 $\boldsymbol{A} = \boldsymbol{O}$。[B] 错误。</p>
+<p>[3] 分析选项 [C]:<br />
+因为对任意矩阵 $\boldsymbol{B}$ 均有 $\boldsymbol{A}\boldsymbol{B} = \boldsymbol{O}$，特别地取 $\boldsymbol{B} = \boldsymbol{E}$，则 $\boldsymbol{A}\boldsymbol{E} = \boldsymbol{A} = \boldsymbol{O}$。[C] 正确。</p>
+<p>[4] 分析选项 [D]:<br />
+特别地取 $\boldsymbol{B} = \boldsymbol{E}$，则 $\boldsymbol{E}^\mathrm{T}\boldsymbol{A}\boldsymbol{E} = \boldsymbol{A} = \boldsymbol{O}$。[D] 正确。<br />
+故选 [B]。</p>
+<hr />
+<p><strong>(幂零矩阵与二项式展开)<font color=deeppink>题目[2]:单位阵分解与高次幂二项式定理</font></strong></p>
+<p>设 $\boldsymbol{A} = \begin{bmatrix} 1 & 1 & -1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix}$，则 $\boldsymbol{A}^{10} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\begin{bmatrix} 1 & 10 & 35 \\ 0 & 1 & 10 \\ 0 & 0 & 1 \end{bmatrix}$</p>
+<p>主要思路:[将矩阵拆分为 $\boldsymbol{A} = \boldsymbol{E} + \boldsymbol{N}$，由于 $\boldsymbol{N}$ 为严格上三角矩阵满足 $\boldsymbol{N}^3 = \boldsymbol{O}$ 且 $\boldsymbol{E}\boldsymbol{N} = \boldsymbol{N}\boldsymbol{E}$，利用二项式定理展开求解]</p>
+<p>解题步骤:</p>
+<p>[1] 矩阵拆分:<br />
+令 $\boldsymbol{A} = \boldsymbol{E} + \boldsymbol{N}$，其中:<br />
+$$\boldsymbol{N} = \boldsymbol{A} - \boldsymbol{E} = \begin{bmatrix} 0 & 1 & -1 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix}$$</p>
+<p>[2] 计算 $\boldsymbol{N}$ 的各次幂:<br />
+$$\boldsymbol{N}^2 = \begin{bmatrix} 0 & 1 & -1 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 & -1 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$$<br />
+$$\boldsymbol{N}^3 = \boldsymbol{N}^2 \boldsymbol{N} = \boldsymbol{O}$$<br />
+故当 $k \ge 3$ 时，$\boldsymbol{N}^k = \boldsymbol{O}$。</p>
+<p>[3] 应用二项式展开公式:<br />
+因为 $\boldsymbol{E}$ 与 $\boldsymbol{N}$ 可交换乘法，故:<br />
+$$\boldsymbol{A}^{10} = (\boldsymbol{E} + \boldsymbol{N})^{10} = \boldsymbol{E} + 10\boldsymbol{N} + \binom{10}{2}\boldsymbol{N}^2 + \boldsymbol{O} = \boldsymbol{E} + 10\boldsymbol{N} + 45\boldsymbol{N}^2$$</p>
+<p>[4] 代入计算:<br />
+$$\boldsymbol{E} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad 10\boldsymbol{N} = \begin{bmatrix} 0 & 10 & -10 \\ 0 & 0 & 10 \\ 0 & 0 & 0 \end{bmatrix}, \quad 45\boldsymbol{N}^2 = \begin{bmatrix} 0 & 0 & 45 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$$<br />
+三者相加得:<br />
+$$\boldsymbol{A}^{10} = \begin{bmatrix} 1 & 10 & -10 + 45 \\ 0 & 1 & 10 \\ 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 10 & 35 \\ 0 & 1 & 10 \\ 0 & 0 & 1 \end{bmatrix}$$</p>
+<hr />
+<p><strong>(初等矩阵与周期矩阵乘法)<font color=deeppink>题目[3]:下三角幂次与对换矩阵幂次计算</font></strong></p>
+<p>$\begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix}^3 \begin{bmatrix} 1 & 2 \\ -1 & 3 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}^5 = \underline{\qquad\qquad}$.</p>
+<p>答案: $\begin{bmatrix} 2 & 1 \\ -3 & -4 \end{bmatrix}$</p>
+<p>主要思路:[计算左边初等下三角矩阵的 3 次幂，利用对换初等矩阵的周期性求出右边矩阵的 5 次幂，最后进行矩阵乘法]</p>
+<p>解题步骤:</p>
+<p>[1] 计算左端矩阵的幂次:<br />
+令 $\boldsymbol{L} = \begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix}$，利用初等行变换或数学归纳法:<br />
+$$\boldsymbol{L}^2 = \begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix}, \quad \boldsymbol{L}^3 = \begin{bmatrix} 1 & 0 \\ -3 & 1 \end{bmatrix}$$</p>
+<p>[2] 计算右端矩阵的幂次:<br />
+令 $\boldsymbol{P} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$。<br />
+$$\boldsymbol{P}^2 = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \boldsymbol{E}$$<br />
+因此 $\boldsymbol{P}$ 为二周期矩阵:<br />
+$$\boldsymbol{P}^5 = (\boldsymbol{P}^2)^2 \boldsymbol{P} = \boldsymbol{E} \boldsymbol{P} = \boldsymbol{P} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$$</p>
+<p>[3] 分步计算矩阵乘积:<br />
+首先计算前两个矩阵相乘:<br />
+$$\boldsymbol{L}^3 \begin{bmatrix} 1 & 2 \\ -1 & 3 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ -3 & 1 \end{bmatrix} \begin{bmatrix} 1 & 2 \\ -1 & 3 \end{bmatrix} = \begin{bmatrix} 1 & 2 \\ -3(1) + 1(-1) & -3(2) + 1(3) \end{bmatrix} = \begin{bmatrix} 1 & 2 \\ -4 & -3 \end{bmatrix}$$<br />
+再右乘 $\boldsymbol{P}$ (相当于对换两列):<br />
+$$\begin{bmatrix} 1 & 2 \\ -4 & -3 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 2 & 1 \\ -3 & -4 \end{bmatrix}$$</p>
+<hr />
+<p><strong>(相似矩阵与幂等矩阵高次幂)<font color=deeppink>题目[4]:相似变换消元与幂等矩阵高次幂</font></strong></p>
+<p>设 $\boldsymbol{A}, \boldsymbol{B}, \boldsymbol{C}$ 均是 3 阶矩阵，且满足 $\boldsymbol{A}\boldsymbol{B} = \boldsymbol{B}^2 - \boldsymbol{B}\boldsymbol{C}$，其中 $\boldsymbol{B} = \begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix}$，$\boldsymbol{C} = \begin{bmatrix} 0 & 1 & 1 \\ 0 & 0 & 1 \\ 0 & 0 & 1 \end{bmatrix}$，则 $\boldsymbol{A}^{99} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\begin{bmatrix} 1 & 0 & -1 \\ 0 & 1 & -1 \\ 0 & 0 & 0 \end{bmatrix}$</p>
+<p>主要思路:[由 $|\boldsymbol{B}| = 1 \ne 0$ 知 $\boldsymbol{B}$ 可逆，整理出 $\boldsymbol{A} = \boldsymbol{B}(\boldsymbol{B}-\boldsymbol{C})\boldsymbol{B}^{-1}$。计算出 $\boldsymbol{B}-\boldsymbol{C}$ 为对角幂等阵，从而 $\boldsymbol{A}^{99} = \boldsymbol{A}$]</p>
+<p>解题步骤:</p>
+<p>[1] 判定 $\boldsymbol{B}$ 的可逆性与相似关系:<br />
+矩阵 $\boldsymbol{B}$ 为主对角线全为 $1$ 的上三角矩阵，其行列式 $|\boldsymbol{B}| = 1 \ne 0$，故 $\boldsymbol{B}$ 可逆。<br />
+由 $\boldsymbol{A}\boldsymbol{B} = \boldsymbol{B}^2 - \boldsymbol{B}\boldsymbol{C} = \boldsymbol{B}(\boldsymbol{B} - \boldsymbol{C})$，两边右乘 $\boldsymbol{B}^{-1}$:<br />
+$$\boldsymbol{A} = \boldsymbol{B}(\boldsymbol{B} - \boldsymbol{C})\boldsymbol{B}^{-1}$$</p>
+<p>[2] 计算 $\boldsymbol{M} = \boldsymbol{B} - \boldsymbol{C}$:<br />
+$$\boldsymbol{M} = \begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix} - \begin{bmatrix} 0 & 1 & 1 \\ 0 & 0 & 1 \\ 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{bmatrix}$$<br />
+显然 $\boldsymbol{M}$ 为幂等矩阵: $\boldsymbol{M}^2 = \boldsymbol{M}$，因此:<br />
+$$\boldsymbol{M}^{99} = \boldsymbol{M}$$</p>
+<p>[3] 计算 $\boldsymbol{A}^{99}$:<br />
+$$\boldsymbol{A}^{99} = [\boldsymbol{B}\boldsymbol{M}\boldsymbol{B}^{-1}]^{99} = \boldsymbol{B}\boldsymbol{M}^{99}\boldsymbol{B}^{-1} = \boldsymbol{B}\boldsymbol{M}\boldsymbol{B}^{-1} = \boldsymbol{A}$$</p>
+<p>[4] 求 $\boldsymbol{B}^{-1}$ 并计算 $\boldsymbol{A}$:<br />
+令 $\boldsymbol{N} = \boldsymbol{B} - \boldsymbol{E} = \begin{bmatrix} 0 & 1 & 1 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix}$，$\boldsymbol{N}^2 = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}, \boldsymbol{N}^3 = \boldsymbol{O}$。<br />
+$$\boldsymbol{B}^{-1} = \boldsymbol{E} - \boldsymbol{N} + \boldsymbol{N}^2 = \begin{bmatrix} 1 & -1 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$$<br />
+计算:<br />
+$$\boldsymbol{B}\boldsymbol{M} = \begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{bmatrix} = \begin{bmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{bmatrix}$$<br />
+$$\boldsymbol{A} = (\boldsymbol{B}\boldsymbol{M})\boldsymbol{B}^{-1} = \begin{bmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{bmatrix} \begin{bmatrix} 1 & -1 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 & -1 \\ 0 & 1 & -1 \\ 0 & 0 & 0 \end{bmatrix}$$</p>
+<hr />
+<p><strong>(实对称矩阵特征值与多项式方程)<font color=deeppink>题目[5]:实对称矩阵特征值实数性判定矩阵</font></strong></p>
+<p>设 $\boldsymbol{A}$ 为 $n(n \ge 2)$ 阶实对称矩阵，且满足 $\boldsymbol{E} - 2\boldsymbol{A} + \boldsymbol{A}^2 - 2\boldsymbol{A}^3 = \boldsymbol{O}$，其中 $\boldsymbol{E}$ 为 $n$ 阶单位矩阵，则 $\boldsymbol{A} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\dfrac{1}{2}\boldsymbol{E}$</p>
+<p>主要思路:[因式分解多项式矩阵方程，利用实对称矩阵特征值均为实数的性质排除复根，得到所有特征值均为 $\frac{1}{2}$，结合可对角化性确定矩阵]</p>
+<p>解题步骤:</p>
+<p>[1] 多项式因式分解:<br />
+原方程为:<br />
+$$(\boldsymbol{E} + \boldsymbol{A}^2) - 2\boldsymbol{A}(\boldsymbol{E} + \boldsymbol{A}^2) = (\boldsymbol{E} - 2\boldsymbol{A})(\boldsymbol{E} + \boldsymbol{A}^2) = \boldsymbol{O}$$</p>
+<p>[2] 分析特征值:<br />
+设 $\lambda$ 为 $\boldsymbol{A}$ 的任意特征值。由矩阵方程可知:<br />
+$$(1 - 2\lambda)(1 + \lambda^2) = 0$$<br />
+因为 $\boldsymbol{A}$ 为实对称矩阵，其实特征值必全为实数。<br />
+对任意实数 $\lambda$，必有 $1 + \lambda^2 \ge 1 > 0$。<br />
+因此:<br />
+$$1 - 2\lambda = 0 \implies \lambda = \frac{1}{2}$$<br />
+即 $\boldsymbol{A}$ 的所有特征值均为 $\dfrac{1}{2}$。</p>
+<p>[3] 确定矩阵 $\boldsymbol{A}$:<br />
+实对称矩阵必可正交对角化:<br />
+$$\boldsymbol{A} = \boldsymbol{Q} \boldsymbol{\Lambda} \boldsymbol{Q}^{-1} = \boldsymbol{Q} \left(\frac{1}{2}\boldsymbol{E}\right) \boldsymbol{Q}^{-1} = \frac{1}{2}\boldsymbol{E}$$</p>
+<hr />
+<p><strong>(可交换矩阵与转置运算)<font color=deeppink>题目[6]:矩阵多项式可交换性与转置非对称辨析</font></strong></p>
+<p>设 $\boldsymbol{A}$ 是 $n$ 阶矩阵，$\boldsymbol{E} + \boldsymbol{A}$ 是可逆矩阵，则下列等式不成立的是 $(\qquad)$.</p>
+<p>[A] $(\boldsymbol{A} + \boldsymbol{E})(\boldsymbol{A} - \boldsymbol{E}) = (\boldsymbol{A} - \boldsymbol{E})(\boldsymbol{A} + \boldsymbol{E})$</p>
+<p>[B] $(\boldsymbol{A} + \boldsymbol{E})^{-1}(\boldsymbol{A} - \boldsymbol{E}) = (\boldsymbol{A} - \boldsymbol{E})(\boldsymbol{A} + \boldsymbol{E})^{-1}$</p>
+<p>[C] $(\boldsymbol{A} + \boldsymbol{E})^*(\boldsymbol{A} - \boldsymbol{E}) = (\boldsymbol{A} - \boldsymbol{E})(\boldsymbol{A} + \boldsymbol{E})^*$</p>
+<p>[D] $(\boldsymbol{A} + \boldsymbol{E})^\mathrm{T}(\boldsymbol{A} - \boldsymbol{E}) = (\boldsymbol{A} - \boldsymbol{E})(\boldsymbol{A} + \boldsymbol{E})^\mathrm{T}$</p>
+<p>答案: [D]</p>
+<p>主要思路:[同一矩阵的多项式、逆矩阵、伴随矩阵之间均可交换乘法；但矩阵与其转置在一般情况下不满足可交换性，展开即见分晓]</p>
+<p>解题步骤:</p>
+<p>[1] 分析 [A]:<br />
+$$(\boldsymbol{A} + \boldsymbol{E})(\boldsymbol{A} - \boldsymbol{E}) = \boldsymbol{A}^2 - \boldsymbol{E} = (\boldsymbol{A} - \boldsymbol{E})(\boldsymbol{A} + \boldsymbol{E})$$<br />
+两端恒等，[A] 成立。</p>
+<p>[2] 分析 [B]:<br />
+在 [A] 的等式两边同时左乘并右乘 $(\boldsymbol{A} + \boldsymbol{E})^{-1}$:<br />
+$$(\boldsymbol{A} - \boldsymbol{E})(\boldsymbol{A} + \boldsymbol{E})^{-1} = (\boldsymbol{A} + \boldsymbol{E})^{-1}(\boldsymbol{A} - \boldsymbol{E})$$<br />
+故 [B] 成立。</p>
+<p>[3] 分析 [C]:<br />
+伴随矩阵满足 $(\boldsymbol{A} + \boldsymbol{E})^* = |\boldsymbol{A} + \boldsymbol{E}|(\boldsymbol{A} + \boldsymbol{E})^{-1}$。<br />
+因数量 $|\boldsymbol{A} + \boldsymbol{E}|$ 可自由提至最前，结合 [B] 的结论即知 [C] 成立。</p>
+<p>[4] 分析 [D]:<br />
+展开左端:<br />
+$$(\boldsymbol{A}^\mathrm{T} + \boldsymbol{E})(\boldsymbol{A} - \boldsymbol{E}) = \boldsymbol{A}^\mathrm{T}\boldsymbol{A} - \boldsymbol{A}^\mathrm{T} + \boldsymbol{A} - \boldsymbol{E}$$<br />
+展开右端:<br />
+$$(\boldsymbol{A} - \boldsymbol{E})(\boldsymbol{A}^\mathrm{T} + \boldsymbol{E}) = \boldsymbol{A}\boldsymbol{A}^\mathrm{T} + \boldsymbol{A} - \boldsymbol{A}^\mathrm{T} - \boldsymbol{E}$$<br />
+对于一般矩阵，$\boldsymbol{A}^\mathrm{T}\boldsymbol{A} \ne \boldsymbol{A}\boldsymbol{A}^\mathrm{T}$，两者通常不相等。故选 [D]。</p>
+<hr />
+<p><strong>(矩阵表示与线性变换)<font color=deeppink>题目[7]:基变换与递推关系构造转移矩阵</font></strong></p>
+<p>设 $\boldsymbol{A}$ 为 2 阶方阵，$\boldsymbol{\alpha}$ 为 2 维非零列向量，且 $\boldsymbol{\alpha}$ 不是 $\boldsymbol{A}$ 的特征向量，$\boldsymbol{P} = [\boldsymbol{\alpha}, \boldsymbol{A}\boldsymbol{\alpha}]$，$\boldsymbol{A}^2\boldsymbol{\alpha} + \boldsymbol{A}\boldsymbol{\alpha} - 2\boldsymbol{\alpha} = \boldsymbol{0}$，若矩阵 $\boldsymbol{B}$ 满足 $\boldsymbol{A}\boldsymbol{P} = \boldsymbol{P}\boldsymbol{B}$，则 $\boldsymbol{B} = (\qquad)$.</p>
+<p>[A] $\begin{bmatrix} -1 & 0 \\ 1 & 2 \end{bmatrix}$</p>
+<p>[B] $\begin{bmatrix} 0 & 1 \\ 2 & -1 \end{bmatrix}$</p>
+<p>[C] $\begin{bmatrix} -1 & 1 \\ 0 & 2 \end{bmatrix}$</p>
+<p>[D] $\begin{bmatrix} 0 & 2 \\ 1 & -1 \end{bmatrix}$</p>
+<p>答案: [D]</p>
+<p>主要思路:[按列计算 $\boldsymbol{A}\boldsymbol{P} = [\boldsymbol{A}\boldsymbol{\alpha}, \boldsymbol{A}^2\boldsymbol{\alpha}]$，利用已知递推关系将 $\boldsymbol{A}^2\boldsymbol{\alpha}$ 用 $\boldsymbol{\alpha}$ 与 $\boldsymbol{A}\boldsymbol{\alpha}$ 线性表出，写出矩阵 $\boldsymbol{B}$]</p>
+<p>解题步骤:</p>
+<p>[1] 计算矩阵乘积 $\boldsymbol{A}\boldsymbol{P}$:<br />
+$$\boldsymbol{A}\boldsymbol{P} = \boldsymbol{A}[\boldsymbol{\alpha}, \boldsymbol{A}\boldsymbol{\alpha}] = [\boldsymbol{A}\boldsymbol{\alpha}, \boldsymbol{A}^2\boldsymbol{\alpha}]$$</p>
+<p>[2] 将各列表示为 $\boldsymbol{P}$ 的列向量的线性组合:<br />
+- 第 1 列:<br />
+  $$\boldsymbol{A}\boldsymbol{\alpha} = 0 \cdot \boldsymbol{\alpha} + 1 \cdot (\boldsymbol{A}\boldsymbol{\alpha}) = [\boldsymbol{\alpha}, \boldsymbol{A}\boldsymbol{\alpha}]\begin{bmatrix} 0 \\ 1 \end{bmatrix}$$<br />
+- 第 2 列:<br />
+  由 $\boldsymbol{A}^2\boldsymbol{\alpha} + \boldsymbol{A}\boldsymbol{\alpha} - 2\boldsymbol{\alpha} = \boldsymbol{0}$，得:<br />
+  $$\boldsymbol{A}^2\boldsymbol{\alpha} = 2\boldsymbol{\alpha} - \boldsymbol{A}\boldsymbol{\alpha} = [\boldsymbol{\alpha}, \boldsymbol{A}\boldsymbol{\alpha}]\begin{bmatrix} 2 \\ -1 \end{bmatrix}$$</p>
+<p>[3] 写出矩阵 $\boldsymbol{B}$:<br />
+$$\boldsymbol{A}\boldsymbol{P} = [\boldsymbol{\alpha}, \boldsymbol{A}\boldsymbol{\alpha}]\begin{bmatrix} 0 & 2 \\ 1 & -1 \end{bmatrix} = \boldsymbol{P}\begin{bmatrix} 0 & 2 \\ 1 & -1 \end{bmatrix}$$<br />
+因为 $\boldsymbol{\alpha}$ 不是特征向量，$\boldsymbol{\alpha}$ 与 $\boldsymbol{A}\boldsymbol{\alpha}$ 线性无关，$\boldsymbol{P}$ 可逆，故:<br />
+$$\boldsymbol{B} = \begin{bmatrix} 0 & 2 \\ 1 & -1 \end{bmatrix}$$<br />
+选 [D]。</p>
+<hr />
+<p><strong>(分块矩阵乘法与可逆充要条件)<font color=deeppink>题目[8]:分块矩阵消元与舒尔补行列式可逆性</font></strong></p>
+<p>设 $\boldsymbol{A}$ 为 $n$ 阶可逆矩阵，$\boldsymbol{\alpha}$ 为 $n$ 维列向量，$b$ 为常数. 记分块矩阵 $\boldsymbol{P} = \begin{bmatrix} \boldsymbol{E} & \boldsymbol{0} \\ -\boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^* & |\boldsymbol{A}| \end{bmatrix}$，$\boldsymbol{Q} = \begin{bmatrix} \boldsymbol{A} & \boldsymbol{\alpha} \\ \boldsymbol{\alpha}^\mathrm{T} & b \end{bmatrix}$，其中 $\boldsymbol{A}^*$ 是矩阵 $\boldsymbol{A}$ 的伴随矩阵，$\boldsymbol{E}$ 为 $n$ 阶单位矩阵.</p>
+<p>(1) 计算并化简 $\boldsymbol{P}\boldsymbol{Q}$；</p>
+<p>(2) 证明：矩阵 $\boldsymbol{Q}$ 可逆的充分必要条件是 $\boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^{-1}\boldsymbol{\alpha} \ne b$.</p>
+<p>答案: (1) $\boldsymbol{P}\boldsymbol{Q} = \begin{bmatrix} \boldsymbol{A} & \boldsymbol{\alpha} \\ \boldsymbol{0}^\mathrm{T} & |\boldsymbol{A}|(b - \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^{-1}\boldsymbol{\alpha}) \end{bmatrix}$；(2) 见解题步骤证明</p>
+<p>主要思路:[(1) 按照分块矩阵乘法法则逐块相乘，利用 $\boldsymbol{A}^*\boldsymbol{A} = |\boldsymbol{A}|\boldsymbol{E}$ 化简；(2) 由 $\boldsymbol{P}$ 可逆知 $|\boldsymbol{P}\boldsymbol{Q}| \ne 0 \iff |\boldsymbol{Q}| \ne 0$，计算分块上三角行列式判定可逆性]</p>
+<p>解题步骤:</p>
+<p>[1] (1) 计算分块矩阵乘积 $\boldsymbol{P}\boldsymbol{Q}$:<br />
+$$\boldsymbol{P}\boldsymbol{Q} = \begin{bmatrix} \boldsymbol{E} & \boldsymbol{0} \\ -\boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^* & |\boldsymbol{A}| \end{bmatrix} \begin{bmatrix} \boldsymbol{A} & \boldsymbol{\alpha} \\ \boldsymbol{\alpha}^\mathrm{T} & b \end{bmatrix} = \begin{bmatrix} \boldsymbol{E}\boldsymbol{A} + \boldsymbol{0}\boldsymbol{\alpha}^\mathrm{T} & \boldsymbol{E}\boldsymbol{\alpha} + \boldsymbol{0}b \\ -\boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^*\boldsymbol{A} + |\boldsymbol{A}|\boldsymbol{\alpha}^\mathrm{T} & -\boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^*\boldsymbol{\alpha} + |\boldsymbol{A}|b \end{bmatrix}$$</p>
+<p>[2] 化简各分块:<br />
+- 左上块: $\boldsymbol{A}$；<br />
+- 右上块: $\boldsymbol{\alpha}$；<br />
+- 左下块: 利用 $\boldsymbol{A}^*\boldsymbol{A} = |\boldsymbol{A}|\boldsymbol{E}$，得:<br />
+  $$-\boldsymbol{\alpha}^\mathrm{T}(|\boldsymbol{A}|\boldsymbol{E}) + |\boldsymbol{A}|\boldsymbol{\alpha}^\mathrm{T} = -|\boldsymbol{A}|\boldsymbol{\alpha}^\mathrm{T} + |\boldsymbol{A}|\boldsymbol{\alpha}^\mathrm{T} = \boldsymbol{0}^\mathrm{T}$$<br />
+- 右下块: 利用 $\boldsymbol{A}^* = |\boldsymbol{A}|\boldsymbol{A}^{-1}$，得:<br />
+  $$-|\boldsymbol{A}|\boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^{-1}\boldsymbol{\alpha} + |\boldsymbol{A}|b = |\boldsymbol{A}|(b - \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^{-1}\boldsymbol{\alpha})$$<br />
+因此:<br />
+$$\boldsymbol{P}\boldsymbol{Q} = \begin{bmatrix} \boldsymbol{A} & \boldsymbol{\alpha} \\ \boldsymbol{0}^\mathrm{T} & |\boldsymbol{A}|(b - \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^{-1}\boldsymbol{\alpha}) \end{bmatrix}$$</p>
+<p>[3] (2) 证明 $\boldsymbol{Q}$ 可逆的充要条件:<br />
+计算矩阵 $\boldsymbol{P}$ 的行列式:<br />
+$$|\boldsymbol{P}| = |\boldsymbol{E}| \cdot |\boldsymbol{A}| = |\boldsymbol{A}|$$<br />
+因为 $\boldsymbol{A}$ 可逆，所以 $|\boldsymbol{A}| \ne 0 \implies |\boldsymbol{P}| \ne 0$，即 $\boldsymbol{P}$ 是可逆矩阵。<br />
+故 $\boldsymbol{Q}$ 可逆等价于 $\boldsymbol{P}\boldsymbol{Q}$ 可逆，亦等价于 $|\boldsymbol{P}\boldsymbol{Q}| \ne 0$。</p>
+<p>[4] 计算 $|\boldsymbol{P}\boldsymbol{Q}|$:<br />
+因为 $\boldsymbol{P}\boldsymbol{Q}$ 为分块上三角矩阵:<br />
+$$|\boldsymbol{P}\boldsymbol{Q}| = |\boldsymbol{A}| \cdot [|\boldsymbol{A}|(b - \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^{-1}\boldsymbol{\alpha})]$$<br />
+由于 $|\boldsymbol{A}| \ne 0$，所以:<br />
+$$|\boldsymbol{P}\boldsymbol{Q}| \ne 0 \iff b - \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^{-1}\boldsymbol{\alpha} \ne 0 \iff \boldsymbol{\alpha}^\mathrm{T}\boldsymbol{A}^{-1}\boldsymbol{\alpha} \ne b$$<br />
+命题得证。</p>
+<hr />
+<p><strong>(可交换矩阵求解)<font color=deeppink>题目[9]:二阶若尔当块可交换矩阵通式求解</font></strong></p>
+<p>求与 $\boldsymbol{A} = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$ 可交换的全部 2 阶矩阵.</p>
+<p>答案: $\begin{bmatrix} a & b \\ 0 & a \end{bmatrix}$ ($a, b$ 为任意实数)</p>
+<p>主要思路:[设未知矩阵为 $\boldsymbol{X} = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$，建立方程 $\boldsymbol{A}\boldsymbol{X} = \boldsymbol{X}\boldsymbol{A}$，展开对应元素得到方程组并求解]</p>
+<p>解题步骤:</p>
+<p>[1] 设未知矩阵为 $\boldsymbol{X} = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$。</p>
+<p>[2] 计算等式两端的矩阵乘积:<br />
+$$\boldsymbol{A}\boldsymbol{X} = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} a + c & b + d \\ c & d \end{bmatrix}$$<br />
+$$\boldsymbol{X}\boldsymbol{A} = \begin{bmatrix} a & b \\ c & d \end{bmatrix}\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} a & a + b \\ c & c + d \end{bmatrix}$$</p>
+<p>[3] 对照对应元素建立方程组:<br />
+$$\begin{cases}
+a + c = a \implies c = 0 \\
+b + d = a + b \implies d = a \\
+c = c \\
+d = c + d \implies c = 0
+\end{cases}$$</p>
+<p>[4] 故与 $\boldsymbol{A}$ 可交换的全部 2 阶矩阵为:<br />
+$$\boldsymbol{X} = \begin{bmatrix} a & b \\ 0 & a \end{bmatrix} \quad (a, b \in \mathbb{R})$$<br />
+(亦可表示为 $a\boldsymbol{E} + b(\boldsymbol{A}-\boldsymbol{E})$)。</p>
+<hr />
+<p><strong>(齐次线性方程组与矩阵方程求解)<font color=deeppink>题目[10]:退化方阵同乘方程的所有解构造</font></strong></p>
+<p>设 $\boldsymbol{A} = \begin{bmatrix} 2 & -2 & -4 \\ -1 & 3 & 4 \\ 1 & -2 & -3 \end{bmatrix}$，问是否存在非单位矩阵 $\boldsymbol{B}$，使得 $\boldsymbol{A}\boldsymbol{B} = \boldsymbol{A}$？若不存在，请说明理由；若存在，求出所有满足 $\boldsymbol{A}\boldsymbol{B} = \boldsymbol{A}$ 的 $\boldsymbol{B}$.</p>
+<p>答案: 存在；$\boldsymbol{B} = \begin{bmatrix} 1 + c_1 & c_2 & c_3 \\ -c_1 & 1 - c_2 & -c_3 \\ c_1 & c_2 & 1 + c_3 \end{bmatrix}$ (其中 $c_1, c_2, c_3$ 为任意不全为零的实数)</p>
+<p>主要思路:[方程 $\boldsymbol{A}\boldsymbol{B} = \boldsymbol{A} \iff \boldsymbol{A}(\boldsymbol{B}-\boldsymbol{E}) = \boldsymbol{O}$。对 $\boldsymbol{A}$ 进行初等行变换求出 $r(\boldsymbol{A}) = 2 < 3$，齐次方程有非零解，求出基础解系并构造满足条件的矩阵 $\boldsymbol{B}$]</p>
+<p>解题步骤:</p>
+<p>[1] 方程转化:<br />
+$$\boldsymbol{A}\boldsymbol{B} = \boldsymbol{A} \iff \boldsymbol{A}(\boldsymbol{B} - \boldsymbol{E}) = \boldsymbol{O}$$<br />
+设 $\boldsymbol{X} = \boldsymbol{B} - \boldsymbol{E}$，则 $\boldsymbol{A}\boldsymbol{X} = \boldsymbol{O}$。<br />
+若存在非单位矩阵 $\boldsymbol{B}$，等价于存在非零矩阵 $\boldsymbol{X}$ 使得 $\boldsymbol{A}\boldsymbol{X} = \boldsymbol{O}$，即齐次线性方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 存在非零解。</p>
+<p>[2] 对系数矩阵 $\boldsymbol{A}$ 进行初等行变换:<br />
+$$\boldsymbol{A} = \begin{bmatrix} 2 & -2 & -4 \\ -1 & 3 & 4 \\ 1 & -2 & -3 \end{bmatrix} \xrightarrow{r_1 \leftrightarrow r_3} \begin{bmatrix} 1 & -2 & -3 \\ -1 & 3 & 4 \\ 2 & -2 & -4 \end{bmatrix}$$<br />
+$$\xrightarrow[r_3 - 2r_1]{r_2 + r_1} \begin{bmatrix} 1 & -2 & -3 \\ 0 & 1 & 1 \\ 0 & 2 & 2 \end{bmatrix} \xrightarrow[r_1 + 2r_2]{r_3 - 2r_2} \begin{bmatrix} 1 & 0 & -1 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{bmatrix}$$<br />
+由此得 $r(\boldsymbol{A}) = 2 < 3$，方程组 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 确有非零解。</p>
+<p>[3] 求基础解系:<br />
+同解方程组为:<br />
+$$\begin{cases} x_1 - x_3 = 0 \\ x_2 + x_3 = 0 \end{cases} \implies \begin{cases} x_1 = x_3 \\ x_2 = -x_3 \end{cases}$$<br />
+取自由未知量 $x_3 = 1$，得基础解系为:<br />
+$$\boldsymbol{\xi} = \begin{bmatrix} 1 \\ -1 \\ 1 \end{bmatrix}$$</p>
+<p>[4] 构造矩阵 $\boldsymbol{X}$ 与 $\boldsymbol{B}$:<br />
+矩阵 $\boldsymbol{X} = [\boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_3]$ 的每一列均为 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$ 的解:<br />
+$$\boldsymbol{x}_1 = c_1 \boldsymbol{\xi}, \quad \boldsymbol{x}_2 = c_2 \boldsymbol{\xi}, \quad \boldsymbol{x}_3 = c_3 \boldsymbol{\xi}$$<br />
+故:<br />
+$$\boldsymbol{X} = \begin{bmatrix} c_1 & c_2 & c_3 \\ -c_1 & -c_2 & -c_3 \\ c_1 & c_2 & c_3 \end{bmatrix}$$<br />
+因此:<br />
+$$\boldsymbol{B} = \boldsymbol{E} + \boldsymbol{X} = \begin{bmatrix} 1 + c_1 & c_2 & c_3 \\ -c_1 & 1 - c_2 & -c_3 \\ c_1 & c_2 & 1 + c_3 \end{bmatrix}$$<br />
+其中 $c_1, c_2, c_3$ 为不全为零的任意实数。</p>
+<hr />
+<h2>第4章 矩阵的秩</h2>
+<hr />
+<p><strong>(幂等矩阵与矩阵秩的不等式)<font color=deeppink>题目[1]:幂等矩阵的秩互补性质</font></strong></p>
+<p>设 $\boldsymbol{A}$ 是 3 阶非零矩阵，满足 $\boldsymbol{A}^2 = \boldsymbol{A}$，且 $\boldsymbol{A} \ne \boldsymbol{E}$，则必有 $(\qquad)$.</p>
+<p>[A] $r(\boldsymbol{A}) = 1$</p>
+<p>[B] $r(\boldsymbol{A} - \boldsymbol{E}) = 2$</p>
+<p>[C] $[r(\boldsymbol{A}) - 1][r(\boldsymbol{A} - \boldsymbol{E}) - 2] = 0$</p>
+<p>[D] $[r(\boldsymbol{A}) - 1][r(\boldsymbol{A} - \boldsymbol{E}) - 1] = 0$</p>
+<p>答案: [D]</p>
+<p>主要思路:[由 $\boldsymbol{A}^2 = \boldsymbol{A}$ 可得 $r(\boldsymbol{A}) + r(\boldsymbol{A}-\boldsymbol{E}) = 3$，结合 $\boldsymbol{A} \ne \boldsymbol{O}, \boldsymbol{E}$ 确定秩的可能取值组合并验证恒等式]</p>
+<p>解题步骤:</p>
+<p>[1] 建立秩的互补关系:<br />
+由 $\boldsymbol{A}^2 = \boldsymbol{A}$，得 $\boldsymbol{A}(\boldsymbol{A} - \boldsymbol{E}) = \boldsymbol{O}$。<br />
+由西尔维斯特不等式:<br />
+$$r(\boldsymbol{A}) + r(\boldsymbol{A} - \boldsymbol{E}) \le 3$$<br />
+又因为 $\boldsymbol{A} + (\boldsymbol{E} - \boldsymbol{A}) = \boldsymbol{E}$，所以:<br />
+$$r(\boldsymbol{A}) + r(\boldsymbol{A} - \boldsymbol{E}) \ge r(\boldsymbol{E}) = 3$$<br />
+因此必有:<br />
+$$r(\boldsymbol{A}) + r(\boldsymbol{A} - \boldsymbol{E}) = 3$$</p>
+<p>[2] 确定秩的取值情况:<br />
+因为 $\boldsymbol{A} \ne \boldsymbol{O}$ 且 $\boldsymbol{A} \ne \boldsymbol{E}$，所以 $1 \le r(\boldsymbol{A}) \le 2$:<br />
+- 情况 1: 若 $r(\boldsymbol{A}) = 1$，则 $r(\boldsymbol{A} - \boldsymbol{E}) = 2$；<br />
+- 情况 2: 若 $r(\boldsymbol{A}) = 2$，则 $r(\boldsymbol{A} - \boldsymbol{E}) = 1$。</p>
+<p>[3] 检验各选项:<br />
+在情况 1 中，$r(\boldsymbol{A}) - 1 = 0$；<br />
+在情况 2 中，$r(\boldsymbol{A} - \boldsymbol{E}) - 1 = 0$。<br />
+无论哪种情况，两因子中必有一个为 $0$，因此乘积恒为 $0$:<br />
+$$[r(\boldsymbol{A}) - 1][r(\boldsymbol{A} - \boldsymbol{E}) - 1] = 0$$<br />
+故选 [D]。</p>
+<hr />
+<p><strong>(伴随矩阵的秩与乘积为零矩阵的秩)<font color=deeppink>题目[2]:伴随阵非零与乘积为零矩阵秩判定</font></strong></p>
+<p>若 $\boldsymbol{A}, \boldsymbol{A}^*, \boldsymbol{B}$ 都是 $n(n > 2)$ 阶非零矩阵，且 $\boldsymbol{A}^*$ 是 $\boldsymbol{A}$ 的伴随矩阵，$\boldsymbol{A}\boldsymbol{B} = \boldsymbol{O}$，则 $r(\boldsymbol{B}) = (\qquad)$.</p>
+<p>[A] 1</p>
+<p>[B] $n-1$</p>
+<p>[C] $n$</p>
+<p>[D] $n-1$ 或 $n$</p>
+<p>答案: [A]</p>
+<p>主要思路:[根据伴随矩阵的秩的性质结合 $\boldsymbol{A}^* \ne \boldsymbol{O}$ 判定 $r(\boldsymbol{A}) = n-1$；再由西尔维斯特不等式与 $\boldsymbol{B} \ne \boldsymbol{O}$ 夹逼确定 $r(\boldsymbol{B}) = 1$]</p>
+<p>解题步骤:</p>
+<p>[1] 确定 $r(\boldsymbol{A})$:<br />
+伴随矩阵的秩具有如下经典结论:<br />
+$$r(\boldsymbol{A}^*) = \begin{cases} n, & r(\boldsymbol{A}) = n \\ 1, & r(\boldsymbol{A}) = n - 1 \\ 0, & r(\boldsymbol{A}) < n - 1 \end{cases}$$<br />
+因为 $\boldsymbol{A}\boldsymbol{B} = \boldsymbol{O}$ 且 $\boldsymbol{B} \ne \boldsymbol{O}$，$\boldsymbol{A}$ 绝不可逆，故 $r(\boldsymbol{A}) < n$。<br />
+又已知 $\boldsymbol{A}^* \ne \boldsymbol{O}$，排除 $r(\boldsymbol{A}) < n - 1$。<br />
+因此必有:<br />
+$$r(\boldsymbol{A}) = n - 1$$</p>
+<p>[2] 确定 $r(\boldsymbol{B})$:<br />
+由 $\boldsymbol{A}\boldsymbol{B} = \boldsymbol{O}$，由西尔维斯特不等式:<br />
+$$r(\boldsymbol{A}) + r(\boldsymbol{B}) \le n \implies (n - 1) + r(\boldsymbol{B}) \le n \implies r(\boldsymbol{B}) \le 1$$<br />
+又因为 $\boldsymbol{B}$ 为非零矩阵，故 $r(\boldsymbol{B}) \ge 1$。<br />
+因此:<br />
+$$r(\boldsymbol{B}) = 1$$<br />
+选 [A]。</p>
+<hr />
+<p><strong>(矩阵多项式降秩条件)<font color=deeppink>题目[3]:矩阵平方降秩与待定参数确定</font></strong></p>
+<p>设矩阵 $\boldsymbol{A} = \begin{bmatrix} 1 & -1 & 1 \\ -2 & 2 & 1 \\ 1 & -1 & k \end{bmatrix}$，$r((3\boldsymbol{E} - \boldsymbol{A})^2) < r(3\boldsymbol{E} - \boldsymbol{A})$，其中 $\boldsymbol{E}$ 是 3 阶单位矩阵，则常数 $k = (\qquad)$.</p>
+<p>[A] 3</p>
+<p>[B] 4</p>
+<p>[C] 5</p>
+<p>[D] 6</p>
+<p>答案: [A]</p>
+<p>主要思路:[计算 $\boldsymbol{M} = 3\boldsymbol{E} - \boldsymbol{A}$ 的行向量，求出 $\boldsymbol{M}^2$ 的表达式，利用降秩条件建立关于 $k$ 的方程求解]</p>
+<p>解题步骤:</p>
+<p>[1] 计算矩阵 $\boldsymbol{M} = 3\boldsymbol{E} - \boldsymbol{A}$:<br />
+$$\boldsymbol{M} = \begin{bmatrix} 3-1 & 1 & -1 \\ 2 & 3-2 & -1 \\ -1 & 1 & 3-k \end{bmatrix} = \begin{bmatrix} 2 & 1 & -1 \\ 2 & 1 & -1 \\ -1 & 1 & 3-k \end{bmatrix}$$<br />
+显然第 1 行与第 2 行相同，且第 1、3 行线性无关，故 $r(\boldsymbol{M}) = 2$。</p>
+<p>[2] 计算 $\boldsymbol{M}^2$:<br />
+$$\boldsymbol{M}^2 = \begin{bmatrix} 2 & 1 & -1 \\ 2 & 1 & -1 \\ -1 & 1 & 3-k \end{bmatrix} \begin{bmatrix} 2 & 1 & -1 \\ 2 & 1 & -1 \\ -1 & 1 & 3-k \end{bmatrix} = \begin{bmatrix} 7 & 2 & k - 6 \\ 7 & 2 & k - 6 \\ k - 3 & 3 - k & -(k - 3)^2 \end{bmatrix}$$</p>
+<p>[3] 建立降秩条件:<br />
+已知 $r(\boldsymbol{M}^2) < r(\boldsymbol{M}) = 2$，故必有 $r(\boldsymbol{M}^2) \le 1$。<br />
+这意味着 $\boldsymbol{M}^2$ 的第 1 行与第 3 行必须线性相关:<br />
+$$\begin{vmatrix} 7 & 2 \\ k - 3 & 3 - k \end{vmatrix} = 0 \implies 7(3 - k) - 2(k - 3) = 0 \implies 9(3 - k) = 0 \implies k = 3$$</p>
+<p>[4] 验证 $k = 3$:<br />
+当 $k = 3$ 时，第 3 行为 $[0, 0, 0]$，$\boldsymbol{M}^2 = \begin{bmatrix} 7 & 2 & -3 \\ 7 & 2 & -3 \\ 0 & 0 & 0 \end{bmatrix}$，其秩恰为 $1 < 2$，完全符合。选 [A]。</p>
+<hr />
+<p><strong>(实矩阵秩的不变性与不等式)<font color=deeppink>题目[4]:实矩阵分块秩等式与反例判断</font></strong></p>
+<p>设 $\boldsymbol{A}, \boldsymbol{B}$ 为 $n$ 阶实矩阵，则下列结论不成立的是 $(\qquad)$.</p>
+<p>[A] $r([\boldsymbol{A} \quad \boldsymbol{A}\boldsymbol{B}]) = r(\boldsymbol{A})$</p>
+<p>[B] $r([\boldsymbol{A}\boldsymbol{B}^\mathrm{T} \quad \boldsymbol{A}\boldsymbol{B}^\mathrm{T}\boldsymbol{B}]) = r(\boldsymbol{A}\boldsymbol{B}^\mathrm{T})$</p>
+<p>[C] $r\left(\begin{bmatrix} \boldsymbol{B}\boldsymbol{A} \\ \boldsymbol{B}^\mathrm{T}\boldsymbol{B}\boldsymbol{A} \end{bmatrix}\right) = r(\boldsymbol{A}\boldsymbol{B}^\mathrm{T})$</p>
+<p>[D] $r\left(\begin{bmatrix} \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \\ \boldsymbol{B}^\mathrm{T}\boldsymbol{A} \end{bmatrix}\right) = r(\boldsymbol{A})$</p>
+<p>答案: [C]</p>
+<p>主要思路:[利用列空间、行空间包含关系以及实矩阵性质 $r(\boldsymbol{M}^\mathrm{T}\boldsymbol{M}) = r(\boldsymbol{M})$ 逐项分析，通过反例否定 [C]]</p>
+<p>解题步骤:</p>
+<p>[1] 分析 [A]:<br />
+$[\boldsymbol{A} \quad \boldsymbol{A}\boldsymbol{B}] = \boldsymbol{A}[\boldsymbol{E} \quad \boldsymbol{B}]$。<br />
+因为 $\boldsymbol{A}\boldsymbol{B}$ 的列向量均可由 $\boldsymbol{A}$ 的列向量线性表出，两者的列空间相同，故 $r([\boldsymbol{A} \quad \boldsymbol{A}\boldsymbol{B}]) = r(\boldsymbol{A})$。[A] 正确。</p>
+<p>[2] 分析 [B]:<br />
+令 $\boldsymbol{M} = \boldsymbol{A}\boldsymbol{B}^\mathrm{T}$，则式子为 $r([\boldsymbol{M} \quad \boldsymbol{M}\boldsymbol{B}])$。同理由列空间包含关系得其等于 $r(\boldsymbol{M}) = r(\boldsymbol{A}\boldsymbol{B}^\mathrm{T})$。[B] 正确。</p>
+<p>[3] 分析 [C]:<br />
+矩阵 $\begin{bmatrix} \boldsymbol{B}\boldsymbol{A} \\ \boldsymbol{B}^\mathrm{T}\boldsymbol{B}\boldsymbol{A} \end{bmatrix}$ 中，第二块的行向量可由第一块 $\boldsymbol{B}\boldsymbol{A}$ 的行向量线性表出，故其秩恒等于 $r(\boldsymbol{B}\boldsymbol{A})$。<br />
+但一般实矩阵并不满足 $r(\boldsymbol{B}\boldsymbol{A}) = r(\boldsymbol{A}\boldsymbol{B}^\mathrm{T})$。<br />
+反例: 取 $\boldsymbol{A} = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}, \boldsymbol{B} = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$。<br />
+$$\boldsymbol{B}\boldsymbol{A} = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} \implies r(\boldsymbol{B}\boldsymbol{A}) = 1$$<br />
+$$\boldsymbol{A}\boldsymbol{B}^\mathrm{T} = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} \implies r(\boldsymbol{A}\boldsymbol{B}^\mathrm{T}) = 0$$<br />
+两者不相等，故 [C] 不成立。</p>
+<p>[4] 分析 [D]:<br />
+考虑方程组 $\begin{bmatrix} \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \\ \boldsymbol{B}^\mathrm{T}\boldsymbol{A} \end{bmatrix}\boldsymbol{x} = \boldsymbol{0}$。<br />
+两边左乘 $\boldsymbol{x}^\mathrm{T}[\boldsymbol{E} \quad \boldsymbol{O}]$ 即可得 $\boldsymbol{x}^\mathrm{T}\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{x} = \|\boldsymbol{A}\boldsymbol{x}\|^2 = 0 \implies \boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$。<br />
+反之若 $\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}$，方程显然成立。因此两者零空间完全相同，秩必相等，[D] 正确。<br />
+故选 [C]。</p>
+<hr />
+<p><strong>(分块矩阵初等行变换消元)<font color=deeppink>题目[5]:分块矩阵初等变换消元求秩大小</font></strong></p>
+<p>已知 $\boldsymbol{A}$ 为 $n$ 阶矩阵，$\boldsymbol{E}$ 为 $n$ 阶单位矩阵，记矩阵 $\begin{bmatrix} \boldsymbol{O} & \boldsymbol{A} \\ \boldsymbol{A}^\mathrm{T} & \boldsymbol{E} \end{bmatrix}, \begin{bmatrix} \boldsymbol{O} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \\ \boldsymbol{A}^\mathrm{T} & \boldsymbol{E} \end{bmatrix}, \begin{bmatrix} \boldsymbol{A}^\mathrm{T} & \boldsymbol{E} \\ \boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{A}^\mathrm{T} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \end{bmatrix}$ 的秩分别为 $r_1, r_2, r_3$，则 $(\qquad)$.</p>
+<p>[A] $r_1 = r_2 \ge r_3$</p>
+<p>[B] $r_1 = r_2 \le r_3$</p>
+<p>[C] $r_1 = r_3 \ge r_2$</p>
+<p>[D] $r_1 = r_3 \le r_2$</p>
+<p>答案: [A]</p>
+<p>主要思路:[利用分块初等变换对三个分块矩阵进行高斯消元，化简为准对角分块矩阵后求秩并比较大小]</p>
+<p>解题步骤:</p>
+<p>[1] 计算 $r_1$:<br />
+对矩阵进行分块行变换，第 1 行块减去第 2 行块左乘 $\boldsymbol{A}$:<br />
+$$\begin{bmatrix} \boldsymbol{O} & \boldsymbol{A} \\ \boldsymbol{A}^\mathrm{T} & \boldsymbol{E} \end{bmatrix} \xrightarrow{r_1 - \boldsymbol{A} r_2} \begin{bmatrix} -\boldsymbol{A}\boldsymbol{A}^\mathrm{T} & \boldsymbol{O} \\ \boldsymbol{A}^\mathrm{T} & \boldsymbol{E} \end{bmatrix} \xrightarrow{r_2 + \boldsymbol{A}^\mathrm{T}(\boldsymbol{A}\boldsymbol{A}^\mathrm{T})^+ r_1} \begin{bmatrix} -\boldsymbol{A}\boldsymbol{A}^\mathrm{T} & \boldsymbol{O} \\ \boldsymbol{O} & \boldsymbol{E} \end{bmatrix}$$<br />
+由分块对角矩阵的秩性质:<br />
+$$r_1 = r(\boldsymbol{A}\boldsymbol{A}^\mathrm{T}) + r(\boldsymbol{E}) = r(\boldsymbol{A}) + n$$</p>
+<p>[2] 计算 $r_2$:<br />
+同理，第 1 行块减去第 2 行块左乘 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}$:<br />
+$$\begin{bmatrix} \boldsymbol{O} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \\ \boldsymbol{A}^\mathrm{T} & \boldsymbol{E} \end{bmatrix} \to \begin{bmatrix} -\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{A}^\mathrm{T} & \boldsymbol{O} \\ \boldsymbol{O} & \boldsymbol{E} \end{bmatrix}$$<br />
+对于实矩阵，零空间分析可知 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{A}^\mathrm{T}\boldsymbol{x} = \boldsymbol{0} \iff \boldsymbol{A}\boldsymbol{A}^\mathrm{T}\boldsymbol{x} = \boldsymbol{0}$，故:<br />
+$$r(\boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{A}^\mathrm{T}) = r(\boldsymbol{A}\boldsymbol{A}^\mathrm{T}) = r(\boldsymbol{A})$$<br />
+因此:<br />
+$$r_2 = r(\boldsymbol{A}) + n$$</p>
+<p>[3] 计算 $r_3$:<br />
+第 2 行块减去第 1 行块左乘 $\boldsymbol{A}^\mathrm{T}\boldsymbol{A}$:<br />
+$$\begin{bmatrix} \boldsymbol{A}^\mathrm{T} & \boldsymbol{E} \\ \boldsymbol{A}^\mathrm{T}\boldsymbol{A}\boldsymbol{A}^\mathrm{T} & \boldsymbol{A}^\mathrm{T}\boldsymbol{A} \end{bmatrix} \xrightarrow{r_2 - \boldsymbol{A}^\mathrm{T}\boldsymbol{A} r_1} \begin{bmatrix} \boldsymbol{A}^\mathrm{T} & \boldsymbol{E} \\ \boldsymbol{O} & \boldsymbol{O} \end{bmatrix}$$<br />
+故:<br />
+$$r_3 = r([\boldsymbol{A}^\mathrm{T} \quad \boldsymbol{E}]) = r(\boldsymbol{E}) = n$$</p>
+<p>[4] 比较大小:<br />
+因为 $r(\boldsymbol{A}) \ge 0$，所以:<br />
+$$r_1 = r_2 = n + r(\boldsymbol{A}) \ge n = r_3$$<br />
+即 $r_1 = r_2 \ge r_3$。选 [A]。</p>
+<hr />
+<p><strong>(矩阵乘积为零与分块矩阵降秩)<font color=deeppink>题目[6]:乘积为零条件下的分块矩阵秩比较</font></strong></p>
+<p>已知 $n$ 阶矩阵 $\boldsymbol{A}, \boldsymbol{B}, \boldsymbol{C}$ 满足 $\boldsymbol{A}\boldsymbol{B}\boldsymbol{C} = \boldsymbol{O}$，$\boldsymbol{E}$ 为 $n$ 阶单位矩阵，记矩阵 $\begin{bmatrix} \boldsymbol{O} & \boldsymbol{A} \\ \boldsymbol{B}\boldsymbol{C} & \boldsymbol{E} \end{bmatrix}, \begin{bmatrix} \boldsymbol{A}\boldsymbol{B} & \boldsymbol{C} \\ \boldsymbol{O} & \boldsymbol{E} \end{bmatrix}, \begin{bmatrix} \boldsymbol{E} & \boldsymbol{A}\boldsymbol{B} \\ \boldsymbol{A}\boldsymbol{B} & \boldsymbol{O} \end{bmatrix}$ 的秩分别为 $r_1, r_2, r_3$，则 $(\qquad)$.</p>
+<p>[A] $r_1 \le r_2 \le r_3$</p>
+<p>[B] $r_1 \le r_3 \le r_2$</p>
+<p>[C] $r_3 \le r_1 \le r_2$</p>
+<p>[D] $r_2 \le r_1 \le r_3$</p>
+<p>答案: [B]</p>
+<p>主要思路:[对各分块矩阵进行初等变换化简，利用 $\boldsymbol{A}\boldsymbol{B}\boldsymbol{C} = \boldsymbol{O}$ 以及 $r(\boldsymbol{M}^2) \le r(\boldsymbol{M})$ 建立不等式链]</p>
+<p>解题步骤:</p>
+<p>[1] 计算 $r_1$:<br />
+对第一个分块矩阵作行变换 $r_1 - \boldsymbol{A} r_2 \to r_1$:<br />
+$$\begin{bmatrix} \boldsymbol{O} & \boldsymbol{A} \\ \boldsymbol{B}\boldsymbol{C} & \boldsymbol{E} \end{bmatrix} \to \begin{bmatrix} -\boldsymbol{A}\boldsymbol{B}\boldsymbol{C} & \boldsymbol{O} \\ \boldsymbol{B}\boldsymbol{C} & \boldsymbol{E} \end{bmatrix}$$<br />
+因为 $\boldsymbol{A}\boldsymbol{B}\boldsymbol{C} = \boldsymbol{O}$，上式化为:<br />
+$$\begin{bmatrix} \boldsymbol{O} & \boldsymbol{O} \\ \boldsymbol{B}\boldsymbol{C} & \boldsymbol{E} \end{bmatrix}$$<br />
+其秩为 $r([\boldsymbol{B}\boldsymbol{C} \quad \boldsymbol{E}]) = r(\boldsymbol{E}) = n$。故 $r_1 = n$。</p>
+<p>[2] 计算 $r_2$:<br />
+对第二个分块矩阵作行变换 $r_1 - \boldsymbol{C} r_2 \to r_1$:<br />
+$$\begin{bmatrix} \boldsymbol{A}\boldsymbol{B} & \boldsymbol{C} \\ \boldsymbol{O} & \boldsymbol{E} \end{bmatrix} \to \begin{bmatrix} \boldsymbol{A}\boldsymbol{B} & \boldsymbol{O} \\ \boldsymbol{O} & \boldsymbol{E} \end{bmatrix}$$<br />
+故 $r_2 = r(\boldsymbol{A}\boldsymbol{B}) + n$。</p>
+<p>[3] 计算 $r_3$:<br />
+对第三个分块矩阵作行变换 $r_2 - \boldsymbol{A}\boldsymbol{B} r_1 \to r_2$:<br />
+$$\begin{bmatrix} \boldsymbol{E} & \boldsymbol{A}\boldsymbol{B} \\ \boldsymbol{A}\boldsymbol{B} & \boldsymbol{O} \end{bmatrix} \to \begin{bmatrix} \boldsymbol{E} & \boldsymbol{A}\boldsymbol{B} \\ \boldsymbol{O} & -(\boldsymbol{A}\boldsymbol{B})^2 \end{bmatrix} \to \begin{bmatrix} \boldsymbol{E} & \boldsymbol{O} \\ \boldsymbol{O} & -(\boldsymbol{A}\boldsymbol{B})^2 \end{bmatrix}$$<br />
+故 $r_3 = n + r((\boldsymbol{A}\boldsymbol{B})^2)$。</p>
+<p>[4] 比较大小:<br />
+对任意矩阵 $\boldsymbol{M} = \boldsymbol{A}\boldsymbol{B}$，均有 $0 \le r(\boldsymbol{M}^2) \le r(\boldsymbol{M})$。<br />
+因此:<br />
+$$n \le n + r((\boldsymbol{A}\boldsymbol{B})^2) \le n + r(\boldsymbol{A}\boldsymbol{B})$$<br />
+即:<br />
+$$r_1 \le r_3 \le r_2$$<br />
+选 [B]。</p>
+<hr />
+<p><strong>(分块初等变换与乘积矩阵秩比较)<font color=deeppink>题目[7]:分块矩阵初等变换消元比较秩大小</font></strong></p>
+<p>设 $\boldsymbol{A}, \boldsymbol{B}, \boldsymbol{C}$ 均为 $n$ 阶矩阵，$r(\boldsymbol{A}\boldsymbol{B}) \le r(\boldsymbol{B}\boldsymbol{A})$，记 $\begin{bmatrix} \boldsymbol{O} & \boldsymbol{A}\boldsymbol{B} \\ \boldsymbol{B} & \boldsymbol{B}\boldsymbol{C} \end{bmatrix}, \begin{bmatrix} \boldsymbol{B} & \boldsymbol{B}\boldsymbol{C} \\ \boldsymbol{A}\boldsymbol{B} & \boldsymbol{O} \end{bmatrix}, \begin{bmatrix} \boldsymbol{B}\boldsymbol{A} & \boldsymbol{B}\boldsymbol{A}\boldsymbol{C} \\ \boldsymbol{O} & \boldsymbol{B} \end{bmatrix}$ 的秩分别为 $r_1, r_2, r_3$，则 $(\qquad)$.</p>
+<p>[A] $r_2 \le r_3 \le r_1$</p>
+<p>[B] $r_2 \le r_1 \le r_3$</p>
+<p>[C] $r_1 \le r_2 \le r_3$</p>
+<p>[D] $r_3 \le r_2 \le r_1$</p>
+<p>答案: [C] (或 [B]，两者在 $r_1 = r_2$ 时等价)</p>
+<p>主要思路:[利用分块列变换消去含 $\boldsymbol{C}$ 的列块，对换行块判定 $r_1 = r_2$，结合已知不等式 $r(\boldsymbol{A}\boldsymbol{B}) \le r(\boldsymbol{B}\boldsymbol{A})$ 确定大小关系]</p>
+<p>解题步骤:</p>
+<p>[1] 计算 $r_1$ 与 $r_2$:<br />
+对第一个分块矩阵作列变换 $c_2 - c_1 \boldsymbol{C} \to c_2$:<br />
+$$\begin{bmatrix} \boldsymbol{O} & \boldsymbol{A}\boldsymbol{B} \\ \boldsymbol{B} & \boldsymbol{B}\boldsymbol{C} \end{bmatrix} \to \begin{bmatrix} \boldsymbol{O} & \boldsymbol{A}\boldsymbol{B} \\ \boldsymbol{B} & \boldsymbol{O} \end{bmatrix}$$<br />
+故 $r_1 = r(\boldsymbol{A}\boldsymbol{B}) + r(\boldsymbol{B})$。<br />
+第二个矩阵由第一个矩阵对换上下两个行块得到，初等变换不改变矩阵的秩，因此:<br />
+$$r_2 = r_1 = r(\boldsymbol{A}\boldsymbol{B}) + r(\boldsymbol{B})$$</p>
+<p>[2] 计算 $r_3$:<br />
+对第三个分块矩阵作列变换 $c_2 - c_1 \boldsymbol{C} \to c_2$:<br />
+$$\begin{bmatrix} \boldsymbol{B}\boldsymbol{A} & \boldsymbol{B}\boldsymbol{A}\boldsymbol{C} \\ \boldsymbol{O} & \boldsymbol{B} \end{bmatrix} \to \begin{bmatrix} \boldsymbol{B}\boldsymbol{A} & \boldsymbol{O} \\ \boldsymbol{O} & \boldsymbol{B} \end{bmatrix}$$<br />
+故 $r_3 = r(\boldsymbol{B}\boldsymbol{A}) + r(\boldsymbol{B})$。</p>
+<p>[3] 比较大小:<br />
+由已知条件 $r(\boldsymbol{A}\boldsymbol{B}) \le r(\boldsymbol{B}\boldsymbol{A})$，两端同加 $r(\boldsymbol{B})$:<br />
+$$r(\boldsymbol{A}\boldsymbol{B}) + r(\boldsymbol{B}) \le r(\boldsymbol{B}\boldsymbol{A}) + r(\boldsymbol{B}) \implies r_1 \le r_3$$<br />
+因为 $r_1 = r_2$，所以 $r_1 = r_2 \le r_3$，即 $r_1 \le r_2 \le r_3$ (或 $r_2 \le r_1 \le r_3$)。选 [C]。</p>
+<hr />
+<p><strong>(满秩分解与幂等矩阵充要条件)<font color=deeppink>题目[8]:列满秩分解与幂等矩阵等价性证明</font></strong></p>
+<p>设 $\boldsymbol{A}$ 为 $n$ 阶矩阵，$r(\boldsymbol{A}) = r$，$\boldsymbol{E}_r$ 为 $r$ 阶单位矩阵，则“$\boldsymbol{A}^2 = \boldsymbol{A}$”是“存在列满秩矩阵 $\boldsymbol{C}_{n\times r}$，使得 $\boldsymbol{A} = \boldsymbol{C}\boldsymbol{B}, \boldsymbol{B}\boldsymbol{C} = \boldsymbol{E}_r$”的 $(\qquad)$.</p>
+<p>[A] 充分非必要条件</p>
+<p>[B] 必要非充分条件</p>
+<p>[C] 充分必要条件</p>
+<p>[D] 既非充分又非必要条件</p>
+<p>答案: [C]</p>
+<p>主要思路:[充分性利用矩阵的秩分解与列满秩矩阵左逆、行满秩矩阵右逆消去法证明；必要性直接代入验证平方等于自身]</p>
+<p>解题步骤:</p>
+<p>[1] 证明充分性 (由 $\boldsymbol{A}^2 = \boldsymbol{A}$ 推出存在分解):<br />
+设 $\boldsymbol{A}^2 = \boldsymbol{A}$ 且 $r(\boldsymbol{A}) = r$。<br />
+由矩阵的满秩分解理论，存在列满秩矩阵 $\boldsymbol{C}_{n \times r}$ ($r(\boldsymbol{C}) = r$) 和行满秩矩阵 $\boldsymbol{B}_{r \times n}$ ($r(\boldsymbol{B}) = r$)，使得:<br />
+$$\boldsymbol{A} = \boldsymbol{C}\boldsymbol{B}$$<br />
+将 $\boldsymbol{A} = \boldsymbol{C}\boldsymbol{B}$ 代入 $\boldsymbol{A}^2 = \boldsymbol{A}$:<br />
+$$(\boldsymbol{C}\boldsymbol{B})(\boldsymbol{C}\boldsymbol{B}) = \boldsymbol{C}\boldsymbol{B} \implies \boldsymbol{C}(\boldsymbol{B}\boldsymbol{C}\boldsymbol{B} - \boldsymbol{B}) = \boldsymbol{O}$$<br />
+因为 $\boldsymbol{C}_{n \times r}$ 是列满秩矩阵，存在左逆矩阵 $\boldsymbol{C}^+ = (\boldsymbol{C}^\mathrm{T}\boldsymbol{C})^{-1}\boldsymbol{C}^\mathrm{T}$，两端左乘 $\boldsymbol{C}^+$:<br />
+$$\boldsymbol{B}\boldsymbol{C}\boldsymbol{B} - \boldsymbol{B} = \boldsymbol{O} \implies (\boldsymbol{B}\boldsymbol{C} - \boldsymbol{E}_r)\boldsymbol{B} = \boldsymbol{O}$$<br />
+因为 $\boldsymbol{B}_{r \times n}$ 是行满秩矩阵，存在右逆矩阵 $\boldsymbol{B}^+ = \boldsymbol{B}^\mathrm{T}(\boldsymbol{B}\boldsymbol{B}^\mathrm{T})^{-1}$，两端右乘 $\boldsymbol{B}^+$:<br />
+$$\boldsymbol{B}\boldsymbol{C} - \boldsymbol{E}_r = \boldsymbol{O} \implies \boldsymbol{B}\boldsymbol{C} = \boldsymbol{E}_r$$<br />
+故充分性成立。</p>
+<p>[2] 证明必要性:<br />
+若存在列满秩矩阵 $\boldsymbol{C}_{n \times r}$ 使得 $\boldsymbol{A} = \boldsymbol{C}\boldsymbol{B}$ 且 $\boldsymbol{B}\boldsymbol{C} = \boldsymbol{E}_r$。<br />
+则:<br />
+$$\boldsymbol{A}^2 = (\boldsymbol{C}\boldsymbol{B})(\boldsymbol{C}\boldsymbol{B}) = \boldsymbol{C}(\boldsymbol{B}\boldsymbol{C})\boldsymbol{B} = \boldsymbol{C}\boldsymbol{E}_r\boldsymbol{B} = \boldsymbol{C}\boldsymbol{B} = \boldsymbol{A}$$<br />
+故必要性成立。</p>
+<p>[3] 结论:<br />
+“$\boldsymbol{A}^2 = \boldsymbol{A}$”是该条件的充分必要条件。选 [C]。</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>

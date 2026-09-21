@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>高等数学1000b强化篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h1>第1章 函数极限与连续 · 强化篇</h1>
+<hr />
+<h3>一、选择题与填空题</h3>
+<p><strong>(经典计算)<font color=red>题目[1]:1的无穷次幂型极限与等价无穷小替换</font></strong></p>
+<p>$\lim\limits_{x\to 0} \left(\frac{\arcsin x}{x}\right)^{\frac{1}{\sin^2 x}} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\mathrm{e}^{\frac{1}{6}}$ (或 $\sqrt[6]{\mathrm{e}}$)</p>
+<p>主要思路:[利用 $1^\infty$ 型极限公式 $\lim u^v = \mathrm{e}^{\lim v(u-1)}$，结合 $\arcsin x$ 的泰勒展开式求解]</p>
+<p>[1]识别极限类型:<br />
+当 $x\to 0$ 时，$\frac{\arcsin x}{x} \to 1$，$\frac{1}{\sin^2 x} \to \infty$，属于标准的 $1^\infty$ 型未定式。<br />
+由重要公式: 若 $\lim u(x) = 1, \lim v(x) = \infty$，则:<br />
+$$\lim u(x)^{v(x)} = \mathrm{e}^{\lim v(x)[u(x)-1]}$$</p>
+<p>[2]计算指数部分的极限:<br />
+$$v(x)[u(x)-1] = \frac{1}{\sin^2 x}\left(\frac{\arcsin x}{x} - 1\right) = \frac{\arcsin x - x}{x\sin^2 x}$$<br />
+由等价无穷小 $\sin x \sim x$，分母 $x\sin^2 x \sim x^3$。<br />
+由麦克劳林展开式:<br />
+$$\arcsin x = x + \frac{1}{6}x^3 + o(x^3)$$<br />
+因此分子为:<br />
+$$\arcsin x - x = \frac{1}{6}x^3 + o(x^3)$$</p>
+<p>[3]代入求极限值:<br />
+$$\lim_{x\to 0} v(x)[u(x)-1] = \lim_{x\to 0} \frac{\frac{1}{6}x^3}{x^3} = \frac{1}{6}$$<br />
+故原极限为:<br />
+$$\lim_{x\to 0} \left(\frac{\arcsin x}{x}\right)^{\frac{1}{\sin^2 x}} = \mathrm{e}^{\frac{1}{6}} = \sqrt[6]{\mathrm{e}}$$</p>
+<hr />
+<p><strong>(经典计算)<font color=deeppink>题目[2]:变限积分与1的无穷次幂型极限</font></strong></p>
+<p>$\lim\limits_{x\to 0} \frac{1}{x}\int_0^x (1+\sin 2t)^{\frac{1}{t}}\,\mathrm{d}t = \underline{\qquad\qquad}$.</p>
+<p>答案: $\mathrm{e}^2$</p>
+<p>主要思路:[利用洛必达法则结合变上限积分求导，将外层转化为 $1^\infty$ 型极限计算]</p>
+<p>[1]形式化与洛必达法则:<br />
+当 $x\to 0$ 时，分子 $\int_0^x (1+\sin 2t)^{\frac{1}{t}}\,\mathrm{d}t \to 0$，分母 $x\to 0$，属于 $\frac{0}{0}$ 型。<br />
+由洛必达法则对变限积分求导:<br />
+$$\lim_{x\to 0} \frac{\int_0^x (1+\sin 2t)^{\frac{1}{t}}\,\mathrm{d}t}{x} = \lim_{x\to 0} (1+\sin 2x)^{\frac{1}{x}}$$</p>
+<p>[2]计算 $1^\infty$ 型极限:<br />
+$$\lim_{x\to 0} (1+\sin 2x)^{\frac{1}{x}} = \mathrm{e}^{\lim\limits_{x\to 0} \frac{\sin 2x}{x}} = \mathrm{e}^2$$</p>
+<hr />
+<p><strong>(经典计算)<font color=red>题目[3]:0的0次幂型未定式与对数化简</font></strong></p>
+<p>$\lim\limits_{x\to +\infty} \left(x^{\frac{2}{x}} - 1\right)^{\frac{2}{\ln x}} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\mathrm{e}^{-2}$ (或 $\frac{1}{\mathrm{e}^2}$)</p>
+<p>主要思路:[取对数将 $0^0$ 型转化为 $\frac{0}{0}$ 型，再通过指数等价代换 $\mathrm{e}^u - 1 \sim u$ 展开对数项]</p>
+<p>[1]分析极限类型:<br />
+当 $x\to +\infty$ 时，$\lim\limits_{x\to +\infty} x^{\frac{2}{x}} = \mathrm{e}^{\lim\limits_{x\to +\infty}\frac{2\ln x}{x}} = \mathrm{e}^0 = 1$。<br />
+因此底数 $x^{\frac{2}{x}} - 1 \to 0$，指数 $\frac{2}{\ln x} \to 0$，此为 $0^0$ 型未定式。</p>
+<p>[2]取对数化简:<br />
+设 $y = \left(x^{\frac{2}{x}} - 1\right)^{\frac{2}{\ln x}}$，则:<br />
+$$\ln y = \frac{2}{\ln x} \ln\left(x^{\frac{2}{x}} - 1\right) = \frac{2}{\ln x} \ln\left(\mathrm{e}^{\frac{2\ln x}{x}} - 1\right)$$<br />
+由于当 $x\to +\infty$ 时，$\frac{2\ln x}{x} \to 0$，利用等价无穷小 $\mathrm{e}^u - 1 \sim u$ ($u\to 0$):<br />
+$$\mathrm{e}^{\frac{2\ln x}{x}} - 1 = \frac{2\ln x}{x}(1+o(1))$$<br />
+因此:<br />
+$$\ln\left(\mathrm{e}^{\frac{2\ln x}{x}} - 1\right) = \ln\left(\frac{2\ln x}{x}\right) + o(1) = \ln 2 + \ln\ln x - \ln x + o(1)$$</p>
+<p>[3]计算对数极限并还原:<br />
+$$\ln y = \frac{2}{\ln x}\left(\ln 2 + \ln\ln x - \ln x + o(1)\right) = \frac{2\ln 2}{\ln x} + \frac{2\ln\ln x}{\ln x} - 2 + o(1)$$<br />
+当 $x\to +\infty$ 时，$\frac{\ln 2}{\ln x} \to 0$ 且 $\frac{\ln\ln x}{\ln x} \to 0$。<br />
+故:<br />
+$$\lim_{x\to +\infty} \ln y = -2 \implies \lim_{x\to +\infty} y = \mathrm{e}^{-2} = \frac{1}{\mathrm{e}^2}$$</p>
+<hr />
+<p><strong>(经典计算)<font color=deeppink>题目[4]:变限二重结构极限与变量代换</font></strong></p>
+<p>计算 $\lim\limits_{x\to 0} \frac{\int_0^x \left[\mathrm{e}^{(t-x)^2} - 1\right]\sin t\,\mathrm{d}t}{x^2(\mathrm{e}^{x^2}-1)}$.</p>
+<p>答案: $\frac{1}{12}$</p>
+<p>主要思路:[分母等价无穷小替换为 $x^4$；分子作变量代换 $t = xu$ 消除积分限与被积函数中的 $x$ 耦合，提出 $x^4$ 计算定积分]</p>
+<p>[1]分母等价无穷小化简:<br />
+当 $x\to 0$ 时，$\mathrm{e}^{x^2} - 1 \sim x^2$，故分母:<br />
+$$x^2(\mathrm{e}^{x^2} - 1) \sim x^4$$</p>
+<p>[2]分子变量代换提取主部:<br />
+对于分子积分 $\int_0^x \left[\mathrm{e}^{(t-x)^2} - 1\right]\sin t\,\mathrm{d}t$，令 $t = xu$，则 $\mathrm{d}t = x\,\mathrm{d}u$，$u \in [0, 1]$:<br />
+$$(t-x)^2 = x^2(u-1)^2 \implies \mathrm{e}^{x^2(u-1)^2} - 1 = x^2(u-1)^2 + o(x^2)$$<br />
+$$\sin t = \sin(xu) = xu + o(x)$$<br />
+代入被积式:<br />
+$$\int_0^1 \left[x^2(u-1)^2 + o(x^2)\right]\left[xu + o(x)\right] x\,\mathrm{d}u = x^4 \int_0^1 u(u-1)^2\,\mathrm{d}u + o(x^4)$$</p>
+<p>[3]计算多项式定积分并求极限:<br />
+$$\int_0^1 u(u-1)^2\,\mathrm{d}u = \int_0^1 (u^3 - 2u^2 + u)\,\mathrm{d}u = \left[\frac{u^4}{4} - \frac{2u^3}{3} + \frac{u^2}{2}\right]_0^1 = \frac{1}{4} - \frac{2}{3} + \frac{1}{2} = \frac{1}{12}$$<br />
+因此分子等价于 $\frac{1}{12}x^4$。<br />
+原极限为:<br />
+$$\lim_{x\to 0} \frac{\frac{1}{12}x^4 + o(x^4)}{x^4} = \frac{1}{12}$$</p>
+<hr />
+<p><strong>(综合分析)<font color=red>题目[5]:根据1的无穷次幂型极限反求函数局域阶数</font></strong></p>
+<p>设 $\lim\limits_{x\to 0} \left[1+2x+3x^2+\frac{f(x)}{x}\right]^{\frac{1}{x}} = \mathrm{e}^5$，则 $\lim\limits_{x\to 0}\left[1+\frac{f(x)}{x}\right]^{\frac{1}{x}} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\mathrm{e}^3$</p>
+<p>主要思路:[利用 $1^\infty$ 型极限的指数转化，由已知极限建立关于 $\frac{f(x)}{x^2}$ 极限的线性方程，解出后求待求极限]</p>
+<p>[1]展开已知极限的指数部分:<br />
+由 $\lim\limits_{x\to 0} \left[1+2x+3x^2+\frac{f(x)}{x}\right]^{\frac{1}{x}} = \mathrm{e}^5$ 可知:<br />
+$$\lim_{x\to 0} \frac{1}{x}\left(2x + 3x^2 + \frac{f(x)}{x}\right) = 5$$<br />
+展开得:<br />
+$$\lim_{x\to 0} \left(2 + 3x + \frac{f(x)}{x^2}\right) = 5$$</p>
+<p>[2]求出核心项 $\lim\limits_{x\to 0}\frac{f(x)}{x^2}$:<br />
+由于 $\lim\limits_{x\to 0} 3x = 0$，故:<br />
+$$2 + \lim_{x\to 0} \frac{f(x)}{x^2} = 5 \implies \lim_{x\to 0} \frac{f(x)}{x^2} = 3$$</p>
+<p>[3]计算目标极限:<br />
+目标极限为 $1^\infty$ 型:<br />
+$$\lim_{x\to 0}\left[1+\frac{f(x)}{x}\right]^{\frac{1}{x}} = \mathrm{e}^{\lim\limits_{x\to 0}\frac{1}{x}\cdot\frac{f(x)}{x}} = \mathrm{e}^{\lim\limits_{x\to 0}\frac{f(x)}{x^2}} = \mathrm{e}^3$$</p>
+<hr />
+<p><strong>(经典综合)<font color=red>题目[6]:变限二次二重积分的极限与洛必达法则</font></strong></p>
+<p>设函数 $f(x)$ 在点 $x=3$ 的某邻域内可微，且 $\lim\limits_{x\to 3} f(x)=0$，$\lim\limits_{x\to 3} f'(x)=4016$. 求 $\lim\limits_{x\to 3} \frac{\int_3^x \left[\int_t^3 f(s)\,\mathrm{d}s\right]\mathrm{d}t}{(3-x)^3}$.</p>
+<p>答案: $\frac{2008}{3}$</p>
+<p>主要思路:[分子是对 $t$ 的变限积分，其被积函数也是变限积分；应用洛必达法则逐次求导，或由泰勒展开分析分子主部]</p>
+<p>[1]设定分子函数并逐次求导:<br />
+设 $F(x) = \int_3^x \left[\int_t^3 f(s)\,\mathrm{d}s\right]\mathrm{d}t$。<br />
+由微积分基本定理:<br />
+$$F'(x) = \int_x^3 f(s)\,\mathrm{d}s = -\int_3^x f(s)\,\mathrm{d}s$$<br />
+对 $F'(x)$ 求导:<br />
+$$F''(x) = -f(x)$$<br />
+对 $F''(x)$ 求导:<br />
+$$F'''(x) = -f'(x)$$</p>
+<p>[2]对分母逐次求导:<br />
+分母 $G(x) = (3-x)^3$。<br />
+$$G'(x) = -3(3-x)^2$$<br />
+$$G''(x) = 6(3-x)$$<br />
+$$G'''(x) = -6$$</p>
+<p>[3]连续应用洛必达法则:<br />
+由于 $\lim\limits_{x\to 3} F(x) = 0, \lim\limits_{x\to 3} F'(x) = 0, \lim\limits_{x\to 3} F''(x) = -f(3) = 0$，且分母及导数均在 $x\to 3$ 时趋于 0，连续三次应用洛必达法则:<br />
+$$\lim_{x\to 3} \frac{F(x)}{(3-x)^3} = \lim_{x\to 3} \frac{F'''(x)}{G'''(x)} = \frac{-f'(3)}{-6} = \frac{f'(3)}{6}$$<br />
+代入 $f'(3) = 4016$:<br />
+$$\lim_{x\to 3} \frac{F(x)}{(3-x)^3} = \frac{4016}{6} = \frac{2008}{3}$$</p>
+<hr />
+<p><strong>(概念辨析)<font color=green>题目[7]:等价无穷小在变限积分中的同阶性</font></strong></p>
+<p>设 $f(x), g(x)$ 在点 $x=0$ 的某邻域内连续，且当 $x\to 0$ 时，$f(x)$ 与 $g(x)$ 为等价无穷小，则当 $x\to 0$ 时，$\int_0^x f(t)(1-\cos t)\,\mathrm{d}t$ 是 $\int_0^x t^2 g(t)\,\mathrm{d}t$ 的 $(\quad)$.</p>
+<p>[A] 等价无穷小<br />
+[B] 同阶但非等价无穷小<br />
+[C] 高阶无穷小<br />
+[D] 低阶无穷小  </p>
+<p>答案: [B]</p>
+<p>主要思路:[利用洛必达法则对变限积分比值求极限，利用 $1-\cos x \sim \frac{1}{2}x^2$ 与 $f(x)\sim g(x)$ 得出常数比值 $\frac{1}{2}$]</p>
+<p>[1]建立两积分的比值极限:<br />
+令 $I_1(x) = \int_0^x f(t)(1-\cos t)\,\mathrm{d}t$，$I_2(x) = \int_0^x t^2 g(t)\,\mathrm{d}t$。<br />
+当 $x\to 0$ 时 $I_1(x) \to 0, I_2(x) \to 0$。</p>
+<p>[2]应用洛必达法则求导:<br />
+$$\lim_{x\to 0} \frac{I_1(x)}{I_2(x)} = \lim_{x\to 0} \frac{f(x)(1-\cos x)}{x^2 g(x)}$$</p>
+<p>[3]代入等价无穷小关系:<br />
+因为当 $x\to 0$ 时，$1-\cos x \sim \frac{1}{2}x^2$，且 $f(x)\sim g(x)$，所以:<br />
+$$\lim_{x\to 0} \frac{f(x)(1-\cos x)}{x^2 g(x)} = \lim_{x\to 0} \left(\frac{f(x)}{g(x)} \cdot \frac{\frac{1}{2}x^2}{x^2}\right) = 1 \cdot \frac{1}{2} = \frac{1}{2}$$<br />
+极限为非零常数 $\frac{1}{2} \ne 1$，故 $I_1(x)$ 是 $I_2(x)$ 的同阶但非等价无穷小。选 [B]。</p>
+<hr />
+<p><strong>(中等计算)<font color=red>题目[8]:双无穷小展开确定待定系数</font></strong></p>
+<p>设当 $x\to 0$ 时，$a\int_0^{x^2}\cos t^2\,\mathrm{d}t$ 与 $\sin x - b\ln(1+x)$ 是等价无穷小，则 $(a,b) = (\quad)$.</p>
+<p>[A] $(1, 2)$<br />
+[B] $(-1, 2)$<br />
+[C] $\left(\frac{1}{2}, 1\right)$<br />
+[D] $\left(-\frac{1}{2}, 1\right)$  </p>
+<p>答案: [C]</p>
+<p>主要思路:[分别对变限积分和组合函数展开到 $x^2$ 阶，利用等价关系对比对应阶系数]</p>
+<p>[1]展开变限积分部分:<br />
+被积函数 $\cos t^2 = 1 + o(1)$，故:<br />
+$$\int_0^{x^2} \cos t^2\,\mathrm{d}t = \int_0^{x^2} [1+o(1)]\,\mathrm{d}t = x^2 + o(x^2)$$<br />
+因此:<br />
+$$a\int_0^{x^2} \cos t^2\,\mathrm{d}t = ax^2 + o(x^2)$$</p>
+<p>[2]展开 $\sin x - b\ln(1+x)$ 到 $x^2$ 阶:<br />
+$$\sin x = x - \frac{x^3}{6} + o(x^3)$$<br />
+$$\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} + o(x^3)$$<br />
+故:<br />
+$$\sin x - b\ln(1+x) = (1-b)x + \frac{b}{2}x^2 + o(x^2)$$</p>
+<p>[3]对比系数建立方程:<br />
+因为二者为等价无穷小，必须同为 $x^2$ 阶且系数相等:<br />
+一次项必须消去: $1 - b = 0 \implies b = 1$。<br />
+二次项系数相等: $a = \frac{b}{2} = \frac{1}{2}$。<br />
+故 $(a, b) = \left(\frac{1}{2}, 1\right)$。选 [C]。</p>
+<hr />
+<p><strong>(中等计算)<font color=deeppink>题目[9]:被积函数差的等价代换与积分阶数</font></strong></p>
+<p>设当 $x\to 0$ 时，$\int_0^x (\mathrm{e}^{t\cos t^2}-\mathrm{e}^t)\,\mathrm{d}t$ 与 $ax^b$ 是等价无穷小量，则 $(a,b) = (\quad)$.</p>
+<p>[A] $\left(-\frac{1}{6}, 3\right)$<br />
+[B] $\left(-\frac{1}{24}, 4\right)$<br />
+[C] $\left(-\frac{1}{2}, 5\right)$<br />
+[D] $\left(-\frac{1}{12}, 6\right)$  </p>
+<p>答案: [D]</p>
+<p>主要思路:[提取公因式 $\mathrm{e}^t$，将被积函数转化为 $\mathrm{e}^t(\mathrm{e}^{t(\cos t^2 - 1)} - 1)$，利用等价代换求出主部后积分]</p>
+<p>[1]化简被积函数:<br />
+$$\mathrm{e}^{t\cos t^2} - \mathrm{e}^t = \mathrm{e}^t \left(\mathrm{e}^{t(\cos t^2 - 1)} - 1\right)$$<br />
+由于当 $t\to 0$ 时，$\cos t^2 - 1 \sim -\frac{1}{2}(t^2)^2 = -\frac{1}{2}t^4$。<br />
+故指数部分:<br />
+$$t(\cos t^2 - 1) \sim -\frac{1}{2}t^5$$<br />
+由等价无穷小 $\mathrm{e}^u - 1 \sim u$ 及 $\mathrm{e}^t \to 1$:<br />
+$$\mathrm{e}^{t\cos t^2} - \mathrm{e}^t \sim -\frac{1}{2}t^5$$</p>
+<p>[2]对主部积分求阶数与系数:<br />
+$$\int_0^x (\mathrm{e}^{t\cos t^2} - \mathrm{e}^t)\,\mathrm{d}t \sim \int_0^x \left(-\frac{1}{2}t^5\right)\,\mathrm{d}t = -\frac{1}{2} \cdot \frac{x^6}{6} = -\frac{1}{12}x^6$$</p>
+<p>[3]对比确定 $(a,b)$:<br />
+由题意与 $ax^b$ 等价，因此:<br />
+$$a = -\frac{1}{12}, \quad b = 6$$<br />
+选 [D]。</p>
+<hr />
+<p><strong>(经典计算)<font color=red>题目[10]:有理分式极限与因式分解反求待定系数</font></strong></p>
+<p>已知 $\lim\limits_{x\to 3} \frac{x^3-3x^2+bx^2+x-3bx-3}{x+a} = 25$，则 $ab = \underline{\qquad\qquad}$.</p>
+<p>答案: $-15$</p>
+<p>主要思路:[分子在 $x=3$ 处为 0，因式分解提取 $(x-3)$，由极限非零确定分母必有因子 $(x-3)$，求得 $a$ 与 $b$]</p>
+<p>[1]对分子多项式因式分解:<br />
+$$P(x) = x^3 - 3x^2 + bx^2 - 3bx + x - 3 = x^2(x-3) + bx(x-3) + 1(x-3) = (x-3)(x^2+bx+1)$$</p>
+<p>[2]确定分母参数 $a$:<br />
+分式为 $\frac{(x-3)(x^2+bx+1)}{x+a}$。<br />
+当 $x\to 3$ 时，分子趋于 0。若极限为非零常数 $25$，分母必须也趋于 0，即:<br />
+$$3 + a = 0 \implies a = -3$$</p>
+<p>[3]消去零因子并求 $b$:<br />
+约去因子 $(x-3)$ 后:<br />
+$$\lim_{x\to 3} (x^2 + bx + 1) = 3^2 + 3b + 1 = 10 + 3b = 25 \implies 3b = 15 \implies b = 5$$<br />
+因此:<br />
+$$ab = (-3) \times 5 = -15$$</p>
+<hr />
+<p><strong>(经典计算)<font color=deeppink>题目[11]:已知指数极限反求函数局部无穷小比值</font></strong></p>
+<p>设函数 $f(x)$ 在 $0<|x|<1$ 上有定义，且满足 $\lim\limits_{x\to 0}\left[\cos x + \frac{f(x)}{x}\right]^{\frac{1}{x^2}} = \mathrm{e}^{-1}$，求 $\lim\limits_{x\to 0}\frac{f(x)}{\sin^3 x}$.</p>
+<p>答案: $-\frac{1}{2}$</p>
+<p>主要思路:[利用 $1^\infty$ 型极限公式，将已知极限转化为 $\frac{\cos x - 1 + f(x)/x}{x^2}$ 的极限，泰勒展开后求出 $\frac{f(x)}{x^3}$ 的极限]</p>
+<p>[1]转化已知条件:<br />
+此极限为 $1^\infty$ 型，根据公式:<br />
+$$\lim_{x\to 0} \frac{1}{x^2}\left[\cos x - 1 + \frac{f(x)}{x}\right] = -1$$</p>
+<p>[2]泰勒展开化简:<br />
+因为 $\cos x - 1 = -\frac{1}{2}x^2 + o(x^2)$，代入上式:<br />
+$$\lim_{x\to 0} \left[-\frac{1}{2} + \frac{f(x)}{x^3}\right] = -1$$<br />
+解得:<br />
+$$\lim_{x\to 0} \frac{f(x)}{x^3} = -1 + \frac{1}{2} = -\frac{1}{2}$$</p>
+<p>[3]目标极限替换:<br />
+由于当 $x\to 0$ 时，$\sin^3 x \sim x^3$，故:<br />
+$$\lim_{x\to 0} \frac{f(x)}{\sin^3 x} = \lim_{x\to 0} \frac{f(x)}{x^3} = -\frac{1}{2}$$</p>
+<hr />
+<p><strong>(综合计算)<font color=red>题目[12]:分段函数极限与变限积分极限的拆分求值</font></strong></p>
+<p>设函数 $f(x)$ 在点 $x=0$ 处连续，$f(0)=\frac{1}{2}$，且函数 $g(x) = \begin{cases} \frac{1}{x}\sin\frac{x}{2}, & x<0, \\ x+\frac{1}{2}, & x\geqslant 0, \end{cases}$ 则 $\lim\limits_{x\to 0}\frac{xf(x)+g(x)\int_0^{2x}\cos t^2\,\mathrm{d}t}{xg(x)} = \underline{\qquad\qquad}$.</p>
+<p>答案: $3$</p>
+<p>主要思路:[分析 $g(x)$ 在 $x=0$ 的连续性得出 $\lim\limits_{x\to 0} g(x) = \frac{1}{2}$，拆分为两个独立极限分别计算]</p>
+<p>[1]验证 $g(x)$ 在 $x=0$ 的极限:<br />
+$$\lim_{x\to 0^-} g(x) = \lim_{x\to 0^-} \frac{\sin(x/2)}{x} = \frac{1}{2}$$<br />
+$$\lim_{x\to 0^+} g(x) = \lim_{x\to 0^+} \left(x + \frac{1}{2}\right) = \frac{1}{2}$$<br />
+$$g(0) = \frac{1}{2}$$<br />
+故 $\lim\limits_{x\to 0} g(x) = \frac{1}{2} \ne 0$。</p>
+<p>[2]拆分待求分式:<br />
+$$\frac{xf(x) + g(x)\int_0^{2x}\cos t^2\,\mathrm{d}t}{xg(x)} = \frac{f(x)}{g(x)} + \frac{\int_0^{2x}\cos t^2\,\mathrm{d}t}{x}$$</p>
+<p>[3]分别求各部分极限:<br />
+第一部分:<br />
+$$\lim_{x\to 0} \frac{f(x)}{g(x)} = \frac{f(0)}{g(0)} = \frac{1/2}{1/2} = 1$$<br />
+第二部分应用洛必达法则:<br />
+$$\lim_{x\to 0} \frac{\int_0^{2x}\cos t^2\,\mathrm{d}t}{x} = \lim_{x\to 0} \frac{2\cos(4x^2)}{1} = 2$$<br />
+因此原极限为:<br />
+$$1 + 2 = 3$$</p>
+<hr />
+<p><strong>(极限与连续)<font color=red>题目[13]:数列极限所定义的函数的单侧连续性</font></strong></p>
+<p>$f(x) = \lim\limits_{n\to\infty} n^x \left[\left(1+\frac{1}{n}\right)^n - \mathrm{e}\right]$ 在 $x=1$ 处 $(\quad)$.</p>
+<p>[A] 左极限存在，右极限不存在<br />
+[B] 左极限不存在，右极限存在<br />
+[C] 左、右极限都存在，但不相等<br />
+[D] 连续  </p>
+<p>答案: [A]</p>
+<p>主要思路:[利用 $(1+1/n)^n$ 的二阶渐近展开式得出 $(1+1/n)^n - \mathrm{e} \sim -\frac{\mathrm{e}}{2n}$，由此分析 $f(x)$ 在 $x<1, x=1, x>1$ 时的取值与单侧极限]</p>
+<p>[1]渐近展开 $(1+\frac{1}{n})^n$:<br />
+$$\left(1+\frac{1}{n}\right)^n = \mathrm{e}^{n\ln(1+1/n)} = \mathrm{e}^{n\left(\frac{1}{n} - \frac{1}{2n^2} + o(1/n^2)\right)} = \mathrm{e}^{1 - \frac{1}{2n} + o(1/n)} = \mathrm{e}\left(1 - \frac{1}{2n} + o\left(\frac{1}{n}\right)\right)$$<br />
+故:<br />
+$$\left(1+\frac{1}{n}\right)^n - \mathrm{e} = -\frac{\mathrm{e}}{2n} + o\left(\frac{1}{n}\right)$$</p>
+<p>[2]求 $f(x)$ 的解析表达式:<br />
+$$f(x) = \lim_{n\to\infty} n^x \left(-\frac{\mathrm{e}}{2n} + o\left(\frac{1}{n}\right)\right) = -\frac{\mathrm{e}}{2}\lim_{n\to\infty} n^{x-1}$$<br />
+当 $x < 1$ 时，$x-1 < 0$，$n^{x-1} \to 0$，故 $f(x) = 0$；<br />
+当 $x = 1$ 时，$x-1 = 0$，$n^0 = 1$，故 $f(1) = -\frac{\mathrm{e}}{2}$；<br />
+当 $x > 1$ 时，$x-1 > 0$，$n^{x-1} \to +\infty$，极限为 $-\infty$ (函数在该区域无界发散)。</p>
+<p>[3]判定 $x=1$ 处的单侧极限:<br />
+左极限: $\lim\limits_{x\to 1^-} f(x) = \lim\limits_{x\to 1^-} 0 = 0$ 存在。<br />
+右极限: 由于 $x>1$ 时 $f(x)$ 趋于负无穷，右极限不存在。<br />
+故选 [A]。</p>
+<hr />
+<p><strong>(经典计算)<font color=deeppink>题目[14]:无穷大相消型极限与渐近展开</font></strong></p>
+<p>计算 $\lim\limits_{x\to +\infty} \left[\frac{x^{x+1}}{(1+x)^x} - \frac{x}{\mathrm{e}}\right]$.</p>
+<p>答案: $\frac{1}{2\mathrm{e}}$</p>
+<p>主要思路:[变形为 $\frac{x}{\mathrm{e}}[\mathrm{e}(1+1/x)^{-x} - 1]$，令 $t=1/x$，通过泰勒展开求极限]</p>
+<p>[1]变形提取公因式:<br />
+$$\frac{x^{x+1}}{(1+x)^x} = x \left(\frac{x}{1+x}\right)^x = x \left(1+\frac{1}{x}\right)^{-x}$$<br />
+原式可改写为:<br />
+$$\lim_{x\to +\infty} x \left[\left(1+\frac{1}{x}\right)^{-x} - \frac{1}{\mathrm{e}}\right] = \lim_{x\to +\infty} \frac{x}{\mathrm{e}} \left[\mathrm{e}\left(1+\frac{1}{x}\right)^{-x} - 1\right]$$</p>
+<p>[2]令 $t = \frac{1}{x} \to 0^+$ 展开指数部分:<br />
+$$\mathrm{e}(1+t)^{-1/t} = \mathrm{e} \cdot \mathrm{e}^{-\frac{1}{t}\ln(1+t)}$$<br />
+利用 $\ln(1+t) = t - \frac{t^2}{2} + o(t^2)$:<br />
+$$-\frac{1}{t}\ln(1+t) = -1 + \frac{t}{2} + o(t)$$<br />
+因此:<br />
+$$\mathrm{e} \cdot \mathrm{e}^{-1 + \frac{t}{2} + o(t)} = \mathrm{e}^{\frac{t}{2} + o(t)} = 1 + \frac{t}{2} + o(t)$$</p>
+<p>[3]代回原式求极限:<br />
+$$\mathrm{e}\left(1+\frac{1}{x}\right)^{-x} - 1 = \frac{1}{2x} + o\left(\frac{1}{x}\right)$$<br />
+故:<br />
+$$\lim_{x\to +\infty} \frac{x}{\mathrm{e}} \left[\frac{1}{2x} + o\left(\frac{1}{x}\right)\right] = \frac{1}{2\mathrm{e}}$$</p>
+<hr />
+<p><strong>(经典计算)<font color=green>题目[15]:绝对值幂函数与分母等价无穷小</font></strong></p>
+<p>$\lim\limits_{x\to 0} \frac{|x|^{x+2}}{\sqrt{1+x^2}-1} = \underline{\qquad\qquad}$.</p>
+<p>答案: $2$</p>
+<p>主要思路:[分母等价无穷小为 $\frac{1}{2}x^2$，分子拆分为 $|x|^2 \cdot |x|^x = x^2 |x|^x$，利用 $\lim\limits_{x\to 0}|x|^x = 1$ 求解]</p>
+<p>[1]分母等价代换:<br />
+当 $x\to 0$ 时:<br />
+$$\sqrt{1+x^2} - 1 \sim \frac{1}{2}x^2$$</p>
+<p>[2]分子拆分与局部极限:<br />
+$$|x|^{x+2} = |x|^2 \cdot |x|^x = x^2 \cdot \mathrm{e}^{x\ln|x|}$$<br />
+由于当 $x\to 0$ 时，$\lim\limits_{x\to 0} x\ln|x| = 0$，故:<br />
+$$\lim_{x\to 0} |x|^x = \mathrm{e}^0 = 1$$<br />
+因此分子 $|x|^{x+2} \sim x^2$。</p>
+<p>[3]计算极限:<br />
+$$\lim_{x\to 0} \frac{|x|^{x+2}}{\sqrt{1+x^2}-1} = \lim_{x\to 0} \frac{x^2}{\frac{1}{2}x^2} = 2$$</p>
+<hr />
+<p><strong>(经典计算)<font color=green>题目[16]:分段函数复合与重要极限</font></strong></p>
+<p>设 $f(x) = \frac{x+|x|}{2}$，则 $\lim\limits_{x\to 0}[f(1-x)f(1+x)]^{\frac{1}{x^2}} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\mathrm{e}^{-1}$ (或 $\frac{1}{\mathrm{e}}$)</p>
+<p>主要思路:[当 $x\to 0$ 时，$1\pm x > 0$，函数退化为恒等函数，直接代入利用 $(1-x^2)^{1/x^2}$ 重要极限]</p>
+<p>[1]化简邻域内的函数表达式:<br />
+根据定义，$f(t) = \begin{cases} t, & t\geqslant 0 \\ 0, & t<0 \end{cases}$。<br />
+当 $x\to 0$ 时，只要 $|x| < 1$，就有 $1-x > 0$ 且 $1+x > 0$。<br />
+因此:<br />
+$$f(1-x) = 1-x, \quad f(1+x) = 1+x$$</p>
+<p>[2]计算乘积与极限:<br />
+$$f(1-x)f(1+x) = (1-x)(1+x) = 1-x^2$$<br />
+代入极限:<br />
+$$\lim_{x\to 0} [1-x^2]^{\frac{1}{x^2}} = \lim_{x\to 0} \left[(1-x^2)^{-\frac{1}{x^2}}\right]^{-1} = \mathrm{e}^{-1} = \frac{1}{\mathrm{e}}$$</p>
+<hr />
+<p><strong>(概念辨析)<font color=red>题目[17]:极限与函数值、连续性、高阶无穷小关系辨析</font></strong></p>
+<p>设函数 $f(x)$ 在 $x=0$ 的某邻域内有定义，且 $\lim\limits_{x\to 0}\frac{x-f(x)}{\ln(1+x)}=1$，则以下叙述：</p>
+<p>① $f(0)=0$；<br />
+② $\lim\limits_{x\to 0} f(x)=f(0)$；<br />
+③ $\lim\limits_{x\to 0}\frac{f(x)}{x}=1$；<br />
+④ 当 $x\to 0$ 时，$f(x)$ 是 $x$ 的高阶无穷小.  </p>
+<p>正确叙述的个数为 $(\quad)$.</p>
+<p>[A] 1<br />
+[B] 2<br />
+[C] 3<br />
+[D] 4  </p>
+<p>答案: [A]</p>
+<p>主要思路:[由等价无穷小 $\ln(1+x)\sim x$ 得到 $1 - \lim\frac{f(x)}{x} = 1 \implies \lim\frac{f(x)}{x}=0$，据此逐项判断]</p>
+<p>[1]从极限条件提取 $f(x)$ 的局部性质:<br />
+因为 $\ln(1+x) \sim x$ ($x\to 0$)，所以:<br />
+$$\lim_{x\to 0} \frac{x-f(x)}{x} = 1 \implies 1 - \lim_{x\to 0}\frac{f(x)}{x} = 1 \implies \lim_{x\to 0}\frac{f(x)}{x} = 0$$</p>
+<p>[2]逐项辨析命题:<br />
+① $f(0)=0$: 极限只与点 $x=0$ 的去心邻域有关，函数在 $x=0$ 处的值可以是任意常数，甚至可以未定义，① 错误；<br />
+② $\lim\limits_{x\to 0} f(x) = f(0)$: 同样，由于 $f(0)$ 未必等于极限值 0，函数不一定连续，② 错误；<br />
+③ $\lim\limits_{x\to 0}\frac{f(x)}{x} = 1$: 已推出其极限为 0 而非 1，③ 错误；<br />
+④ 当 $x\to 0$ 时，$f(x)$ 是 $x$ 的高阶无穷小: 因为 $\lim\limits_{x\to 0}\frac{f(x)}{x}=0$，由高阶无穷小定义，④ 正确。</p>
+<p>[3]统计结论:<br />
+只有 ④ 一个叙述正确，个数为 1。选 [A]。</p>
+<hr />
+<p><strong>(概念辨析)<font color=deeppink>题目[18]:绝对值极限与充要条件判定</font></strong></p>
+<p>函数 $f(x)$ 在 $x=0$ 的某邻域内有定义，则“$\lim\limits_{x\to 0}\frac{|f(x)|}{x}$ 存在”是“$\lim\limits_{x\to 0}\frac{f(x)}{x}=0$”的 $(\quad)$.</p>
+<p>[A] 充分必要条件<br />
+[B] 充分非必要条件<br />
+[C] 必要非充分条件<br />
+[D] 既非充分又非必要条件  </p>
+<p>答案: [A]</p>
+<p>主要思路:[分析单侧符号可知分母为 $x$ 时若比值极限存在则该极限必为 0，从而与绝对值收敛等价]</p>
+<p>[1]证明充分性 (由 $\lim\limits_{x\to 0}\frac{|f(x)|}{x}$ 存在推导 $\lim\limits_{x\to 0}\frac{f(x)}{x}=0$):<br />
+设 $\lim\limits_{x\to 0} \frac{|f(x)|}{x} = A$。<br />
+当 $x > 0$ 时，$\frac{|f(x)|}{x} \geqslant 0$，故右极限 $A = \lim\limits_{x\to 0^+} \frac{|f(x)|}{x} \geqslant 0$；<br />
+当 $x < 0$ 时，$\frac{|f(x)|}{x} \leqslant 0$，故左极限 $A = \lim\limits_{x\to 0^-} \frac{|f(x)|}{x} \leqslant 0$。<br />
+因为极限存在，左右极限必相等，故 $A \geqslant 0$ 且 $A \leqslant 0 \implies A = 0$。<br />
+因此 $\lim\limits_{x\to 0}\left|\frac{f(x)}{x}\right| = \lim\limits_{x\to 0}\frac{|f(x)|}{|x|} = 0$，由此可得 $\lim\limits_{x\to 0}\frac{f(x)}{x} = 0$。充分性成立。</p>
+<p>[2]证明必要性 (由 $\lim\limits_{x\to 0}\frac{f(x)}{x}=0$ 推导 $\lim\limits_{x\to 0}\frac{|f(x)|}{x}$ 存在):<br />
+若 $\lim\limits_{x\to 0}\frac{f(x)}{x} = 0$，则 $\lim\limits_{x\to 0}\left|\frac{f(x)}{x}\right| = 0$。<br />
+由于 $\left|\frac{|f(x)|}{x}\right| = \left|\frac{f(x)}{x}\right| \to 0$，根据夹逼定理:<br />
+$$\lim_{x\to 0} \frac{|f(x)|}{x} = 0$$<br />
+极限存在且等于 0。必要性成立。</p>
+<p>[3]结论:<br />
+两者互为充分必要条件。选 [A]。</p>
+<hr />
+<p><strong>(阶数比较)<font color=deeppink>题目[19]:变限积分无穷小阶数的快速判定</font></strong></p>
+<p>当 $x\to 0$ 时，以下无穷小量阶数最高的是 $(\quad)$.</p>
+<p>[A] $\int_0^{\sin x} [(1+t)^t - 1]\,\mathrm{d}t$<br />
+[B] $\int_0^{\sin x^3} (1+t)^t\,\mathrm{d}t$<br />
+[C] $\int_0^{\sin^2 x} [\mathrm{e}-(1+t)^t]\,\mathrm{d}t$<br />
+[D] $\int_0^{\sin^4 x} (t\mathrm{e}^t - t)\,\mathrm{d}t$  </p>
+<p>答案: [D]</p>
+<p>主要思路:[利用结论: 若被积函数 $\sim c t^p$，上限 $\sim k x^q$，则积分 $\sim \frac{c k^{p+1}}{p+1} x^{q(p+1)}$，快速求出各选项阶数]</p>
+<p>[1]变限积分阶数公式:<br />
+若当 $t\to 0$ 时，被积函数 $f(t) \sim A t^p$ ($p\geqslant 0$)，且上限 $\varphi(x) \sim B x^q$ ($q > 0$)，<br />
+则 $\int_0^{\varphi(x)} f(t)\,\mathrm{d}t \sim \frac{A B^{p+1}}{p+1} x^{q(p+1)}$，其阶数为 $q(p+1)$。</p>
+<p>[2]逐项分析各选项阶数:<br />
+对于 [A]: 被积函数 $(1+t)^t - 1 = \mathrm{e}^{t\ln(1+t)} - 1 \sim t^2$ ($p=2$)；上限 $\sin x \sim x$ ($q=1$)。<br />
+阶数为 $1 \times (2+1) = 3$。<br />
+对于 [B]: 被积函数 $(1+t)^t \to 1$ ($p=0$)；上限 $\sin x^3 \sim x^3$ ($q=3$)。<br />
+阶数为 $3 \times (0+1) = 3$。<br />
+对于 [C]: 被积函数 $\mathrm{e} - (1+t)^t \to \mathrm{e}-1 \ne 0$ ($p=0$)；上限 $\sin^2 x \sim x^2$ ($q=2$)。<br />
+阶数为 $2 \times (0+1) = 2$。<br />
+对于 [D]: 被积函数 $t\mathrm{e}^t - t = t(\mathrm{e}^t-1) \sim t^2$ ($p=2$)；上限 $\sin^4 x \sim x^4$ ($q=4$)。<br />
+阶数为 $4 \times (2+1) = 12$。</p>
+<p>[3]结论:<br />
+[D] 选项的阶数高达 12 阶，为最高阶。选 [D]。</p>
+<hr />
+<p><strong>(中等计算)<font color=red>题目[20]:导数定义与变限积分比值极限</font></strong></p>
+<p>设函数 $f(x)$ 在点 $x=0$ 的某一邻域内可导，且 $f(0)=0, f'(0)\ne 0$，求 $\lim\limits_{x\to 0} \frac{\int_0^{x^2} f(t)\,\mathrm{d}t}{x^2\int_0^x f(t)\,\mathrm{d}t}$.</p>
+<p>答案: $1$</p>
+<p>主要思路:[由 $f(0)=0$ 得 $f(t) \sim f'(0)t$，直接代入分子与分母积分求出主部]</p>
+<p>[1]确定 $f(t)$ 在 $t\to 0$ 时的等价无穷小:<br />
+因为 $f(0)=0$ 且 $f'(0)\ne 0$，由导数定义:<br />
+$$\lim_{t\to 0} \frac{f(t)}{t} = f'(0) \implies f(t) \sim f'(0)t$$</p>
+<p>[2]分别求分子与分母的等价无穷小:<br />
+分子:<br />
+$$\int_0^{x^2} f(t)\,\mathrm{d}t \sim \int_0^{x^2} f'(0)t\,\mathrm{d}t = \frac{1}{2}f'(0)(x^2)^2 = \frac{1}{2}f'(0)x^4$$<br />
+分母:<br />
+$$x^2 \int_0^x f(t)\,\mathrm{d}t \sim x^2 \int_0^x f'(0)t\,\mathrm{d}t = x^2 \left[\frac{1}{2}f'(0)x^2\right] = \frac{1}{2}f'(0)x^4$$</p>
+<p>[3]求比值极限:<br />
+$$\lim_{x\to 0} \frac{\int_0^{x^2} f(t)\,\mathrm{d}t}{x^2\int_0^x f(t)\,\mathrm{d}t} = \lim_{x\to 0} \frac{\frac{1}{2}f'(0)x^4}{\frac{1}{2}f'(0)x^4} = 1$$</p>
+<hr />
+<p><strong>(概念分析)<font color=green>题目[21]:无穷大比值的对数化极限</font></strong></p>
+<p>设 $\lim\limits_{x\to +\infty} f(x) = +\infty$, $\lim\limits_{x\to +\infty} g(x) = +\infty$，且 $\lim\limits_{x\to +\infty} \frac{f(x)}{g(x)} = a > 0$，计算 $\lim\limits_{x\to +\infty}\frac{\ln f(x)}{\ln g(x)}$.</p>
+<p>答案: $1$</p>
+<p>主要思路:[将 $\ln f(x)$ 拆写为 $\ln\frac{f(x)}{g(x)} + \ln g(x)$，利用常数除以无穷大趋于 0]</p>
+<p>[1]拆分对数式:<br />
+$$\frac{\ln f(x)}{\ln g(x)} = \frac{\ln\left(\frac{f(x)}{g(x)} \cdot g(x)\right)}{\ln g(x)} = \frac{\ln\frac{f(x)}{g(x)} + \ln g(x)}{\ln g(x)} = \frac{\ln\frac{f(x)}{g(x)}}{\ln g(x)} + 1$$</p>
+<p>[2]计算各部分极限:<br />
+由于 $\lim\limits_{x\to +\infty}\frac{f(x)}{g(x)} = a > 0$，由连续性:<br />
+$$\lim_{x\to +\infty} \ln\frac{f(x)}{g(x)} = \ln a$$<br />
+又因为 $\lim\limits_{x\to +\infty} g(x) = +\infty$，所以 $\lim\limits_{x\to +\infty} \ln g(x) = +\infty$。<br />
+故:<br />
+$$\lim_{x\to +\infty} \frac{\ln\frac{f(x)}{g(x)}}{\ln g(x)} = \frac{\ln a}{+\infty} = 0$$</p>
+<p>[3]得到最终极限:<br />
+$$\lim_{x\to +\infty} \frac{\ln f(x)}{\ln g(x)} = 0 + 1 = 1$$</p>
+<hr />
+<p><strong>(经典计算)<font color=green>题目[22]:正割函数的二阶泰勒多项式</font></strong></p>
+<p>若二次多项式 $f(x)$ 在 $x=0$ 的某邻域内与 $g(x) = \sec x$ 的差为 $x^2$ 的高阶无穷小，则 $f(x) = \underline{\qquad\qquad}$.</p>
+<p>答案: $1 + \frac{1}{2}x^2$</p>
+<p>主要思路:[展开 $\sec x = (1 - x^2/2)^{-1}$ 至 $x^2$ 阶，利用泰勒多项式的唯一性确定 $f(x)$]</p>
+<p>[1]展开 $\sec x$:<br />
+$$\sec x = \frac{1}{\cos x} = \frac{1}{1 - \frac{x^2}{2} + o(x^2)}$$<br />
+利用几何级数展开 $(1-u)^{-1} = 1 + u + o(u)$:<br />
+$$\sec x = 1 + \left(\frac{x^2}{2} + o(x^2)\right) + o(x^2) = 1 + \frac{1}{2}x^2 + o(x^2)$$</p>
+<p>[2]对比确定二次多项式:<br />
+设 $f(x) = c_0 + c_1 x + c_2 x^2$。<br />
+由题意 $f(x) - \sec x = o(x^2)$，由泰勒多项式的唯一性:<br />
+$$c_0 = 1, \quad c_1 = 0, \quad c_2 = \frac{1}{2}$$<br />
+故:<br />
+$$f(x) = 1 + \frac{1}{2}x^2$$</p>
+<hr />
+<p><strong>(经典计算)<font color=deeppink>题目[23]:重要极限逼近误差阶数与系数</font></strong></p>
+<p>当 $n\to\infty$ 时，$\mathrm{e} - \left(1+\frac{1}{n}\right)^n$ 与 $\frac{c}{n^k}$ 为等价无穷小，则 $(\quad)$.</p>
+<p>[A] $c=\frac{\mathrm{e}}{3}, k=2$<br />
+[B] $c=\frac{\mathrm{e}}{2}, k=2$<br />
+[C] $c=\frac{\mathrm{e}}{3}, k=1$<br />
+[D] $c=\frac{\mathrm{e}}{2}, k=1$  </p>
+<p>答案: [D]</p>
+<p>主要思路:[利用渐近展开 $(1+1/n)^n = \mathrm{e}(1 - 1/(2n) + o(1/n))$，直接得出 $c=\mathrm{e}/2, k=1$]</p>
+<p>[1]渐近展开:<br />
+$$\left(1+\frac{1}{n}\right)^n = \mathrm{e}^{n\ln(1+1/n)} = \mathrm{e}^{n\left(\frac{1}{n} - \frac{1}{2n^2} + o(1/n^2)\right)} = \mathrm{e}^{1 - \frac{1}{2n} + o(1/n)}$$<br />
+利用 $\mathrm{e}^u = 1 + u + o(u)$:<br />
+$$\mathrm{e}\left(1 - \frac{1}{2n} + o\left(\frac{1}{n}\right)\right) = \mathrm{e} - \frac{\mathrm{e}}{2n} + o\left(\frac{1}{n}\right)$$</p>
+<p>[2]对比等价无穷小:<br />
+$$\mathrm{e} - \left(1+\frac{1}{n}\right)^n = \frac{\mathrm{e}}{2n} + o\left(\frac{1}{n}\right) \sim \frac{\mathrm{e}/2}{n^1}$$<br />
+因此:<br />
+$$c = \frac{\mathrm{e}}{2}, \quad k = 1$$<br />
+选 [D]。</p>
+<hr />
+<p><strong>(概念辨析)<font color=green>题目[24]:等价无穷小的和与差的阶数性质</font></strong></p>
+<p>当 $x\to 0$ 时，$\alpha(x)$ 与 $\beta(x)$ 是非零且不相等的等价无穷小量，以下 4 个结论：</p>
+<p>① $\alpha(x)+\beta(x) \sim 2\alpha(x)$；<br />
+② $\alpha(x)+\beta(x) \sim 2\beta(x)$；<br />
+③ $\alpha(x)-\beta(x) = o(\alpha(x))$；<br />
+④ $\alpha(x)-\beta(x) = o(\beta(x))$.  </p>
+<p>所有正确结论的序号是 $(\quad)$.</p>
+<p>[A] ①③<br />
+[B] ③④<br />
+[C] ①②③④<br />
+[D] ②④  </p>
+<p>答案: [C]</p>
+<p>主要思路:[由 $\lim\frac{\beta(x)}{\alpha(x)} = 1$，直接计算两式和与差的比值极限验证等价与高阶]</p>
+<p>[1]验证结论 ① 和 ②:<br />
+因为 $\lim\limits_{x\to 0} \frac{\beta(x)}{\alpha(x)} = 1$，所以:<br />
+$$\lim_{x\to 0} \frac{\alpha(x)+\beta(x)}{2\alpha(x)} = \lim_{x\to 0} \frac{1 + \frac{\beta(x)}{\alpha(x)}}{2} = \frac{1+1}{2} = 1$$<br />
+故 $\alpha(x)+\beta(x) \sim 2\alpha(x)$，① 正确。同理 ② 也正确。</p>
+<p>[2]验证结论 ③ 和 ④:<br />
+$$\lim_{x\to 0} \frac{\alpha(x)-\beta(x)}{\alpha(x)} = 1 - \lim_{x\to 0}\frac{\beta(x)}{\alpha(x)} = 1 - 1 = 0$$<br />
+由高阶无穷小定义，$\alpha(x)-\beta(x) = o(\alpha(x))$，③ 正确。同理 ④ 也正确。</p>
+<p>[3]结论:<br />
+①②③④ 全部正确。选 [C]。</p>
+<hr />
+<p><strong>(阶数比较)<font color=deeppink>题目[25]:复合指数幂与有界振荡项的阶数比较</font></strong></p>
+<p>当 $x\to 0$ 时，$(3+2\tan x)^x - 3^x$ 是 $3\sin^2 x + x^3\cos\frac{1}{x}$ 的 $(\quad)$.</p>
+<p>[A] 高阶无穷小<br />
+[B] 低阶无穷小<br />
+[C] 等价无穷小<br />
+[D] 同阶但非等价无穷小  </p>
+<p>答案: [D]</p>
+<p>主要思路:[对被积或复合函数分别展开求最低次幂: 分子展开为 $\frac{2}{3}x^2$，分母主部为 $3x^2$，比值为 $\frac{2}{9}$]</p>
+<p>[1]展开分子 $u(x) = (3+2\tan x)^x - 3^x$:<br />
+$$u(x) = 3^x \left[\left(1 + \frac{2}{3}\tan x\right)^x - 1\right]$$<br />
+其中:<br />
+$$\left(1 + \frac{2}{3}\tan x\right)^x = \mathrm{e}^{x\ln(1+\frac{2}{3}\tan x)} = \mathrm{e}^{x\left(\frac{2}{3}x + o(x)\right)} = \mathrm{e}^{\frac{2}{3}x^2 + o(x^2)} = 1 + \frac{2}{3}x^2 + o(x^2)$$<br />
+由于 $3^x \to 1$，故:<br />
+$$u(x) \sim 1 \cdot \frac{2}{3}x^2 = \frac{2}{3}x^2$$</p>
+<p>[2]分析分母 $v(x) = 3\sin^2 x + x^3\cos\frac{1}{x}$:<br />
+由于 $|\cos\frac{1}{x}| \leqslant 1$，$x^3\cos\frac{1}{x} = o(x^2)$。<br />
+又 $3\sin^2 x \sim 3x^2$。<br />
+故:<br />
+$$v(x) = 3x^2 + o(x^2) \sim 3x^2$$</p>
+<p>[3]求比值极限:<br />
+$$\lim_{x\to 0} \frac{u(x)}{v(x)} = \lim_{x\to 0} \frac{\frac{2}{3}x^2}{3x^2} = \frac{2}{9}$$<br />
+比值为非零非 1 常数，故二者为同阶但非等价无穷小。选 [D]。</p>
+<hr />
+<p><strong>(阶数比较)<font color=deeppink>题目[26]:变限积分无穷小阶数的综合比较</font></strong></p>
+<p>当 $x\to 0$ 时，以下无穷小中，阶数最高的是 $(\quad)$.</p>
+<p>[A] $\int_0^{\sin x} (1+t)^{\frac{2}{t}}\,\mathrm{d}t$<br />
+[B] $\int_0^{\ln(1+x^2)} \sqrt{\cos^3 t}\,\mathrm{d}t$<br />
+[C] $\int_0^x (\mathrm{e}^{\cos t} - \mathrm{e}^{\sin t})\,\mathrm{d}t$<br />
+[D] $\int_0^{x-\tan x} \arctan t\,\mathrm{d}t$  </p>
+<p>答案: [D]</p>
+<p>主要思路:[根据积分上下限阶数及被积函数最低次幂计算各选项阶数，[D] 的阶数为 6 阶，最高]</p>
+<p>[1]分析选项 [A], [B], [C] 的阶数:<br />
+[A]: 被积函数 $(1+t)^{2/t} \to \mathrm{e}^2 \ne 0$ (0 阶)，上限 $\sin x \sim x$ (1 阶)，积分阶数为 $1 \times (0+1) = 1$。<br />
+[B]: 被积函数 $\sqrt{\cos^3 t} \to 1 \ne 0$ (0 阶)，上限 $\ln(1+x^2) \sim x^2$ (2 阶)，积分阶数为 $2 \times (0+1) = 2$。<br />
+[C]: 被积函数当 $t=0$ 时为 $\mathrm{e}^1 - \mathrm{e}^0 = \mathrm{e}-1 \ne 0$ (0 阶)，上限为 $x$ (1 阶)，积分阶数为 $1 \times (0+1) = 1$。</p>
+<p>[2]分析选项 [D] 的阶数:<br />
+被积函数 $\arctan t \sim t$ (1 阶)。<br />
+上限 $x - \tan x \sim -\frac{1}{3}x^3$ (3 阶)。<br />
+积分阶数为 $3 \times (1+1) = 6$。</p>
+<p>[3]结论:<br />
+选项 [D] 的阶数为 6 阶，在所有选项中阶数最高。选 [D]。</p>
+<hr />
+<p><strong>(中等计算)<font color=red>题目[27]:泰勒展开确定待定系数</font></strong></p>
+<p>当 $x\to 0$ 时，函数 $f(x)=ax+bx^2+\ln(1+x)$ 与 $g(x)=1-\cos x$ 是等价无穷小，则 $ab = \underline{\qquad\qquad}$.</p>
+<p>答案: $-1$</p>
+<p>主要思路:[展开 $\ln(1+x)$ 与 $1-\cos x$ 至 $x^2$ 项，对比各阶系数求 $a$ 与 $b$]</p>
+<p>[1]展开各函数:<br />
+$$g(x) = 1 - \cos x = \frac{1}{2}x^2 + o(x^2)$$<br />
+$$f(x) = ax + bx^2 + \left(x - \frac{1}{2}x^2 + o(x^2)\right) = (a+1)x + \left(b - \frac{1}{2}\right)x^2 + o(x^2)$$</p>
+<p>[2]对比系数:<br />
+因为 $f(x) \sim g(x) \sim \frac{1}{2}x^2$:<br />
+一次项系数必须为 0: $a + 1 = 0 \implies a = -1$。<br />
+二次项系数必须等于 $\frac{1}{2}$: $b - \frac{1}{2} = \frac{1}{2} \implies b = 1$。</p>
+<p>[3]计算 $ab$:<br />
+$$ab = (-1) \times 1 = -1$$</p>
+<hr />
+<p><strong>(中等计算)<font color=deeppink>题目[28]:对数差与反正切展开求等价主部</font></strong></p>
+<p>当 $x\to 0$ 时，$f(x)=\frac{1}{2}\ln\frac{1+x}{1-x}-\arctan x$ 与 $g(x)=ax^b$ 是等价无穷小，则 $ab = \underline{\qquad\qquad}$.</p>
+<p>答案: $2$</p>
+<p>主要思路:[分别将 $\frac{1}{2}\ln\frac{1+x}{1-x}$ 与 $\arctan x$ 展开至 $x^3$ 项，相减后确定主部]</p>
+<p>[1]展开各项至 $x^3$ 阶:<br />
+$$\ln\frac{1+x}{1-x} = \ln(1+x) - \ln(1-x) = 2\left(x + \frac{x^3}{3} + o(x^3)\right)$$<br />
+故:<br />
+$$\frac{1}{2}\ln\frac{1+x}{1-x} = x + \frac{x^3}{3} + o(x^3)$$<br />
+又反正切级数:<br />
+$$\arctan x = x - \frac{x^3}{3} + o(x^3)$$</p>
+<p>[2]相减得到主部:<br />
+$$f(x) = \left(x + \frac{x^3}{3}\right) - \left(x - \frac{x^3}{3}\right) + o(x^3) = \frac{2}{3}x^3 + o(x^3)$$</p>
+<p>[3]确定 $a, b$ 并计算 $ab$:<br />
+$$a = \frac{2}{3}, \quad b = 3 \implies ab = \frac{2}{3} \times 3 = 2$$</p>
+<hr />
+<p><strong>(简单计算)<font color=green>题目[29]:对数与正切差的等价无穷小</font></strong></p>
+<p>当 $x\to 0$ 时，$\ln(1+x)-\tan x$ 与 $ax^b$ 是等价无穷小，则 $(a,b) = (\quad)$.</p>
+<p>[A] $\left(-\frac{1}{2}, 2\right)$<br />
+[B] $\left(\frac{1}{2}, 2\right)$<br />
+[C] $\left(-\frac{1}{3}, 3\right)$<br />
+[D] $\left(\frac{1}{3}, 3\right)$  </p>
+<p>答案: [A]</p>
+<p>主要思路:[展开 $\ln(1+x)$ 和 $\tan x$ 至 $x^2$ 项即可确定]</p>
+<p>[1]展开至 $x^2$ 阶:<br />
+$$\ln(1+x) = x - \frac{1}{2}x^2 + o(x^2)$$<br />
+$$\tan x = x + o(x^2)$$</p>
+<p>[2]相减得:<br />
+$$\ln(1+x) - \tan x = \left(x - \frac{1}{2}x^2\right) - x + o(x^2) = -\frac{1}{2}x^2 + o(x^2)$$</p>
+<p>[3]对比确定 $(a, b)$:<br />
+$$a = -\frac{1}{2}, \quad b = 2$$<br />
+选 [A]。</p>
+<hr />
+<p><strong>(经典计算)<font color=deeppink>题目[30]:反双曲正弦函数的泰勒展开</font></strong></p>
+<p>当 $x\to 0$ 时，$x-\ln(x+\sqrt{1+x^2}) \sim ax^b$，则 $a, b$ 的值分别是 $(\quad)$.</p>
+<p>[A] $\frac{1}{6}, 3$<br />
+[B] $\frac{1}{6}, 2$<br />
+[C] $\frac{1}{3}, 2$<br />
+[D] $\frac{1}{3}, 3$  </p>
+<p>答案: [A]</p>
+<p>主要思路:[利用导数展开后再积分，求出 $\ln(x+\sqrt{1+x^2})$ 的三阶泰勒展开式]</p>
+<p>[1]求导展开:<br />
+设 $h(x) = \ln(x+\sqrt{1+x^2}) = \operatorname{arsinh} x$。<br />
+$$h'(x) = \frac{1}{\sqrt{1+x^2}} = (1+x^2)^{-1/2} = 1 - \frac{1}{2}x^2 + o(x^2)$$</p>
+<p>[2]逐项积分:<br />
+因为 $h(0) = 0$:<br />
+$$h(x) = \int_0^x \left(1 - \frac{1}{2}t^2 + o(t^2)\right)\mathrm{d}t = x - \frac{1}{6}x^3 + o(x^3)$$</p>
+<p>[3]计算差值并确定 $a, b$:<br />
+$$x - \ln(x+\sqrt{1+x^2}) = x - \left(x - \frac{1}{6}x^3 + o(x^3)\right) = \frac{1}{6}x^3 + o(x^3)$$<br />
+故 $a = \frac{1}{6}, b = 3$。选 [A]。</p>
+<hr />
+<p><strong>(简单计算)<font color=green>题目[31]:反正弦函数等价无穷小</font></strong></p>
+<p>当 $x\to 0$ 时，$\arcsin x - x$ 与 $ax^b$ 是等价无穷小，则 $(a,b) = (\quad)$.</p>
+<p>[A] $\left(-\frac{1}{6}, 2\right)$<br />
+[B] $\left(\frac{1}{6}, 2\right)$<br />
+[C] $\left(-\frac{1}{6}, 3\right)$<br />
+[D] $\left(\frac{1}{6}, 3\right)$  </p>
+<p>答案: [D]</p>
+<p>主要思路:[由常用泰勒展开 $\arcsin x = x + \frac{1}{6}x^3 + o(x^3)$ 直接得到结果]</p>
+<p>[1]泰勒展开:<br />
+$$\arcsin x = x + \frac{1}{6}x^3 + o(x^3)$$</p>
+<p>[2]相减得到:<br />
+$$\arcsin x - x = \frac{1}{6}x^3 + o(x^3)$$</p>
+<p>[3]对比参数:<br />
+$$a = \frac{1}{6}, \quad b = 3$$<br />
+选 [D]。</p>
+<hr />
+<p><strong>(综合计算)<font color=red>题目[32]:单侧极限分析与参数确定</font></strong></p>
+<p>已知 $\lim\limits_{x\to 0} \left[a\frac{2+\mathrm{e}^{\frac{1}{x}}}{1+\mathrm{e}^{\frac{4}{x}}} + (1+|x|)^{\frac{1}{x}}\right]$ 存在，求 $a$ 的值.</p>
+<p>答案: $\frac{\mathrm{e} - \mathrm{e}^{-1}}{2}$ (或 $\frac{\mathrm{e}^2-1}{2\mathrm{e}}$)</p>
+<p>主要思路:[分别计算 $x\to 0^+$ 和 $x\to 0^-$ 的单侧极限，由极限存在建立等式解出 $a$]</p>
+<p>[1]计算右极限 ($x\to 0^+$):<br />
+当 $x\to 0^+$ 时，$\frac{1}{x} \to +\infty$。<br />
+前项中，$\frac{2+\mathrm{e}^{1/x}}{1+\mathrm{e}^{4/x}} \sim \frac{\mathrm{e}^{1/x}}{\mathrm{e}^{4/x}} = \mathrm{e}^{-3/x} \to 0$。<br />
+后项中，$|x| = x$，$(1+x)^{\frac{1}{x}} \to \mathrm{e}$。<br />
+因此右极限为:<br />
+$$L^+ = a \cdot 0 + \mathrm{e} = \mathrm{e}$$</p>
+<p>[2]计算左极限 ($x\to 0^-$):<br />
+当 $x\to 0^-$ 时，$\frac{1}{x} \to -\infty$。<br />
+前项中，$\mathrm{e}^{1/x} \to 0, \mathrm{e}^{4/x} \to 0$，故 $\frac{2+\mathrm{e}^{1/x}}{1+\mathrm{e}^{4/x}} \to \frac{2+0}{1+0} = 2$。<br />
+后项中，$|x| = -x$，$(1-x)^{\frac{1}{x}} = [(1-x)^{-\frac{1}{x}}]^{-1} \to \mathrm{e}^{-1}$。<br />
+因此左极限为:<br />
+$$L^- = 2a + \mathrm{e}^{-1}$$</p>
+<p>[3]令左右极限相等求解 $a$:<br />
+$$L^+ = L^- \implies \mathrm{e} = 2a + \mathrm{e}^{-1} \implies 2a = \mathrm{e} - \mathrm{e}^{-1} \implies a = \frac{\mathrm{e} - \mathrm{e}^{-1}}{2}$$</p>
+<hr />
+<p><strong>(经典计算)<font color=deeppink>题目[33]:复合根式的二阶泰勒多项式</font></strong></p>
+<p>设函数 $f(x) = \sqrt{\frac{1+x}{1-x}}$ 在 $x=0$ 处的 2 次泰勒多项式为 $a+bx+cx^2$，则 $(\quad)$.</p>
+<p>[A] $a=1, b=1, c=1$<br />
+[B] $a=1, b=1, c=\frac{1}{2}$<br />
+[C] $a=0, b=-1, c=\frac{1}{2}$<br />
+[D] $a=0, b=-1, c=1$  </p>
+<p>答案: [B]</p>
+<p>主要思路:[写为 $(1+x)^{1/2}(1-x)^{-1/2}$ 分别展开到 $x^2$ 项后相乘]</p>
+<p>[1]分解为两个二项式:<br />
+$$f(x) = (1+x)^{\frac{1}{2}}(1-x)^{-\frac{1}{2}}$$</p>
+<p>[2]分别展开至二次项:<br />
+$$(1+x)^{\frac{1}{2}} = 1 + \frac{1}{2}x + \frac{\frac{1}{2}(-\frac{1}{2})}{2}x^2 + o(x^2) = 1 + \frac{1}{2}x - \frac{1}{8}x^2 + o(x^2)$$<br />
+$$(1-x)^{-\frac{1}{2}} = 1 + \left(-\frac{1}{2}\right)(-x) + \frac{(-\frac{1}{2})(-\frac{3}{2})}{2}(-x)^2 + o(x^2) = 1 + \frac{1}{2}x + \frac{3}{8}x^2 + o(x^2)$$</p>
+<p>[3]多项式相乘合并:<br />
+$$f(x) = \left(1 + \frac{1}{2}x - \frac{1}{8}x^2\right)\left(1 + \frac{1}{2}x + \frac{3}{8}x^2\right) + o(x^2)$$<br />
+$$= 1 + \left(\frac{1}{2} + \frac{1}{2}\right)x + \left(\frac{3}{8} + \frac{1}{4} - \frac{1}{8}\right)x^2 + o(x^2)$$<br />
+$$= 1 + x + \frac{1}{2}x^2 + o(x^2)$$<br />
+因此 $a = 1, b = 1, c = \frac{1}{2}$。选 [B]。</p>
+<hr />
+<p><strong>(概念辨析)<font color=red>题目[34]:导数极限与比值极限的单向蕴含关系</font></strong></p>
+<p>设 $f(x)$ 在 $(0, +\infty)$ 内可导，$a$ 为常数. 对于以下结论：</p>
+<p>① 若 $\lim\limits_{x\to+\infty} f'(x)=a$，则 $\lim\limits_{x\to+\infty}\frac{f(x)}{x}=a$；<br />
+② 若 $\lim\limits_{x\to+\infty}\frac{f(x)}{x}=a$，则 $\lim\limits_{x\to+\infty} f'(x)=a$.  </p>
+<p>下列说法中正确的是 $(\quad)$.</p>
+<p>[A] ①正确，②错误<br />
+[B] ①错误，②正确<br />
+[C] ①与②均正确<br />
+[D] ①与②均错误  </p>
+<p>答案: [A]</p>
+<p>主要思路:[利用洛必达法则证明 ①；利用构造振荡反例 $f(x) = ax + \sin(x^2)$ 否定 ②]</p>
+<p>[1]证明结论 ①:<br />
+由于 $x\to+\infty$ 时分母 $x\to+\infty$，且 $\lim\limits_{x\to+\infty} f'(x) = a$ 存在，<br />
+根据洛必达法则 ($\frac{*}{\infty}$ 型):<br />
+$$\lim_{x\to+\infty} \frac{f(x)}{x} = \lim_{x\to+\infty} \frac{f'(x)}{1} = a$$<br />
+故 ① 正确。</p>
+<p>[2]举反例否定结论 ②:<br />
+取反例 $f(x) = ax + \sin(x^2)$。<br />
+计算比值极限:<br />
+$$\lim_{x\to+\infty} \frac{f(x)}{x} = \lim_{x\to+\infty} \left(a + \frac{\sin(x^2)}{x}\right) = a + 0 = a$$<br />
+满足条件。但求导得:<br />
+$$f'(x) = a + 2x\cos(x^2)$$<br />
+当 $x\to+\infty$ 时，由于 $2x\cos(x^2)$ 剧烈振荡无界，$\lim\limits_{x\to+\infty} f'(x)$ 根本不存在！<br />
+故 ② 错误。</p>
+<p>[3]结论:<br />
+① 正确，② 错误。选 [A]。</p>
+<hr />
+<p><strong>(间断点分类)<font color=red>题目[35]:绝对值对数分式函数的间断点类型判断</font></strong></p>
+<p>$f(x) = \frac{|\ln|x||}{x^2-1}$ 有 $(\quad)$.</p>
+<p>[A] 两个跳跃间断点，一个无穷间断点<br />
+[B] 两个可去间断点，一个无穷间断点<br />
+[C] 一个可去间断点，一个跳跃间断点，一个无穷间断点<br />
+[D] 三个无穷间断点  </p>
+<p>答案: [A]</p>
+<p>主要思路:[定义域无定义点为 $x=0, \pm 1$；在 $x=0$ 处极限为无穷，在 $x=\pm 1$ 处由于绝对值去符号产生左右符号差异形成跳跃]</p>
+<p>[1]确定所有间断点候选点:<br />
+分母为零或对数真数为零的点为: $x = 0, x = 1, x = -1$。</p>
+<p>[2]判断 $x = 0$ 处的间断点类型:<br />
+当 $x\to 0$ 时，$|\ln|x|| \to +\infty$，而分母 $x^2 - 1 \to -1$。<br />
+故 $\lim\limits_{x\to 0} f(x) = -\infty$。<br />
+因此 $x = 0$ 是无穷间断点 (第二类)。</p>
+<p>[3]判断 $x = 1$ 和 $x = -1$ 处的间断点类型:<br />
+在 $x = 1$ 的邻域内，$x > 0$，故 $|\ln|x|| = |\ln x|$。<br />
+当 $x \to 1^+$ 时，$\ln x > 0$，有:<br />
+$$\lim_{x\to 1^+} \frac{\ln x}{x^2-1} = \lim_{x\to 1^+} \frac{x-1}{(x-1)(x+1)} = \frac{1}{2}$$<br />
+当 $x \to 1^-$ 时，$\ln x < 0$，有:<br />
+$$\lim_{x\to 1^-} \frac{-\ln x}{x^2-1} = -\frac{1}{2}$$<br />
+左右极限均存在但不相等，故 $x = 1$ 为跳跃间断点。<br />
+又因为 $f(x)$ 为偶函数:<br />
+$$f(-x) = \frac{|\ln|-x||}{(-x)^2-1} = f(x)$$<br />
+由偶函数的对称性可知，$x = -1$ 处左右极限亦存在且不相等，同为跳跃间断点。</p>
+<p>[4]结论:<br />
+共有两个跳跃间断点 ($x=\pm 1$) 和一个无穷间断点 ($x=0$)。选 [A]。</p>
+<hr />
+<p><strong>(间断点分类)<font color=deeppink>题目[36]:复合关系反解与单侧极限无穷大判定</font></strong></p>
+<p>设 $f\left(\frac{1}{x}\right) = x+\sqrt{1+x^2}\ (x\ne 0)$，则 $x=0$ 是 $f(x)$ 的 $(\quad)$.</p>
+<p>[A] 连续点<br />
+[B] 跳跃间断点<br />
+[C] 可去间断点<br />
+[D] 第二类间断点  </p>
+<p>答案: [D]</p>
+<p>主要思路:[令 $t=1/x$ 反解出 $f(t) = \frac{1}{t} + \frac{\sqrt{t^2+1}}{|t|}$，计算 $t\to 0^+$ 时的极限为 $+\infty$]</p>
+<p>[1]求 $f(t)$ 的显式表达式:<br />
+令 $t = \frac{1}{x}$，则 $x = \frac{1}{t}$ ($t\ne 0$):<br />
+$$f(t) = \frac{1}{t} + \sqrt{1 + \frac{1}{t^2}} = \frac{1}{t} + \frac{\sqrt{t^2+1}}{|t|}$$</p>
+<p>[2]分析 $t\to 0$ 时的单侧极限:<br />
+当 $t \to 0^+$ 时，$|t| = t$:<br />
+$$f(t) = \frac{1 + \sqrt{1+t^2}}{t} \to \frac{2}{0^+} = +\infty$$<br />
+当 $t \to 0^-$ 时，$|t| = -t$:<br />
+$$f(t) = \frac{1 - \sqrt{1+t^2}}{t} = \frac{-t^2}{t(1+\sqrt{1+t^2})} = \frac{-t}{1+\sqrt{1+t^2}} \to 0$$</p>
+<p>[3]判定间断点类型:<br />
+由于右极限为 $+\infty$ 不存在，故 $x=0$ 为第二类间断点 (无穷间断点)。选 [D]。</p>
+<hr />
+<p><strong>(间断点分类)<font color=red>题目[37]:幂指函数间断点分类与可去间断点判定</font></strong></p>
+<p>函数 $f(x) = |x-1|^{\frac{1}{x(2-x)}}$ 的第二类间断点的个数是 $(\quad)$.</p>
+<p>[A] 0<br />
+[B] 1<br />
+[C] 2<br />
+[D] 3  </p>
+<p>答案: [A]</p>
+<p>主要思路:[找出无定义点 $x=0, 2$，分别计算这两个点的极限，利用重要极限证明均为有限值，因而无第二类间断点]</p>
+<p>[1]寻找间断点候选点:<br />
+指数分母为 0 的点是 $x = 0$ 和 $x = 2$。</p>
+<p>[2]考察 $x = 0$ 处的极限:<br />
+当 $x\to 0$ 时，底数 $|x-1| \to 1$，指数 $\frac{1}{x(2-x)} \to \infty$。<br />
+取对数求极限:<br />
+$$\lim_{x\to 0} \frac{\ln|x-1|}{x(2-x)} = \lim_{x\to 0} \frac{\ln(1-x)}{x(2-x)}$$<br />
+由等价无穷小 $\ln(1-x) \sim -x$:<br />
+$$\lim_{x\to 0} \frac{-x}{x(2-x)} = \lim_{x\to 0} \frac{-1}{2-x} = -\frac{1}{2}$$<br />
+故 $\lim\limits_{x\to 0} f(x) = \mathrm{e}^{-1/2} = \frac{1}{\sqrt{\mathrm{e}}}$ 存在且有限。<br />
+因此 $x = 0$ 是第一类可去间断点。</p>
+<p>[3]考察 $x = 2$ 处的极限:<br />
+令 $u = x-2 \to 0$，则 $x = 2+u$。<br />
+底数 $|x-1| = |1+u| = 1+u$，$\ln|x-1| \sim u$。<br />
+分母 $x(2-x) = (2+u)(-u) = -u(2+u)$。<br />
+对数极限为:<br />
+$$\lim_{u\to 0} \frac{u}{-u(2+u)} = \lim_{u\to 0} \frac{-1}{2+u} = -\frac{1}{2}$$<br />
+故 $\lim\limits_{x\to 2} f(x) = \mathrm{e}^{-1/2} = \frac{1}{\sqrt{\mathrm{e}}}$ 亦存在且有限。<br />
+因此 $x = 2$ 也是第一类可去间断点。</p>
+<p>[4]统计第二类间断点个数:<br />
+候选点 $x=0, 2$ 均为第一类可去间断点，第二类间断点个数为 0。选 [A]。</p>
+<hr />
+<p><strong>(极限与连续)<font color=red>题目[38]:数列极限分段函数连续性与参数求解</font></strong></p>
+<p>设 $f(x) = \lim\limits_{n\to\infty}\frac{x^{n+1}+(\cos\pi x + 1)\sin\alpha x}{x^n+(\cos\pi x + 1)}$，为使 $f(x)$ 对于一切 $x$ 都连续，求常数 $\alpha$ 的最小正值.</p>
+<p>答案: $\frac{\pi}{2}$</p>
+<p>主要思路:[按 $|x|<1, |x|>1, |x|=1$ 分段求出 $f(x)$ 的解析式，利用分界点 $x=\pm 1$ 处的连续性条件求出 $\alpha$ 的最小正值]</p>
+<p>[1]分段计算数列极限得到 $f(x)$:<br />
+当 $|x| < 1$ 时，$\lim\limits_{n\to\infty} x^n = 0$，且此时 $\cos\pi x + 1 > 0$:<br />
+$$f(x) = \frac{0 + (\cos\pi x + 1)\sin\alpha x}{0 + (\cos\pi x + 1)} = \sin\alpha x$$<br />
+当 $|x| > 1$ 时，分子分母同除以 $x^n$:<br />
+$$f(x) = \lim_{n\to\infty} \frac{x + \frac{(\cos\pi x + 1)\sin\alpha x}{x^n}}{1 + \frac{\cos\pi x + 1}{x^n}} = \frac{x + 0}{1 + 0} = x$$<br />
+当 $x = 1$ 时，$\cos\pi + 1 = 0$:<br />
+$$f(1) = \lim_{n\to\infty} \frac{1^{n+1} + 0}{1^n + 0} = 1$$<br />
+当 $x = -1$ 时，$\cos(-\pi) + 1 = 0$:<br />
+$$f(-1) = \lim_{n\to\infty} \frac{(-1)^{n+1} + 0}{(-1)^n + 0} = -1$$</p>
+<p>[2]分析 $x = 1$ 处的连续性:<br />
+左极限: $\lim\limits_{x\to 1^-} f(x) = \lim\limits_{x\to 1^-} \sin\alpha x = \sin\alpha$。<br />
+右极限: $\lim\limits_{x\to 1^+} f(x) = \lim\limits_{x\to 1^+} x = 1$。<br />
+函数值: $f(1) = 1$。<br />
+由连续性，必有:<br />
+$$\sin\alpha = 1$$<br />
+由此解得 $\alpha = \frac{\pi}{2} + 2k\pi$ ($k \in \mathbb{Z}$)。</p>
+<p>[3]检验 $x = -1$ 处的连续性:<br />
+左极限: $\lim\limits_{x\to -1^-} f(x) = \lim\limits_{x\to -1^-} x = -1$。<br />
+右极限: $\lim\limits_{x\to -1^+} f(x) = \lim\limits_{x\to -1^+} \sin\alpha x = \sin(-\alpha) = -\sin\alpha$。<br />
+函数值: $f(-1) = -1$。<br />
+由连续性，$-\sin\alpha = -1 \implies \sin\alpha = 1$。<br />
+此条件与 $x=1$ 处的条件完全一致！</p>
+<p>[4]求最小正值:<br />
+取 $k = 0$，得常数 $\alpha$ 的最小正值为:<br />
+$$\alpha = \frac{\pi}{2}$$</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>
