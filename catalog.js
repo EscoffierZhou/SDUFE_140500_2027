@@ -456,8 +456,8 @@ window.CATALOG_DATA = {
       "stats": {
         "totalDocs": 116,
         "formats": {
-          "html": 80,
-          "pdf": 67,
+          "html": 85,
+          "pdf": 72,
           "md": 116
         }
       },
@@ -1378,10 +1378,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000a基础篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000a基础篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000a基础篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000a基础篇.md"
+                    "html": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000a基础篇.html",
+                    "md": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000a基础篇.md",
+                    "pdf": "302 数学二/高等数学/Chap09一元积分学的计算/高等数学1000a基础篇.pdf"
                   }
                 },
                 {
@@ -1447,10 +1449,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000a基础篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000a基础篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000a基础篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000a基础篇.md"
+                    "html": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000a基础篇.html",
+                    "md": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000a基础篇.md",
+                    "pdf": "302 数学二/高等数学/Chap10一元积分学的应用(几何)/高等数学1000a基础篇.pdf"
                   }
                 },
                 {
@@ -1516,10 +1520,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000a基础篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000a基础篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000a基础篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000a基础篇.md"
+                    "html": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000a基础篇.html",
+                    "md": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000a基础篇.md",
+                    "pdf": "302 数学二/高等数学/Chap11一元积分学的应用(积分等式和积分不等式)/高等数学1000a基础篇.pdf"
                   }
                 },
                 {
@@ -1585,10 +1591,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000a基础篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000a基础篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000a基础篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000a基础篇.md"
+                    "html": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000a基础篇.html",
+                    "md": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000a基础篇.md",
+                    "pdf": "302 数学二/高等数学/Chap12一元积分学的应用(物理和经济)/高等数学1000a基础篇.pdf"
                   }
                 },
                 {
@@ -1719,10 +1727,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000a基础篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap14二重积分/高等数学1000a基础篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap14二重积分/高等数学1000a基础篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap14二重积分/高等数学1000a基础篇.md"
+                    "html": "302 数学二/高等数学/Chap14二重积分/高等数学1000a基础篇.html",
+                    "md": "302 数学二/高等数学/Chap14二重积分/高等数学1000a基础篇.md",
+                    "pdf": "302 数学二/高等数学/Chap14二重积分/高等数学1000a基础篇.pdf"
                   }
                 },
                 {

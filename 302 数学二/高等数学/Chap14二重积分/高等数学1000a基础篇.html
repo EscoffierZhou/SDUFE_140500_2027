@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>高等数学1000a基础篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h2>高等数学1000题基础篇 - 第14章 二重积分</h2>
+<h3>一、选择题与填空题</h3>
+<p><strong>(二重积分比大小)<font color=deeppink>题目[1]:被积函数点点比较判定二重积分大小</font></strong></p>
+<p>设 $D$ 为由 $x=0, y=0, x+y=\frac{1}{2}, x+y=1$ 所围成的区域，$I_1 = \iint_D \ln^7(x+y)\,\mathrm{d}\sigma$，$I_2 = \iint_D (x+y)^7\,\mathrm{d}\sigma$，$I_3 = \iint_D \sin^7(x+y)\,\mathrm{d}\sigma$，则 $(\quad)$.</p>
+<p>[A] $I_1 < I_2 < I_3$<br />
+[B] $I_1 < I_3 < I_2$<br />
+[C] $I_3 < I_2 < I_1$<br />
+[D] $I_3 < I_1 < I_2$</p>
+<p>答案: [B]</p>
+<p>主要思路:[令 $u = x+y$，分析 $u\in[1/2, 1]$ 上三个函数的严格大小关系]</p>
+<p>[1]确定 $u = x+y$ 的取值范围:<br />
+在区域 $D$ 内，$x+y$ 满足 $\frac{1}{2} \leqslant x+y \leqslant 1$。<br />
+记 $u = x+y \in [\frac{1}{2}, 1]$。</p>
+<p>[2]比较被积函数的大小:<br />
+对于对数项：当 $u\in[\frac{1}{2}, 1]$ 时，$\ln u \leqslant 0$，故 $\ln^7 u \leqslant 0$；<br />
+对于正弦与线性项：当 $u\in(0, 1]$ 时，由标准不等式 $\sin u < u$，且 $\sin u > 0$，故 $0 < \sin^7 u < u^7$。<br />
+综合可得：<br />
+$$\ln^7(x+y) \leqslant 0 < \sin^7(x+y) < (x+y)^7$$</p>
+<p>[3]由定积分保号性得出大小结论:<br />
+由于不等式在区域内部严格成立，积分后保持大小关系：<br />
+$$I_1 < I_3 < I_2$$<br />
+故选 [B]。</p>
+<hr />
+<p><strong>(区域包含比大小)<font color=green>题目[2]:正定被积函数在包含区域上的二重积分大小比较</font></strong></p>
+<p>设 $I_i = \iint_{D_i} \mathrm{e}^{-(x^2+y^2)}\,\mathrm{d}\sigma, i=1,2,3$，其中 $D_1 = \{(x,y)\mid x^2+y^2\leqslant R^2\}$，$D_2 = \{(x,y)\mid x^2+y^2\leqslant 2R^2\}$，$D_3 = \{(x,y)\mid |x|\leqslant R, |y|\leqslant R\}$，$R>0$，则 $(\quad)$.</p>
+<p>[A] $I_1 < I_2 < I_3$<br />
+[B] $I_2 < I_3 < I_1$<br />
+[C] $I_1 < I_3 < I_2$<br />
+[D] $I_3 < I_2 < I_1$</p>
+<p>答案: [C]</p>
+<p>主要思路:[分析正方形与其内切圆、外接圆的几何包含关系]</p>
+<p>[1]分析几何区域包含关系:<br />
+$D_1$ 是以原点为中心、半径为 $R$ 的圆；<br />
+$D_3$ 是边长为 $2R$ 的正方形 $[-R, R]\times[-R, R]$；<br />
+$D_2$ 是以原点为中心、半径为 $\sqrt{2}R$ 的圆。<br />
+显然，圆 $D_1$ 恰为正方形 $D_3$ 的内切圆，而圆 $D_2$ 恰为正方形 $D_3$ 的外接圆！<br />
+因此在点集上有严格包含关系：<br />
+$$D_1 \subsetneq D_3 \subsetneq D_2$$</p>
+<p>[2]结合正定被积函数判定大小:<br />
+由于被积函数 $\mathrm{e}^{-(x^2+y^2)} > 0$ 恒正，在测度更大的区域上积分值严格更大：<br />
+$$I_1 < I_3 < I_2$$<br />
+故选 [C]。</p>
+<hr />
+<p><strong>(积分中值定理极限)<font color=green>题目[3]:小圆盘二重积分平均值的收敛极限</font></strong></p>
+<p>$\lim_{r\to 0}\frac{1}{\pi r^2}\iint_{x^2+y^2\leqslant r^2}\mathrm{e}^{x^2-y^2}\cos(x+y)\,\mathrm{d}x\mathrm{d}y = (\quad)$.</p>
+<p>[A] $0$<br />
+[B] $1$<br />
+[C] $\pi r^2$<br />
+[D] $\frac{1}{\pi r^2}$</p>
+<p>答案: [B]</p>
+<p>主要思路:[应用二重积分中值定理或连续函数平均值性质求极限]</p>
+<p>[1]应用二重积分中值定理:<br />
+被积函数 $f(x,y) = \mathrm{e}^{x^2-y^2}\cos(x+y)$ 在包含原点的闭圆盘 $D_r: x^2+y^2 \leqslant r^2$ 上连续。<br />
+由二重积分中值定理，存在点 $(\xi, \eta) \in D_r$，使得：<br />
+$$\iint_{D_r} f(x,y)\,\mathrm{d}x\mathrm{d}y = f(\xi, \eta) \cdot \text{Area}(D_r) = f(\xi, \eta) \cdot \pi r^2$$</p>
+<p>[2]求 $r\to 0$ 极限:<br />
+$$\lim_{r\to 0}\frac{1}{\pi r^2}\iint_{D_r} f(x,y)\,\mathrm{d}x\mathrm{d}y = \lim_{r\to 0} f(\xi, \eta)$$<br />
+当 $r\to 0$ 时，由于 $\xi^2+\eta^2 \leqslant r^2$，必有 $(\xi, \eta) \to (0,0)$。<br />
+由 $f(x,y)$ 的连续性：<br />
+$$= f(0, 0) = \mathrm{e}^0\cos 0 = 1$$<br />
+故选 [B]。</p>
+<hr />
+<p><strong>(奇偶性抵消)<font color=deeppink>题目[4]:对称区域二重积分奇偶性分离与符号判定</font></strong></p>
+<p>设 $D$ 是由曲线 $y=x^2-1$ 和 $y=\sqrt{1-x^2}$ 围成的平面区域，则 $\iint_D (axy+by^2)\,\mathrm{d}x\mathrm{d}y\ (\quad)$.</p>
+<p>[A] 等于 $0$<br />
+[B] 符号与 $a$ 有关，与 $b$ 无关<br />
+[C] 符号与 $b$ 有关，与 $a$ 无关<br />
+[D] 符号与 $a,b$ 都有关</p>
+<p>答案: [C]</p>
+<p>主要思路:[区域关于 $y$ 轴对称，奇函数部分积分为零]</p>
+<p>[1]区域对称性检验:<br />
+曲线 $y = x^2-1$ 与 $y = \sqrt{1-x^2}$ 在 $x \to -x$ 变换下均保持不变。<br />
+因此平面区域 $D$ 关于 $y$ 轴严格对称。</p>
+<p>[2]利用奇偶性拆分积分:<br />
+$$\iint_D (axy+by^2)\,\mathrm{d}x\mathrm{d}y = a\iint_D xy\,\mathrm{d}x\mathrm{d}y + b\iint_D y^2\,\mathrm{d}x\mathrm{d}y$$<br />
+第一项中，被积函数 $xy$ 关于 $x$ 是奇函数，在关于 $y$ 轴对称的区域 $D$ 上积分恒等于 $0$：<br />
+$$a\iint_D xy\,\mathrm{d}x\mathrm{d}y = 0$$<br />
+第二项中，$y^2 \geqslant 0$ 且在 $D$ 上不恒为零，故 $\iint_D y^2\,\mathrm{d}x\mathrm{d}y > 0$（严格正数）。</p>
+<p>[3]符号结论:<br />
+原积分 $= b \iint_D y^2\,\mathrm{d}x\mathrm{d}y$。<br />
+积分值的符号仅由系数 $b$ 唯一决定，与 $a$ 完全无关。故选 [C]。</p>
+<hr />
+<p><strong>(交换次序计算)<font color=deeppink>题目[5]:交换积分次序求解无法原函数积出的累次积分</font></strong></p>
+<p>$\int_0^1\mathrm{d}x\int_0^{\sqrt{x}}\mathrm{e}^{-\frac{y^2}{2}}\,\mathrm{d}y = \underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{1}{\sqrt{\mathrm{e}}}$</p>
+<p>主要思路:[交换次序化为对 $x$ 先积分，消除非初等积分]</p>
+<p>[1]绘制并确定积分区域:<br />
+积分限表示：$0 \leqslant x \leqslant 1$，$0 \leqslant y \leqslant \sqrt{x}$。<br />
+在 $x-y$ 平面上，等价于：$0 \leqslant y \leqslant 1$，$y^2 \leqslant x \leqslant 1$。</p>
+<p>[2]交换积分次序:<br />
+$$I = \int_0^1\mathrm{d}y \int_{y^2}^1 \mathrm{e}^{-\frac{y^2}{2}}\,\mathrm{d}x = \int_0^1 \mathrm{e}^{-\frac{y^2}{2}}(1-y^2)\,\mathrm{d}y$$</p>
+<p>[3]凑微分求值:<br />
+注意到导数关系：<br />
+$$\frac{\mathrm{d}}{\mathrm{d}y}\left[y\mathrm{e}^{-\frac{y^2}{2}}\right] = \mathrm{e}^{-\frac{y^2}{2}} + y\left(-y\mathrm{e}^{-\frac{y^2}{2}}\right) = (1-y^2)\mathrm{e}^{-\frac{y^2}{2}}$$<br />
+故：<br />
+$$I = \left. y\mathrm{e}^{-\frac{y^2}{2}} \right|_0^1 = 1\cdot \mathrm{e}^{-\frac{1}{2}} - 0 = \frac{1}{\sqrt{\mathrm{e}}}$$</p>
+<hr />
+<p><strong>(交换约分积分)<font color=green>题目[6]:交换积分次序后因式约分极速求解</font></strong></p>
+<p>$\int_0^1\mathrm{d}y\int_0^{y^2}\frac{x\mathrm{e}^{x^2}}{1-\sqrt{x}}\,\mathrm{d}x = \underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{\mathrm{e}-1}{2}$</p>
+<p>主要思路:[交换积分次序先积 $y$，利用积分结果约去分母 $1-\sqrt{x}$]</p>
+<p>[1]交换积分次序:<br />
+区域条件：$0 \leqslant y \leqslant 1$，$0 \leqslant x \leqslant y^2$。<br />
+等价于：$0 \leqslant x \leqslant 1$，$\sqrt{x} \leqslant y \leqslant 1$。<br />
+$$I = \int_0^1 \mathrm{d}x \int_{\sqrt{x}}^1 \frac{x\mathrm{e}^{x^2}}{1-\sqrt{x}}\,\mathrm{d}y = \int_0^1 \frac{x\mathrm{e}^{x^2}}{1-\sqrt{x}}\left( \int_{\sqrt{x}}^1 \mathrm{d}y \right)\mathrm{d}x$$</p>
+<p>[2]约分化简与求值:<br />
+由于 $\int_{\sqrt{x}}^1 \mathrm{d}y = 1-\sqrt{x}$，代入恰好与分母约去：<br />
+$$I = \int_0^1 \frac{x\mathrm{e}^{x^2}}{1-\sqrt{x}}(1-\sqrt{x})\,\mathrm{d}x = \int_0^1 x\mathrm{e}^{x^2}\,\mathrm{d}x = \left. \frac{1}{2}\mathrm{e}^{x^2} \right|_0^1 = \frac{\mathrm{e}-1}{2}$$</p>
+<hr />
+<p><strong>(反函数交换次序)<font color=green>题目[7]:对数与指数曲线反函数交换积分次序</font></strong></p>
+<p>$I = \int_1^{\mathrm{e}}\mathrm{d}y\int_0^{\ln y} f(x,y)\,\mathrm{d}x$（其中 $f(x,y)$ 连续）交换积分次序得 $(\quad)$.</p>
+<p>[A] $I = \int_0^{\ln y}\mathrm{d}x\int_1^{\mathrm{e}} f(x,y)\,\mathrm{d}y$<br />
+[B] $I = \int_0^1\mathrm{d}x\int_{\mathrm{e}^x}^{\mathrm{e}} f(x,y)\,\mathrm{d}y$<br />
+[C] $I = \int_1^{\mathrm{e}}\mathrm{d}x\int_0^{\ln y} f(x,y)\,\mathrm{d}y$<br />
+[D] $I = \int_{\mathrm{e}^x}^{\mathrm{e}}\mathrm{d}x\int_0^1 f(x,y)\,\mathrm{d}y$</p>
+<p>答案: [B]</p>
+<p>主要思路:[画出 $1\leqslant y\leqslant \mathrm{e}, 0\leqslant x\leqslant \ln y$ 区域反求 $x$ 范围与 $y$ 边界]</p>
+<p>[1]区域形态分析:<br />
+积分限表明：$y\in[1, \mathrm{e}]$，对固定 $y$，$x\in[0, \ln y]$。<br />
+当 $y=1$ 时 $x=0$；当 $y=\mathrm{e}$ 时 $x=1$。故 $x$ 的总体变化范围为 $[0, 1]$。</p>
+<p>[2]反解 $y$ 的上下界:<br />
+由 $x \leqslant \ln y$ 可反解出 $y \geqslant \mathrm{e}^x$。<br />
+又已知 $y$ 的上限为 $\mathrm{e}$。<br />
+因此对于固定的 $x\in[0, 1]$，$y$ 从曲线 $y=\mathrm{e}^x$ 变化到直线 $y=\mathrm{e}$：<br />
+$$I = \int_0^1 \mathrm{d}x \int_{\mathrm{e}^x}^{\mathrm{e}} f(x,y)\,\mathrm{d}y$$<br />
+故选 [B]。</p>
+<hr />
+<p><strong>(钝角三角交换)<font color=deeppink>题目[8]:正弦函数在第二象限反函数交换积分次序</font></strong></p>
+<p>设 $f(x,y)$ 是连续函数，则 $\int_{\frac{\pi}{2}}^{\frac{5\pi}{6}}\mathrm{d}x\int_{\sin x}^1 f(x,y)\,\mathrm{d}y = (\quad)$.</p>
+<p>[A] $\int_{\frac{1}{2}}^1\mathrm{d}y\int_{\frac{\pi}{2}}^{\arcsin y} f(x,y)\,\mathrm{d}x$<br />
+[B] $\int_{\frac{1}{2}}^1\mathrm{d}y\int_{\pi-\arcsin y}^{\frac{5\pi}{6}} f(x,y)\,\mathrm{d}x$<br />
+[C] $\int_0^1\mathrm{d}y\int_{\frac{\pi}{2}}^{\arcsin y} f(x,y)\,\mathrm{d}x$<br />
+[D] $\int_0^1\mathrm{d}y\int_{\pi-\arcsin y}^{\frac{\pi}{2}} f(x,y)\,\mathrm{d}x$</p>
+<p>答案: [B]</p>
+<p>主要思路:[注意 $x\in[\frac{\pi}{2}, \frac{5\pi}{6}]$ 处于第二象限，反函数为 $x = \pi - \arcsin y$]</p>
+<p>[1]确定 $y$ 的变化范围:<br />
+在区间 $[\frac{\pi}{2}, \frac{5\pi}{6}]$ 上，$\sin x$ 是单调递减的。<br />
+当 $x = \frac{\pi}{2}$ 时，$\sin x = 1$；当 $x = \frac{5\pi}{6}$ 时，$\sin x = \frac{1}{2}$。<br />
+因此 $y$ 的总范围为 $[\frac{1}{2}, 1]$。</p>
+<p>[2]反解第二象限中的 $x$:<br />
+对于给定的 $y\in[\frac{1}{2}, 1]$，曲线 $y = \sin x$ 在第二象限的反函数为 $x = \pi - \arcsin y$。<br />
+原积分区域满足 $\sin x \leqslant y \leqslant 1$，由于 $\sin x$ 在该区间单调递减，条件 $\sin x \leqslant y$ 等价于 $x \geqslant \pi - \arcsin y$。<br />
+而 $x$ 的上限为 $\frac{5\pi}{6}$。<br />
+因此交换次序后为：<br />
+$$\int_{\frac{1}{2}}^1 \mathrm{d}y \int_{\pi-\arcsin y}^{\frac{5\pi}{6}} f(x,y)\,\mathrm{d}x$$<br />
+故选 [B]。</p>
+<hr />
+<p><strong>(轮换与对称极坐标)<font color=red>题目[9]:多元对称性与极坐标旋转等价形式判定</font></strong></p>
+<p>设函数 $f(x,y)$ 连续，且 $f(x,y) = f(y,x) = f(-x,y)$，则 $\int_{-2}^2\mathrm{d}x\int_{\sqrt{4-x^2}}^2 f(x,y)\,\mathrm{d}y = (\quad)$.</p>
+<p>[A] $\int_0^2 \left[\int_{-2}^{-\sqrt{4-y^2}} f(x,y)\,\mathrm{d}x + \int_{-\sqrt{4-y^2}}^2 f(x,y)\,\mathrm{d}x\right]\mathrm{d}y$<br />
+[B] $2\int_0^2 \left[\int_{\sqrt{4-y^2}}^2 f(x,y)\,\mathrm{d}y\right]\mathrm{d}x$<br />
+[C] $4\int_0^{\frac{\pi}{4}}\mathrm{d}\theta\int_2^{2\sec\theta} f(r\cos\theta, r\sin\theta)r\,\mathrm{d}r$<br />
+[D] $4\int_0^{\arctan\frac{1}{2}}\mathrm{d}\theta\int_2^{2\sec\theta} f(r\cos\theta, r\sin\theta)r\,\mathrm{d}r$</p>
+<p>答案: [C]</p>
+<p>主要思路:[分析区域关于 $y$ 轴与 $y=x$ 的双重对称性，转化为极坐标标准形式]</p>
+<p>[1]几何区域解析:<br />
+原区域 $D$ 是在正方形 $[-2, 2]\times[0, 2]$ 内部、圆 $x^2+y^2\leqslant 4$ 外部且在 $x$ 轴上方的部分。<br />
+由 $f(-x, y) = f(x, y)$，区域关于 $y$ 轴对称，左右两半部分积分值相等：<br />
+$$I = 2\iint_{D_1} f(x,y)\,\mathrm{d}x\mathrm{d}y$$<br />
+其中 $D_1$ 是第一象限部分：$0 \leqslant x \leqslant 2, \sqrt{4-x^2} \leqslant y \leqslant 2$。</p>
+<p>[2]轮换对称性与极坐标角平分线划分:<br />
+在 $D_1$ 中，直线 $y=x$ 将其分为两个全等三角形角部。<br />
+由 $f(x,y) = f(y,x)$，沿 $y=x$ 对折两部分积分严格相等。<br />
+因此：<br />
+$$I = 4\iint_{D_{11}} f(x,y)\,\mathrm{d}x\mathrm{d}y$$<br />
+其中 $D_{11}$ 为射线 $\theta\in[0, \frac{\pi}{4}]$ 下方的角隅区域，其右边界为直线 $x=2$（极坐标方程 $r\cos\theta=2 \implies r = 2\sec\theta$），内边界为圆弧 $r=2$。<br />
+极坐标表示即为：<br />
+$$4\int_0^{\frac{\pi}{4}}\mathrm{d}\theta \int_2^{2\sec\theta} f(r\cos\theta, r\sin\theta)r\,\mathrm{d}r$$<br />
+故选 [C]。</p>
+<hr />
+<p><strong>(三叶玫瑰线积分)<font color=deeppink>题目[10]:三叶玫瑰线极坐标二重积分</font></strong></p>
+<p>已知曲线 $L$ 的极坐标方程为 $r = \sin 3\theta\ \left(0\leqslant\theta\leqslant\frac{\pi}{3}\right)$，$D$ 为曲线 $L$ 围成的区域，则 $\iint_D \sqrt{x^2+y^2}\,\mathrm{d}x\mathrm{d}y = \underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{4}{27}$</p>
+<p>主要思路:[极坐标变换 $\sqrt{x^2+y^2}=r$，面积微元 $r\mathrm{d}r\mathrm{d}\theta$，点火公式求三角定积分]</p>
+<p>[1]极坐标积分表达式:<br />
+在极坐标系下，被积函数为 $r$，面积微元为 $r\mathrm{d}r\mathrm{d}\theta$：<br />
+$$I = \int_0^{\frac{\pi}{3}}\mathrm{d}\theta \int_0^{\sin 3\theta} r\cdot r\,\mathrm{d}r = \int_0^{\frac{\pi}{3}} \left[ \frac{r^3}{3} \right]_0^{\sin 3\theta}\mathrm{d}\theta = \frac{1}{3}\int_0^{\frac{\pi}{3}} \sin^3 3\theta\,\mathrm{d}\theta$$</p>
+<p>[2]换元与点火公式计算:<br />
+令 $u = 3\theta$，则 $\mathrm{d}\theta = \frac{\mathrm{d}u}{3}$。当 $\theta=0$ 时 $u=0$；当 $\theta=\frac{\pi}{3}$ 时 $u=\pi$：<br />
+$$I = \frac{1}{9}\int_0^\pi \sin^3 u\,\mathrm{d}u = \frac{2}{9}\int_0^{\frac{\pi}{2}} \sin^3 u\,\mathrm{d}u = \frac{2}{9}\cdot \frac{2}{3} = \frac{4}{27}$$</p>
+<hr />
+<p><strong>(抛物线间无界积分)<font color=deeppink>题目[11]:两抛物线夹角区域反常二重积分</font></strong></p>
+<p>设 $D$ 是第一象限内在曲线 $y=4x^2$ 与 $y=9x^2$ 之间的区域，则 $\iint_D x\mathrm{e}^{-y^2}\,\mathrm{d}x\mathrm{d}y = \underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{5}{144}$</p>
+<p>主要思路:[先对 $x$ 积分消除二次项，再对 $y$ 凑微分求反常积分]</p>
+<p>[1]确定积分限:<br />
+在第一象限，曲线 $y = 4x^2 \implies x = \frac{\sqrt{y}}{2}$，曲线 $y = 9x^2 \implies x = \frac{\sqrt{y}}{3}$。<br />
+区域介于两抛物线之间：$\frac{\sqrt{y}}{3} \leqslant x \leqslant \frac{\sqrt{y}}{2}$，其中 $y\in[0, +\infty)$。</p>
+<p>[2]先对 $x$ 积分:<br />
+$$I = \int_0^{+\infty} \mathrm{e}^{-y^2}\mathrm{d}y \int_{\frac{\sqrt{y}}{3}}^{\frac{\sqrt{y}}{2}} x\,\mathrm{d}x = \int_0^{+\infty} \mathrm{e}^{-y^2} \left[ \frac{x^2}{2} \right]_{\frac{\sqrt{y}}{3}}^{\frac{\sqrt{y}}{2}}\,\mathrm{d}y$$<br />
+$$= \int_0^{+\infty} \mathrm{e}^{-y^2} \left( \frac{y}{8} - \frac{y}{18} \right)\,\mathrm{d}y = \frac{5}{72}\int_0^{+\infty} y\mathrm{e}^{-y^2}\,\mathrm{d}y$$</p>
+<p>[3]凑微分计算广义积分:<br />
+$$I = \frac{5}{144}\int_0^{+\infty} \mathrm{e}^{-y^2}\,\mathrm{d}(y^2) = \frac{5}{144}\left. \left(-\mathrm{e}^{-u}\right) \right|_0^{+\infty} = \frac{5}{144}(0 - (-1)) = \frac{5}{144}$$</p>
+<hr />
+<p><strong>(偏心圆球冠二重积分)<font color=deeppink>题目[12]:半偏心圆域上的半球面二重积分</font></strong></p>
+<p>已知 $D=\{(x,y)\mid (x-a)^2+y^2\leqslant a^2, y\geqslant 0\},\ a>0$，则 $\iint_D \sqrt{4a^2-x^2-y^2}\,\mathrm{d}x\mathrm{d}y = \underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{4}{9}(3\pi - 4)a^3$</p>
+<p>主要思路:[采用极坐标系表示偏心圆边界 $r = 2a\cos\theta$]</p>
+<p>[1]极坐标转换:<br />
+圆 $(x-a)^2+y^2 \leqslant a^2 \iff x^2+y^2 \leqslant 2ax \iff r \leqslant 2a\cos\theta$。<br />
+因为 $y \geqslant 0$，故 $\theta \in [0, \frac{\pi}{2}]$。</p>
+<p>[2]列出累次积分并计算:<br />
+$$I = \int_0^{\frac{\pi}{2}}\mathrm{d}\theta \int_0^{2a\cos\theta} \sqrt{4a^2-r^2}\,r\,\mathrm{d}r = \int_0^{\frac{\pi}{2}} \left[ -\frac{1}{3}(4a^2-r^2)^{\frac{3}{2}} \right]_0^{2a\cos\theta}\mathrm{d}\theta$$<br />
+$$= \frac{1}{3}\int_0^{\frac{\pi}{2}} \left[ (4a^2)^{\frac{3}{2}} - (4a^2 - 4a^2\cos^2\theta)^{\frac{3}{2}} \right]\mathrm{d}\theta = \frac{8a^3}{3}\int_0^{\frac{\pi}{2}} (1 - \sin^3\theta)\,\mathrm{d}\theta$$</p>
+<p>[3]应用点火公式:<br />
+$$\int_0^{\frac{\pi}{2}} 1\,\mathrm{d}\theta = \frac{\pi}{2},\quad \int_0^{\frac{\pi}{2}} \sin^3\theta\,\mathrm{d}\theta = \frac{2}{3}$$<br />
+$$I = \frac{8a^3}{3}\left(\frac{\pi}{2} - \frac{2}{3}\right) = \frac{4}{9}(3\pi - 4)a^3$$</p>
+<hr />
+<h3>二、解答题</h3>
+<p><strong>(椭圆割线积分)<font color=deeppink>题目[13]:直角坐标系下椭圆弧与直线所围区域积分</font></strong></p>
+<p>设平面区域 $D$ 由曲线 $y=\sqrt{3(1-x^2)}$ 与直线 $y=\sqrt{3}x$ 及 $y$ 轴所围成. 计算二重积分 $\iint_D (x^2+y^2)\,\mathrm{d}x\mathrm{d}y$.</p>
+<p>答案: $\frac{\sqrt{3}(\pi+1)}{8}$</p>
+<p>主要思路:[联立求交点，采用直角坐标先对 $y$ 积分，再利用三角换元积分]</p>
+<p>[1]求交点与确定积分范围:<br />
+曲线 $y = \sqrt{3(1-x^2)}$ 即椭圆弧 $x^2 + \frac{y^2}{3} = 1\ (y\geqslant 0)$。<br />
+联立 $y = \sqrt{3}x$：<br />
+$$3x^2 = 3(1-x^2) \implies 2x^2 = 1 \implies x = \frac{1}{\sqrt{2}}\quad (x\geqslant 0)$$<br />
+区域由 $y$ 轴（$x=0$）、直线 $y=\sqrt{3}x$、椭圆弧围成，因此：<br />
+$0 \leqslant x \leqslant \frac{1}{\sqrt{2}}$，$\sqrt{3}x \leqslant y \leqslant \sqrt{3}\sqrt{1-x^2}$。</p>
+<p>[2]先对 $y$ 积分:<br />
+$$I = \int_0^{\frac{1}{\sqrt{2}}}\mathrm{d}x \int_{\sqrt{3}x}^{\sqrt{3}\sqrt{1-x^2}} (x^2+y^2)\,\mathrm{d}y = \int_0^{\frac{1}{\sqrt{2}}} \left[ x^2 y + \frac{y^3}{3} \right]_{\sqrt{3}x}^{\sqrt{3}\sqrt{1-x^2}}\,\mathrm{d}x$$<br />
+代入上限：<br />
+$$\sqrt{3}x^2\sqrt{1-x^2} + \sqrt{3}(1-x^2)^{\frac{3}{2}} = \sqrt{3}\sqrt{1-x^2}\big(x^2 + (1-x^2)\big) = \sqrt{3}\sqrt{1-x^2}$$<br />
+代入下限：<br />
+$$\sqrt{3}x^3 + \frac{3\sqrt{3}x^3}{3} = 2\sqrt{3}x^3$$<br />
+两者相减：<br />
+$$I = \sqrt{3}\int_0^{\frac{1}{\sqrt{2}}} \sqrt{1-x^2}\,\mathrm{d}x - 2\sqrt{3}\int_0^{\frac{1}{\sqrt{2}}} x^3\,\mathrm{d}x$$</p>
+<p>[3]分别求定积分:<br />
+第一项：<br />
+$$\int_0^{\frac{1}{\sqrt{2}}} \sqrt{1-x^2}\,\mathrm{d}x = \left. \left( \frac{x}{2}\sqrt{1-x^2} + \frac{1}{2}\arcsin x \right) \right|_0^{\frac{1}{\sqrt{2}}} = \frac{1}{4} + \frac{\pi}{8}$$<br />
+第二项：<br />
+$$2\sqrt{3}\int_0^{\frac{1}{\sqrt{2}}} x^3\,\mathrm{d}x = 2\sqrt{3}\left. \frac{x^4}{4} \right|_0^{\frac{1}{\sqrt{2}}} = 2\sqrt{3}\cdot \frac{1}{16} = \frac{\sqrt{3}}{8}$$<br />
+合并即得：<br />
+$$I = \sqrt{3}\left(\frac{1}{4} + \frac{\pi}{8}\right) - \frac{\sqrt{3}}{8} = \sqrt{3}\left(\frac{1}{8} + \frac{\pi}{8}\right) = \frac{\sqrt{3}(\pi+1)}{8}$$</p>
+<hr />
+<p><strong>(轮换对称化简)<font color=deeppink>题目[14]:利用 $y=x$ 轮换对称性化简分母二重积分</font></strong></p>
+<p>设平面区域 $D=\{(x,y)\mid 1\leqslant x^2+y^2\leqslant 4, x\geqslant 0, y\geqslant 0\}$，计算 $\iint_D \frac{x\cos\sqrt{x^2+y^2}}{x+y}\,\mathrm{d}x\mathrm{d}y$.</p>
+<p>答案: $\frac{\pi}{4}(2\sin 2 + \cos 2 - \sin 1 - \cos 1)$</p>
+<p>主要思路:[区域关于 $y=x$ 对称，$x$ 与 $y$ 轮换相加消去分母 $x+y$]</p>
+<p>[1]应用轮换对称性:<br />
+区域 $D$ 是第一象限的圆环，关于直线 $y=x$ 严格对称。<br />
+将积分变量 $x, y$ 互换，积分值不变：<br />
+$$I = \iint_D \frac{y\cos\sqrt{x^2+y^2}}{x+y}\,\mathrm{d}x\mathrm{d}y$$</p>
+<p>[2]两式相加消除分母:<br />
+$$2I = \iint_D \frac{(x+y)\cos\sqrt{x^2+y^2}}{x+y}\,\mathrm{d}x\mathrm{d}y = \iint_D \cos\sqrt{x^2+y^2}\,\mathrm{d}x\mathrm{d}y$$</p>
+<p>[3]极坐标计算:<br />
+$$2I = \int_0^{\frac{\pi}{2}}\mathrm{d}\theta \int_1^2 r\cos r\,\mathrm{d}r = \frac{\pi}{2} \left. (r\sin r + \cos r) \right|_1^2 = \frac{\pi}{2}(2\sin 2 + \cos 2 - \sin 1 - \cos 1)$$<br />
+$$I = \frac{\pi}{4}(2\sin 2 + \cos 2 - \sin 1 - \cos 1)$$</p>
+<hr />
+<p><strong>(绝对值对称拆分)<font color=deeppink>题目[15]:对称区域奇偶性拆分与有理分式积分</font></strong></p>
+<p>设 $D$ 是由 $y=|x|$ 及 $y=1$ 围成的有界区域，计算二重积分 $\iint_D \frac{x^2-x\cos y-y^2}{x^2+y^2}\,\mathrm{d}x\mathrm{d}y$.</p>
+<p>答案: $1 - \frac{\pi}{2}$</p>
+<p>主要思路:[奇函数项积分为零，剩余项利用对称性在直角坐标下先积 $x$]</p>
+<p>[1]利用关于 $y$ 轴的对称性消去奇函数项:<br />
+区域 $D$ 由 $y=|x|$ 和 $y=1$ 围成，关于 $y$ 轴对称。<br />
+项 $-\frac{x\cos y}{x^2+y^2}$ 关于 $x$ 是奇函数，故积分值为 $0$：<br />
+$$I = \iint_D \frac{x^2-y^2}{x^2+y^2}\,\mathrm{d}x\mathrm{d}y = 2\iint_{D_1} \frac{x^2-y^2}{x^2+y^2}\,\mathrm{d}x\mathrm{d}y$$<br />
+其中 $D_1: 0 \leqslant x \leqslant y, 0 \leqslant y \leqslant 1$。</p>
+<p>[2]先对 $x$ 积分:<br />
+$$\int_0^y \frac{x^2-y^2}{x^2+y^2}\,\mathrm{d}x = \int_0^y \left(1 - \frac{2y^2}{x^2+y^2}\right)\,\mathrm{d}x = \left. \left(x - 2y\arctan\frac{x}{y}\right) \right|_0^y$$<br />
+$$= y - 2y\arctan 1 = y - 2y\cdot \frac{\pi}{4} = \left(1 - \frac{\pi}{2}\right)y$$</p>
+<p>[3]再对 $y$ 积分:<br />
+$$I = 2\int_0^1 \left(1 - \frac{\pi}{2}\right)y\,\mathrm{d}y = 2\left(1 - \frac{\pi}{2}\right)\left. \frac{y^2}{2} \right|_0^1 = 1 - \frac{\pi}{2}$$</p>
+<hr />
+<p><strong>(切圆极坐标)<font color=green>题目[16]:切于 $x$ 轴圆域上的根式二重积分</font></strong></p>
+<p>计算二重积分 $\iint_D \sqrt{1-x^2-y^2}\,\mathrm{d}\sigma$，其中 $D=\{(x,y)\mid x^2+y^2\leqslant y\}$.</p>
+<p>答案: $\frac{\pi}{3}$</p>
+<p>主要思路:[极坐标下圆的方程为 $r = \sin\theta$，直接积分求值]</p>
+<p>[1]极坐标系表达:<br />
+圆方程 $x^2+y^2 \leqslant y \iff r^2 \leqslant r\sin\theta \implies r \leqslant \sin\theta$。<br />
+因为 $r \geqslant 0$，故 $\theta \in [0, \pi]$。</p>
+<p>[2]累次积分计算:<br />
+$$I = \int_0^\pi \mathrm{d}\theta \int_0^{\sin\theta} \sqrt{1-r^2}\,r\,\mathrm{d}r = \int_0^\pi \left[ -\frac{1}{3}(1-r^2)^{\frac{3}{2}} \right]_0^{\sin\theta}\,\mathrm{d}\theta$$<br />
+$$= \frac{1}{3}\int_0^\pi (1 - \cos^3\theta)\,\mathrm{d}\theta = \frac{1}{3}\left(\pi - 0\right) = \frac{\pi}{3}$$</p>
+<hr />
+<p><strong>(抽象奇偶性秒杀)<font color=red>题目[17]:抽象连续函数构造奇函数在对称曲边区域积分</font></strong></p>
+<p>设平面区域 $D=\{(x,y)\mid x^3\leqslant y\leqslant 1, -1\leqslant x\leqslant 1\}$，$f(x)$ 是定义在 $[-a, a]\ (a\geqslant 1)$ 上的任意连续函数，求 $\iint_D [(x+1)f(x)+(x-1)f(-x)]\sin y\,\mathrm{d}x\mathrm{d}y$.</p>
+<p>答案: $0$</p>
+<p>主要思路:[令 $F(x) = (x+1)f(x)+(x-1)f(-x)$，验证其为关于 $x$ 的奇函数]</p>
+<p>[1]验证 $F(x)$ 的奇偶性:<br />
+记 $F(x) = (x+1)f(x) + (x-1)f(-x)$。<br />
+$$F(-x) = (-x+1)f(-x) + (-x-1)f(x) = -(x-1)f(-x) - (x+1)f(x) = -F(x)$$<br />
+因此 $F(x)$ 恒为奇函数！</p>
+<p>[2]直角坐标展开积分:<br />
+$$I = \int_{-1}^1 F(x)\,\mathrm{d}x \int_{x^3}^1 \sin y\,\mathrm{d}y = \int_{-1}^1 F(x)(\cos x^3 - \cos 1)\,\mathrm{d}x$$<br />
+$$= \int_{-1}^1 F(x)\cos x^3\,\mathrm{d}x - \cos 1 \int_{-1}^1 F(x)\,\mathrm{d}x$$</p>
+<p>[3]对称区间奇函数积分判定:<br />
+因为 $\cos(-x)^3 = \cos(-x^3) = \cos x^3$ 是偶函数，所以 $F(x)\cos x^3$ 是奇函数 $\times$ 偶函数 $=$ 奇函数；<br />
+$F(x)$ 本身亦为奇函数。<br />
+奇函数在对称区间 $[-1, 1]$ 上的定积分恒为零：<br />
+$$I = 0 - 0 = 0$$</p>
+<hr />
+<p><strong>(极坐标化简二次根式)<font color=deeppink>题目[18]:累次积分转换为极坐标极速求解</font></strong></p>
+<p>计算 $I = \int_0^1\mathrm{d}y\int_y^{\sqrt{2y-y^2}}\frac{1}{\sqrt{x^2+y^2}\sqrt{4-x^2-y^2}}\,\mathrm{d}x$.</p>
+<p>答案: $\frac{\pi^2}{32}$</p>
+<p>主要思路:[识别极坐标下边界 $x = \sqrt{2y-y^2} \implies r = 2\sin\theta$ 与 $x=y \implies \theta = \frac{\pi}{4}$]</p>
+<p>[1]转换为极坐标区域:<br />
+边界 $x = \sqrt{2y-y^2} \iff x^2+y^2 = 2y \iff r = 2\sin\theta$；<br />
+边界 $x = y \iff \theta = \frac{\pi}{4}$；<br />
+由于 $y \leqslant x \leqslant \sqrt{2y-y^2}$，角 $\theta$ 从 $0$ 变化到 $\frac{\pi}{4}$，半径 $r$ 从 $0$ 变化到 $2\sin\theta$。</p>
+<p>[2]极坐标积分计算:<br />
+$$I = \int_0^{\frac{\pi}{4}}\mathrm{d}\theta \int_0^{2\sin\theta} \frac{1}{r\sqrt{4-r^2}}\,r\,\mathrm{d}r = \int_0^{\frac{\pi}{4}}\mathrm{d}\theta \int_0^{2\sin\theta} \frac{\mathrm{d}r}{\sqrt{4-r^2}}$$<br />
+$$= \int_0^{\frac{\pi}{4}} \left[ \arcsin\frac{r}{2} \right]_0^{2\sin\theta}\,\mathrm{d}\theta = \int_0^{\frac{\pi}{4}} \arcsin(\sin\theta)\,\mathrm{d}\theta$$<br />
+由于 $\theta \in [0, \frac{\pi}{4}]$，$\arcsin(\sin\theta) = \theta$：<br />
+$$I = \int_0^{\frac{\pi}{4}} \theta\,\mathrm{d}\theta = \left. \frac{\theta^2}{2} \right|_0^{\frac{\pi}{4}} = \frac{\pi^2}{32}$$</p>
+<hr />
+<p><strong>(分段区域积分)<font color=deeppink>题目[19]:分段函数与抛物圆边界区域积分</font></strong></p>
+<p>计算 $\iint_D f(x,y)\,\mathrm{d}\sigma$，其中 $D=\{(x,y)\mid x^2+y^2\geqslant 2x\}$，$f(x,y)=\begin{cases} y, & 1\leqslant x\leqslant 2, 0\leqslant y\leqslant x, \\ 0, & \text{其他.} \end{cases}$</p>
+<p>答案: $\frac{5}{6}$</p>
+<p>主要思路:[确定非零区域 $1\leqslant x\leqslant 2, \sqrt{2x-x^2}\leqslant y\leqslant x$ 后先对 $y$ 积分]</p>
+<p>[1]确定有效非零积分区域:<br />
+函数 $f(x,y)$ 仅在 $1\leqslant x\leqslant 2$ 且 $0\leqslant y\leqslant x$ 时非零，且需满足 $x^2+y^2 \geqslant 2x$。<br />
+当 $x\in[1, 2]$ 时，$2x-x^2 \geqslant 0$，故 $y^2 \geqslant 2x-x^2 \implies y \geqslant \sqrt{2x-x^2}$。<br />
+因此有效积分区域为：$1 \leqslant x \leqslant 2$，$\sqrt{2x-x^2} \leqslant y \leqslant x$。</p>
+<p>[2]计算累次积分:<br />
+$$I = \int_1^2 \mathrm{d}x \int_{\sqrt{2x-x^2}}^x y\,\mathrm{d}y = \int_1^2 \left[ \frac{y^2}{2} \right]_{\sqrt{2x-x^2}}^x\,\mathrm{d}x = \frac{1}{2}\int_1^2 [x^2 - (2x-x^2)]\,\mathrm{d}x$$<br />
+$$= \int_1^2 (x^2-x)\,\mathrm{d}x = \left. \left( \frac{x^3}{3} - \frac{x^2}{2} \right) \right|_1^2 = \left(\frac{8}{3}-2\right) - \left(\frac{1}{3}-\frac{1}{2}\right) = \frac{2}{3} - \left(-\frac{1}{6}\right) = \frac{5}{6}$$</p>
+<hr />
+<p><strong>(变量代换变量分离)<font color=red>题目[20]:仿射与比值变换解根式指数二重积分</font></strong></p>
+<p>设平面区域 $D=\{(x,y)\mid x+y\leqslant 1, x\geqslant 0, y\geqslant 0\}$，计算 $\iint_D \frac{\mathrm{e}^{-(x+y)}}{\sqrt{xy}}\,\mathrm{d}\sigma$.</p>
+<p>答案: $\pi(1 - \mathrm{e}^{-1})$</p>
+<p>主要思路:[变量代换令 $u = x+y, v = \frac{x}{x+y}$ 实现变量彻底解耦]</p>
+<p>[1]变量代换与雅可比行列式:<br />
+令 $u = x+y$，$v = \frac{x}{x+y}$。<br />
+则 $x = uv$，$y = u(1-v)$。<br />
+积分区域变为：$0 \leqslant u \leqslant 1$，$0 \leqslant v \leqslant 1$。<br />
+雅可比行列式为：<br />
+$$J = \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} v & u \\ 1-v & -u \end{vmatrix} = -uv - u(1-v) = -u \implies |J| = u$$</p>
+<p>[2]代入被积函数与分离变量:<br />
+$$\sqrt{xy} = \sqrt{u^2 v(1-v)} = u\sqrt{v(1-v)}$$<br />
+$$I = \int_0^1 \mathrm{d}u \int_0^1 \frac{\mathrm{e}^{-u}}{u\sqrt{v(1-v)}} \cdot u\,\mathrm{d}v = \left( \int_0^1 \mathrm{e}^{-u}\,\mathrm{d}u \right) \left( \int_0^1 \frac{\mathrm{d}v}{\sqrt{v(1-v)}} \right)$$</p>
+<p>[3]分别求值:<br />
+第一项：$\left. -\mathrm{e}^{-u} \right|_0^1 = 1 - \mathrm{e}^{-1}$；<br />
+第二项：$\int_0^1 \frac{\mathrm{d}v}{\sqrt{\frac{1}{4}-(v-\frac{1}{2})^2}} = \left. \arcsin(2v-1) \right|_0^1 = \frac{\pi}{2} - \left(-\frac{\pi}{2}\right) = \pi$。<br />
+相乘得：$I = \pi(1 - \mathrm{e}^{-1})$。</p>
+<hr />
+<p><strong>(平移化标准圆)<font color=deeppink>题目[21]:坐标平移法求解偏心圆域二次多项式二重积分</font></strong></p>
+<p>已知平面区域 $D=\{(x,y)\mid (x-1)^2+y^2\leqslant 1\}$，计算二重积分 $I=\iint_D (x^2-3y^2)\,\mathrm{d}x\mathrm{d}y$.</p>
+<p>答案: $\frac{\pi}{2}$</p>
+<p>主要思路:[平移坐标系 $u = x-1, v = y$，化为中心在原点的标准单位圆]</p>
+<p>[1]坐标平移变换:<br />
+令 $u = x-1$，$v = y$。此时区域 $D'$ 为 $u^2+v^2 \leqslant 1$。<br />
+代入被积函数：<br />
+$$x^2 - 3y^2 = (u+1)^2 - 3v^2 = u^2 + 2u + 1 - 3v^2$$</p>
+<p>[2]利用对称性化简:<br />
+在圆域 $D'$ 上：<br />
+一次奇数项积分为零：$\iint_{D'} 2u\,\mathrm{d}u\mathrm{d}v = 0$；<br />
+由对称性，$\iint_{D'} u^2\,\mathrm{d}u\mathrm{d}v = \iint_{D'} v^2\,\mathrm{d}u\mathrm{d}v = \frac{1}{2}\iint_{D'} (u^2+v^2)\,\mathrm{d}u\mathrm{d}v$。</p>
+<p>[3]极坐标计算:<br />
+$$\iint_{D'} (u^2+v^2)\,\mathrm{d}u\mathrm{d}v = \int_0^{2\pi}\mathrm{d}\theta \int_0^1 r^3\,\mathrm{d}r = 2\pi \cdot \frac{1}{4} = \frac{\pi}{2}$$<br />
+故 $\iint_{D'} u^2\,\mathrm{d}u\mathrm{d}v = \iint_{D'} v^2\,\mathrm{d}u\mathrm{d}v = \frac{\pi}{4}$。<br />
+常数项积分：$\iint_{D'} 1\,\mathrm{d}u\mathrm{d}v = \pi$。<br />
+汇总：<br />
+$$I = \frac{\pi}{4} + 0 + \pi - 3\left(\frac{\pi}{4}\right) = \pi - \frac{\pi}{2} = \frac{\pi}{2}$$</p>
+<hr />
+<p><strong>(双向平移积分)<font color=deeppink>题目[22]:两坐标同时配方平移求解圆域二重积分</font></strong></p>
+<p>计算二重积分 $\iint_D (x+y^2)\,\mathrm{d}\sigma$，其中 $D=\{(x,y)\mid x^2+y^2\leqslant x+y\}$.</p>
+<p>答案: $\frac{7\pi}{16}$</p>
+<p>主要思路:[配方平移至圆心 $(1/2, 1/2)$，利用对称性与极坐标求值]</p>
+<p>[1]配方确定圆心与半径:<br />
+$$x^2-x+y^2-y \leqslant 0 \iff \left(x-\frac{1}{2}\right)^2 + \left(y-\frac{1}{2}\right)^2 \leqslant \frac{1}{2}$$<br />
+圆心为 $(\frac{1}{2}, \frac{1}{2})$，半径为 $R = \frac{1}{\sqrt{2}}$，圆面积为 $A = \pi R^2 = \frac{\pi}{2}$。</p>
+<p>[2]坐标平移:<br />
+令 $u = x-\frac{1}{2}$，$v = y-\frac{1}{2}$。区域 $D': u^2+v^2 \leqslant \frac{1}{2}$。<br />
+代入被积函数：<br />
+$$x + y^2 = \left(u+\frac{1}{2}\right) + \left(v+\frac{1}{2}\right)^2 = u + \frac{1}{2} + v^2 + v + \frac{1}{4} = (u+v) + v^2 + \frac{3}{4}$$</p>
+<p>[3]对称性与极坐标计算:<br />
+奇数项：$\iint_{D'} (u+v)\,\mathrm{d}u\mathrm{d}v = 0$；<br />
+二次项：$\iint_{D'} v^2\,\mathrm{d}u\mathrm{d}v = \frac{1}{2}\iint_{D'} (u^2+v^2)\,\mathrm{d}u\mathrm{d}v = \frac{1}{2}\int_0^{2\pi}\mathrm{d}\theta \int_0^{\frac{1}{\sqrt{2}}} r^3\,\mathrm{d}r = \pi \left. \frac{r^4}{4} \right|_0^{\frac{1}{\sqrt{2}}} = \frac{\pi}{16}$；<br />
+常数项：$\iint_{D'} \frac{3}{4}\,\mathrm{d}u\mathrm{d}v = \frac{3}{4}\cdot \frac{\pi}{2} = \frac{3\pi}{8}$。<br />
+相加得：<br />
+$$I = \frac{\pi}{16} + \frac{3\pi}{8} = \frac{7\pi}{16}$$</p>
+<hr />
+<p><strong>(挖去圆盘积分)<font color=deeppink>题目[23]:大圆挖去小圆差集区域二重积分</font></strong></p>
+<p>计算 $I=\iint_D \sqrt{x^2+y^2}\,\mathrm{d}x\mathrm{d}y$，其中 $D$ 是 $x^2+y^2\leqslant a^2$ 和 $\left(x-\frac{a}{2}\right)^2+y^2\geqslant \frac{a^2}{4}$ 的公共部分，$a>0$.</p>
+<p>答案: $\frac{6\pi-4}{9}a^3$</p>
+<p>主要思路:[差集积分分解为大圆积分减去内含偏心小圆积分]</p>
+<p>[1]区域分解:<br />
+记大圆域 $D_1: x^2+y^2 \leqslant a^2$，内含小圆域 $D_2: (x-\frac{a}{2})^2+y^2 \leqslant \frac{a^2}{4}$。<br />
+因为 $D_2 \subset D_1$，故 $I = \iint_{D_1} \sqrt{x^2+y^2}\,\mathrm{d}\sigma - \iint_{D_2} \sqrt{x^2+y^2}\,\mathrm{d}\sigma = I_1 - I_2$。</p>
+<p>[2]计算大圆积分 $I_1$:<br />
+$$I_1 = \int_0^{2\pi}\mathrm{d}\theta \int_0^a r\cdot r\,\mathrm{d}r = 2\pi \cdot \frac{a^3}{3} = \frac{2\pi a^3}{3}$$</p>
+<p>[3]计算小圆积分 $I_2$:<br />
+小圆极坐标方程为 $r = a\cos\theta\ (\theta\in[-\frac{\pi}{2}, \frac{\pi}{2}])$：<br />
+$$I_2 = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\mathrm{d}\theta \int_0^{a\cos\theta} r^2\,\mathrm{d}r = \frac{a^3}{3}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos^3\theta\,\mathrm{d}\theta = \frac{2a^3}{3}\int_0^{\frac{\pi}{2}} \cos^3\theta\,\mathrm{d}\theta = \frac{2a^3}{3}\cdot \frac{2}{3} = \frac{4a^3}{9}$$</p>
+<p>[4]两式相减:<br />
+$$I = I_1 - I_2 = \frac{2\pi a^3}{3} - \frac{4a^3}{9} = \frac{6\pi-4}{9}a^3$$</p>
+<hr />
+<p><strong>(极坐标有理根式)<font color=deeppink>题目[24]:第一象限圆域根式二重积分与反三角求值</font></strong></p>
+<p>计算 $\iint_D \sqrt{\frac{1-x^2-y^2}{1+x^2+y^2}}\,\mathrm{d}x\mathrm{d}y$，其中 $D$ 为圆 $x^2+y^2=1$ 所包围的在第一象限内的区域.</p>
+<p>答案: $\frac{\pi^2}{8} - \frac{\pi}{4}$</p>
+<p>主要思路:[极坐标变换后令 $t = r^2$ 转化为一元反三角定积分]</p>
+<p>[1]极坐标变换:<br />
+第一象限圆域：$\theta \in [0, \frac{\pi}{2}]$，$r \in [0, 1]$。<br />
+$$I = \int_0^{\frac{\pi}{2}}\mathrm{d}\theta \int_0^1 \sqrt{\frac{1-r^2}{1+r^2}}\,r\,\mathrm{d}r = \frac{\pi}{2}\int_0^1 \sqrt{\frac{1-r^2}{1+r^2}}\,r\,\mathrm{d}r$$</p>
+<p>[2]换元求解定积分:<br />
+令 $t = r^2$，$\mathrm{d}t = 2r\mathrm{d}r$：<br />
+$$I = \frac{\pi}{4}\int_0^1 \sqrt{\frac{1-t}{1+t}}\,\mathrm{d}t = \frac{\pi}{4}\int_0^1 \frac{1-t}{\sqrt{1-t^2}}\,\mathrm{d}t$$<br />
+$$= \frac{\pi}{4}\left[ \int_0^1 \frac{1}{\sqrt{1-t^2}}\,\mathrm{d}t - \int_0^1 \frac{t}{\sqrt{1-t^2}}\,\mathrm{d}t \right] = \frac{\pi}{4}\left. \left( \arcsin t + \sqrt{1-t^2} \right) \right|_0^1$$<br />
+$$= \frac{\pi}{4}\left[ \left(\frac{\pi}{2} + 0\right) - (0 + 1) \right] = \frac{\pi}{4}\left(\frac{\pi}{2}-1\right) = \frac{\pi^2}{8} - \frac{\pi}{4}$$</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>

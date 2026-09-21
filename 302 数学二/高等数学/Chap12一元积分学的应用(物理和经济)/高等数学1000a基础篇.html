@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>高等数学1000a基础篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h2>高等数学1000题基础篇 - 第12章 一元函数积分学的应用（三）——物理应用</h2>
+<p><strong>(引力分力)<font color=deeppink>题目[1]:细杆对质点引力的水平分力微元法</font></strong></p>
+<p>设沿 $y$ 轴上的区间 $[0,1]$ 放置一长度为 $1$ 且线密度为 $
+ho$ 的均匀细杆，在 $x$ 轴上 $x=1$ 处有一单位质点，则该细杆对此质点的引力($G$ 为引力常量)沿 $x$ 轴正向的分力为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $-\frac{\sqrt{2}}{2}G\rho$ (大小为 $\frac{\sqrt{2}}{2}G\rho$)</p>
+<p>主要思路:[取质量微元 $\mathrm{d}m = \rho \mathrm{d}y$，投影到 $x$ 轴方向并积分]</p>
+<p>[1]建立引力微元:<br />
+细杆位于 $y$ 轴上 $y\in[0, 1]$，在 $y$ 处的线元质量为 $\mathrm{d}m = \rho \mathrm{d}y$。<br />
+质点位于 $(1, 0)$，质量为 $1$。质点与线元之间的距离为 $r = \sqrt{1^2 + y^2} = \sqrt{1+y^2}$。<br />
+万有引力大小微元为：<br />
+$$\mathrm{d}F = G \frac{1\cdot \mathrm{d}m}{r^2} = G \frac{\rho\mathrm{d}y}{1+y^2}$$</p>
+<p>[2]计算沿 $x$ 轴正向的分力:<br />
+引力方向由质点 $(1, 0)$ 指向线元 $(0, y)$，与 $x$ 轴正向的夹角余弦为 $-\frac{1}{\sqrt{1+y^2}}$。<br />
+因此沿 $x$ 轴正向的引力分力微元为：<br />
+$$\mathrm{d}F_x = -\mathrm{d}F \cdot \frac{1}{\sqrt{1+y^2}} = -G\rho \frac{\mathrm{d}y}{(1+y^2)^{\frac{3}{2}}}$$</p>
+<p>[3]定积分计算:<br />
+$$F_x = -G\rho \int_0^1 \frac{\mathrm{d}y}{(1+y^2)^{\frac{3}{2}}}$$<br />
+令 $y = \tan\theta$，$\mathrm{d}y = \sec^2\theta\mathrm{d}\theta$。当 $y=0$ 时 $\theta=0$；当 $y=1$ 时 $\theta=\frac{\pi}{4}$：<br />
+$$F_x = -G\rho \int_0^{\frac{\pi}{4}} \frac{\sec^2\theta}{\sec^3\theta}\mathrm{d}\theta = -G\rho \int_0^{\frac{\pi}{4}} \cos\theta\mathrm{d}\theta = -G\rho \left. \sin\theta \right|_0^{\frac{\pi}{4}} = -\frac{\sqrt{2}}{2}G\rho$$<br />
+其分力大小为 $\frac{\sqrt{2}}{2}G\rho$。</p>
+<hr />
+<p><strong>(静水压力)<font color=deeppink>题目[2]:对角线垂直放置正方形平板的静水压力</font></strong></p>
+<p>边长为 $a$ 的正方形平板置于水面下，且一个顶点与水面相齐，其中一条对角线与水面垂直，如图所示. 记水的密度为 $
+ho$，重力加速度为 $g$，则其一侧所受的静水压力为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{\sqrt{2}}{2}\rho g a^3$</p>
+<p>主要思路:[分段表示深度 $h$ 处的水平条宽度，或利用形心公式 $P = \rho g \bar{h} A$ 快速验算]</p>
+<p>[1]确定几何尺寸与水深分布:<br />
+正方形边长为 $a$，对角线长为 $d = \sqrt{2}a$。<br />
+顶点与水面相齐，对角线铅直，平板所处水深 $h$ 的范围为 $[0, \sqrt{2}a]$。<br />
+在水深 $h$ 处的平板水平截线宽度 $w(h)$ 为：<br />
+$$w(h) = \begin{cases} 2h, & 0 \leqslant h \leqslant \frac{\sqrt{2}}{2}a, \\ 2(\sqrt{2}a - h), & \frac{\sqrt{2}}{2}a < h \leqslant \sqrt{2}a. \end{cases}$$</p>
+<p>[2]静水压力积分微元:<br />
+$$\mathrm{d}P = \rho g h \cdot w(h)\,\mathrm{d}h$$</p>
+<p>[3]分段积分:<br />
+上半段（$0 \leqslant h \leqslant \frac{\sqrt{2}}{2}a$）：<br />
+$$P_1 = \int_0^{\frac{\sqrt{2}}{2}a} \rho g h (2h)\,\mathrm{d}h = 2\rho g \left. \frac{h^3}{3} \right|_0^{\frac{\sqrt{2}}{2}a} = 2\rho g \cdot \frac{\frac{\sqrt{2}}{4}a^3}{3} = \frac{\sqrt{2}}{6}\rho g a^3$$<br />
+下半段（$\frac{\sqrt{2}}{2}a \leqslant h \leqslant \sqrt{2}a$）：<br />
+$$P_2 = \int_{\frac{\sqrt{2}}{2}a}^{\sqrt{2}a} \rho g h \cdot 2(\sqrt{2}a - h)\,\mathrm{d}h = 2\rho g \left. \left( \frac{\sqrt{2}a h^2}{2} - \frac{h^3}{3} \right) \right|_{\frac{\sqrt{2}}{2}a}^{\sqrt{2}a}$$<br />
+代入上限 $\sqrt{2}a$：$\frac{\sqrt{2}a (2a^2)}{2} - \frac{2\sqrt{2}a^3}{3} = \frac{\sqrt{2}}{3}a^3$；<br />
+代入下限 $\frac{\sqrt{2}}{2}a$：$\frac{\sqrt{2}a (a^2/2)}{2} - \frac{\sqrt{2}a^3/4}{3} = \frac{\sqrt{2}}{6}a^3$；<br />
+差值为 $\frac{\sqrt{2}}{6}a^3$，乘以 $2\rho g$ 得 $P_2 = \frac{\sqrt{2}}{3}\rho g a^3$。</p>
+<p>[4]汇总总静水压力:<br />
+$$P = P_1 + P_2 = \frac{\sqrt{2}}{6}\rho g a^3 + \frac{\sqrt{2}}{3}\rho g a^3 = \frac{\sqrt{2}}{2}\rho g a^3$$<br />
+<em>(形心法速算验证：面积 $A = a^2$，形心水深 $\bar{h} = \frac{\sqrt{2}}{2}a$，$P = \rho g \bar{h} A = \frac{\sqrt{2}}{2}\rho g a^3$，完全吻合！)</em></p>
+<hr />
+<p><strong>(脱离引力做功)<font color=green>题目[3]:克服万有引力将物体移至无穷远处所做的功</font></strong></p>
+<p>将地面上质量为 $1$ 的物体铅直向上举高，记地球半径为 $R$，质量为 $M$，引力常数为 $G$，则物体摆脱地球引力所做的功至少为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{GM}{R}$</p>
+<p>主要思路:[万有引力做功反常积分 $\int_R^{+\infty} F(r)\mathrm{d}r$]</p>
+<p>[1]引力大小公式:<br />
+当物体距离地心距离为 $r$ 时，受到的地球万有引力为：<br />
+$$F(r) = G \frac{M\cdot 1}{r^2} = \frac{GM}{r^2}$$</p>
+<p>[2]计算克服引力做功:<br />
+从地面 $r=R$ 举高至无穷远处脱离引力束缚所做的功为：<br />
+$$W = \int_R^{+\infty} F(r)\,\mathrm{d}r = \int_R^{+\infty} \frac{GM}{r^2}\,\mathrm{d}r = \left. -\frac{GM}{r} \right|_R^{+\infty} = 0 - \left(-\frac{GM}{R}\right) = \frac{GM}{R}$$</p>
+<hr />
+<p><strong>(旋转抛物面抽水)<font color=red>题目[4]:旋转抛物面水缸抽水做功与抽水时间</font></strong></p>
+<p>有一内表面为旋转抛物面的水缸，其深为 $a$ (单位：米)，缸口直径为 $2a$ (单位：米)，缸内盛满了水，设水的密度为 $
+ho$ (单位：千克/立方米). 若以每秒 $Q$ 立方米的速率将缸中的水全部抽出，问：</p>
+<p>(1) 共需多少时间？</p>
+<p>(2) 需做多少功？</p>
+<p>答案: (1) $\frac{\pi a^3}{2Q}$ 秒；(2) $\frac{1}{6}\pi \rho g a^4$ 焦耳</p>
+<p>主要思路:[(1) 定积分求旋转体体积，时间 $T = V/Q$；(2) 微元法计算克服重力提升水柱做功]</p>
+<p>[1]建立坐标系与水缸方程:<br />
+取水缸底部顶点为原点，铅直向上为 $y$ 轴。<br />
+抛物线方程设为 $y = c r^2$。<br />
+缸深为 $a$，缸口直径为 $2a$（缸口半径为 $a$），即点 $(a, a)$ 在抛物线上：<br />
+$$a = c a^2 \implies c = \frac{1}{a} \implies r^2 = a y$$</p>
+<p>[2]解答第 (1) 问（抽水时间）:<br />
+水缸的总容积即水的总体积为：<br />
+$$V = \int_0^a \pi r^2\,\mathrm{d}y = \int_0^a \pi a y\,\mathrm{d}y = \left. \frac{\pi a y^2}{2} \right|_0^a = \frac{1}{2}\pi a^3\,\mathrm{m}^3$$<br />
+由于以每秒 $Q\,\mathrm{m}^3$ 的恒定速率抽水，所需时间为：<br />
+$$T = \frac{V}{Q} = \frac{\pi a^3}{2Q}\text{ (秒)}$$</p>
+<p>[3]解答第 (2) 问（抽水做功）:<br />
+在高度 $y$ 处取厚度为 $\mathrm{d}y$ 的水平水薄层，其体积为 $\mathrm{d}V = \pi r^2\mathrm{d}y = \pi a y\mathrm{d}y$。<br />
+该薄层的质量为 $\mathrm{d}m = \rho \mathrm{d}V = \rho \pi a y\mathrm{d}y$。<br />
+将该薄层水提升到缸口（高度 $y=a$）克服重力所需位移为 $a - y$。<br />
+功的微元为：<br />
+$$\mathrm{d}W = (a-y) g\,\mathrm{d}m = \rho g \pi a y(a-y)\,\mathrm{d}y$$<br />
+总功为：<br />
+$$W = \rho g \pi a \int_0^a (ay - y^2)\,\mathrm{d}y = \rho g \pi a \left. \left(\frac{a y^2}{2} - \frac{y^3}{3}\right) \right|_0^a = \rho g \pi a \left(\frac{a^3}{2} - \frac{a^3}{3}\right) = \frac{1}{6}\pi \rho g a^4\text{ (焦)}$$</p>
+<hr />
+<p><strong>(横放圆柱抽水)<font color=red>题目[5]:横放圆柱形容器液体抽水做功与液面下降速率</font></strong></p>
+<p>在一个高为 $1\,\mathrm{m}$ 的圆柱形容器内储存某种液体，并将容器横放. 底面圆的方程为 $x^2+y^2=1$ (单位：$\mathrm{m}$). 如果容器内存满了液体后，以 $0.2\,\mathrm{m}^3/\mathrm{min}$ 的速率将液体从容器顶端抽出.</p>
+<p>(1) 当液面在 $y=0$ 时，求液面下降的速率；</p>
+<p>(2) 如果 $1\,\mathrm{m}^3$ 液体所受重力为 $1\,\mathrm{N}$，求抽完全部液体需做多少功？</p>
+<p>答案: (1) $0.1\,\mathrm{m}/\mathrm{min}$；(2) $\pi\,\mathrm{J}$</p>
+<p>主要思路:[(1) 相关变化率 $\frac{\mathrm{d}V}{\mathrm{d}t} = A(y)\frac{\mathrm{d}y}{\mathrm{d}t}$；(2) 功的微元 $\mathrm{d}W = (1-y)\mathrm{d}G$]</p>
+<p>[1]解答第 (1) 问（液面下降速率）:<br />
+容器轴长 $L = 1\,\mathrm{m}$。横截面为圆 $x^2+y^2 \leqslant 1$。<br />
+在高度 $y$ 处，液面的宽度为 $2x = 2\sqrt{1-y^2}$。<br />
+液面的自由水平面积为 $A(y) = 2x\cdot L = 2\sqrt{1-y^2}\,\mathrm{m}^2$。<br />
+由体积变化率与液面高度变化率的关系：<br />
+$$\frac{\mathrm{d}V}{\mathrm{d}t} = A(y) \frac{\mathrm{d}y}{\mathrm{d}t}$$<br />
+已知抽水速率 $\frac{\mathrm{d}V}{\mathrm{d}t} = -0.2\,\mathrm{m}^3/\mathrm{min}$。当液面处于 $y=0$ 时，$A(0) = 2\sqrt{1-0} = 2\,\mathrm{m}^2$。<br />
+$$\left.\frac{\mathrm{d}y}{\mathrm{d}t}\right|_{y=0} = \frac{-0.2}{2} = -0.1\,\mathrm{m}/\mathrm{min}$$<br />
+即液面下降速率为 $0.1\,\mathrm{m}/\mathrm{min}$。</p>
+<p>[2]解答第 (2) 问（抽水所做的总功）:<br />
+容器顶端位于 $y=1$ 处。<br />
+高度 $y\in[-1, 1]$ 处的液体体积微元为 $\mathrm{d}V = 2\sqrt{1-y^2}\cdot 1\,\mathrm{d}y$。<br />
+重力微元为 $\mathrm{d}G = 1\,\mathrm{N}/\mathrm{m}^3 \cdot \mathrm{d}V = 2\sqrt{1-y^2}\,\mathrm{d}y$。<br />
+将该薄层液体抽至容器顶端（$y=1$），提升高度为 $1 - y$。<br />
+功微元为：<br />
+$$\mathrm{d}W = (1-y)\,\mathrm{d}G = 2(1-y)\sqrt{1-y^2}\,\mathrm{d}y$$<br />
+总功为：<br />
+$$W = \int_{-1}^1 2(1-y)\sqrt{1-y^2}\,\mathrm{d}y = 2\int_{-1}^1 \sqrt{1-y^2}\,\mathrm{d}y - 2\int_{-1}^1 y\sqrt{1-y^2}\,\mathrm{d}y$$<br />
+第二项为奇函数在对称区间上的积分，恒为 $0$。<br />
+第一项表示半圆面积的两倍，即整个单位圆的面积：<br />
+$$W = 2\cdot \frac{\pi}{2} = \pi\,\mathrm{J}$$</p>
+<hr />
+<p><strong>(细杆变力移动做功)<font color=deeppink>题目[6]:引力场中质点移动变力做功大小</font></strong></p>
+<p>设一单位质量细杆的长为 $1$，$G$ 为引力常数. 当质量为 $a$ 的质点在细杆延长线上距杆右端点的 $\frac{1}{2}$ 处移至 $\frac{1}{3}$ 处时，引力做功大小为 $(\quad)$.</p>
+<p>(A) $Ga\ln\frac{4}{3}$<br />
+(B) $Ga\ln\frac{5}{3}$<br />
+(C) $Ga\ln 2$<br />
+(D) $Ga\ln 3$</p>
+<p>答案: (A)</p>
+<p>主要思路:[积分求出细杆对质点的引力函数，再沿位移积分求功]</p>
+<p>[1]建立引力大小函数:<br />
+将细杆置于 $x$ 轴的 $[0, 1]$ 区间上，线密度 $\rho = \frac{1}{1} = 1$。<br />
+质点位于细杆右侧延长线上的点 $x$ 处（$x > 1$），质量为 $a$。<br />
+细杆上坐标 $t\in[0, 1]$ 处的微元质量为 $\mathrm{d}t$，到质点的距离为 $x-t$。<br />
+细杆对质点的万有引力为：<br />
+$$F(x) = \int_0^1 G \frac{a\cdot 1}{(x-t)^2}\mathrm{d}t = \left. G a \frac{1}{x-t} \right|_0^1 = G a \left(\frac{1}{x-1} - \frac{1}{x}\right)$$<br />
+引力方向指向左侧（细杆方向）。</p>
+<p>[2]计算引力做功:<br />
+质点从距右端点 $\frac{1}{2}$ 处（$x_1 = 1 + \frac{1}{2} = \frac{3}{2}$）移至 $\frac{1}{3}$ 处（$x_2 = 1 + \frac{1}{3} = \frac{4}{3}$）。<br />
+质点位移方向向左，与引力方向一致，引力做正功：<br />
+$$W = \int_{\frac{3}{2}}^{\frac{4}{3}} (-F(x))\,\mathrm{d}x = \int_{\frac{4}{3}}^{\frac{3}{2}} F(x)\,\mathrm{d}x = G a \int_{\frac{4}{3}}^{\frac{3}{2}} \left(\frac{1}{x-1} - \frac{1}{x}\right)\mathrm{d}x$$<br />
+$$= G a \left. \ln\left|\frac{x-1}{x}\right| \right|_{\frac{4}{3}}^{\frac{3}{2}} = G a \left( \ln\frac{1/2}{3/2} - \ln\frac{1/3}{4/3} \right) = G a \left(\ln\frac{1}{3} - \ln\frac{1}{4}\right) = G a \ln\frac{4}{3}$$<br />
+选 (A)。</p>
+<hr />
+<p><strong>(三角板最值压力)<font color=deeppink>题目[7]:水中浸入直角三角板最大静水压力最优化设计</font></strong></p>
+<p>直角三角板的斜边长度为 $1$，将该直角三角板竖直插入水中，并使其一个直角边与水面相齐，当三角板受到水的压力最大时，其水平直角边的长度为 $(\quad)$.</p>
+<p>(A) $\frac{\sqrt{3}}{3}$<br />
+(B) $\frac{\sqrt{5}}{5}$<br />
+(C) $\frac{\sqrt{6}}{3}$<br />
+(D) $\frac{\sqrt{2}}{2}$</p>
+<p>答案: (A)</p>
+<p>主要思路:[建立静水压力关于直角边 $x$ 的函数，求导令其为零求极值]</p>
+<p>[1]设定变量与几何关系:<br />
+设水平直角边长度为 $x$（与水面相齐），铅直直角边长度为 $y$。<br />
+斜边长为 $1$，故 $x^2 + y^2 = 1 \implies y = \sqrt{1-x^2}$（$0 < x < 1$）。</p>
+<p>[2]计算静水压力:<br />
+在水深 $h\in[0, y]$ 处，水平微元截线的宽度为 $w(h) = x\left(1 - \frac{h}{y}\right)$。<br />
+压力微元为 $\mathrm{d}P = \rho g h \cdot w(h)\,\mathrm{d}h = \rho g x \left(h - \frac{h^2}{y}\right)\mathrm{d}h$。<br />
+总静水压力为：<br />
+$$P = \rho g x \int_0^y \left(h - \frac{h^2}{y}\right)\mathrm{d}h = \rho g x \left( \frac{y^2}{2} - \frac{y^2}{3} \right) = \frac{1}{6}\rho g x y^2$$</p>
+<p>[3]代入 $y^2 = 1 - x^2$ 并求最大值:<br />
+$$P(x) = \frac{1}{6}\rho g x(1-x^2) = \frac{1}{6}\rho g (x - x^3)$$<br />
+令导数 $P'(x) = 0$：<br />
+$$\frac{\mathrm{d}}{\mathrm{d}x}(x - x^3) = 1 - 3x^2 = 0 \implies x^2 = \frac{1}{3} \implies x = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}$$<br />
+二阶导数为 $-6x < 0$，故在 $x = \frac{\sqrt{3}}{3}$ 处取得全局唯一极大值即最大值。选 (A)。</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>
