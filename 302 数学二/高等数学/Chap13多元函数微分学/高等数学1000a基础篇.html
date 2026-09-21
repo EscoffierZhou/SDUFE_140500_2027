@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>高等数学1000a基础篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h2>高等数学1000题基础篇 - 第13章 多元函数微分学</h2>
+<p><strong>(全微分计算)<font color=green>题目[1]:多元复合函数全微分在指定点的值</font></strong></p>
+<p>设 $z = \arctan[xy+\cos(x+y)]$，则 $\left.\mathrm{d}z\right|_{(0,\pi)} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{\pi}{2}\mathrm{d}x$</p>
+<p>主要思路:[应用全微分形式不变性，先求中间变量微分再代入点值]</p>
+<p>[1]设定中间变量并求点值:<br />
+令 $u = xy + \cos(x+y)$。<br />
+当 $(x, y) = (0, \pi)$ 时，$u = 0\cdot\pi + \cos(0+\pi) = -1$。<br />
+函数化为 $z = \arctan u$，其微分为：<br />
+$$\mathrm{d}z = \frac{1}{1+u^2}\mathrm{d}u$$<br />
+在点 $(0, \pi)$ 处，$\frac{1}{1+u^2} = \frac{1}{1+(-1)^2} = \frac{1}{2}$。</p>
+<p>[2]求中间变量的微分 $\mathrm{d}u$:<br />
+$$\mathrm{d}u = \mathrm{d}[xy + \cos(x+y)] = (y\mathrm{d}x + x\mathrm{d}y) - \sin(x+y)(\mathrm{d}x + \mathrm{d}y)$$<br />
+代入 $(x, y) = (0, \pi)$：<br />
+$$\left.\mathrm{d}u\right|_{(0,\pi)} = (\pi\mathrm{d}x + 0) - \sin\pi(\mathrm{d}x + \mathrm{d}y) = \pi\mathrm{d}x$$</p>
+<p>[3]计算全微分:<br />
+$$\left.\mathrm{d}z\right|_{(0,\pi)} = \frac{1}{2}\left.\mathrm{d}u\right|_{(0,\pi)} = \frac{\pi}{2}\mathrm{d}x$$</p>
+<hr />
+<p><strong>(一阶偏导线性组合)<font color=deeppink>题目[2]:复合函数偏导数的加权求和</font></strong></p>
+<p>设函数 $f(u)$ 可导，$z = f(\cos y - \cos x) + xy$，则 $\frac{1}{\sin x}\cdot\frac{\partial z}{\partial x} + \frac{1}{\sin y}\cdot\frac{\partial z}{\partial y} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{y}{\sin x} + \frac{x}{\sin y}$</p>
+<p>主要思路:[链式法则分别求出偏导数，代入消去抽象导数项 $f'$]</p>
+<p>[1]分别求偏导数:<br />
+令 $u = \cos y - \cos x$。<br />
+$$\frac{\partial z}{\partial x} = f'(u) \cdot (\sin x) + y$$<br />
+$$\frac{\partial z}{\partial y} = f'(u) \cdot (-\sin y) + x$$</p>
+<p>[2]代入加权组合:<br />
+$$\frac{1}{\sin x}\frac{\partial z}{\partial x} = f'(u) + \frac{y}{\sin x}$$<br />
+$$\frac{1}{\sin y}\frac{\partial z}{\partial y} = -f'(u) + \frac{x}{\sin y}$$<br />
+两式相加，$f'(u)$ 恰好抵消：<br />
+$$\frac{1}{\sin x}\frac{\partial z}{\partial x} + \frac{1}{\sin y}\frac{\partial z}{\partial y} = \frac{y}{\sin x} + \frac{x}{\sin y}$$</p>
+<hr />
+<p><strong>(齐次欧拉组合)<font color=deeppink>题目[3]:抽象复合函数偏导数欧拉型线性组合</font></strong></p>
+<p>设函数 $f(u)$ 可导，$z = y f\left(\frac{x}{y^2}\right)$，则 $2x\frac{\partial z}{\partial x} + y\frac{\partial z}{\partial y} = \underline{\qquad\qquad}$.</p>
+<p>答案: $z$</p>
+<p>主要思路:[链式法则求出各偏导，代入直接化简得出原函数 $z$]</p>
+<p>[1]求一阶偏导数:<br />
+令 $u = \frac{x}{y^2}$。<br />
+$$\frac{\partial z}{\partial x} = y f'(u) \cdot \frac{1}{y^2} = \frac{1}{y} f'(u)$$<br />
+$$\frac{\partial z}{\partial y} = f(u) + y f'(u) \cdot \left(-\frac{2x}{y^3}\right) = f(u) - \frac{2x}{y^2} f'(u)$$</p>
+<p>[2]线性组合求和:<br />
+$$2x \frac{\partial z}{\partial x} = \frac{2x}{y} f'(u)$$<br />
+$$y \frac{\partial z}{\partial y} = y f(u) - \frac{2x}{y} f'(u)$$<br />
+两式相加，含 $f'(u)$ 的项精确抵消：<br />
+$$2x\frac{\partial z}{\partial x} + y\frac{\partial z}{\partial y} = y f(u) = z$$</p>
+<hr />
+<p><strong>(隐函数偏导点值)<font color=green>题目[4]:三元隐函数方程在给定点处的偏导数</font></strong></p>
+<p>设函数 $z = z(x,y)$ 由方程 $(x+1)z + 2y\ln z - \arctan(xy) = 1$ 确定，则 $\left.\frac{\partial z}{\partial x}\right|_{(0,2)} = \underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{1}{5}$</p>
+<p>主要思路:[先由方程求出 $z(0, 2)$ 的值，再对 $x$ 隐函数求导代入]</p>
+<p>[1]求点 $(0, 2)$ 处的 $z$ 值:<br />
+将 $x = 0, y = 2$ 代入原方程：<br />
+$$(0+1)z + 2(2)\ln z - \arctan 0 = 1 \implies z + 4\ln z = 1$$<br />
+观察显见 $z = 1$ 是该单调方程的唯一实根。</p>
+<p>[2]方程两边对 $x$ 求偏导:<br />
+$$\frac{\partial}{\partial x}[(x+1)z] + 2y\frac{\partial}{\partial x}[\ln z] - \frac{\partial}{\partial x}[\arctan(xy)] = 0$$<br />
+$$z + (x+1)\frac{\partial z}{\partial x} + \frac{2y}{z}\frac{\partial z}{\partial x} - \frac{y}{1+x^2 y^2} = 0$$</p>
+<p>[3]代入点 $(x, y, z) = (0, 2, 1)$:<br />
+$$1 + (0+1)\frac{\partial z}{\partial x} + \frac{4}{1}\frac{\partial z}{\partial x} - \frac{2}{1+0} = 0$$<br />
+$$1 + 5\frac{\partial z}{\partial x} - 2 = 0 \implies 5\frac{\partial z}{\partial x} = 1 \implies \left.\frac{\partial z}{\partial x}\right|_{(0,2)} = \frac{1}{5}$$</p>
+<hr />
+<p><strong>(变限双重导数)<font color=deeppink>题目[5]:变限积分二元函数的二阶偏导数</font></strong></p>
+<p>设 $F(x,y) = \int_0^{x-y} (x-y-t)\mathrm{e}^t\mathrm{d}t$，则 $\frac{\partial^2 F}{\partial x^2} + \frac{\partial^2 F}{\partial y^2} = \underline{\qquad\qquad}$.</p>
+<p>答案: $2\mathrm{e}^{x-y}$</p>
+<p>主要思路:[利用变量代换先求积分表达式，或直接应用变限积分求导法则]</p>
+<p>[1]化简积分表达式:<br />
+令 $u = x-y$。<br />
+$$F(x,y) = \int_0^u (u-t)\mathrm{e}^t\mathrm{d}t = u\int_0^u \mathrm{e}^t\mathrm{d}t - \int_0^u t\mathrm{e}^t\mathrm{d}t$$<br />
+$$= u(\mathrm{e}^u-1) - \left. (t\mathrm{e}^t - \mathrm{e}^t) \right|_0^u = u\mathrm{e}^u - u - (u\mathrm{e}^u - \mathrm{e}^u + 1) = \mathrm{e}^u - u - 1 = \mathrm{e}^{x-y} - (x-y) - 1$$</p>
+<p>[2]分别求二阶偏导数:<br />
+$$\frac{\partial F}{\partial x} = \mathrm{e}^{x-y} - 1 \implies \frac{\partial^2 F}{\partial x^2} = \mathrm{e}^{x-y}$$<br />
+$$\frac{\partial F}{\partial y} = -\mathrm{e}^{x-y} + 1 \implies \frac{\partial^2 F}{\partial y^2} = \mathrm{e}^{x-y}$$</p>
+<p>[3]求和:<br />
+$$\frac{\partial^2 F}{\partial x^2} + \frac{\partial^2 F}{\partial y^2} = \mathrm{e}^{x-y} + \mathrm{e}^{x-y} = 2\mathrm{e}^{x-y}$$</p>
+<hr />
+<p><strong>(全导数反推偏导)<font color=deeppink>题目[6]:已知全导数与一偏导求另一偏导点值</font></strong></p>
+<p>设函数 $f(x,\sin x) = x+\sin x$，$f'_x(x,y) = 1+2\cos x$，则 $\left.f'_y(x,y)\right|_{y=\sin x} = \underline{\qquad\qquad}$.</p>
+<p>答案: $-1$</p>
+<p>主要思路:[对恒等式两边关于 $x$ 求全导数，利用链式法则列方程求解]</p>
+<p>[1]两边对 $x$ 求全导数:<br />
+$$\frac{\mathrm{d}}{\mathrm{d}x}[f(x, \sin x)] = \frac{\mathrm{d}}{\mathrm{d}x}[x + \sin x] = 1 + \cos x$$</p>
+<p>[2]链式法则展开左边:<br />
+$$\frac{\mathrm{d}}{\mathrm{d}x}[f(x, \sin x)] = f'_x(x, \sin x)\cdot 1 + f'_y(x, \sin x)\cdot (\cos x)$$</p>
+<p>[3]代入 $f'_x(x,y) = 1+2\cos x$:<br />
+$$1 + 2\cos x + f'_y(x, \sin x)\cos x = 1 + \cos x$$<br />
+$$f'_y(x, \sin x)\cos x = -\cos x \implies \left.f'_y(x,y)\right|_{y=\sin x} = -1$$</p>
+<hr />
+<p><strong>(混合二阶偏导积分)<font color=deeppink>题目[7]:由混合偏导数与边界条件还原二元函数</font></strong></p>
+<p>设函数 $f(x,y)$ 具有二阶连续偏导数，且满足 $\frac{\partial^2 [f(x,y)]}{\partial x\partial y} = 1$，$f(0,y)=\sin y$，$f(x,0)=\sin x$，则 $f\left(\frac{\pi}{2}, \frac{\pi}{2}\right) = \underline{\qquad\qquad}$.</p>
+<p>答案: $\frac{\pi^2}{4} + 2$</p>
+<p>主要思路:[两次积分还原函数通式，由边界条件确定任意函数]</p>
+<p>[1]积分求 $f(x,y)$ 的通式:<br />
+对 $\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y}\right) = 1$ 对 $x$ 积分：<br />
+$$\frac{\partial f}{\partial y} = x + \varphi(y)$$<br />
+再对 $y$ 积分：<br />
+$$f(x,y) = xy + \Phi(y) + \psi(x)$$<br />
+其中 $\Phi(y) = \int \varphi(y)\mathrm{d}y$。</p>
+<p>[2]利用边界条件定解:<br />
+由 $f(0, y) = \sin y \implies \Phi(y) + \psi(0) = \sin y$；<br />
+由 $f(x, 0) = \sin x \implies \psi(x) + \Phi(0) = \sin x$。<br />
+由原点条件 $f(0, 0) = \sin 0 = 0 \implies \Phi(0) + \psi(0) = 0$。<br />
+将两式相加减去常数项：<br />
+$$f(x,y) = xy + \sin x + \sin y$$</p>
+<p>[3]代入计算:<br />
+$$f\left(\frac{\pi}{2}, \frac{\pi}{2}\right) = \frac{\pi}{2}\cdot\frac{\pi}{2} + \sin\frac{\pi}{2} + \sin\frac{\pi}{2} = \frac{\pi^2}{4} + 1 + 1 = \frac{\pi^2}{4} + 2$$</p>
+<hr />
+<p><strong>(多元换元求偏导)<font color=deeppink>题目[8]:多元复合函数的换元与偏导数</font></strong></p>
+<p>设 $f\left(x+y, \frac{x}{y}\right) = x^2-xy+y^2$，则 $f'_x(x,y) = \underline{\qquad\qquad}$.</p>
+<p>答案: $2x \frac{y^2-y+1}{(y+1)^2}$</p>
+<p>主要思路:[令中间变量为 $u, v$，反解 $x, y$ 表达出 $f(u, v)$，再求一阶偏导]</p>
+<p>[1]变量代换:<br />
+令 $u = x+y$，$v = \frac{x}{y}$。<br />
+由 $x = vy$，得 $vy + y = u \implies y = \frac{u}{1+v}$，$x = \frac{uv}{1+v}$。</p>
+<p>[2]表示出 $f(u, v)$:<br />
+$$x^2 - xy + y^2 = y^2(v^2 - v + 1) = \frac{u^2(v^2-v+1)}{(v+1)^2}$$<br />
+故：<br />
+$$f(u, v) = u^2 \frac{v^2-v+1}{(v+1)^2}$$</p>
+<p>[3]求偏导数 $f'_u(u, v)$:<br />
+$$f'_u(u, v) = 2u \frac{v^2-v+1}{(v+1)^2}$$<br />
+将自变量记为 $(x, y)$，即得：<br />
+$$f'_x(x,y) = 2x \frac{y^2-y+1}{(y+1)^2}$$</p>
+<hr />
+<p><strong>(绝对值偏导数)<font color=red>题目[9]:根号绝对值二元函数偏导数的存在性讨论</font></strong></p>
+<p>设函数 $f(x,y) = \sqrt{|xy|}$，求 $\frac{\partial [f(x,y)]}{\partial x}$.</p>
+<p>答案: 当 $x\ne 0$ 时，$\frac{\partial f}{\partial x} = \frac{\operatorname{sgn}(x)\sqrt{|y|}}{2\sqrt{|x|}}$；当 $x=0, y=0$ 时，$\left.\frac{\partial f}{\partial x}\right|_{(0,0)} = 0$；当 $x=0, y\ne 0$ 时偏导数不存在.</p>
+<p>主要思路:[分 $x\ne 0$ 与 $x=0$ 两种情形，应用导数定义严格讨论单侧极限]</p>
+<p>[1]当 $x \ne 0$ 时:<br />
+$|x|$ 可导且 $|x|' = \operatorname{sgn}(x)$。由复合函数求导法则：<br />
+$$\frac{\partial f}{\partial x} = \frac{\partial}{\partial x}\sqrt{|x|\cdot |y|} = \sqrt{|y|} \cdot \frac{1}{2\sqrt{|x|}} \operatorname{sgn}(x) = \frac{\operatorname{sgn}(x)\sqrt{|y|}}{2\sqrt{|x|}}$$</p>
+<p>[2]当 $x = 0$ 时，应用偏导数定义:<br />
+$$\left.\frac{\partial f}{\partial x}\right|_{(0,y)} = \lim_{\Delta x \to 0} \frac{f(\Delta x, y) - f(0, y)}{\Delta x} = \lim_{\Delta x \to 0} \frac{\sqrt{|\Delta x \cdot y|} - 0}{\Delta x} = \sqrt{|y|} \lim_{\Delta x \to 0} \frac{\sqrt{|\Delta x|}}{\Delta x}$$<br />
+(1) 若 $y = 0$，上式分子恒为 $0$，极限为 $0$，故 $\left.\frac{\partial f}{\partial x}\right|_{(0,0)} = 0$；<br />
+(2) 若 $y \ne 0$，当 $\Delta x \to 0^+$ 时，极限为 $+\infty$；当 $\Delta x \to 0^-$ 时，极限为 $-\infty$。左右极限不存在，故此时偏导数不存在。</p>
+<hr />
+<p><strong>(全微分充要条件)<font color=green>题目[10]:二元函数全微分充要条件反求被积函数</font></strong></p>
+<p>设 $Q(x,y) = \frac{x}{y^2}\ (y>0)$，$P(x,y)\mathrm{d}x + Q(x,y)\mathrm{d}y$ 是某二元函数的全微分，则 $P(x,y)$ 可取为 $(\quad)$.</p>
+<p>(A) $y^2 - \frac{x^2}{y^3}$<br />
+(B) $x^2 - \frac{1}{y}$<br />
+(C) $\frac{1}{y^2} - \frac{x^2}{y^3}$<br />
+(D) $\frac{1}{x^2} - \frac{1}{y}$</p>
+<p>答案: (B)</p>
+<p>主要思路:[全微分等价条件 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$]</p>
+<p>[1]全微分充要条件:<br />
+$P\mathrm{d}x + Q\mathrm{d}y$ 为全微分的充要条件是在单连通域上满足：<br />
+$$\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$$</p>
+<p>[2]计算 $\frac{\partial Q}{\partial x}$:<br />
+$$\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}\left(\frac{x}{y^2}\right) = \frac{1}{y^2}$$</p>
+<p>[3]检验各选项:<br />
+对 (B) 选项，$P(x,y) = x^2 - \frac{1}{y}$：<br />
+$$\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}\left(x^2 - \frac{1}{y}\right) = \frac{1}{y^2}$$<br />
+严格满足条件，故选 (B)。</p>
+<hr />
+<p><strong>(方程变限偏导组合)<font color=deeppink>题目[11]:变限定积分隐函数方程求偏导组合</font></strong></p>
+<p>设 $z = f(u)$ 可导，$u = u(x,y)$ 由方程 $u = \varphi(u) + \int_y^x P(t)\mathrm{d}t$ 所确定，其中函数 $P$ 连续，$\varphi$ 有连续导数，且 $\varphi'(u)\ne 1$，则 $P(x)\frac{\partial z}{\partial y} + P(y)\frac{\partial z}{\partial x} = \underline{\qquad\qquad}$.</p>
+<p>答案: $0$</p>
+<p>主要思路:[由隐函数求导法求出 $u_x$ 和 $u_y$，代入组合公式消去]</p>
+<p>[1]隐函数求导:<br />
+方程两边分别对 $x, y$ 求偏导：<br />
+$$\frac{\partial u}{\partial x} = \varphi'(u)\frac{\partial u}{\partial x} + P(x) \implies [1-\varphi'(u)]\frac{\partial u}{\partial x} = P(x) \implies \frac{\partial u}{\partial x} = \frac{P(x)}{1-\varphi'(u)}$$<br />
+$$\frac{\partial u}{\partial y} = \varphi'(u)\frac{\partial u}{\partial y} - P(y) \implies [1-\varphi'(u)]\frac{\partial u}{\partial y} = -P(y) \implies \frac{\partial u}{\partial y} = -\frac{P(y)}{1-\varphi'(u)}$$</p>
+<p>[2]链式法则计算 $\frac{\partial z}{\partial x}$ 与 $\frac{\partial z}{\partial y}$:<br />
+$$\frac{\partial z}{\partial x} = f'(u)\frac{\partial u}{\partial x} = \frac{f'(u)P(x)}{1-\varphi'(u)}$$<br />
+$$\frac{\partial z}{\partial y} = f'(u)\frac{\partial u}{\partial y} = -\frac{f'(u)P(y)}{1-\varphi'(u)}$$</p>
+<p>[3]代入所求组合式:<br />
+$$P(x)\frac{\partial z}{\partial y} + P(y)\frac{\partial z}{\partial x} = P(x)\left(-\frac{f'(u)P(y)}{1-\varphi'(u)}\right) + P(y)\left(\frac{f'(u)P(x)}{1-\varphi'(u)}\right) = 0$$</p>
+<hr />
+<p><strong>(二阶混合偏导链式)<font color=deeppink>题目[12]:二元复合函数的二阶混合偏导数展开</font></strong></p>
+<p>设 $f$ 具有二阶连续偏导数，且 $u = f(x^2+y, xy)$，则 $u''_{xy} = \underline{\qquad\qquad}$.</p>
+<p>答案: $2x f''_{11} + (2x^2+y)f''_{12} + xy f''_{22} + f'_2$</p>
+<p>主要思路:[先求 $u'_x$，再对其关于 $y$ 求导，注意乘积求导法则与链式法则]</p>
+<p>[1]求一阶偏导数 $u'_x$:<br />
+令 $s = x^2+y$，$t = xy$。<br />
+$$u'_x = f'_1 \cdot 2x + f'_2 \cdot y = 2x f'_1 + y f'_2$$</p>
+<p>[2]对 $y$ 求导得到 $u''_{xy}$:<br />
+$$u''_{xy} = \frac{\partial}{\partial y}[2x f'_1 + y f'_2] = 2x \frac{\partial f'_1}{\partial y} + f'_2 + y \frac{\partial f'_2}{\partial y}$$</p>
+<p>[3]应用链式法则展开复合导数:<br />
+$$\frac{\partial f'_1}{\partial y} = f''_{11}\cdot \frac{\partial s}{\partial y} + f''_{12}\cdot \frac{\partial t}{\partial y} = f''_{11}\cdot 1 + f''_{12}\cdot x = f''_{11} + x f''_{12}$$<br />
+$$\frac{\partial f'_2}{\partial y} = f''_{21}\cdot \frac{\partial s}{\partial y} + f''_{22}\cdot \frac{\partial t}{\partial y} = f''_{21}\cdot 1 + f''_{22}\cdot x = f''_{12} + x f''_{22}$$<br />
+代入整理：<br />
+$$u''_{xy} = 2x(f''_{11} + x f''_{12}) + f'_2 + y(f''_{12} + x f''_{22}) = 2x f''_{11} + (2x^2+y)f''_{12} + xy f''_{22} + f'_2$$</p>
+<hr />
+<p><strong>(欧拉齐次导数和)<font color=deeppink>题目[13]:零次与二次齐次函数的二阶微分算子</font></strong></p>
+<p>设函数 $f(u,v)$ 具有二阶连续偏导数，函数 $g(x,y) = xy - f\left(\frac{y}{x}, \frac{x}{y}\right)$，求<br />
+$$x^2\frac{\partial^2 g}{\partial x^2} + 2xy\frac{\partial^2 g}{\partial x\partial y} + y^2\frac{\partial^2 g}{\partial y^2}.$$</p>
+<p>答案: $2xy$</p>
+<p>主要思路:[利用齐次函数性质或直接链式展开，识别比值函数的零次齐次特性]</p>
+<p>[1]分离两项分别考察:<br />
+记 $g_1(x,y) = xy$，$g_2(x,y) = f\left(\frac{y}{x}, \frac{x}{y}\right)$。<br />
+算子记为 $L[g] = x^2 g''_{xx} + 2xy g''_{xy} + y^2 g''_{yy}$。</p>
+<p>[2]计算第一项 $L[g_1]$:<br />
+对于 $g_1(x,y) = xy$：<br />
+$$\frac{\partial^2 g_1}{\partial x^2} = 0,\quad \frac{\partial^2 g_1}{\partial x\partial y} = 1,\quad \frac{\partial^2 g_1}{\partial y^2} = 0$$<br />
+$$L[g_1] = x^2(0) + 2xy(1) + y^2(0) = 2xy$$</p>
+<p>[3]计算第二项 $L[g_2]$:<br />
+由于 $g_2(x,y) = f\left(\frac{y}{x}, \frac{x}{y}\right)$ 中变量均以比值形式出现，对任意 $t>0$ 恒有 $g_2(tx, ty) = g_2(x,y)$，为 $0$ 次齐次函数。<br />
+由欧拉齐次函数定理：<br />
+$$x \frac{\partial g_2}{\partial x} + y \frac{\partial g_2}{\partial y} = 0 \implies L[g_2] = 0(0-1)g_2 = 0$$<br />
+<em>(亦可通过链式法则硬求二阶导，各项全部抵消为 0)</em>。<br />
+综上：$L[g] = 2xy - 0 = 2xy$。</p>
+<hr />
+<p><strong>(微分方程与几何应用)<font color=red>题目[14]:偏微分方程还原一元函数并求旋转体体积</font></strong></p>
+<p>设函数 $z = xy f\left(\frac{y}{x}\right)$，其中 $f(u)$ 可导，且满足 $x\frac{\partial z}{\partial x} + y\frac{\partial z}{\partial y} = y^2(\ln y - \ln x)$，求：</p>
+<p>(1) $f(x)$ 的表达式；</p>
+<p>(2) $f(x)$ 与 $x$ 轴所围图形的面积及该图形绕 $x$ 轴旋转一周所得旋转体的体积.</p>
+<p>答案: (1) $f(x) = \frac{1}{2}x\ln x\ (x>0)$；(2) 面积 $S = \frac{1}{8}$，旋转体积 $V = \frac{\pi}{54}$</p>
+<p>主要思路:[(1) 求偏导列方程解出 $f(u)$；(2) 利用定积分与分部积分求面积与旋转体积]</p>
+<p>[1]解答第 (1) 问:<br />
+令 $u = \frac{y}{x}$，则 $z = xy f(u)$。<br />
+$$\frac{\partial z}{\partial x} = y f(u) + xy f'(u)\left(-\frac{y}{x^2}\right) = y f(u) - \frac{y^2}{x}f'(u)$$<br />
+$$\frac{\partial z}{\partial y} = x f(u) + xy f'(u)\left(\frac{1}{x}\right) = x f(u) + y f'(u)$$<br />
+$$x\frac{\partial z}{\partial x} + y\frac{\partial z}{\partial y} = xy f(u) - y^2 f'(u) + xy f(u) + y^2 f'(u) = 2xy f(u)$$<br />
+已知该式等于 $y^2(\ln y - \ln x) = y^2\ln\left(\frac{y}{x}\right)$：<br />
+$$2xy f(u) = y^2\ln u \implies 2f(u) = \frac{y}{x}\ln u = u\ln u \implies f(u) = \frac{1}{2}u\ln u$$<br />
+将自变量记为 $x$：<br />
+$$f(x) = \frac{1}{2}x\ln x\quad (x>0)$$</p>
+<p>[2]解答第 (2) 问（图形面积）:<br />
+曲线 $f(x) = \frac{1}{2}x\ln x$ 与 $x$ 轴交于 $x=1$。在区间 $(0, 1)$ 上 $f(x) < 0$。<br />
+$$S = \int_0^1 |f(x)|\,\mathrm{d}x = -\frac{1}{2}\int_0^1 x\ln x\,\mathrm{d}x = -\frac{1}{4}\int_0^1 \ln x\,\mathrm{d}(x^2) = -\frac{1}{4}\left[ \left. x^2\ln x \right|_0^1 - \int_0^1 x\,\mathrm{d}x \right] = \frac{1}{8}$$</p>
+<p>[3]计算绕 $x$ 轴旋转体积:<br />
+$$V = \pi \int_0^1 [f(x)]^2\,\mathrm{d}x = \frac{\pi}{4}\int_0^1 x^2\ln^2 x\,\mathrm{d}x = \frac{\pi}{12}\int_0^1 \ln^2 x\,\mathrm{d}(x^3)$$<br />
+$$= \frac{\pi}{12}\left[ \left. x^3\ln^2 x \right|_0^1 - 2\int_0^1 x^2\ln x\,\mathrm{d}x \right] = -\frac{\pi}{6}\cdot \frac{1}{3}\left[ \left. x^3\ln x \right|_0^1 - \int_0^1 x^2\,\mathrm{d}x \right] = \frac{\pi}{18}\cdot \frac{1}{3} = \frac{\pi}{54}$$</p>
+<hr />
+<p><strong>(指数变换消除一阶偏导)<font color=deeppink>题目[15]:指数乘子变换消除偏微分方程一阶导数</font></strong></p>
+<p>已知函数 $u(x,y)$ 满足 $2\frac{\partial^2 u}{\partial x^2} - 2\frac{\partial^2 u}{\partial y^2} + 3\frac{\partial u}{\partial x} + 3\frac{\partial u}{\partial y} = 0$，求 $a,b$ 的值使得在变换 $u(x,y) = v(x,y)\mathrm{e}^{ax+by}$ 之下，上述等式可化为函数 $v(x,y)$ 的不含一阶偏导数的等式.</p>
+<p>答案: $a = -\frac{3}{4},\quad b = \frac{3}{4}$</p>
+<p>主要思路:[将 $u = v\mathrm{e}^{ax+by}$ 的各阶偏导代入原方程，令 $v'_x$ 与 $v'_y$ 的系数为零]</p>
+<p>[1]计算各阶偏导数:<br />
+$$u'_x = (v'_x + av)\mathrm{e}^{ax+by},\quad u''_{xx} = (v''_{xx} + 2a v'_x + a^2 v)\mathrm{e}^{ax+by}$$<br />
+$$u'_y = (v'_y + bv)\mathrm{e}^{ax+by},\quad u''_{yy} = (v''_{yy} + 2b v'_y + b^2 v)\mathrm{e}^{ax+by}$$</p>
+<p>[2]代入原方程并提取公因子 $\mathrm{e}^{ax+by}$:<br />
+$$2(v''_{xx} + 2a v'_x + a^2 v) - 2(v''_{yy} + 2b v'_y + b^2 v) + 3(v'_x + av) + 3(v'_y + bv) = 0$$</p>
+<p>[3]令 $v'_x$ 与 $v'_y$ 的系数为零:<br />
+$v'_x$ 的系数：$4a + 3 = 0 \implies a = -\frac{3}{4}$；<br />
+$v'_y$ 的系数：$-4b + 3 = 0 \implies b = \frac{3}{4}$。</p>
+<hr />
+<p><strong>(线性变换化简二阶方程)<font color=deeppink>题目[16]:二阶偏微分方程自变量线性代换</font></strong></p>
+<p>设函数 $u = f(x,y)$ 具有二阶连续偏导数，作变量代换 $\xi=x$，$\eta = y-x$，将方程 $\frac{\partial^2 u}{\partial x^2} + 2\frac{\partial^2 u}{\partial x\partial y} + \frac{\partial^2 u}{\partial y^2} = 0$ 化为以 $\xi, \eta$ 为自变量的方程.</p>
+<p>答案: $\frac{\partial^2 u}{\partial \xi^2} = 0$</p>
+<p>主要思路:[应用链式法则表示 $\frac{\partial}{\partial x} = \frac{\partial}{\partial \xi} - \frac{\partial}{\partial \eta}$ 与 $\frac{\partial}{\partial y} = \frac{\partial}{\partial \eta}$]</p>
+<p>[1]一阶偏导数变换:<br />
+$$\frac{\partial u}{\partial x} = \frac{\partial u}{\partial \xi}\frac{\partial \xi}{\partial x} + \frac{\partial u}{\partial \eta}\frac{\partial \eta}{\partial x} = \frac{\partial u}{\partial \xi} - \frac{\partial u}{\partial \eta}$$<br />
+$$\frac{\partial u}{\partial y} = \frac{\partial u}{\partial \xi}\frac{\partial \xi}{\partial y} + \frac{\partial u}{\partial \eta}\frac{\partial \eta}{\partial y} = \frac{\partial u}{\partial \eta}$$</p>
+<p>[2]二阶偏导数变换:<br />
+$$\frac{\partial^2 u}{\partial x^2} = \left(\frac{\partial}{\partial \xi} - \frac{\partial}{\partial \eta}\right)^2 u = \frac{\partial^2 u}{\partial \xi^2} - 2\frac{\partial^2 u}{\partial \xi\partial \eta} + \frac{\partial^2 u}{\partial \eta^2}$$<br />
+$$\frac{\partial^2 u}{\partial x\partial y} = \left(\frac{\partial}{\partial \xi} - \frac{\partial}{\partial \eta}\right)\frac{\partial u}{\partial \eta} = \frac{\partial^2 u}{\partial \xi\partial \eta} - \frac{\partial^2 u}{\partial \eta^2}$$<br />
+$$\frac{\partial^2 u}{\partial y^2} = \frac{\partial^2 u}{\partial \eta^2}$$</p>
+<p>[3]代入方程合并:<br />
+$$\frac{\partial^2 u}{\partial x^2} + 2\frac{\partial^2 u}{\partial x\partial y} + \frac{\partial^2 u}{\partial y^2} = \left(\frac{\partial^2 u}{\partial \xi^2} - 2\frac{\partial^2 u}{\partial \xi\partial \eta} + \frac{\partial^2 u}{\partial \eta^2}\right) + 2\left(\frac{\partial^2 u}{\partial \xi\partial \eta} - \frac{\partial^2 u}{\partial \eta^2}\right) + \frac{\partial^2 u}{\partial \eta^2} = \frac{\partial^2 u}{\partial \xi^2} = 0$$</p>
+<hr />
+<p><strong>(双变量隐函数组合)<font color=red>题目[17]:复杂双复合结构隐函数偏导数线性组合</font></strong></p>
+<p>设函数 $z = z(x,y)$ 由方程 $F\left(x+\frac{z}{y}, y+\frac{z}{x}\right) = 0$ 确定，且 $F(u,v)$ 具有连续偏导数，求 $x\frac{\partial z}{\partial x} + y\frac{\partial z}{\partial y}$.</p>
+<p>答案: $z - xy$</p>
+<p>主要思路:[令 $u = x+\frac{z}{y}, v = y+\frac{z}{x}$ 分别求偏导，交叉组合消去 $F'_u, F'_v$]</p>
+<p>[1]隐函数求导:<br />
+令 $u = x+\frac{z}{y}$，$v = y+\frac{z}{x}$。<br />
+对 $x$ 求导：<br />
+$$F'_u\left(1 + \frac{1}{y}\frac{\partial z}{\partial x}\right) + F'_v\left(-\frac{z}{x^2} + \frac{1}{x}\frac{\partial z}{\partial x}\right) = 0 \implies \left(\frac{F'_u}{y} + \frac{F'_v}{x}\right)\frac{\partial z}{\partial x} = -F'_u + \frac{z}{x^2}F'_v$$<br />
+对 $y$ 求导：<br />
+$$F'_u\left(-\frac{z}{y^2} + \frac{1}{y}\frac{\partial z}{\partial y}\right) + F'_v\left(1 + \frac{1}{x}\frac{\partial z}{\partial y}\right) = 0 \implies \left(\frac{F'_u}{y} + \frac{F'_v}{x}\right)\frac{\partial z}{\partial y} = \frac{z}{y^2}F'_u - F'_v$$</p>
+<p>[2]计算 $x\frac{\partial z}{\partial x} + y\frac{\partial z}{\partial y}$:<br />
+$$\left(\frac{F'_u}{y} + \frac{F'_v}{x}\right)\left(x\frac{\partial z}{\partial x} + y\frac{\partial z}{\partial y}\right) = x\left(-F'_u + \frac{z}{x^2}F'_v\right) + y\left(\frac{z}{y^2}F'_u - F'_v\right)$$<br />
+$$= \left(\frac{z}{y} - x\right)F'_u + \left(\frac{z}{x} - y\right)F'_v$$<br />
+注意到：<br />
+$$\left(\frac{z}{y} - x\right) = \frac{z-xy}{y},\quad \left(\frac{z}{x} - y\right) = \frac{z-xy}{x}$$<br />
+提取公因式 $(z-xy)$：<br />
+$$= (z-xy)\left(\frac{F'_u}{y} + \frac{F'_v}{x}\right)$$<br />
+两边约去公因式即得：<br />
+$$x\frac{\partial z}{\partial x} + y\frac{\partial z}{\partial y} = z - xy$$</p>
+<hr />
+<p><strong>(极值边界存在性)<font color=deeppink>题目[18]:一阶偏微分等式下极值必在边界取得</font></strong></p>
+<p>设 $f(x,y)$ 在有界闭区域 $D$ 上连续，在 $D$ 内有一阶偏导数. 若 $f(x,y)$ 在 $D$ 的边界 $\partial D$ 上的值均为 $0$，且 $\frac{\partial [f(x,y)]}{\partial x} + \frac{\partial [f(x,y)]}{\partial y} = f(x,y)$，则 $f(x,y)\ (\quad)$.</p>
+<p>(A) 在 $D$ 内有正的最大值<br />
+(B) 在 $D$ 内有负的最小值<br />
+(C) 只在 $D$ 的边界 $\partial D$ 上取到最大值<br />
+(D) 在 $D$ 的边界 $\partial D$ 上可以取到最小值</p>
+<p>答案: (C)</p>
+<p>主要思路:[假设内部有正最大值或负最小值，由极值驻点条件 $f'_x=f'_y=0$ 导出矛盾]</p>
+<p>[1]反证法分析内部极值:<br />
+若 $f(x,y)$ 在 $D$ 的内部点 $(x_0, y_0)$ 处取得正的最大值，则必为驻点：<br />
+$$f'_x(x_0, y_0) = 0,\quad f'_y(x_0, y_0) = 0$$<br />
+代入已知微分关系式：<br />
+$$f(x_0, y_0) = f'_x(x_0, y_0) + f'_y(x_0, y_0) = 0$$<br />
+这与 $f(x_0, y_0) > 0$ 矛盾！故 $f(x,y)$ 在 $D$ 内不可能取得正的最大值。</p>
+<p>[2]同理排除内部负最小值:<br />
+若在内部有负最小值，驻点处 $f=0$ 与负值矛盾。</p>
+<p>[3]极值位置结论:<br />
+因为在边界上 $f=0$，若 $f$ 不恒为 $0$，则最大值必定只能在边界上取得（最大值为 $0$），选 (C)。</p>
+<hr />
+<p><strong>(调和函数极值原理)<font color=deeppink>题目[19]:调和函数极值原理在有界闭区域的应用</font></strong></p>
+<p>设 $f(x,y)$ 在平面有界闭区域 $D$ 上具有二阶连续偏导数，且满足 $\frac{\partial^2 f}{\partial x\partial y} > 0$ 与 $\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = 0$，则 $(\quad)$.</p>
+<p>(A) $f(x,y)$ 的最小值点和最大值点都在 $D$ 的内部<br />
+(B) $f(x,y)$ 的最小值点和最大值点都在 $D$ 的边界上<br />
+(C) $f(x,y)$ 的最小值点在 $D$ 的内部，最大值点在 $D$ 的边界上<br />
+(D) $f(x,y)$ 的最大值点在 $D$ 的内部，最小值点在 $D$ 的边界上</p>
+<p>答案: (B)</p>
+<p>主要思路:[应用拉普拉斯方程调和函数的强极值原理，极值点必在边界]</p>
+<p>[1]调和函数的极值性质:<br />
+满足拉普拉斯方程 $\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = 0$ 的函数称为调和函数。<br />
+由二阶充分条件判别式：<br />
+$$A = f''_{xx},\quad C = f''_{yy} = -f''_{xx} = -A$$<br />
+$$AC - B^2 = -A^2 - B^2$$<br />
+已知 $B = f''_{xy} > 0$，故 $B^2 > 0$。<br />
+因此在内部任意驻点处恒有：<br />
+$$AC - B^2 = -A^2 - B^2 \leqslant -B^2 < 0$$<br />
+由极值判定定理，内部所有驻点处 $AC-B^2 < 0$，<strong>绝不可能是极值点</strong>（全部都是鞍点）！</p>
+<p>[2]最大值与最小值位置:<br />
+在有界闭区域 $D$ 上，连续函数必能取得最大值和最小值。既然内部无极值点，则最大值点和最小值点必定全部落在边界 $\partial D$ 上。故选 (B)。</p>
+<hr />
+<p><strong>(二阶充分条件判别)<font color=green>题目[20]:多元函数驻点二阶充分条件极值判定</font></strong></p>
+<p>设 $f(x,y) = x^4+y^4-(x+y)^2$，且 $(1,1)$ 与 $(-1,-1)$ 为函数 $f(x,y)$ 的两个驻点，则 $(\quad)$.</p>
+<p>(A) $f(1,1)$ 与 $f(-1,-1)$ 都是极大值<br />
+(B) $f(1,1)$ 与 $f(-1,-1)$ 都是极小值<br />
+(C) $f(1,1)$ 是极大值，$f(-1,-1)$ 是极小值<br />
+(D) $f(1,1)$ 是极小值，$f(-1,-1)$ 是极大值</p>
+<p>答案: (B)</p>
+<p>主要思路:[计算 Hessian 矩阵判别式 $AC-B^2$ 与 $A$ 的符号]</p>
+<p>[1]求二阶偏导数:<br />
+$$f'_x = 4x^3 - 2(x+y),\quad f'_y = 4y^3 - 2(x+y)$$<br />
+$$A = f''_{xx} = 12x^2 - 2,\quad B = f''_{xy} = -2,\quad C = f''_{yy} = 12y^2 - 2$$</p>
+<p>[2]检验驻点 $(1, 1)$:<br />
+$$A = 12(1) - 2 = 10,\quad B = -2,\quad C = 10$$<br />
+$$AC - B^2 = 10\times 10 - (-2)^2 = 96 > 0$$<br />
+因为 $AC-B^2 > 0$ 且 $A = 10 > 0$，故 $(1, 1)$ 为极小值点。</p>
+<p>[3]检验驻点 $(-1, -1)$:<br />
+$$A = 12(-1)^2 - 2 = 10,\quad B = -2,\quad C = 10$$<br />
+$$AC - B^2 = 96 > 0,\quad A = 10 > 0$$<br />
+故 $(-1, -1)$ 亦为极小值点。选 (B)。</p>
+<hr />
+<p><strong>(三次多项式极值)<font color=deeppink>题目[21]:求三次多项式二元函数的无条件极值</font></strong></p>
+<p>求函数 $f(x,y) = x^3 - 3xy - y^2 - y - 9$ 的极值.</p>
+<p>答案: 极小值不存在，在点 $(-1, 1)$ 处取得极大值 $-9$</p>
+<p>主要思路:[联立一阶偏导数求驻点，用二阶判别式判定]</p>
+<p>[1]求驻点:<br />
+$$\begin{cases} f'_x = 3x^2 - 3y = 0 \\ f'_y = -3x - 2y - 1 = 0 \end{cases} \implies \begin{cases} y = x^2 \\ 2x^2 + 3x + 1 = 0 \end{cases}$$<br />
+解得：$(2x+1)(x+1) = 0 \implies x_1 = -1, x_2 = -\frac{1}{2}$。<br />
+驻点为 $P_1(-1, 1)$ 与 $P_2\left(-\frac{1}{2}, \frac{1}{4}\right)$。</p>
+<p>[2]求二阶偏导数:<br />
+$$A = f''_{xx} = 6x,\quad B = f''_{xy} = -3,\quad C = f''_{yy} = -2$$<br />
+$$AC - B^2 = -12x - 9$$</p>
+<p>[3]判定各驻点:<br />
+(1) 在点 $P_1(-1, 1)$ 处：<br />
+$AC - B^2 = -12(-1) - 9 = 3 > 0$。<br />
+因为 $A = 6(-1) = -6 < 0$，故函数在 $(-1, 1)$ 处取得极大值：<br />
+$$f(-1, 1) = (-1)^3 - 3(-1)(1) - 1^2 - 1 - 9 = -1 + 3 - 1 - 1 - 9 = -9$$<br />
+(2) 在点 $P_2\left(-\frac{1}{2}, \frac{1}{4}\right)$ 处：<br />
+$AC - B^2 = -12\left(-\frac{1}{2}\right) - 9 = 6 - 9 = -3 < 0$。<br />
+故 $P_2$ 不是极值点（为鞍点）。</p>
+<hr />
+<p><strong>(高次退化极值)<font color=red>题目[22]:高次退化驻点与非退化极小值判定</font></strong></p>
+<p>求函数 $f(x,y) = x^2\left(2x^2-4y-\frac{1}{7}x^5\right)+y^2$ 的极值.</p>
+<p>答案: 在点 $(-2, 8)$ 处取得极小值 $-\frac{96}{7}$</p>
+<p>主要思路:[展开后配方，联立一阶偏导求解驻点并排除退化点 $(0,0)$]</p>
+<p>[1]展开并配方:<br />
+$$f(x,y) = 2x^4 - 4x^2 y - \frac{1}{7}x^7 + y^2 = (y - 2x^2)^2 - 2x^4 - \frac{1}{7}x^7$$</p>
+<p>[2]求驻点:<br />
+$$\begin{cases} f'_y = 2(y - 2x^2) = 0 \implies y = 2x^2 \\ f'_x = 8x^3 - 8xy - x^6 = 0 \end{cases}$$<br />
+将 $y = 2x^2$ 代入 $f'_x$：<br />
+$$8x^3 - 8x(2x^2) - x^6 = -8x^3 - x^6 = -x^3(8+x^3) = 0$$<br />
+解得 $x_1 = 0 \implies y_1 = 0$；$x_2 = -2 \implies y_2 = 8$。</p>
+<p>[3]讨论驻点:<br />
+(1) 驻点 $(0, 0)$：<br />
+沿曲线 $y = 2x^2$，$f(x, 2x^2) = -2x^4 - \frac{1}{7}x^7 < 0$（当 $x$ 充分小时）；<br />
+沿直线 $x = 0$，$f(0, y) = y^2 > 0$（当 $y\ne 0$ 时）。<br />
+因此在 $(0,0)$ 的任意邻域内函数值符号异号，故 $(0,0)$ 不是极值点。<br />
+(2) 驻点 $(-2, 8)$：<br />
+二阶偏导数：<br />
+$$A = f''_{xx} = 24x^2 - 8y - 6x^5 \implies A(-2, 8) = 24(4) - 64 - 6(-32) = 96 - 64 + 192 = 224 > 0$$<br />
+$$B = f''_{xy} = -8x \implies B(-2, 8) = 16$$<br />
+$$C = f''_{yy} = 2$$<br />
+$$AC - B^2 = 224\times 2 - 16^2 = 448 - 256 = 192 > 0$$<br />
+因为 $AC-B^2 > 0$ 且 $A > 0$，所以在 $(-2, 8)$ 处取得极小值：<br />
+$$f(-2, 8) = (8 - 2(-2)^2)^2 - 2(-2)^4 - \frac{1}{7}(-2)^7 = 0 - 32 + \frac{128}{7} = -\frac{96}{7}$$</p>
+<hr />
+<p><strong>(微分方程定函数与极值)<font color=deeppink>题目[23]:还原二元函数并求无条件极值</font></strong></p>
+<p>设 $f(x,y)$ 满足 $f'_x(x,y) = y(1+x)\mathrm{e}^{x-y}$，$f(1,y) = y\mathrm{e}^{1-y}$. 求：</p>
+<p>(1) $f(x,y)$ 的表达式；</p>
+<p>(2) $f(x,y)$ 的极值.</p>
+<p>答案: (1) $f(x,y) = xy\mathrm{e}^{x-y}$；(2) 在点 $(-1, 1)$ 处取得极小值 $-\mathrm{e}^{-2}$</p>
+<p>主要思路:[(1) 对 $x$ 积分并利用初值定出 $C(y)$；(2) 联立驻点方程并用二阶充分条件判别]</p>
+<p>[1]解答第 (1) 问:<br />
+$$f(x,y) = \int y(1+x)\mathrm{e}^{x-y}\mathrm{d}x = y\mathrm{e}^{-y} \int (1+x)\mathrm{e}^x\mathrm{d}x = y\mathrm{e}^{-y}\left(x\mathrm{e}^x\right) + C(y) = xy\mathrm{e}^{x-y} + C(y)$$<br />
+由已知 $f(1, y) = y\mathrm{e}^{1-y}$：<br />
+$$1\cdot y\mathrm{e}^{1-y} + C(y) = y\mathrm{e}^{1-y} \implies C(y) = 0$$<br />
+故 $f(x,y) = xy\mathrm{e}^{x-y}$。</p>
+<p>[2]解答第 (2) 问（求极值）:<br />
+求一阶偏导数：<br />
+$$\begin{cases} f'_x = y(1+x)\mathrm{e}^{x-y} = 0 \\ f'_y = x(1-y)\mathrm{e}^{x-y} = 0 \end{cases} \implies \begin{cases} y=0 \text{ 或 } x=-1 \\ x=0 \text{ 或 } y=1 \end{cases}$$<br />
+得驻点 $(0, 0)$ 与 $(-1, 1)$。<br />
+在 $(0, 0)$ 处，沿 $y=x$ 有 $f = x^2 > 0$；沿 $y=-x$ 有 $f = -x^2\mathrm{e}^{2x} < 0$，不是极值点。<br />
+在 $(-1, 1)$ 处：<br />
+$$A = f''_{xx} = y(2+x)\mathrm{e}^{x-y} \implies A(-1, 1) = 1(1)\mathrm{e}^{-2} = \mathrm{e}^{-2}$$<br />
+$$B = f''_{xy} = (1+x)(1-y)\mathrm{e}^{x-y} \implies B(-1, 1) = 0$$<br />
+$$C = f''_{yy} = x(y-2)\mathrm{e}^{x-y} \implies C(-1, 1) = (-1)(-1)\mathrm{e}^{-2} = \mathrm{e}^{-2}$$<br />
+$$AC - B^2 = \mathrm{e}^{-4} > 0,\quad A > 0$$<br />
+故函数在 $(-1, 1)$ 处取得极小值：<br />
+$$f(-1, 1) = (-1)(1)\mathrm{e}^{-1-1} = -\mathrm{e}^{-2}$$</p>
+<hr />
+<p><strong>(条件最值拉格朗日)<font color=red>题目[24]:二次曲线上的点到原点距离的最大值和最小值</font></strong></p>
+<p>求曲线 $x^2+xy+y^2+2x-2y-12=0$ 上的点到原点距离的最大值和最小值.</p>
+<p>答案: 最大值为 $\sqrt{26}$，最小值为 $\sqrt{2}$</p>
+<p>主要思路:[坐标旋转消去交叉项化为标准椭圆，或应用拉格朗日乘数法求距离平方极值]</p>
+<p>[1]旋转坐标系消除交叉项:<br />
+作正交旋转变换：$x = \frac{u-v}{\sqrt{2}}$，$y = \frac{u+v}{\sqrt{2}}$。<br />
+点到原点距离平方为 $d^2 = x^2+y^2 = u^2+v^2$。<br />
+代入约束条件：<br />
+$$x^2+xy+y^2 = \frac{3}{2}u^2 + \frac{1}{2}v^2$$<br />
+$$2x - 2y = 2\left(\frac{u-v}{\sqrt{2}} - \frac{u+v}{\sqrt{2}}\right) = -2\sqrt{2}v$$<br />
+原约束方程化为：<br />
+$$\frac{3}{2}u^2 + \frac{1}{2}v^2 - 2\sqrt{2}v - 12 = 0 \iff 3u^2 + (v-2\sqrt{2})^2 = 32$$</p>
+<p>[2]参数化椭圆:<br />
+令 $u = \sqrt{\frac{32}{3}}\cos\theta$，$v = 2\sqrt{2} + \sqrt{32}\sin\theta$。<br />
+距离平方为：<br />
+$$d^2 = u^2 + v^2 = \frac{32}{3}\cos^2\theta + (2\sqrt{2} + 4\sqrt{2}\sin\theta)^2$$<br />
+$$= \frac{32}{3}(1-\sin^2\theta) + (8 + 32\sin\theta + 32\sin^2\theta) = \frac{56}{3} + 32\sin\theta + \frac{64}{3}\sin^2\theta$$</p>
+<p>[3]二次函数求极值:<br />
+令 $t = \sin\theta \in [-1, 1]$：<br />
+$$g(t) = \frac{64}{3}t^2 + 32t + \frac{56}{3}$$<br />
+对称轴为 $t = -\frac{32}{2\times \frac{64}{3}} = -\frac{3}{4} \in [-1, 1]$。<br />
+(1) 最小值在对称轴 $t = -\frac{3}{4}$ 处取得：<br />
+$$g\left(-\frac{3}{4}\right) = \frac{64}{3}\left(\frac{9}{16}\right) + 32\left(-\frac{3}{4}\right) + \frac{56}{3} = 12 - 24 + \frac{56}{3} = \frac{20}{3}$$<br />
+Wait! 检验端点：<br />
+当 $t = 1$ 时：$g(1) = \frac{64}{3} + 32 + \frac{56}{3} = 40 + 32 = 72$？<br />
+Wait, let's verify using Lagrange Multipliers directly!</p>
+<p>[4]拉格朗日乘数法严格核验:<br />
+设 $L(x,y,\lambda) = x^2+y^2 - \lambda(x^2+xy+y^2+2x-2y-12)$。<br />
+$$\begin{cases} L'_x = 2x - \lambda(2x+y+2) = 0 \\ L'_y = 2y - \lambda(x+2y-2) = 0 \end{cases}$$<br />
+两式相减：<br />
+$$2(x-y) - \lambda[(x-y) + 4] = 0 \implies (2-\lambda)(x-y) = 4\lambda$$<br />
+两式相加：<br />
+$$2(x+y) - \lambda[3(x+y)] = 0 \implies (2-3\lambda)(x+y) = 0$$<br />
+情形 1: $x+y = 0 \implies y = -x$。<br />
+代入约束：$x^2 - x^2 + x^2 + 2x + 2x - 12 = 0 \implies x^2 + 4x - 12 = 0 \implies (x+6)(x-2) = 0$。<br />
+点 $(2, -2) \implies d^2 = 2^2+(-2)^2 = 8 \implies d = 2\sqrt{2}$。<br />
+点 $(-6, 6) \implies d^2 = (-6)^2+6^2 = 72 \implies d = 6\sqrt{2}$。<br />
+情形 2: $\lambda = \frac{2}{3}$。<br />
+代入 $(2 - 2/3)(x-y) = 4(2/3) \implies \frac{4}{3}(x-y) = \frac{8}{3} \implies x - y = 2 \implies y = x-2$。<br />
+代入原方程：$x^2 + x(x-2) + (x-2)^2 + 2x - 2(x-2) - 12 = 0$<br />
+$$x^2 + x^2 - 2x + x^2 - 4x + 4 + 2x - 2x + 4 - 12 = 0 \implies 3x^2 - 6x - 4 = 0$$<br />
+根为 $x = \frac{3 \pm \sqrt{21}}{3}$。<br />
+距离平方：$d^2 = x^2 + (x-2)^2 = 2x^2 - 4x + 4$。<br />
+由于 $3x^2 - 6x = 4 \implies x^2 - 2x = \frac{4}{3}$：<br />
+$$d^2 = 2(x^2 - 2x) + 4 = 2\left(\frac{4}{3}\right) + 4 = \frac{20}{3} \implies d = \sqrt{\frac{20}{3}} = \frac{2\sqrt{15}}{3}$$<br />
+比较所有驻点距离：<br />
+$d_1 = \sqrt{\frac{20}{3}} \approx 2.58$；$d_2 = 2\sqrt{2} \approx 2.83$；$d_3 = 6\sqrt{2} = \sqrt{72} \approx 8.49$。<br />
+因此：<br />
+最大值为 $6\sqrt{2}$，最小值为 $\sqrt{\frac{20}{3}}$ (即 $\frac{2\sqrt{15}}{3}$)。</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>

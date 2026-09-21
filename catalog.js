@@ -456,8 +456,8 @@ window.CATALOG_DATA = {
       "stats": {
         "totalDocs": 116,
         "formats": {
-          "html": 85,
-          "pdf": 72,
+          "html": 87,
+          "pdf": 74,
           "md": 116
         }
       },
@@ -1662,10 +1662,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000a基础篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000a基础篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000a基础篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000a基础篇.md"
+                    "html": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000a基础篇.html",
+                    "md": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000a基础篇.md",
+                    "pdf": "302 数学二/高等数学/Chap13多元函数微分学/高等数学1000a基础篇.pdf"
                   }
                 },
                 {
@@ -1794,10 +1796,12 @@ window.CATALOG_DATA = {
                 {
                   "type": "doc",
                   "name": "高等数学1000a基础篇",
-                  "defaultType": "md",
-                  "defaultPath": "302 数学二/高等数学/Chap15微分方程/高等数学1000a基础篇.md",
+                  "defaultType": "html",
+                  "defaultPath": "302 数学二/高等数学/Chap15微分方程/高等数学1000a基础篇.html",
                   "formats": {
-                    "md": "302 数学二/高等数学/Chap15微分方程/高等数学1000a基础篇.md"
+                    "html": "302 数学二/高等数学/Chap15微分方程/高等数学1000a基础篇.html",
+                    "md": "302 数学二/高等数学/Chap15微分方程/高等数学1000a基础篇.md",
+                    "pdf": "302 数学二/高等数学/Chap15微分方程/高等数学1000a基础篇.pdf"
                   }
                 },
                 {

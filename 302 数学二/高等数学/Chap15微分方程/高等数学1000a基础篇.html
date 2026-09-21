@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>高等数学1000a基础篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h2>高等数学1000题基础篇 - 第15章 微分方程</h2>
+<h3>一、选择题与填空题</h3>
+<p><strong>(一阶全微分方程)<font color=green>题目[1]:一阶可化为全微分的初值问题</font></strong></p>
+<p>$x\mathrm{d}y + y\mathrm{d}x = \sin x\,\mathrm{d}x$ 满足 $y(\pi)=0$ 的特解为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $y = -\frac{1+\cos x}{x}$</p>
+<p>主要思路:[将左端识别为乘积微分 $\mathrm{d}(xy)$，直接积分确定特解]</p>
+<p>[1]识别全微分形式:<br />
+方程左端为乘积的导数形式：<br />
+$$x\mathrm{d}y + y\mathrm{d}x = \mathrm{d}(xy)$$<br />
+方程变形为：<br />
+$$\mathrm{d}(xy) = \sin x\,\mathrm{d}x$$</p>
+<p>[2]两端积分求通解:<br />
+$$xy = \int \sin x\,\mathrm{d}x = -\cos x + C$$</p>
+<p>[3]代入初始条件确定常数:<br />
+由 $y(\pi) = 0$，得：<br />
+$$\pi \cdot 0 = -\cos\pi + C \implies 0 = -(-1) + C \implies C = -1$$<br />
+故特解为：<br />
+$$xy = -(1+\cos x) \implies y = -\frac{1+\cos x}{x}$$</p>
+<hr />
+<p><strong>(几何应用反求方程)<font color=deeppink>题目[2]:切线截距与法线截距比例反求曲线方程</font></strong></p>
+<p>已知曲线上任一点的切线在 $y$ 轴上的截距与法线在 $x$ 轴上的截距之比为 $3:1$，则该曲线方程为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $3\ln(x^2+y^2) + 2\arctan\frac{y}{x} = C$</p>
+<p>主要思路:[列出切线与法线截距表达式，建立齐次微分方程求解]</p>
+<p>[1]写出切线与法线的截距:<br />
+设曲线上任一点为 $(x, y)$，切线方程为：<br />
+$$Y - y = y'(X - x)$$<br />
+令 $X = 0$，得切线在 $y$ 轴上的截距：<br />
+$$Y_T = y - x y'$$<br />
+过该点的法线斜率为 $-\frac{1}{y'}$，法线方程为：<br />
+$$Y - y = -\frac{1}{y'}(X - x)$$<br />
+令 $Y = 0$，得法线在 $x$ 轴上的截距：<br />
+$$X_N = x + y y'$$</p>
+<p>[2]建立微分方程:<br />
+由题意截距之比为 $3:1$：<br />
+$$\frac{y - x y'}{x + y y'} = 3 \implies y - x y' = 3x + 3y y'$$<br />
+整理得：<br />
+$$(3y + x)y' = y - 3x \implies \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{y - 3x}{3y + x}$$</p>
+<p>[3]解齐次微分方程:<br />
+令 $y = ux$，则 $\frac{\mathrm{d}y}{\mathrm{d}x} = u + x\frac{\mathrm{d}u}{\mathrm{d}x}$：<br />
+$$u + x\frac{\mathrm{d}u}{\mathrm{d}x} = \frac{ux - 3x}{3ux + x} = \frac{u - 3}{3u + 1}$$<br />
+$$x\frac{\mathrm{d}u}{\mathrm{d}x} = \frac{u - 3 - u(3u + 1)}{3u + 1} = -\frac{3(u^2+1)}{3u+1}$$<br />
+分离变量：<br />
+$$\frac{3u+1}{u^2+1}\mathrm{d}u = -\frac{3}{x}\mathrm{d}x$$<br />
+积分两端：<br />
+$$\frac{3}{2}\ln(u^2+1) + \arctan u = -3\ln|x| + C_1$$<br />
+两端同乘 $2$ 并移项：<br />
+$$3\ln(u^2+1) + 6\ln|x| + 2\arctan u = C$$<br />
+$$\ln[(u^2+1)^3 x^6] + 2\arctan u = C$$<br />
+因 $(u^2+1)x^2 = x^2+y^2$，$u = \frac{y}{x}$，代回得：<br />
+$$3\ln(x^2+y^2) + 2\arctan\frac{y}{x} = C$$</p>
+<hr />
+<p><strong>(一阶线性解的结构)<font color=green>题目[3]:一阶非齐次特解线性组合充要条件</font></strong></p>
+<p>设 $y_1, y_2$ 是一阶非齐次线性微分方程 $y' + p(x)y = q(x)$ 的两个特解，若常数 $\lambda, \mu$ 使 $\lambda y_1 + \mu y_2$ 是该方程的解，$\lambda y_1 - \mu y_2$ 是该方程对应的齐次方程的解，则 $(\quad)$.</p>
+<p>[A] $\lambda = \frac{1}{2}, \mu = \frac{1}{2}$<br />
+[B] $\lambda = -\frac{1}{2}, \mu = -\frac{1}{2}$<br />
+[C] $\lambda = \frac{2}{3}, \mu = \frac{1}{3}$<br />
+[D] $\lambda = \frac{2}{3}, \mu = \frac{2}{3}$</p>
+<p>答案: [A]</p>
+<p>主要思路:[根据线性方程解的叠加原理，系数和为1对应非齐次解，系数和为0对应齐次解]</p>
+<p>[1]利用非齐次解的叠加性质:<br />
+若 $y = \lambda y_1 + \mu y_2$ 是非齐次方程 $y' + p(x)y = q(x)$ 的解，则：<br />
+$$(\lambda y_1 + \mu y_2)' + p(x)(\lambda y_1 + \mu y_2) = \lambda(y_1' + py_1) + \mu(y_2' + py_2) = (\lambda + \mu)q(x)$$<br />
+要使其恒等于 $q(x)$，必须且只需：<br />
+$$\lambda + \mu = 1$$</p>
+<p>[2]利用齐次解的叠加性质:<br />
+若 $y = \lambda y_1 - \mu y_2$ 是齐次方程 $y' + p(x)y = 0$ 的解，则：<br />
+$$(\lambda y_1 - \mu y_2)' + p(x)(\lambda y_1 - \mu y_2) = (\lambda - \mu)q(x) = 0$$<br />
+因 $q(x)\not\equiv 0$，必有：<br />
+$$\lambda - \mu = 0 \implies \lambda = \mu$$</p>
+<p>[3]联立方程组求解:<br />
+$$\begin{cases} \lambda + \mu = 1 \\ \lambda = \mu \end{cases} \implies \lambda = \frac{1}{2},\quad \mu = \frac{1}{2}$$<br />
+故选 [A]。</p>
+<hr />
+<p><strong>(反函数法求解)<font color=deeppink>题目[4]:互换自变量与因变量的一阶线性微分方程</font></strong></p>
+<p>求微分方程 $(2x-3xy^2-y^3)y' + y^3 = 0$ 的通解.</p>
+<p>答案: $x = \frac{1}{2}y^3 + C y^3 \mathrm{e}^{\frac{1}{y^2}}$（或 $2x = y^3(1+C\mathrm{e}^{\frac{1}{y^2}})$）</p>
+<p>主要思路:[将 $x$ 视为 $y$ 的函数，将关于 $x$ 的非线性方程转化为关于 $x$ 的一阶线性微分方程]</p>
+<p>[1]互换变量改写方程:<br />
+原方程中 $y'$ 带有复杂的 $y$ 的高次式，但 $x$ 仅为一次。将 $x$ 视作因变量，改写为：<br />
+$$(2x-3xy^2-y^3)\frac{\mathrm{d}y}{\mathrm{d}x} + y^3 = 0 \implies y^3\frac{\mathrm{d}x}{\mathrm{d}y} + (2-3y^2)x = y^3$$<br />
+两端同除以 $y^3$：<br />
+$$\frac{\mathrm{d}x}{\mathrm{d}y} + \frac{2-3y^2}{y^3}x = 1$$</p>
+<p>[2]求积分因子:<br />
+$$P(y) = \frac{2}{y^3} - \frac{3}{y}$$<br />
+$$\int P(y)\mathrm{d}y = -\frac{1}{y^2} - 3\ln|y|$$<br />
+取积分因子为：<br />
+$$\mu(y) = \mathrm{e}^{\int P(y)\mathrm{d}y} = \frac{\mathrm{e}^{-\frac{1}{y^2}}}{y^3}$$</p>
+<p>[3]求解线性微分方程:<br />
+两端同乘 $\mu(y)$：<br />
+$$\frac{\mathrm{d}}{\mathrm{d}y}\left[x \cdot \frac{\mathrm{e}^{-\frac{1}{y^2}}}{y^3}\right] = \frac{\mathrm{e}^{-\frac{1}{y^2}}}{y^3}$$<br />
+积分右端，令 $t = -\frac{1}{y^2}$，则 $\mathrm{d}t = \frac{2}{y^3}\mathrm{d}y$：<br />
+$$\int \frac{\mathrm{e}^{-\frac{1}{y^2}}}{y^3}\mathrm{d}y = \frac{1}{2}\int \mathrm{e}^t\mathrm{d}t = \frac{1}{2}\mathrm{e}^{-\frac{1}{y^2}} + C$$<br />
+故：<br />
+$$x \frac{\mathrm{e}^{-\frac{1}{y^2}}}{y^3} = \frac{1}{2}\mathrm{e}^{-\frac{1}{y^2}} + C \implies x = \frac{1}{2}y^3 + C y^3 \mathrm{e}^{\frac{1}{y^2}}$$</p>
+<hr />
+<p><strong>(变量代换与极限)<font color=green>题目[5]:可降阶换元微分方程与幂指函数极限</font></strong></p>
+<p>过原点的曲线 $y=y(x)$ 满足 $\frac{\mathrm{d}y}{\mathrm{d}x} = (x+y)^2$，则 $\lim_{x\to 0^+} [y(x)]^x = \underline{\qquad\qquad}$.</p>
+<p>答案: $1$</p>
+<p>主要思路:[换元 $u = x+y$ 分离变量求得解析式，再利用对数换元求 $0^0$ 型极限]</p>
+<p>[1]换元求解微分方程:<br />
+令 $u = x+y$，则 $\frac{\mathrm{d}u}{\mathrm{d}x} = 1 + \frac{\mathrm{d}y}{\mathrm{d}x} = 1 + u^2$。<br />
+分离变量：<br />
+$$\frac{\mathrm{d}u}{1+u^2} = \mathrm{d}x \implies \arctan u = x + C$$<br />
+由曲线过原点 $y(0)=0$，得 $u(0)=0$，故 $C = 0$。<br />
+从而：<br />
+$$\arctan(x+y) = x \implies x+y = \tan x \implies y = \tan x - x$$</p>
+<p>[2]求幂指函数极限:<br />
+所求极限为 $0^0$ 型不定式：<br />
+$$\lim_{x\to 0^+} [y(x)]^x = \lim_{x\to 0^+} (\tan x - x)^x = \mathrm{e}^{\lim_{x\to 0^+} x\ln(\tan x - x)}$$<br />
+当 $x\to 0^+$ 时，$\tan x - x \sim \frac{1}{3}x^3$：<br />
+$$\lim_{x\to 0^+} x\ln(\tan x - x) = \lim_{x\to 0^+} x\ln\left(\frac{1}{3}x^3\right) = \lim_{x\to 0^+} (3x\ln x - x\ln 3) = 0$$<br />
+故：<br />
+$$\lim_{x\to 0^+} [y(x)]^x = \mathrm{e}^0 = 1$$</p>
+<hr />
+<p><strong>(换元化线性方程)<font color=deeppink>题目[6]:三角复合可化为一阶线性的微分方程</font></strong></p>
+<p>微分方程 $y' = (x+1)\sec y - \tan y$ 的通解为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $\sin y = x + C\mathrm{e}^{-x}$</p>
+<p>主要思路:[两边同乘 $\cos y$ 移项，令 $u = \sin y$ 化为关于 $u$ 的一阶线性微分方程]</p>
+<p>[1]化简方程结构:<br />
+方程两端同乘以 $\cos y$：<br />
+$$\cos y \frac{\mathrm{d}y}{\mathrm{d}x} = (x+1) - \sin y \implies \cos y \frac{\mathrm{d}y}{\mathrm{d}x} + \sin y = x+1$$</p>
+<p>[2]变量替换化为线性微分方程:<br />
+令 $u = \sin y$，则 $\frac{\mathrm{d}u}{\mathrm{d}x} = \cos y \frac{\mathrm{d}y}{\mathrm{d}x}$，代入方程得：<br />
+$$\frac{\mathrm{d}u}{\mathrm{d}x} + u = x+1$$</p>
+<p>[3]求解线性微分方程:<br />
+两端同乘积分因子 $\mathrm{e}^x$：<br />
+$$\frac{\mathrm{d}}{\mathrm{d}x}(u\mathrm{e}^x) = (x+1)\mathrm{e}^x$$<br />
+积分得：<br />
+$$u\mathrm{e}^x = \int (x+1)\mathrm{e}^x\,\mathrm{d}x = x\mathrm{e}^x + C \implies u = x + C\mathrm{e}^{-x}$$<br />
+代回 $u = \sin y$，得原方程的通解为：<br />
+$$\sin y = x + C\mathrm{e}^{-x}$$</p>
+<hr />
+<p><strong>(一阶线性与斜渐近线)<font color=green>题目[7]:一阶线性方程初值解及曲线的斜渐近线</font></strong></p>
+<p>设函数 $y(x)$ 是微分方程 $y' + \frac{1}{x^2}y = 2\mathrm{e}^{\frac{1}{x}}$ 满足 $y\left(\frac{1}{2}\right)=0$ 的解.</p>
+<p>[1] 求 $y=y(x)$ 的表达式；<br />
+[2] 求曲线 $y(x)$ 的斜渐近线.</p>
+<p>答案: [1] $y = (2x-1)\mathrm{e}^{\frac{1}{x}}$；[2] $y = 2x+1$</p>
+<p>主要思路:[通解公式代入初值求出解析式，再利用泰勒展开求斜渐近线 $y=kx+b$]</p>
+<p>[1]求解一阶线性微分方程:<br />
+积分因子为 $\mathrm{e}^{\int \frac{1}{x^2}\mathrm{d}x} = \mathrm{e}^{-\frac{1}{x}}$。<br />
+两端同乘 $\mathrm{e}^{-\frac{1}{x}}$：<br />
+$$\frac{\mathrm{d}}{\mathrm{d}x}\left[y\mathrm{e}^{-\frac{1}{x}}\right] = 2\mathrm{e}^{\frac{1}{x}}\cdot\mathrm{e}^{-\frac{1}{x}} = 2$$<br />
+积分得：<br />
+$$y\mathrm{e}^{-\frac{1}{x}} = 2x + C \implies y = (2x+C)\mathrm{e}^{\frac{1}{x}}$$<br />
+代入初始条件 $y\left(\frac{1}{2}\right) = 0$：<br />
+$$\left(2\cdot\frac{1}{2} + C\right)\mathrm{e}^2 = 0 \implies 1+C = 0 \implies C = -1$$<br />
+故：<br />
+$$y = (2x-1)\mathrm{e}^{\frac{1}{x}}$$</p>
+<p>[2]求斜渐近线:<br />
+设斜渐近线为 $y = kx + b$：<br />
+$$k = \lim_{x\to \infty} \frac{y(x)}{x} = \lim_{x\to \infty} \frac{(2x-1)\mathrm{e}^{\frac{1}{x}}}{x} = \lim_{x\to \infty}\left(2 - \frac{1}{x}\right)\mathrm{e}^{\frac{1}{x}} = 2\cdot 1 = 2$$<br />
+$$b = \lim_{x\to \infty} [y(x) - kx] = \lim_{x\to \infty} [(2x-1)\mathrm{e}^{\frac{1}{x}} - 2x]$$<br />
+利用 $\mathrm{e}^{\frac{1}{x}} = 1 + \frac{1}{x} + \frac{1}{2x^2} + o\left(\frac{1}{x^2}\right)$ 展开：<br />
+$$(2x-1)\mathrm{e}^{\frac{1}{x}} = (2x-1)\left(1 + \frac{1}{x} + \frac{1}{2x^2} + o\left(\frac{1}{x^2}\right)\right) = 2x + 2 - 1 - \frac{1}{x} + o\left(\frac{1}{x}\right) = 2x + 1 + o(1)$$<br />
+因此：<br />
+$$b = \lim_{x\to \infty} (2x+1 - 2x) = 1$$<br />
+故所求斜渐近线方程为 $y = 2x + 1$。</p>
+<hr />
+<p><strong>(旋转体注水速率模型)<font color=deeppink>题目[8]:变化速率与旋转体截面积微分方程建模</font></strong></p>
+<p>以 $yOz$ 面上的平面曲线段 $y=f(z)\ (z\geqslant 0)$ 绕 $z$ 轴旋转一周所成旋转曲面与 $xOy$ 面围成一个无上盖容器，现以 $3\,\text{cm}^3/\text{s}$ 的速率把水注入容器内，水面的面积以 $\pi\,\text{cm}^2/\text{s}$ 的速率增大. 已知容器底面积为 $16\pi\,\text{cm}^2$，求曲线 $y=f(z)$ 的方程.</p>
+<p>答案: $y = 4\mathrm{e}^{\frac{\pi}{6}z}\ (z\geqslant 0)$</p>
+<p>主要思路:[利用链式法则建立水面面积关于水深的微分方程，解出面积后再求母线方程]</p>
+<p>[1]建立体积、截面积与水深的导数关系:<br />
+水面在高度 $z$ 处的截面积为 $S(z) = \pi [f(z)]^2$。<br />
+水的体积为 $V(z) = \int_0^z S(u)\mathrm{d}u$，由微积分基本定理：<br />
+$$\frac{\mathrm{d}V}{\mathrm{d}z} = S(z)$$<br />
+由复合函数求导链式法则：<br />
+$$\frac{\mathrm{d}V}{\mathrm{d}t} = \frac{\mathrm{d}V}{\mathrm{d}z}\cdot\frac{\mathrm{d}z}{\mathrm{d}t} = S(z)\frac{\mathrm{d}z}{\mathrm{d}t} = 3 \implies \frac{\mathrm{d}z}{\mathrm{d}t} = \frac{3}{S(z)}$$</p>
+<p>[2]建立面积关于深度的微分方程:<br />
+水面面积的增长速率为：<br />
+$$\frac{\mathrm{d}S}{\mathrm{d}t} = \frac{\mathrm{d}S}{\mathrm{d}z}\cdot\frac{\mathrm{d}z}{\mathrm{d}t} = S'(z)\cdot\frac{3}{S(z)} = \pi$$<br />
+整理得分离变量微分方程：<br />
+$$\frac{\mathrm{d}S}{S} = \frac{\pi}{3}\mathrm{d}z$$</p>
+<p>[3]求解微分方程并确定母线:<br />
+积分得：<br />
+$$\ln S(z) = \frac{\pi}{3}z + C_1 \implies S(z) = S(0)\mathrm{e}^{\frac{\pi}{3}z}$$<br />
+由底面积 $S(0) = 16\pi$，得：<br />
+$$S(z) = 16\pi\mathrm{e}^{\frac{\pi}{3}z}$$<br />
+又因 $S(z) = \pi y^2$，故：<br />
+$$\pi y^2 = 16\pi\mathrm{e}^{\frac{\pi}{3}z} \implies y^2 = 16\mathrm{e}^{\frac{\pi}{3}z}$$<br />
+由于 $y = f(z) > 0$，开方得曲线方程：<br />
+$$y = 4\mathrm{e}^{\frac{\pi}{6}z}\quad (z\geqslant 0)$$</p>
+<hr />
+<p><strong>(积分方程化微分方程)<font color=green>题目[9]:含变限积分方程化一阶常系数线性方程</font></strong></p>
+<p>设 $f(x)$ 有连续导数，$x\in [0, +\infty)$，且满足方程 $\int_0^x (x-1)f(t)\,\mathrm{d}t - \int_0^x tf(t)\,\mathrm{d}t = x$，求函数 $f(x)$.</p>
+<p>答案: $f(x) = -\mathrm{e}^x$</p>
+<p>主要思路:[拆分积分项后对 $x$ 两次求导，转化为齐次常系数线性微分方程求解]</p>
+<p>[1]提取变量并第一次求导:<br />
+将方程改写为：<br />
+$$(x-1)\int_0^x f(t)\,\mathrm{d}t - \int_0^x tf(t)\,\mathrm{d}t = x$$<br />
+两端对 $x$ 求导：<br />
+$$1\cdot \int_0^x f(t)\,\mathrm{d}t + (x-1)f(x) - x f(x) = 1 \implies \int_0^x f(t)\,\mathrm{d}t - f(x) = 1$$</p>
+<p>[2]第二次求导建立微分方程:<br />
+对上述等式两端再次对 $x$ 求导：<br />
+$$f(x) - f'(x) = 0 \implies f'(x) - f(x) = 0$$<br />
+此为一阶齐次线性微分方程，其通解为：<br />
+$$f(x) = C\mathrm{e}^x$$</p>
+<p>[3]由初值确定常数:<br />
+在第一次求导后的等式 $\int_0^x f(t)\mathrm{d}t - f(x) = 1$ 中，令 $x = 0$：<br />
+$$0 - f(0) = 1 \implies f(0) = -1$$<br />
+代入通解得 $C = -1$，故：<br />
+$$f(x) = -\mathrm{e}^x$$</p>
+<hr />
+<p><strong>(一阶线性特解与积分估值)<font color=deeppink>题目[10]:一阶线性方程特解求解与不等式估值证明</font></strong></p>
+<p>设 $\varphi(x)$ 为连续函数，$|\varphi(x)|\leqslant k$（$k$ 为常数），求微分方程 $\frac{\mathrm{d}y}{\mathrm{d}x} + y = \varphi(x)$ 满足初始条件 $y(0)=0$ 的特解 $y(x)$，并证明当 $x\geqslant 0$ 时，有 $|y(x)|\leqslant k(1-\mathrm{e}^{-x})$.</p>
+<p>答案: $y(x) = \mathrm{e}^{-x}\int_0^x \varphi(t)\mathrm{e}^t\,\mathrm{d}t$</p>
+<p>主要思路:[常数变易法求出初值特解的定积分表达式，利用积分不等式进行绝对值放大估值]</p>
+<p>[1]求初值特解:<br />
+方程 $\frac{\mathrm{d}y}{\mathrm{d}x} + y = \varphi(x)$ 的积分因子为 $\mathrm{e}^x$。<br />
+两边同乘 $\mathrm{e}^x$：<br />
+$$\frac{\mathrm{d}}{\mathrm{d}x}\left[y\mathrm{e}^x\right] = \varphi(x)\mathrm{e}^x$$<br />
+从 $0$ 到 $x$ 积分：<br />
+$$y(x)\mathrm{e}^x - y(0)\mathrm{e}^0 = \int_0^x \varphi(t)\mathrm{e}^t\,\mathrm{d}t$$<br />
+代入 $y(0)=0$，得特解：<br />
+$$y(x) = \mathrm{e}^{-x}\int_0^x \varphi(t)\mathrm{e}^t\,\mathrm{d}t$$</p>
+<p>[2]证明不等式:<br />
+当 $x\geqslant 0$ 时，对特解两端取绝对值：<br />
+$$|y(x)| = \left|\mathrm{e}^{-x}\int_0^x \varphi(t)\mathrm{e}^t\,\mathrm{d}t\right| \leqslant \mathrm{e}^{-x}\int_0^x |\varphi(t)|\mathrm{e}^t\,\mathrm{d}t$$<br />
+已知 $|\varphi(t)|\leqslant k$，代入放大：<br />
+$$|y(x)| \leqslant k \mathrm{e}^{-x}\int_0^x \mathrm{e}^t\,\mathrm{d}t = k \mathrm{e}^{-x}\left[\mathrm{e}^x - 1\right] = k(1 - \mathrm{e}^{-x})$$<br />
+命题得证。</p>
+<hr />
+<p><strong>(一阶线性解的平均值)<font color=green>题目[11]:欧拉型一阶方程与连续函数区间平均值</font></strong></p>
+<p>设函数 $y=y(x)$ 是微分方程 $2xy' - 4y = 2\ln x - 1$ 满足条件 $y(1) = \frac{1}{4}$ 的解，求曲线 $y=y(x)$ 在 $[1, \mathrm{e}]$ 上的平均值.</p>
+<p>答案: $\frac{\mathrm{e}^3-7}{12(\mathrm{e}-1)}$</p>
+<p>主要思路:[化为标准一阶线性方程求解特解，再按积分平均值公式积分计算]</p>
+<p>[1]求解一阶线性微分方程:<br />
+两端同除以 $2x$：<br />
+$$y' - \frac{2}{x}y = \frac{\ln x}{x} - \frac{1}{2x}$$<br />
+积分因子为 $\mathrm{e}^{\int -\frac{2}{x}\mathrm{d}x} = \frac{1}{x^2}$。<br />
+两边同乘 $\frac{1}{x^2}$：<br />
+$$\frac{\mathrm{d}}{\mathrm{d}x}\left[\frac{y}{x^2}\right] = \frac{\ln x}{x^3} - \frac{1}{2x^3}$$<br />
+积分右端各项：<br />
+$$\int \frac{\ln x}{x^3}\mathrm{d}x = -\frac{1}{2}\int \ln x\,\mathrm{d}(x^{-2}) = -\frac{\ln x}{2x^2} + \frac{1}{2}\int x^{-3}\mathrm{d}x = -\frac{\ln x}{2x^2} - \frac{1}{4x^2}$$<br />
+$$\int -\frac{1}{2x^3}\mathrm{d}x = \frac{1}{4x^2}$$<br />
+相加得：<br />
+$$\frac{y}{x^2} = -\frac{\ln x}{2x^2} + C \implies y = -\frac{1}{2}\ln x + C x^2$$<br />
+代入 $y(1) = \frac{1}{4}$：<br />
+$$0 + C = \frac{1}{4} \implies C = \frac{1}{4}$$<br />
+故特解为 $y(x) = \frac{1}{4}x^2 - \frac{1}{2}\ln x$。</p>
+<p>[2]计算在 $[1, \mathrm{e}]$ 上的平均值:<br />
+$$\bar{y} = \frac{1}{\mathrm{e}-1}\int_1^{\mathrm{e}} \left(\frac{1}{4}x^2 - \frac{1}{2}\ln x\right)\mathrm{d}x$$<br />
+分别计算积分：<br />
+$$\int_1^{\mathrm{e}} \frac{1}{4}x^2\,\mathrm{d}x = \left.\frac{x^3}{12}\right|_1^{\mathrm{e}} = \frac{\mathrm{e}^3-1}{12}$$<br />
+$$\int_1^{\mathrm{e}} \frac{1}{2}\ln x\,\mathrm{d}x = \left.\frac{1}{2}(x\ln x - x)\right|_1^{\mathrm{e}} = \frac{1}{2}[(\mathrm{e}-\mathrm{e}) - (0-1)] = \frac{1}{2}$$<br />
+相减得：<br />
+$$\int_1^{\mathrm{e}} \left(\frac{1}{4}x^2 - \frac{1}{2}\ln x\right)\mathrm{d}x = \frac{\mathrm{e}^3-1}{12} - \frac{1}{2} = \frac{\mathrm{e}^3-7}{12}$$<br />
+故平均值为：<br />
+$$\bar{y} = \frac{\mathrm{e}^3-7}{12(\mathrm{e}-1)}$$</p>
+<hr />
+<h3>二、解答与进阶题</h3>
+<p><strong>(几何切线截距围面积)<font color=deeppink>题目[12]:切线截距几何性质建立方程与平面面积</font></strong></p>
+<p>设曲线 $y=y(x)\ (x>0)$ 经过点 $(1,0)$，该曲线上任一点 $P(x,y)$ 到 $y$ 轴的距离等于该点处的切线在 $y$ 轴上的截距，求 $y(x)$ 在区间 $(0,1)$ 上与 $x$ 轴所围平面图形的面积.</p>
+<p>答案: $\frac{1}{2}$</p>
+<p>主要思路:[列出切线截距方程求得直线解，再对区间积分求面积]</p>
+<p>[1]建立微分方程:<br />
+点 $P(x,y)\ (x>0)$ 到 $y$ 轴的距离为 $x$。<br />
+过点 $P$ 的切线在 $y$ 轴上的截距为 $Y_T = y - xy'$。<br />
+由题意：<br />
+$$y - xy' = x \implies xy' - y = -x \implies y' - \frac{1}{x}y = -1$$</p>
+<p>[2]求解微分方程:<br />
+两端乘积分因子 $\frac{1}{x}$：<br />
+$$\frac{\mathrm{d}}{\mathrm{d}x}\left[\frac{y}{x}\right] = -\frac{1}{x^2}$$<br />
+积分得：<br />
+$$\frac{y}{x} = \frac{1}{x} + C \implies y = 1 + Cx$$<br />
+由曲线过点 $(1,0)$：<br />
+$$0 = 1 + C \implies C = -1$$<br />
+故曲线方程为 $y = 1 - x$（若考虑截距为距离的相反数，对应 $y = x - 1$，围成面积相同）。</p>
+<p>[3]计算围成图形的面积:<br />
+在区间 $(0,1)$ 上，$y = 1-x \geqslant 0$，所围面积为：<br />
+$$S = \int_0^1 (1-x)\,\mathrm{d}x = \left[x - \frac{1}{2}x^2\right]_0^1 = \frac{1}{2}$$</p>
+<hr />
+<p><strong>(二阶常系数初值方程)<font color=green>题目[13]:二阶常系数齐次初值问题与正交切线</font></strong></p>
+<p>设曲线 $y=y(x)$ 上点 $P(0,4)$ 处的切线垂直于直线 $x-2y+5=0$，且该曲线满足微分方程 $y''+2y'+y=0$，则此曲线方程为 $(\quad)$.</p>
+<p>[A] $y = \frac{9}{2}x\mathrm{e}^{-x}$<br />
+[B] $y = \left(4+\frac{9}{2}x\right)\mathrm{e}^{-x}$<br />
+[C] $y = (C_1 x + C_2)\mathrm{e}^{-x}$<br />
+[D] $y = 2(x+2)\mathrm{e}^{-x}$</p>
+<p>答案: [D]</p>
+<p>主要思路:[由垂线斜率求出 $y'(0)$，解二阶常系数齐次特征方程确定特解]</p>
+<p>[1]确定初始条件:<br />
+曲线过点 $(0,4)$，故 $y(0) = 4$。<br />
+已知直线 $x - 2y + 5 = 0$ 的斜率为 $k_1 = \frac{1}{2}$。<br />
+切线垂直于该直线，故切线斜率满足 $y'(0)\cdot \frac{1}{2} = -1 \implies y'(0) = -2$。</p>
+<p>[2]求微分方程的通解:<br />
+特征方程为：<br />
+$$r^2 + 2r + 1 = 0 \implies (r+1)^2 = 0 \implies r_1 = r_2 = -1$$<br />
+通解为：<br />
+$$y = (C_1 + C_2 x)\mathrm{e}^{-x}$$</p>
+<p>[3]代入初值确定常数:<br />
+由 $y(0) = 4$，得 $C_1 = 4$。<br />
+求导得：<br />
+$$y' = C_2\mathrm{e}^{-x} - (C_1 + C_2 x)\mathrm{e}^{-x} = (C_2 - C_1 - C_2 x)\mathrm{e}^{-x}$$<br />
+代入 $y'(0) = -2$：<br />
+$$C_2 - C_1 = -2 \implies C_2 - 4 = -2 \implies C_2 = 2$$<br />
+故曲线方程为：<br />
+$$y = (4 + 2x)\mathrm{e}^{-x} = 2(x+2)\mathrm{e}^{-x}$$<br />
+故选 [D]。</p>
+<hr />
+<p><strong>(二阶齐次共轭复根)<font color=green>题目[14]:二阶常系数齐次共轭复根初值问题</font></strong></p>
+<p>设曲线 $y=y(x)$ 经过原点，且在原点处的切线与直线 $2x+y+6=0$ 平行，而 $y(x)$ 满足微分方程 $y''-2y'+5y=0$，则此曲线的方程为 $(\quad)$.</p>
+<p>[A] $y = \mathrm{e}^x \sin 2x$<br />
+[B] $y = -\mathrm{e}^x \sin 2x$<br />
+[C] $y = \mathrm{e}^x (\cos 2x - \sin 2x)$<br />
+[D] $y = \mathrm{e}^x (\sin 2x - \cos 2x)$</p>
+<p>答案: [B]</p>
+<p>主要思路:[由原点及平行切线确定初始值，解含三角因子的共轭复根通解]</p>
+<p>[1]确定初始条件:<br />
+曲线过原点，得 $y(0) = 0$。<br />
+直线 $2x + y + 6 = 0$ 的斜率为 $-2$，在原点处切线与之平行，故 $y'(0) = -2$。</p>
+<p>[2]求微分方程的通解:<br />
+特征方程为：<br />
+$$r^2 - 2r + 5 = 0 \implies (r-1)^2 + 4 = 0 \implies r = 1 \pm 2\mathrm{i}$$<br />
+通解为：<br />
+$$y = \mathrm{e}^x(C_1\cos 2x + C_2\sin 2x)$$</p>
+<p>[3]代入初值确定常数:<br />
+由 $y(0) = 0$ 得 $C_1 = 0$。<br />
+从而 $y = C_2 \mathrm{e}^x \sin 2x$。<br />
+求导：<br />
+$$y' = C_2\mathrm{e}^x(\sin 2x + 2\cos 2x)$$<br />
+代入 $y'(0) = -2$：<br />
+$$2C_2 = -2 \implies C_2 = -1$$<br />
+故曲线方程为：<br />
+$$y = -\mathrm{e}^x \sin 2x$$<br />
+故选 [B]。</p>
+<hr />
+<p><strong>(初值特解与反常积分)<font color=deeppink>题目[15]:二阶初值特解在负半轴的反常积分</font></strong></p>
+<p>设 $y=y(x)$ 满足 $y''-2y'+y=0$，且 $y(0)=0, y'(0)=1$，则 $\int_{-\infty}^0 y(x)\,\mathrm{d}x = \underline{\qquad\qquad}$.</p>
+<p>答案: $-1$</p>
+<p>主要思路:[求出特解后应用分部积分法计算负无穷到0的反常积分]</p>
+<p>[1]求微分方程的特解:<br />
+特征方程 $r^2 - 2r + 1 = 0$ 有二重根 $r = 1$。<br />
+通解为 $y = (C_1 + C_2 x)\mathrm{e}^x$。<br />
+由 $y(0) = 0$ 得 $C_1 = 0$。<br />
+$y' = C_2(1+x)\mathrm{e}^x$，由 $y'(0) = 1$ 得 $C_2 = 1$。<br />
+故特解为 $y(x) = x\mathrm{e}^x$。</p>
+<p>[2]计算反常积分:<br />
+$$\int_{-\infty}^0 x\mathrm{e}^x\,\mathrm{d}x = \left.(x-1)\mathrm{e}^x\right|_{-\infty}^0$$<br />
+上限代入：<br />
+$$(0-1)\mathrm{e}^0 = -1$$<br />
+下限极限：<br />
+$$\lim_{x\to -\infty}(x-1)\mathrm{e}^x = 0$$<br />
+因此：<br />
+$$\int_{-\infty}^0 y(x)\,\mathrm{d}x = -1 - 0 = -1$$</p>
+<hr />
+<p><strong>(反求高阶齐次微分方程)<font color=green>题目[16]:由通解形式反求高阶常系数齐次微分方程</font></strong></p>
+<p>已知某常系数齐次线性微分方程的通解为 $y=C_1 + \mathrm{e}^x(C_2\cos 2x + C_3\sin 2x)$，则该微分方程为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $y''' - 2y'' + 5y' = 0$</p>
+<p>主要思路:[由通解识别特征根，反推特征多项式写出原微分方程]</p>
+<p>[1]从通解确定特征根:<br />
+由通解项 $C_1 = C_1\mathrm{e}^{0\cdot x}$，知 $r_1 = 0$ 是单实根；<br />
+由通解项 $\mathrm{e}^x(C_2\cos 2x + C_3\sin 2x)$，知 $r_{2,3} = 1 \pm 2\mathrm{i}$ 是一对共轭复根。</p>
+<p>[2]构造特征多项式:<br />
+特征多项式为：<br />
+$$P(r) = (r - 0)[(r-1)^2 + 2^2] = r(r^2 - 2r + 5) = r^3 - 2r^2 + 5r$$</p>
+<p>[3]写出对应的微分方程:<br />
+由特征方程 $r^3 - 2r^2 + 5r = 0$，直接对应微分方程：<br />
+$$y''' - 2y'' + 5y' = 0$$</p>
+<hr />
+<p><strong>(待定系数特解结构)<font color=green>题目[17]:二阶常系数非齐次方程特解形式判断</font></strong></p>
+<p>微分方程 $4y''-12y'+9y = \mathrm{e}^{\frac{3}{2}x}(3x^2+2)$ 的特解形式为 $(\quad)$.</p>
+<p>[A] $Ax^2+Bx+C + D\mathrm{e}^{\frac{3}{2}x}$<br />
+[B] $(Ax^2+Bx+C)\mathrm{e}^{\frac{3}{2}x}$<br />
+[C] $x(Ax^2+Bx+C)\mathrm{e}^{\frac{3}{2}x}$<br />
+[D] $x^2(Ax^2+Bx+C)\mathrm{e}^{\frac{3}{2}x}$</p>
+<p>答案: [D]</p>
+<p>主要思路:[分析自由项指数与特征根的重数关系，确定特解中的附加因子 $x^k$]</p>
+<p>[1]求特征方程与特征根:<br />
+特征方程为：<br />
+$$4r^2 - 12r + 9 = 0 \implies (2r-3)^2 = 0 \implies r_1 = r_2 = \frac{3}{2}$$<br />
+特征根为二重根 $r = \frac{3}{2}$。</p>
+<p>[2]确定待定系数特解形式:<br />
+非齐次项为 $f(x) = \mathrm{e}^{\lambda x} P_m(x)$，其中 $\lambda = \frac{3}{2}$，$P_m(x) = 3x^2+2$（二次多项式，$m=2$）。<br />
+因为 $\lambda = \frac{3}{2}$ 是特征方程的二重根，所以 $k = 2$。<br />
+特解的形式应设为：<br />
+$$y^* = x^2 (Ax^2 + Bx + C)\mathrm{e}^{\frac{3}{2}x}$$<br />
+故选 [D]。</p>
+<hr />
+<p><strong>(非齐次解反求方程)<font color=deeppink>题目[18]:由三个非齐次特解反求二阶非齐次微分方程</font></strong></p>
+<p>已知 $y_1 = x\mathrm{e}^x + \mathrm{e}^{2x}, y_2 = x\mathrm{e}^x + \mathrm{e}^{-x}, y_3 = x\mathrm{e}^x + \mathrm{e}^{2x} - \mathrm{e}^{-x}$ 是某二阶常系数非齐次线性微分方程的三个解，则此微分方程为 $\underline{\qquad\qquad}$.</p>
+<p>答案: $y'' - y' - 2y = (1-2x)\mathrm{e}^x$</p>
+<p>主要思路:[做差得到齐次方程的基础解系确定左端系数，再代入非齐次特解确定右端自由项]</p>
+<p>[1]求对应齐次方程的基础解系:<br />
+两个非齐次特解之差为对应齐次方程的解：<br />
+$$\bar{y}_1 = y_1 - y_2 = \mathrm{e}^{2x} - \mathrm{e}^{-x}$$<br />
+$$\bar{y}_2 = y_1 - y_3 = \mathrm{e}^{-x}$$<br />
+齐次解的线性组合仍为齐次解，故：<br />
+$$\bar{y}_1 + \bar{y}_2 = \mathrm{e}^{2x}$$<br />
+也是齐次方程的解。因此，$\mathrm{e}^{2x}$ 与 $\mathrm{e}^{-x}$ 是齐次方程的两个线性无关的解。</p>
+<p>[2]确定齐次部分特征方程与左端形式:<br />
+特征根为 $r_1 = 2, r_2 = -1$。<br />
+特征方程为：<br />
+$$(r-2)(r+1) = 0 \implies r^2 - r - 2 = 0$$<br />
+故方程左端为：<br />
+$$y'' - y' - 2y$$</p>
+<p>[3]代入非齐次特解确定右端 $f(x)$:<br />
+由解的结构可知，$y^* = x\mathrm{e}^x$ 是非齐次方程的一个特解。<br />
+求导：<br />
+$$(y^*)' = (x+1)\mathrm{e}^x,\quad (y^*)'' = (x+2)\mathrm{e}^x$$<br />
+代入左端：<br />
+$$f(x) = (y^*)'' - (y^*)' - 2y^* = (x+2)\mathrm{e}^x - (x+1)\mathrm{e}^x - 2x\mathrm{e}^x = (1-2x)\mathrm{e}^x$$<br />
+故该微分方程为：<br />
+$$y'' - y' - 2y = (1-2x)\mathrm{e}^x$$</p>
+<hr />
+<p><strong>(二阶非齐次多项式指数通解)<font color=deeppink>题目[19]:二阶常系数非齐次微分方程的通解求解</font></strong></p>
+<p>求微分方程 $y''-2y'+y = 2(3x^2-2)\mathrm{e}^x$ 的通解.</p>
+<p>答案: $y = \left(C_1 + C_2 x + \frac{1}{2}x^4 - 2x^2\right)\mathrm{e}^x$</p>
+<p>主要思路:[二重特征根情况下设待定特解 $x^2(Ax^2+Bx+C)\mathrm{e}^x$ 或换元化简求通解]</p>
+<p>[1]求齐次方程的通解:<br />
+特征方程 $r^2 - 2r + 1 = 0$ 有二重实根 $r_1 = r_2 = 1$。<br />
+对应齐次通解为：<br />
+$$Y = (C_1 + C_2 x)\mathrm{e}^x$$</p>
+<p>[2]求非齐次方程的特解:<br />
+右端 $f(x) = (6x^2-4)\mathrm{e}^x$，$\lambda = 1$ 为二重特征根，特解形式设为：<br />
+$$y^* = u(x)\mathrm{e}^x = (Ax^4 + Bx^3 + Cx^2)\mathrm{e}^x$$<br />
+利用微分算子性质 $(D-1)^2[u(x)\mathrm{e}^x] = u''(x)\mathrm{e}^x$，原方程等价于：<br />
+$$u''(x) = 6x^2 - 4$$<br />
+积分两次（取积分常数为 $0$）：<br />
+$$u'(x) = 2x^3 - 4x$$<br />
+$$u(x) = \frac{1}{2}x^4 - 2x^2$$<br />
+故特解为：<br />
+$$y^* = \left(\frac{1}{2}x^4 - 2x^2\right)\mathrm{e}^x$$</p>
+<p>[3]写出通解:<br />
+$$y = Y + y^* = (C_1 + C_2 x)\mathrm{e}^x + \left(\frac{1}{2}x^4 - 2x^2\right)\mathrm{e}^x = \left(C_1 + C_2 x + \frac{1}{2}x^4 - 2x^2\right)\mathrm{e}^x$$</p>
+<hr />
+<p><strong>(负无穷有界特解)<font color=deeppink>题目[20]:负无穷远处有界特解的待定系数与系数消除</font></strong></p>
+<p>求微分方程 $y''+4y'+5y = 8\cos x$，当 $x\to -\infty$ 时为有界的特解.</p>
+<p>答案: $y = \cos x + \sin x$</p>
+<p>主要思路:[待定系数法求三角非齐次特解，根据负无穷极限有界性消除发散的齐次解项]</p>
+<p>[1]求齐次方程的通解:<br />
+特征方程 $r^2 + 4r + 5 = 0 \implies (r+2)^2 + 1 = 0$，特征根为 $r = -2 \pm \mathrm{i}$。<br />
+齐次方程通解为：<br />
+$$Y = \mathrm{e}^{-2x}(C_1\cos x + C_2\sin x)$$</p>
+<p>[2]求非齐次特解:<br />
+设 $y^* = A\cos x + B\sin x$。<br />
+求导：<br />
+$$(y^*)' = -A\sin x + B\cos x$$<br />
+$$(y^*)'' = -A\cos x - B\sin x$$<br />
+代入方程：<br />
+$$(-A\cos x - B\sin x) + 4(-A\sin x + B\cos x) + 5(A\cos x + B\sin x) = 8\cos x$$<br />
+整理系数：<br />
+$$(4A + 4B)\cos x + (4B - 4A)\sin x = 8\cos x$$<br />
+由待定系数对应相等：<br />
+$$\begin{cases} 4A + 4B = 8 \\ 4B - 4A = 0 \end{cases} \implies A = 1,\quad B = 1$$<br />
+故非齐次特解为 $y^* = \cos x + \sin x$。</p>
+<p>[3]利用有界性确定特解:<br />
+原方程的通解为：<br />
+$$y = \mathrm{e}^{-2x}(C_1\cos x + C_2\sin x) + \cos x + \sin x$$<br />
+当 $x\to -\infty$ 时，$\mathrm{e}^{-2x} \to +\infty$。<br />
+由于 $\cos x, \sin x$ 在无穷远处振荡，若 $C_1, C_2$ 不全为 $0$，则 $\mathrm{e}^{-2x}(C_1\cos x + C_2\sin x)$ 必无界。<br />
+为使解在 $x\to -\infty$ 时有界，必须且只需：<br />
+$$C_1 = 0,\quad C_2 = 0$$<br />
+故所求有界特解为：<br />
+$$y = \cos x + \sin x$$</p>
+<hr />
+<p><strong>(欧拉方程初值问题)<font color=green>题目[21]:二阶欧拉方程的变量变换与初值特解</font></strong></p>
+<p>欧拉方程 $x^2 y'' + 3xy' + 3y = 0$ 满足条件 $y(1)=0, y'(1)=\sqrt{2}$ 的解为 $y = \underline{\qquad\qquad}$.</p>
+<p>答案: $y = \frac{1}{x}\sin(\sqrt{2}\ln x)$</p>
+<p>主要思路:[变量代换 $x = \mathrm{e}^t$ 化为常系数线性方程，代入初值求解]</p>
+<p>[1]变量代换化为常系数线性微分方程:<br />
+令 $x = \mathrm{e}^t$（$x>0$），则 $t = \ln x$。<br />
+记 $D = \frac{\mathrm{d}}{\mathrm{d}t}$，有：<br />
+$$xy' = Dy,\quad x^2 y'' = D(D-1)y$$<br />
+代入原方程：<br />
+$$[D(D-1) + 3D + 3]y = 0 \implies (D^2 + 2D + 3)y = 0 \implies \frac{\mathrm{d}^2 y}{\mathrm{d}t^2} + 2\frac{\mathrm{d}y}{\mathrm{d}t} + 3y = 0$$</p>
+<p>[2]求解常系数齐次方程:<br />
+特征方程为：<br />
+$$r^2 + 2r + 3 = 0 \implies (r+1)^2 + 2 = 0 \implies r = -1 \pm \sqrt{2}\mathrm{i}$$<br />
+通解为：<br />
+$$y(t) = \mathrm{e}^{-t}[C_1 \cos(\sqrt{2}t) + C_2 \sin(\sqrt{2}t)]$$<br />
+代回 $t = \ln x$：<br />
+$$y(x) = \frac{1}{x}[C_1 \cos(\sqrt{2}\ln x) + C_2 \sin(\sqrt{2}\ln x)]$$</p>
+<p>[3]代入初始条件确定特解:<br />
+由 $y(1) = 0$：<br />
+$$\frac{1}{1}[C_1 \cos 0 + C_2 \sin 0] = C_1 = 0$$<br />
+从而：<br />
+$$y(x) = \frac{C_2}{x}\sin(\sqrt{2}\ln x)$$<br />
+求导：<br />
+$$y'(x) = -\frac{C_2}{x^2}\sin(\sqrt{2}\ln x) + \frac{\sqrt{2}C_2}{x^2}\cos(\sqrt{2}\ln x)$$<br />
+代入 $y'(1) = \sqrt{2}$：<br />
+$$0 + \sqrt{2}C_2 = \sqrt{2} \implies C_2 = 1$$<br />
+故所求特解为：<br />
+$$y = \frac{1}{x}\sin(\sqrt{2}\ln x)$$</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>
