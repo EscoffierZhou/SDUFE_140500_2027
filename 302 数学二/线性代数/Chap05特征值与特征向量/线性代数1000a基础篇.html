@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>线性代数1000a基础篇</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+    
+@page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 13.8px;
+    line-height: 1.68;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+/* Purple Headings */
+h1 {
+    font-size: 22px;
+    border-bottom: 2px solid #9333ea;
+    padding-bottom: 6px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #581c87;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 17px;
+    border-bottom: 1px solid #e9d5ff;
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 15px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #7e22ce;
+    page-break-after: avoid;
+}
+
+h6 {
+    font-size: 13.8px;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #6b21a8;
+    page-break-after: avoid;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+/* DeepPink Formula Blocks / Blockquotes */
+blockquote {
+    margin: 8px 0;
+    padding: 6px 14px;
+    color: #1f2937;
+    background-color: #fff1f7;
+    border-left: 4px solid #ff1493;
+    border-radius: 0 5px 5px 0;
+    page-break-inside: avoid;
+}
+
+blockquote blockquote {
+    background-color: #fdf2f8;
+    border-left-color: #f43f5e;
+    margin: 4px 0;
+}
+
+blockquote p {
+    margin: 4px 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid #fbcfe8;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fdf2f8;
+    font-weight: 600;
+    color: #581c87;
+}
+
+tr:nth-child(even) {
+    background-color: #fff1f7;
+}
+
+/* Code & Pre */
+pre {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    page-break-inside: avoid;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 12.5px;
+    background-color: #f3e8ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #7e22ce;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* Display Math: Formula text is crisp BLACK, formula block is styled */
+.katex-display {
+    margin: 8px 0 !important;
+    overflow-x: visible !important;
+    page-break-inside: avoid;
+    color: #111827 !important;
+}
+
+.katex-display .katex {
+    color: #111827 !important;
+}
+
+.katex {
+    color: #111827 !important;
+    font-size: 1.05em;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #f3e8ff;
+    margin: 14px 0;
+}
+
+    </style>
+</head>
+<body>
+<h2>线性代数1000题基础篇 - 第5章 特征值与特征向量</h2>
+<p><strong>(特征向量线性变换保向性)<font color=green>题目[1]:多项式矩阵特征向量的继承性判定</font></strong></p>
+<p>已知 $A$ 为 $3$ 阶方阵，$1, 1, 2$ 是 $A$ 的 $3$ 个特征值，$\alpha_1, \alpha_2, \alpha_3$ 为这 $3$ 个特征值对应的特征向量，则 $(\qquad)$.</p>
+<p>[A] $\alpha_1, \alpha_2, \alpha_3$ 必为矩阵 $2E - A$ 的特征向量<br />
+[B] $\alpha_1 - \alpha_2$ 必为矩阵 $2E - A$ 的特征向量<br />
+[C] $\alpha_1 + \alpha_3$ 必为矩阵 $2E - A$ 的特征向量<br />
+[D] $\alpha_1, \alpha_2$ 不是矩阵 $2E - A$ 的特征向量，$\alpha_3$ 必为矩阵 $2E - A$ 的特征向量</p>
+<p>答案: [A]</p>
+<p>主要思路:[根据特征向量定义，若 $A\alpha = \lambda\alpha$，则多项式矩阵 $f(A)\alpha = f(\lambda)\alpha$ 恒成立]</p>
+<p>[1]特征向量在多项式矩阵下的作用:<br />
+设 $\alpha$ 是 $A$ 对应于特征值 $\lambda$ 的特征向量，则 $\alpha \ne \boldsymbol{0}$ 且 $A\alpha = \lambda\alpha$。<br />
+对于矩阵 $2E - A$：<br />
+$$(2E - A)\alpha = 2\alpha - A\alpha = 2\alpha - \lambda\alpha = (2 - \lambda)\alpha$$</p>
+<p>[2]分别验证各特征向量:<br />
+- 对于 $\alpha_1, \alpha_2$（$\lambda = 1$）：$(2E - A)\alpha_1 = (2 - 1)\alpha_1 = 1\alpha_1$，$(2E - A)\alpha_2 = 1\alpha_2$；<br />
+- 对于 $\alpha_3$（$\lambda = 2$）：$(2E - A)\alpha_3 = (2 - 2)\alpha_3 = 0\alpha_3$。<br />
+因特征向量定义仅要求向量非零，特征值可以为 0，故 $\alpha_3$ 亦为 $2E - A$ 对应特征值 0 的特征向量。<br />
+因此 $\alpha_1, \alpha_2, \alpha_3$ 均为 $2E - A$ 的特征向量，选 [A]。</p>
+<hr />
+<p><strong>(重特征值对应几何重数)<font color=green>题目[2]:三重特征值的几何重数反求矩阵参数</font></strong></p>
+<p>设 $A = \begin{bmatrix} 3 & -4 & 0 \\ 4 & -5 & 0 \\ a & 2 & -1 \end{bmatrix}$，若 $A$ 的三重特征值 $\lambda$ 对应两个线性无关的特征向量，则 $a = (\qquad)$.</p>
+<p>[A] 1<br />
+[B] 2<br />
+[C] -1<br />
+[D] -2</p>
+<p>答案: [D]</p>
+<p>主要思路:[求出三重特征值后，令特征矩阵的秩等于 $n-2=1$ 求解参数]</p>
+<p>[1]求特征多项式与特征值:<br />
+$$|\lambda E - A| = \begin{vmatrix} \lambda - 3 & 4 & 0 \\ -4 & \lambda + 5 & 0 \\ -a & -2 & \lambda + 1 \end{vmatrix} = (\lambda + 1)[(\lambda - 3)(\lambda + 5) + 16] = (\lambda + 1)(\lambda^2 + 2\lambda + 1) = (\lambda + 1)^3$$<br />
+三重特征值为 $\lambda = -1$。</p>
+<p>[2]利用几何重数确定秩:<br />
+三重特征值对应 2 个线性无关的特征向量，即解空间维数 $3 - r(-E - A) = 2$。<br />
+因此必有：<br />
+$$r(-E - A) = 1$$</p>
+<p>[3]计算并化简特征矩阵:<br />
+$$-E - A = \begin{bmatrix} -4 & 4 & 0 \\ -4 & 4 & 0 \\ -a & -2 & 0 \end{bmatrix}$$<br />
+前两行均为 $[-4, 4, 0] = -4[1, -1, 0]$。<br />
+要使秩为 1，第 3 行 $[-a, -2, 0]$ 必须与 $[1, -1, 0]$ 成比例：<br />
+$$\frac{-a}{1} = \frac{-2}{-1} \implies -a = 2 \implies a = -2$$<br />
+故选 [D]。</p>
+<hr />
+<p><strong>(相似变换矩阵的列向量构成)<font color=green>题目[3]:相似对角化可逆变换矩阵列向量的构造辨析</font></strong></p>
+<p>已知 $P^{-1}AP = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{bmatrix}$，$\alpha_1$ 是矩阵 $A$ 属于特征值 $\lambda = 1$ 的特征向量，$\alpha_2, \alpha_3$ 是矩阵 $A$ 属于特征值 $\lambda = 3$ 的线性无关的特征向量，则矩阵 $P$ 不可以是 $(\qquad)$.</p>
+<p>[A] $[\alpha_1, -2\alpha_2, \alpha_3]$<br />
+[B] $[\alpha_1, \alpha_2 + \alpha_3, \alpha_2 - 2\alpha_3]$<br />
+[C] $[\alpha_1, \alpha_3, \alpha_2]$<br />
+[D] $[\alpha_1 + \alpha_2, \alpha_1 - \alpha_2, \alpha_3]$</p>
+<p>答案: [D]</p>
+<p>主要思路:[对角化变换矩阵 $P$ 的第1列必须是 $\lambda=1$ 的特征向量，不能是不同特征值特征向量的混合]</p>
+<p>[1]对角化变换矩阵的列结构:<br />
+由 $AP = P\operatorname{diag}(1, 3, 3)$ 可知：<br />
+- $P$ 的第 1 列必须是对应于特征值 $\lambda = 1$ 的特征向量；<br />
+- $P$ 的第 2, 3 列必须是对应于特征值 $\lambda = 3$ 的线性无关特征向量。</p>
+<p>[2]辨析选项 [D]:<br />
+在 [D] 中，第 1 列为 $\alpha_1 + \alpha_2$。<br />
+$$A(\alpha_1 + \alpha_2) = A\alpha_1 + A\alpha_2 = 1\alpha_1 + 3\alpha_2$$<br />
+因为 $\alpha_1, \alpha_2$ 线性无关，显然不存在常数 $c$ 使得 $1\alpha_1 + 3\alpha_2 = c(\alpha_1 + \alpha_2)$。<br />
+因此 $\alpha_1 + \alpha_2$ 根本不是 $A$ 的特征向量，矩阵 $P$ 不可能具有该形式。<br />
+故选 [D]。</p>
+<hr />
+<p><strong>(特征值的充要条件)<font color=green>题目[4]:矩阵特定特征值的等价秩条件判定</font></strong></p>
+<p>$\lambda = -1$ 是 $A$ 的特征值的充分必要条件为 $(\qquad)$.</p>
+<p>[A] $A^2 = E$<br />
+[B] $r(A + E) < n$<br />
+[C] $A$ 中每行元素之和为 $-1$<br />
+[D] $A = -E$</p>
+<p>答案: [B]</p>
+<p>主要思路:[特征值定义即特征矩阵行列式为0，等价于特征矩阵降秩]</p>
+<p>[1]特征值的等价表述:<br />
+$\lambda = -1$ 是 $A$ 的特征值 $\iff |-E - A| = 0 \iff |-(A + E)| = 0 \iff |A + E| = 0$。</p>
+<p>[2]转化为秩的性质:<br />
+$n$ 阶方阵行列式为 $0 \iff r(A + E) < n$。<br />
+故充要条件为 $r(A + E) < n$，选 [B]。</p>
+<hr />
+<p><strong>(伴随矩阵与相似变换下的特征系统)<font color=deeppink>题目[5]:相似与伴随复合矩阵的特征值与特征向量推导</font></strong></p>
+<p>设 $A, P$ 都是 $n$ 阶可逆矩阵，$\lambda, \xi$ 分别是 $A$ 的特征值和对应的特征向量，则 $P^{-1}A^* P$ 的特征值和对应的特征向量分别是 $(\qquad)$.</p>
+<p>[A] $\frac{|A|}{\lambda}, P^{-1}\xi$<br />
+[B] $\frac{|A|}{\lambda}, \xi$<br />
+[C] $\frac{1}{\lambda}, P\xi$<br />
+[D] $\frac{1}{\lambda}, P^{-1}\xi$</p>
+<p>答案: [A]</p>
+<p>主要思路:[先由 $A\xi=\lambda\xi$ 求 $A^*$ 的特征系统，再由相似变换换底求特征向量]</p>
+<p>[1]求伴随矩阵 $A^*$ 的特征值与特征向量:<br />
+由 $A\xi = \lambda\xi$ 且 $A$ 可逆，得 $A^{-1}\xi = \frac{1}{\lambda}\xi$。<br />
+因 $A^* = |A| A^{-1}$，故：<br />
+$$A^*\xi = |A| A^{-1}\xi = \frac{|A|}{\lambda}\xi$$<br />
+因此 $A^*$ 的特征值为 $\frac{|A|}{\lambda}$，特征向量为 $\xi$。</p>
+<p>[2]相似变换求 $P^{-1}A^*P$ 的特征向量:<br />
+考虑矩阵 $B = P^{-1}A^*P$ 作用于向量 $P^{-1}\xi$：<br />
+$$(P^{-1}A^*P)(P^{-1}\xi) = P^{-1}A^*(P P^{-1})\xi = P^{-1}(A^*\xi) = P^{-1}\left(\frac{|A|}{\lambda}\xi\right) = \frac{|A|}{\lambda}(P^{-1}\xi)$$<br />
+因 $P$ 可逆且 $\xi \ne \boldsymbol{0}$，故 $P^{-1}\xi \ne \boldsymbol{0}$。<br />
+故特征值为 $\frac{|A|}{\lambda}$，特征向量为 $P^{-1}\xi$，选 [A]。</p>
+<hr />
+<p><strong>(初等相似变换保特征值)<font color=green>题目[6]:正规初等行列变换保持相似性求矩阵特征值</font></strong></p>
+<p>设 $A$ 是 $3$ 阶矩阵，将 $A$ 的第 2 列加到第 3 列得矩阵 $B$，再将 $B$ 的第 3 行的 $-1$ 倍加到第 2 行得 $\begin{bmatrix} 1 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 2 & a \end{bmatrix}$，其中 $a$ 为常数，则 $A$ 的特征值为 $(\qquad)$.</p>
+<p>[A] $1, 2, a$<br />
+[B] $1, 2, -2$<br />
+[C] $1, -1, 2$<br />
+[D] $1, a, -a$</p>
+<p>答案: [A]</p>
+<p>主要思路:[识别两步初等变换互为逆转置矩阵，构成相似变换，直接由三角矩阵求特征值]</p>
+<p>[1]写出初等变换矩阵:<br />
+- 将第 2 列加到第 3 列：$B = A P$，其中 $P = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix}$；<br />
+- 将第 3 行的 $-1$ 倍加到第 2 行：左乘初等矩阵 $Q = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$。<br />
+注意到 $Q P = E \implies Q = P^{-1}$。</p>
+<p>[2]证明相似性:<br />
+变换所得矩阵为 $M = P^{-1} A P = \begin{bmatrix} 1 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 2 & a \end{bmatrix}$。<br />
+因此 $A$ 与 $M$ 相似，二者具有完全相同的特征值。</p>
+<p>[3]计算 $M$ 的特征值:<br />
+$$|\lambda E - M| = \begin{vmatrix} \lambda - 1 & -1 & 0 \\ 0 & \lambda - 2 & 0 \\ 0 & -2 & \lambda - a \end{vmatrix} = (\lambda - 1)(\lambda - 2)(\lambda - a) = 0$$<br />
+故特征值为 $1, 2, a$，选 [A]。</p>
+<hr />
+<p><strong>(相似对角化充要判定)<font color=green>题目[7]:常见三阶矩阵能否相似对角化判定</font></strong></p>
+<p>下列矩阵中，不能相似对角化的是 $(\qquad)$.</p>
+<p>[A] $\begin{bmatrix} 1 & 2 & -1 \\ 2 & 0 & 1 \\ -1 & 1 & 0 \end{bmatrix}$<br />
+[B] $\begin{bmatrix} 3 & 2 & 1 \\ 0 & 2 & 1 \\ 0 & 0 & 0 \end{bmatrix}$<br />
+[C] $\begin{bmatrix} 2 & 0 & 0 \\ 0 & 2 & 0 \\ 1 & 0 & 1 \end{bmatrix}$<br />
+[D] $\begin{bmatrix} 0 & 0 & 0 \\ 1 & 2 & 0 \\ 0 & 1 & 2 \end{bmatrix}$</p>
+<p>答案: [D]</p>
+<p>主要思路:[实对称矩阵必可对角化，互异特征值必可对角化，重根需检验几何重数]</p>
+<p>[1]分析选项 [A],[B],[C]:<br />
+- [A]: 为实对称矩阵（$A^\mathrm{T} = A$），必可相似对角化；<br />
+- [B]: 上三角矩阵，主对角线元素为 $3, 2, 0$，有 3 个互异特征值，必可相似对角化；<br />
+- [C]: 特征值为 $2, 2, 1$。对重根 $\lambda = 2$：$2E - C = \begin{bmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ -1 & 0 & 1 \end{bmatrix}$，秩为 1，几何重数为 $3 - 1 = 2$，等于代数重数，可对角化。</p>
+<p>[2]分析选项 [D]:<br />
+下三角矩阵，特征值为 $0, 2, 2$。<br />
+对二重特征值 $\lambda = 2$：<br />
+$$2E - D = \begin{bmatrix} 2 & 0 & 0 \\ -1 & 0 & 0 \\ 0 & -1 & 0 \end{bmatrix}$$<br />
+显然前两列线性无关，秩为 2。<br />
+其几何重数为 $3 - r(2E - D) = 3 - 2 = 1 < 2$（小于代数重数）。<br />
+因此矩阵 [D] 不能相似对角化，选 [D]。</p>
+<hr />
+<p><strong>(方程组解与特征向量反求矩阵)<font color=green>题目[8]:根据齐次与非齐次解反求二阶矩阵</font></strong></p>
+<p>设 $A$ 为 $2$ 阶矩阵，$\alpha = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ 是方程组 $A\boldsymbol{x} = \boldsymbol{0}$ 的解，$\beta = \begin{bmatrix} 1 \\ 1 \end{bmatrix}$ 是方程组 $A\boldsymbol{x} = \beta$ 的解，则矩阵 $A = \underline{\qquad\qquad}$.</p>
+<p>答案: $\begin{bmatrix} 0 & 1 \\ 0 & 1 \end{bmatrix}$</p>
+<p>主要思路:[设待定矩阵元素，利用给出的解向量直接列方程组求解各列]</p>
+<p>[1]设待定矩阵:<br />
+设 $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$。</p>
+<p>[2]利用解的条件代入:<br />
+- 由 $A\alpha = \boldsymbol{0}$：<br />
+  $$\begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} a \\ c \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \implies a = 0,\ c = 0$$<br />
+- 由 $A\beta = \beta$：<br />
+  $$\begin{bmatrix} 0 & b \\ 0 & d \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} b \\ d \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \end{bmatrix} \implies b = 1,\ d = 1$$</p>
+<p>[3]写出矩阵:<br />
+$$A = \begin{bmatrix} 0 & 1 \\ 0 & 1 \end{bmatrix}$$</p>
+<hr />
+<p><strong>(特征向量置换与伴随相似化)<font color=green>题目[9]:二阶伴随矩阵在置换基下的相似对角形计算</font></strong></p>
+<p>已知 $A$ 为 $2$ 阶方阵，可逆矩阵 $P = [\alpha, \beta]$ 使得 $P^{-1}AP = \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}$，$Q = [\beta, \alpha]$，则 $Q^{-1}A^* Q = \underline{\qquad\qquad}$.</p>
+<p>答案: $\begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}$</p>
+<p>主要思路:[由伴随矩阵与逆矩阵的关系计算 $A^*$ 在各特征向量上的作用]</p>
+<p>[1]分析特征值与行列式:<br />
+由已知 $A\alpha = 1\alpha$，$A\beta = 2\beta$。<br />
+特征值为 $1, 2$，故 $|A| = 1 \times 2 = 2$。</p>
+<p>[2]计算伴随矩阵对基向量的作用:<br />
+对于 2 阶矩阵，$A^* = |A| A^{-1} = 2 A^{-1}$。<br />
+$$A^*\alpha = 2 A^{-1}\alpha = 2 \cdot (1\alpha) = 2\alpha$$<br />
+$$A^*\beta = 2 A^{-1}\beta = 2 \cdot \left(\frac{1}{2}\beta\right) = 1\beta$$</p>
+<p>[3]计算在基 $Q = [\beta, \alpha]$ 下的表示:<br />
+$$A^* Q = A^* [\beta, \alpha] = [A^*\beta, A^*\alpha] = [1\beta, 2\alpha] = [\beta, \alpha] \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix} = Q \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}$$<br />
+两边左乘 $Q^{-1}$：<br />
+$$Q^{-1}A^* Q = \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}$$</p>
+<hr />
+<p><strong>(可相似对角化的参数求解)<font color=green>题目[10]:已知部分特征值及可对角化条件反求矩阵参数</font></strong></p>
+<p>设 $1$ 与 $-1$ 是矩阵 $A = \begin{bmatrix} 3 & 1 & -2 \\ -a & -1 & a \\ 4 & 1 & -3 \end{bmatrix}$ 的特征值，若矩阵 $A$ 可相似对角化，则 $a = (\qquad)$.</p>
+<p>[A] -1<br />
+[B] 0<br />
+[C] 1<br />
+[D] 2</p>
+<p>答案: [B]</p>
+<p>主要思路:[利用迹的性质求出第三个特征值，对重特征值令特征矩阵降秩求参数]</p>
+<p>[1]利用矩阵的迹求全部特征值:<br />
+$$\operatorname{tr}(A) = 3 + (-1) + (-3) = -1$$<br />
+设三个特征值为 $1, -1, \lambda_3$：<br />
+$$1 + (-1) + \lambda_3 = -1 \implies \lambda_3 = -1$$<br />
+故全部特征值为 $1, -1, -1$（$-1$ 为二重根）。</p>
+<p>[2]利用可对角化条件分析秩:<br />
+要使 $A$ 可相似对角化，二重特征值 $\lambda = -1$ 必须有 2 个线性无关的特征向量：<br />
+$$3 - r(-E - A) = 2 \implies r(A + E) = 1$$</p>
+<p>[3]代入计算参数:<br />
+$$A + E = \begin{bmatrix} 4 & 1 & -2 \\ -a & 0 & a \\ 4 & 1 & -2 \end{bmatrix}$$<br />
+第 1 行与第 3 行完全相同 $[4, 1, -2]$。<br />
+要使秩为 1，第 2 行 $[-a, 0, a]$ 必须与 $[4, 1, -2]$ 成比例。<br />
+由于第 1 行第 2 个元素为 1，而第 2 行第 2 个元素为 0，比例系数必须为 0。<br />
+因此必有 $-a = 0 \implies a = 0$。<br />
+故选 [B]。</p>
+<hr />
+<p><strong>(特征多项式因式分解与对角化讨论)<font color=deeppink>题目[11]:含参三阶矩阵特征值求解与可对角化完全讨论</font></strong></p>
+<p>已知 $A = \begin{bmatrix} 1 & -1 & -a \\ 2 & a & -2 \\ -a & -1 & 1 \end{bmatrix}$，求 $A$ 的特征值，并讨论 $A$ 是否可相似对角化.</p>
+<p>答案: 特征值为 $a+1, a, 1-a$；当 $a \ne 0$ 且 $a \ne \frac{1}{2}$ 时可相似对角化；当 $a = 0$ 或 $a = \frac{1}{2}$ 时不可相似对角化.</p>
+<p>主要思路:[行列变换因式分解特征多项式，分类讨论重特征值的几何重数]</p>
+<p>[1]计算特征多项式:<br />
+$$|\lambda E - A| = \begin{vmatrix} \lambda - 1 & 1 & a \\ -2 & \lambda - a & 2 \\ a & 1 & \lambda - 1 \end{vmatrix}$$<br />
+作行变换 $r_1 - r_3$：<br />
+$$\begin{vmatrix} \lambda - a - 1 & 0 & a - \lambda + 1 \\ -2 & \lambda - a & 2 \\ a & 1 & \lambda - 1 \end{vmatrix} = (\lambda - a - 1)\begin{vmatrix} 1 & 0 & -1 \\ -2 & \lambda - a & 2 \\ a & 1 & \lambda - 1 \end{vmatrix}$$<br />
+作列变换 $c_3 + c_1$：<br />
+$$= (\lambda - a - 1)\begin{vmatrix} 1 & 0 & 0 \\ -2 & \lambda - a & 0 \\ a & 1 & \lambda + a - 1 \end{vmatrix} = (\lambda - a - 1)(\lambda - a)(\lambda + a - 1)$$<br />
+故特征值为：<br />
+$$\lambda_1 = a + 1,\quad \lambda_2 = a,\quad \lambda_3 = 1 - a$$</p>
+<p>[2]讨论特征值相等的临界情况:<br />
+- $\lambda_1 = \lambda_2 \implies a + 1 = a$，无解；<br />
+- $\lambda_1 = \lambda_3 \implies a + 1 = 1 - a \implies a = 0$；<br />
+- $\lambda_2 = \lambda_3 \implies a = 1 - a \implies a = \frac{1}{2}$。</p>
+<p>[3]检验重根时的可对角化性:<br />
+- 当 $a = 0$ 时，特征值为 $1, 1, 0$。<br />
+  $$E - A = \begin{bmatrix} 0 & 1 & 0 \\ -2 & 1 & 2 \\ 0 & 1 & 0 \end{bmatrix}$$<br />
+  显然前两行线性无关，$r(E - A) = 2$。<br />
+  几何重数为 $3 - 2 = 1 < 2$，故此时不可对角化。<br />
+- 当 $a = \frac{1}{2}$ 时，特征值为 $\frac{3}{2}, \frac{1}{2}, \frac{1}{2}$。<br />
+  $$\frac{1}{2}E - A = \begin{bmatrix} -1/2 & 1 & 1/2 \\ -2 & 0 & 2 \\ 1/2 & 1 & -1/2 \end{bmatrix}$$<br />
+  $r_1 + r_3 = [0, 2, 0]$，结合第 2 行易知其秩为 2。<br />
+  几何重数为 $3 - 2 = 1 < 2$，故此时不可对角化。<br />
+- 当 $a \ne 0$ 且 $a \ne \frac{1}{2}$ 时，3 个特征值两两互异，必可相似对角化。</p>
+<hr />
+<p><strong>(实对称矩阵谱分解与高次幂)<font color=deeppink>题目[12]:实对称矩阵特征子空间正交性及矩阵高次幂计算</font></strong></p>
+<p>设 $A$ 是 $3$ 阶实对称矩阵，已知 $A$ 的每行元素之和为 $3$，且有二重特征值 $\lambda_1 = \lambda_2 = 1$. 求 $A$ 的全部特征值、特征向量，并求 $A^n$.</p>
+<p>答案: 特征值为 $1, 1, 3$；特征向量见解析；$A^n = E + \frac{3^n - 1}{3}\begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix}$</p>
+<p>主要思路:[由行和求出单特征值与特征向量，利用实对称矩阵特征向量正交性求二重特征向量及谱分解]</p>
+<p>[1]求全部特征值与特征向量:<br />
+由每行元素之和为 3，得 $A[1, 1, 1]^\mathrm{T} = 3[1, 1, 1]^\mathrm{T}$。<br />
+故 $\lambda_3 = 3$ 是一个特征值，对应特征向量为 $\xi_3 = [1, 1, 1]^\mathrm{T}$。<br />
+全部特征值为 $\lambda_1 = \lambda_2 = 1,\ \lambda_3 = 3$。<br />
+因为 $A$ 为实对称矩阵，属于不同特征值的特征向量相互正交。<br />
+属于 $\lambda = 1$ 的特征向量必与 $\xi_3$ 正交：$x_1 + x_2 + x_3 = 0$。<br />
+解该基础解系，可取正交特征向量：<br />
+$$\xi_1 = [1, -1, 0]^\mathrm{T},\quad \xi_2 = [1, 1, -2]^\mathrm{T}$$<br />
+属于 $\lambda = 1$ 的全部特征向量为 $c_1\xi_1 + c_2\xi_2$（$c_1, c_2$ 不全为 0）；<br />
+属于 $\lambda = 3$ 的全部特征向量为 $c_3\xi_3$（$c_3 \ne 0$）。</p>
+<p>[2]单位化特征向量:<br />
+$$q_1 = \frac{1}{\sqrt{2}}[1, -1, 0]^\mathrm{T},\quad q_2 = \frac{1}{\sqrt{6}}[1, 1, -2]^\mathrm{T},\quad q_3 = \frac{1}{\sqrt{3}}[1, 1, 1]^\mathrm{T}$$</p>
+<p>[3]利用谱分解求 $A^n$:<br />
+由正交相似对角化：<br />
+$$A^n = 1^n q_1 q_1^\mathrm{T} + 1^n q_2 q_2^\mathrm{T} + 3^n q_3 q_3^\mathrm{T}$$<br />
+利用 $q_1 q_1^\mathrm{T} + q_2 q_2^\mathrm{T} + q_3 q_3^\mathrm{T} = E$：<br />
+$$A^n = (q_1 q_1^\mathrm{T} + q_2 q_2^\mathrm{T} + q_3 q_3^\mathrm{T}) + (3^n - 1)q_3 q_3^\mathrm{T} = E + (3^n - 1) \frac{1}{3}\begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix}$$<br />
+即：<br />
+$$A^n = \frac{1}{3}\begin{bmatrix} 3^n + 2 & 3^n - 1 & 3^n - 1 \\ 3^n - 1 & 3^n + 2 & 3^n - 1 \\ 3^n - 1 & 3^n - 1 & 3^n + 2 \end{bmatrix}$$</p>
+<hr />
+<p><strong>(实对称多项式零点与零矩阵)<font color=green>题目[13]:实对称矩阵多项式方程唯一实根判定矩阵秩</font></strong></p>
+<p>设 $A$ 是 $3$ 阶实对称矩阵，满足 $A + A^2 + \frac{1}{2}A^3 = O$，则 $r(A) = \underline{\qquad\qquad}$.</p>
+<p>答案: $0$</p>
+<p>主要思路:[实对称矩阵的特征值必全为实数，多项式无非零实根推出特征值全为0]</p>
+<p>[1]分析特征值满足的代数方程:<br />
+设 $\lambda$ 是 $A$ 的任一特征值。由 $A + A^2 + \frac{1}{2}A^3 = O$：<br />
+$$\lambda + \lambda^2 + \frac{1}{2}\lambda^3 = 0 \implies \lambda\left(1 + \lambda + \frac{1}{2}\lambda^2\right) = 0$$</p>
+<p>[2]利用实对称矩阵特征值必为实数:<br />
+二次多项式 $\frac{1}{2}\lambda^2 + \lambda + 1 = 0$ 的判别式：<br />
+$$\Delta = 1^2 - 4\left(\frac{1}{2}\right)(1) = 1 - 2 = -1 < 0$$<br />
+该二次方程无实数根。<br />
+因为 $A$ 为实对称矩阵，其特征值必全为实数，故必须有 $\lambda = 0$。<br />
+因此 $A$ 的全部特征值均为 0。</p>
+<p>[3]对角化确定矩阵为零矩阵:<br />
+实对称矩阵必可正交对角化：$A = Q \operatorname{diag}(0, 0, 0) Q^\mathrm{T} = O$。<br />
+因此 $r(A) = 0$。</p>
+<hr />
+<p><strong>(矩阵乘积相似性证明与反例)<font color=deeppink>题目[14]:矩阵乘积相似性充要条件与经典反例分析</font></strong></p>
+<p>(1) 设 $A, B$ 是 $n$ 阶矩阵，$A$ 有特征值 $\lambda = 1, 2, \cdots, n$. 证明 $AB$ 和 $BA$ 有相同的特征值且 $AB \sim BA$；<br />
+(2) 对一般的 $n$ 阶矩阵 $A, B$，是否必有 $AB \sim BA$，说明理由.</p>
+<p>答案: (1) 证明见解析；(2) 否，反例见解析</p>
+<p>主要思路:[(1) $A$ 具有互异非零特征值因而可逆，$BA = A^{-1}(AB)A$ 成立；(2) 降秩反例 $r(AB)\ne r(BA)$]</p>
+<p>[1]证明 (1):<br />
+$A$ 的特征值为 $1, 2, \cdots, n$，全部非零且互不相等，因此 $|A| = n! \ne 0$，矩阵 $A$ 可逆。<br />
+因为 $A$ 可逆，有：<br />
+$$BA = A^{-1}(AB)A$$<br />
+取可逆矩阵 $P = A$，即有 $P^{-1}(AB)P = BA$，故 $AB \sim BA$。<br />
+相似矩阵必有相同的特征值，命题得证。</p>
+<p>[2]解答 (2):<br />
+对一般矩阵，结论不成立。<br />
+反例：取 2 阶矩阵：<br />
+$$A = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix},\quad B = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix}$$<br />
+计算两乘积：<br />
+$$AB = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} \implies r(AB) = 1$$<br />
+$$BA = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} = O \implies r(BA) = 0$$<br />
+因为相似矩阵必须具有相同的秩，而 $r(AB) \ne r(BA)$，故 $AB$ 与 $BA$ 不相似。</p>
+<hr />
+<p><strong>(含参矩阵对角化与可逆变换矩阵)<font color=deeppink>题目[15]:含参三阶矩阵特征值、对角化条件与过渡矩阵求解</font></strong></p>
+<p>已知 $A = \begin{bmatrix} 3 & a & 4 \\ 2 & -1 & 2 \\ -2 & -a & -3 \end{bmatrix}$，求 $A$ 的特征值，问 $a$ 为何值时，$A$ 不能相似于对角矩阵；$a$ 为何值时，$A$ 相似于对角矩阵，并求可逆矩阵 $P$，使得 $P^{-1}AP = \Lambda$.</p>
+<p>答案: 特征值为 $1, -1, -1$；$a \ne 0$ 时不能相似对角化；$a = 0$ 时可相似对角化，此时 $P = \begin{bmatrix} -2 & 0 & -1 \\ -1 & 1 & 0 \\ 1 & 0 & 1 \end{bmatrix}$，$\Lambda = \operatorname{diag}(1, -1, -1)$.</p>
+<p>主要思路:[行变换因式分解特征多项式，求出重特征值，检验几何重数求参数及基底]</p>
+<p>[1]计算特征多项式与特征值:<br />
+$$|\lambda E - A| = \begin{vmatrix} \lambda - 3 & -a & -4 \\ -2 & \lambda + 1 & -2 \\ 2 & a & \lambda + 3 \end{vmatrix} \xrightarrow{r_3 + r_1} (\lambda - 1)\begin{vmatrix} \lambda - 3 & -a & -4 \\ -2 & \lambda + 1 & -2 \\ 1 & 0 & 1 \end{vmatrix} \xrightarrow{c_1 - c_3} (\lambda - 1)(\lambda + 1)^2$$<br />
+特征值为 $\lambda_1 = 1,\ \lambda_2 = \lambda_3 = -1$。</p>
+<p>[2]讨论可对角化条件:<br />
+二重特征值 $\lambda = -1$：<br />
+$$A + E = \begin{bmatrix} 4 & a & 4 \\ 2 & 0 & 2 \\ -2 & -a & -2 \end{bmatrix}$$<br />
+第 2 行元素为 $[2, 0, 2] = 2[1, 0, 1]$。<br />
+要使 $r(A + E) = 1$，第 1 行必须与 $[1, 0, 1]$ 成比例，必须 $a = 0$。<br />
+- 当 $a \ne 0$ 时，$r(A + E) = 2$，几何重数为 $3 - 2 = 1 < 2$，$A$ 不能相似对角化；<br />
+- 当 $a = 0$ 时，$r(A + E) = 1$，几何重数为 $3 - 1 = 2$，$A$ 可相似对角化。</p>
+<p>[3]当 $a = 0$ 时求可逆矩阵 $P$:<br />
+- 对 $\lambda = -1$：$(A + E)\boldsymbol{x} = \boldsymbol{0} \implies x_1 + x_3 = 0$，基础解系为：<br />
+  $$p_2 = [0, 1, 0]^\mathrm{T},\quad p_3 = [-1, 0, 1]^\mathrm{T}$$<br />
+- 对 $\lambda = 1$：<br />
+  $$A - E = \begin{bmatrix} 2 & 0 & 4 \\ 2 & -2 & 2 \\ -2 & 0 & -4 \end{bmatrix} \to \begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{bmatrix}$$<br />
+  解得 $p_1 = [-2, -1, 1]^\mathrm{T}$。<br />
+令 $P = [p_1, p_2, p_3] = \begin{bmatrix} -2 & 0 & -1 \\ -1 & 1 & 0 \\ 1 & 0 & 1 \end{bmatrix}$，则 $P^{-1}AP = \begin{bmatrix} 1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -1 \end{bmatrix}$。</p>
+<hr />
+<p><strong>(相似对角形与特征向量重排)<font color=green>题目[16]:按特定特征向量重排构造对角矩阵</font></strong></p>
+<p>已知 $3$ 阶矩阵 $A$ 有三个特征值 $-1, 2, \frac{1}{3}$，对应的特征向量分别是 $\xi_1, \xi_2, \xi_3$，取 $P = [2\xi_2, -\xi_1, 3\xi_3]$，则 $P^{-1}AP = \underline{\qquad\qquad}$.</p>
+<p>答案: $\begin{bmatrix} 2 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & \frac{1}{3} \end{bmatrix}$</p>
+<p>主要思路:[根据对角化公式，对角阵的主对角线元素严格对应于变换矩阵各列特征向量所属的特征值]</p>
+<p>[1]分析 $P$ 各列所属的特征值:<br />
+- 第 1 列为 $2\xi_2$：属于特征值 $2$；<br />
+- 第 2 列为 $-\xi_1$：属于特征值 $-1$；<br />
+- 第 3 列为 $3\xi_3$：属于特征值 $\frac{1}{3}$。</p>
+<p>[2]验证矩阵乘法:<br />
+$$AP = [A(2\xi_2), A(-\xi_1), A(3\xi_3)] = [2(2\xi_2), -1(-\xi_1), \frac{1}{3}(3\xi_3)] = [2\xi_2, -\xi_1, 3\xi_3]\begin{bmatrix} 2 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & \frac{1}{3} \end{bmatrix}$$<br />
+故：<br />
+$$P^{-1}AP = \begin{bmatrix} 2 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & \frac{1}{3} \end{bmatrix}$$</p>
+<hr />
+<p><strong>(秩为1矩阵的特征值重数)<font color=green>题目[17]:秩为1的三阶矩阵零特征值代数重数讨论</font></strong></p>
+<p>已知 $A$ 是 $3$ 阶矩阵，$r(A) = 1$，则 $\lambda = 0$ 是 $A$ 的特征值，其重数 $(\qquad)$.</p>
+<p>[A] 必为 2<br />
+[B] 可能为 2 或 3<br />
+[C] 可能为 1 或 2<br />
+[D] 可能为 1, 2 或 3</p>
+<p>答案: [B]</p>
+<p>主要思路:[由 $r(A)=1$ 推出几何重数为2，代数重数不小于几何重数，取决于迹是否为0]</p>
+<p>[1]分析几何重数:<br />
+齐次方程 $A\boldsymbol{x} = \boldsymbol{0}$ 的解空间维数为 $n - r(A) = 3 - 1 = 2$。<br />
+因此 $\lambda = 0$ 的几何重数恰为 2。</p>
+<p>[2]分析代数重数:<br />
+矩阵的代数重数必大于等于几何重数，因此 $\lambda = 0$ 的重数至少为 2。<br />
+又因三个特征值之和等于 $\operatorname{tr}(A)$：<br />
+- 若 $\operatorname{tr}(A) \ne 0$，则非零特征值为 $\operatorname{tr}(A)$，此时 $\lambda = 0$ 的重数为 2；<br />
+- 若 $\operatorname{tr}(A) = 0$（例如 $A = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$），三个特征值全为 0，此时 $\lambda = 0$ 的重数为 3。<br />
+故重数可能为 2 或 3，选 [B]。</p>
+<hr />
+<p><strong>(哈密顿-凯莱定理化简多项式)<font color=green>题目[18]:利用特征方程与Cayley-Hamilton定理化简矩阵多项式</font></strong></p>
+<p>设 $A$ 是 $2$ 阶矩阵，有特征值 $\lambda_1 = 1, \lambda_2 = 2$，$f(x) = x^2 - 3x + 3$，则 $f(A) = \underline{\qquad\qquad}$.</p>
+<p>答案: $E$（或 $\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$）</p>
+<p>主要思路:[写出特征多项式，应用 Cayley-Hamilton 定理直接降次代换]</p>
+<p>[1]求特征多项式:<br />
+特征值为 $1, 2$，特征多项式为：<br />
+$$p(\lambda) = (\lambda - 1)(\lambda - 2) = \lambda^2 - 3\lambda + 2$$</p>
+<p>[2]应用 Cayley-Hamilton 定理:<br />
+矩阵必满足其特征方程：<br />
+$$A^2 - 3A + 2E = O$$</p>
+<p>[3]化简 $f(A)$:<br />
+$$f(A) = A^2 - 3A + 3E = (A^2 - 3A + 2E) + E = O + E = E$$</p>
+<hr />
+<p><strong>(相似矩阵保真性质判别)<font color=green>题目[19]:相似矩阵可逆变换、转置与伴随保相似性综合判定</font></strong></p>
+<p>设 $A, B$ 是 $n$ 阶可逆矩阵，且 $A \sim B$，则以下结论中：<br />
+① $A^{-1} \sim B^{-1}$；<br />
+② $A^\mathrm{T} \sim B^\mathrm{T}$；<br />
+③ $A^* \sim B^*$；<br />
+④ $AB \sim BA$.<br />
+正确结论的个数是 $(\qquad)$.</p>
+<p>[A] 1<br />
+[B] 2<br />
+[C] 3<br />
+[D] 4</p>
+<p>答案: [D]</p>
+<p>主要思路:[由相似定义 $B = P^{-1}AP$ 依次对各命题进行相似变换恒等变形证明]</p>
+<p>[1]验证 ①:<br />
+$B = P^{-1}AP \implies B^{-1} = (P^{-1}AP)^{-1} = P^{-1}A^{-1}P \implies A^{-1} \sim B^{-1}$，① 正确。</p>
+<p>[2]验证 ②:<br />
+$B = P^{-1}AP \implies B^\mathrm{T} = P^\mathrm{T} A^\mathrm{T} (P^{-1})^\mathrm{T} = (P^\mathrm{T}) A^\mathrm{T} (P^\mathrm{T})^{-1} \implies A^\mathrm{T} \sim B^\mathrm{T}$，② 正确。</p>
+<p>[3]验证 ③:<br />
+$A \sim B \implies |A| = |B|$。<br />
+$B^* = |B| B^{-1} = |A| (P^{-1}A^{-1}P) = P^{-1}(|A|A^{-1})P = P^{-1}A^* P \implies A^* \sim B^*$，③ 正确。</p>
+<p>[4]验证 ④:<br />
+因为 $A$ 为可逆矩阵，$BA = A^{-1}(AB)A$，取可逆矩阵 $A$ 即有 $AB \sim BA$，④ 正确。<br />
+故正确结论个数为 4，选 [D]。</p>
+<hr />
+<p><strong>(外积秩1阵特征分析与求逆)<font color=deeppink>题目[20]:秩1扰动单位阵平方计算、求逆与特征向量验证</font></strong></p>
+<p>设 $A = E - \frac{3}{\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T}$，其中 $E$ 是 $n$ 阶单位矩阵，$\alpha = [a_1, a_2, \cdots, a_n]^\mathrm{T} \ne \boldsymbol{0}$.</p>
+<p>(1) 计算 $A^2$，并求 $A^{-1}$；<br />
+(2) 验证 $\alpha$ 是 $A$ 的特征向量，并求 $A$ 的对应于 $\alpha$ 的特征值.</p>
+<p>答案: (1) $A^2 = E + \frac{3}{\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T}$，$A^{-1} = E - \frac{3}{2\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T}$；(2) 特征值为 $-2$</p>
+<p>主要思路:[利用 $(\alpha\alpha^\mathrm{T})^2 = (\alpha^\mathrm{T}\alpha)\alpha\alpha^\mathrm{T}$ 展开，待定系数法求逆矩阵与特征值]</p>
+<p>[1]计算 $A^2$:<br />
+$$A^2 = \left(E - \frac{3}{\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T}\right)^2 = E - \frac{6}{\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T} + \frac{9}{(\alpha^\mathrm{T}\alpha)^2}(\alpha\alpha^\mathrm{T})(\alpha\alpha^\mathrm{T})$$<br />
+因为 $(\alpha\alpha^\mathrm{T})(\alpha\alpha^\mathrm{T}) = \alpha(\alpha^\mathrm{T}\alpha)\alpha^\mathrm{T} = (\alpha^\mathrm{T}\alpha)\alpha\alpha^\mathrm{T}$，代入得：<br />
+$$A^2 = E - \frac{6}{\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T} + \frac{9}{\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T} = E + \frac{3}{\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T}$$</p>
+<p>[2]求逆矩阵 $A^{-1}$:<br />
+设 $A^{-1} = E + k\alpha\alpha^\mathrm{T}$，代入 $A A^{-1} = E$：<br />
+$$\left(E - \frac{3}{\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T}\right)(E + k\alpha\alpha^\mathrm{T}) = E + \left(k - \frac{3}{\alpha^\mathrm{T}\alpha} - 3k\right)\alpha\alpha^\mathrm{T} = E$$<br />
+令 $-2k - \frac{3}{\alpha^\mathrm{T}\alpha} = 0 \implies k = -\frac{3}{2\alpha^\mathrm{T}\alpha}$。<br />
+故：<br />
+$$A^{-1} = E - \frac{3}{2\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T}$$</p>
+<p>[3]验证特征向量:<br />
+$$A\alpha = \left(E - \frac{3}{\alpha^\mathrm{T}\alpha}\alpha\alpha^\mathrm{T}\right)\alpha = \alpha - \frac{3}{\alpha^\mathrm{T}\alpha}\alpha(\alpha^\mathrm{T}\alpha) = \alpha - 3\alpha = -2\alpha$$<br />
+因为 $\alpha \ne \boldsymbol{0}$，所以 $\alpha$ 是 $A$ 的特征向量，对应的特征值为 $\lambda = -2$。</p>
+<hr />
+<p><strong>(伴随矩阵特征向量与行和约束)<font color=deeppink>题目[21]:全1特征向量与伴随矩阵行和相等反求参数与特征值</font></strong></p>
+<p>设 $A$ 是 $3$ 阶矩阵，$\lambda_0$ 是 $A$ 的特征值，对应的特征向量为 $\xi = [1, 1, 1]^\mathrm{T}$，且 $|A| = 1$，$A^*$ 是 $A$ 的伴随矩阵，$A^* = \begin{bmatrix} -a & 1 & -2 \\ -1 & b & -\frac{7}{2} \\ 2 & -3 & a \end{bmatrix}$，求参数 $a, b$ 及 $\lambda_0$.</p>
+<p>答案: $a = 0,\ b = \frac{7}{2},\ \lambda_0 = -1$</p>
+<p>主要思路:[由 $A^*\xi = \frac{|A|}{\lambda_0}\xi$ 导出 $A^*$ 各行元素和恒等，列方程求解]</p>
+<p>[1]分析伴随矩阵的特征系统:<br />
+由 $A\xi = \lambda_0\xi$ 且 $|A| = 1 \ne 0$：<br />
+$$A^*\xi = |A| A^{-1}\xi = \frac{1}{\lambda_0}\xi$$<br />
+代入 $\xi = [1, 1, 1]^\mathrm{T}$，这表明 $A^*$ 的每行元素之和必须恒等于常数 $\frac{1}{\lambda_0}$。</p>
+<p>[2]列出各行元素之和:<br />
+- 第 1 行：$S_1 = -a + 1 - 2 = -a - 1$；<br />
+- 第 2 行：$S_2 = -1 + b - \frac{7}{2} = b - \frac{9}{2}$；<br />
+- 第 3 行：$S_3 = 2 - 3 + a = a - 1$。</p>
+<p>[3]求解方程组:<br />
+由 $S_1 = S_3$：<br />
+$$-a - 1 = a - 1 \implies 2a = 0 \implies a = 0$$<br />
+代入得各行和为：<br />
+$$\frac{1}{\lambda_0} = -0 - 1 = -1 \implies \lambda_0 = -1$$<br />
+由 $S_2 = -1$：<br />
+$$b - \frac{9}{2} = -1 \implies b = \frac{7}{2}$$<br />
+故 $a = 0,\ b = \frac{7}{2},\ \lambda_0 = -1$。</p>
+<hr />
+<p><strong>(范德蒙德行列式与Krylov无关性)<font color=deeppink>题目[22]:互异特征值特征向量和及Krylov子空间无关性证明</font></strong></p>
+<p>设 $A$ 是 $3$ 阶矩阵，$\lambda_1, \lambda_2, \lambda_3$ 是 $A$ 的三个不同的特征值，对应的特征向量分别是 $\xi_1, \xi_2, \xi_3$，令 $\beta = \xi_1 + \xi_2 + \xi_3$. 证明：</p>
+<p>(1) $\beta$ 不是 $A$ 的特征向量；<br />
+(2) 向量组 $\beta, A\beta, A^2\beta$ 线性无关.</p>
+<p>答案: 证明见解析</p>
+<p>主要思路:[(1) 反证法结合互异特征向量线性无关；(2) 写成基底与范德蒙德矩阵乘积]</p>
+<p>[1]证明 (1):<br />
+假设 $\beta$ 是 $A$ 的特征向量，设其对应的特征值为 $\lambda$，则：<br />
+$$A\beta = \lambda\beta$$<br />
+将 $\beta = \xi_1 + \xi_2 + \xi_3$ 代入两端：<br />
+$$A(\xi_1 + \xi_2 + \xi_3) = \lambda_1\xi_1 + \lambda_2\xi_2 + \lambda_3\xi_3$$<br />
+$$\lambda\beta = \lambda\xi_1 + \lambda\xi_2 + \lambda\xi_3$$<br />
+相减得：<br />
+$$(\lambda_1 - \lambda)\xi_1 + (\lambda_2 - \lambda)\xi_2 + (\lambda_3 - \lambda)\xi_3 = \boldsymbol{0}$$<br />
+因为 $\lambda_1, \lambda_2, \lambda_3$ 两两互异，对应特征向量 $\xi_1, \xi_2, \xi_3$ 线性无关。<br />
+因此其组合系数必须全为 0：<br />
+$$\lambda_1 - \lambda = 0,\quad \lambda_2 - \lambda = 0,\quad \lambda_3 - \lambda = 0 \implies \lambda_1 = \lambda_2 = \lambda_3 = \lambda$$<br />
+这与 $\lambda_1, \lambda_2, \lambda_3$ 是三个不同的特征值矛盾！<br />
+因此 $\beta$ 必不是 $A$ 的特征向量。</p>
+<p>[2]证明 (2):<br />
+计算各阶像：<br />
+$$\beta = \xi_1 + \xi_2 + \xi_3$$<br />
+$$A\beta = \lambda_1\xi_1 + \lambda_2\xi_2 + \lambda_3\xi_3$$<br />
+$$A^2\beta = \lambda_1^2\xi_1 + \lambda_2^2\xi_2 + \lambda_3^2\xi_3$$<br />
+写成矩阵形式：<br />
+$$[\beta, A\beta, A^2\beta] = [\xi_1, \xi_2, \xi_3] \begin{bmatrix} 1 & \lambda_1 & \lambda_1^2 \\ 1 & \lambda_2 & \lambda_2^2 \\ 1 & \lambda_3 & \lambda_3^2 \end{bmatrix}^\mathrm{T}$$<br />
+因为 $\xi_1, \xi_2, \xi_3$ 线性无关，基矩阵非奇异。<br />
+右侧矩阵为范德蒙德矩阵的转置，其行列式为：<br />
+$$V = (\lambda_2 - \lambda_1)(\lambda_3 - \lambda_1)(\lambda_3 - \lambda_2)$$<br />
+因为 $\lambda_1, \lambda_2, \lambda_3$ 两两互异，故 $V \ne 0$，系数矩阵亦非奇异。<br />
+两个满秩方阵的乘积矩阵必满秩，秩为 3。<br />
+因此向量组 $\beta, A\beta, A^2\beta$ 线性无关。</p>
+<hr />
+<p><strong>(实对称降秩幂等阵高次幂)<font color=deeppink>题目[23]:实对称矩阵齐次解空间反求单特征值与矩阵高次幂</font></strong></p>
+<p>设 $A$ 为 $3$ 阶实对称矩阵，$\mathrm{tr}(A) = 1$，齐次线性方程组 $A\boldsymbol{x} = \boldsymbol{0}$ 的通解为 $\boldsymbol{x} = k_1[-2, 1, 0]^\mathrm{T} + k_2[-3, 0, 1]^\mathrm{T}$，$k_1, k_2$ 为任意常数，求 $A^n$.</p>
+<p>答案: $A^n = \frac{1}{14}\begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ 3 & 6 & 9 \end{bmatrix}$</p>
+<p>主要思路:[由通解维数确定0为二重根，由迹求出非零特征值为1，正交性求特征向量构造幂等阵]</p>
+<p>[1]确定矩阵全部特征值:<br />
+$A\boldsymbol{x} = \boldsymbol{0}$ 的解空间维数为 2，故 $\lambda = 0$ 是二重特征值：$\lambda_1 = \lambda_2 = 0$。<br />
+由 $\operatorname{tr}(A) = \lambda_1 + \lambda_2 + \lambda_3 = 1$：<br />
+$$\lambda_3 = 1$$</p>
+<p>[2]求 $\lambda_3 = 1$ 对应的特征向量:<br />
+因为 $A$ 为实对称矩阵，属于不同特征值的特征向量正交。<br />
+$\lambda_3 = 1$ 的特征向量 $\alpha_3 = [x_1, x_2, x_3]^\mathrm{T}$ 必与齐次解空间正交：<br />
+$$\begin{cases} -2x_1 + x_2 = 0 \implies x_2 = 2x_1 \\ -3x_1 + x_3 = 0 \implies x_3 = 3x_1 \end{cases}$$<br />
+取 $x_1 = 1$，得 $\alpha_3 = [1, 2, 3]^\mathrm{T}$。<br />
+单位化：<br />
+$$q_3 = \frac{1}{\sqrt{1^2+2^2+3^2}}[1, 2, 3]^\mathrm{T} = \frac{1}{\sqrt{14}}[1, 2, 3]^\mathrm{T}$$</p>
+<p>[3]利用谱分解计算 $A^n$:<br />
+由于 $\lambda_1 = \lambda_2 = 0,\ \lambda_3 = 1$：<br />
+$$A^n = 0^n q_1 q_1^\mathrm{T} + 0^n q_2 q_2^\mathrm{T} + 1^n q_3 q_3^\mathrm{T} = q_3 q_3^\mathrm{T}$$<br />
+计算外积：<br />
+$$A^n = \frac{1}{14}\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}[1, 2, 3] = \frac{1}{14}\begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ 3 & 6 & 9 \end{bmatrix}$$</p>
+    <script>
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+    if (document.readyState === 'complete') {
+        renderMath();
+    } else {
+        window.addEventListener('load', renderMath);
+        document.addEventListener('DOMContentLoaded', renderMath);
+    }
+    </script>
+</body>
+</html>
